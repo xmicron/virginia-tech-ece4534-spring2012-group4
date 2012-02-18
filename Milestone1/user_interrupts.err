@@ -1,0 +1,3 @@
+Warning[2054] D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1\NewTestProject\TestProject\user_interrupts.c 18 : suspicious pointer conversion
+Warning[2058] D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1\NewTestProject\TestProject\user_interrupts.c 22 : call of function without prototype
+Warning[2058] D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1\NewTestProject\TestProject\user_interrupts.c 43 : call of function without prototype
