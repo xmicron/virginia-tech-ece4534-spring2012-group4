@@ -365,10 +365,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>26</ColumnNumber>
+      <ColumnNumber>3</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>81</TopLine>
-      <CurrentLine>88</CurrentLine>
+      <TopLine>89</TopLine>
+      <CurrentLine>106</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\test.c</PathWithFileName>
       <FilenameWithoutPath>test.c</FilenameWithoutPath>
@@ -1003,9 +1003,9 @@
       <Documents>
         <Doc>
           <Name>.\test.c</Name>
-          <ColumnNumber>26</ColumnNumber>
-          <TopLine>81</TopLine>
-          <CurrentLine>88</CurrentLine>
+          <ColumnNumber>3</ColumnNumber>
+          <TopLine>89</TopLine>
+          <CurrentLine>106</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/main.c</Name>
