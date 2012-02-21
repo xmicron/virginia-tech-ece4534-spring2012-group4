@@ -1,1 +1,0 @@
-paste this stuff into c:/ARMCode/RTOSDemo
