@@ -15,8 +15,6 @@
 #include "LCDtask.h"
 #include "i2cTemp.h"
 
-#define JOYSTICK_MODE 0
-
 // I have set this to a large stack size because of (a) using printf() and (b) the depth of function calls
 //   for some of the LCD operations
 
@@ -40,16 +38,27 @@ void vStartJoystickTask( unsigned portBASE_TYPE uxPriority, i2cTempStruct *param
 // This is the actual task that is run
 static portTASK_FUNCTION( JoystickTask, pvParameters )
 {
-	uint8_t test;
+	uint8_t PIN_CONFIG;
+	uint8_t PrevPIN_CONFIG;
+
+	vtLCDStruct *lcdData = pvParameters;
+	vtLCDMsg lcdBuffer;
+
+	uint8_t i = 0;
+
 	for(;;)
 	{
-#if JOYSTICK_MODE==0
-		test = LPC_GPIO1->FIOPIN >>20;
+		PIN_CONFIG = LPC_GPIO1->FIOPIN >>20;
 		//test = test * -1;
 		 
-		if ((test & 0x1) == 0)	 //select BIT
+		if ((PIN_CONFIG & 0x1) == 0 && /*makes sure only sends one message per button press -->*/(PIN_CONFIG != PrevPIN_CONFIG))	 //select BIT
 		{
-			uint8_t ulCurrentState = GPIO2->FIOPIN;
+			lcdBuffer.length = 1;
+			lcdBuffer.buf[0] = 0;
+			if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
+				VT_HANDLE_FATAL_ERROR(0);
+			}
+			/*uint8_t ulCurrentState = GPIO2->FIOPIN;
 			if( ulCurrentState & 0x10 )
 			{
 				GPIO2->FIOCLR = 0x10;
@@ -57,11 +66,16 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 			else
 			{
 				GPIO2->FIOSET = 0x10;
-			}
+			}*/
 		}
-		else if ((test & 0x8) == 0)	  //up joystick
+		else if ((PIN_CONFIG & 0x8) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))	  //up joystick
 		{
-			uint8_t ulCurrentState = GPIO2->FIOPIN;
+			lcdBuffer.length = 1;
+			lcdBuffer.buf[0] = 1;
+			if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
+				VT_HANDLE_FATAL_ERROR(0);
+			}
+			/*uint8_t ulCurrentState = GPIO2->FIOPIN;
 			if( ulCurrentState & 0x10 )
 			{
 				GPIO2->FIOCLR = 0x10;
@@ -69,11 +83,16 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 			else
 			{
 				GPIO2->FIOSET = 0x10;
-			}
+			}*/
 		}
-		else if ((test & 0x10) == 0)  //right joystick
+		else if ((PIN_CONFIG & 0x10) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))  //right joystick
 		{
-			uint8_t ulCurrentState = GPIO2->FIOPIN;
+			lcdBuffer.length = 1;
+			lcdBuffer.buf[0] = 2;
+			if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
+				VT_HANDLE_FATAL_ERROR(0);
+			}
+			/*uint8_t ulCurrentState = GPIO2->FIOPIN;
 			if( ulCurrentState & 0x10 )
 			{
 				GPIO2->FIOCLR = 0x10;
@@ -81,11 +100,16 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 			else
 			{
 				GPIO2->FIOSET = 0x10;
-			}
+			}*/
 		}
-		else if ((test & 0x20) == 0)  //down joystick
+		else if ((PIN_CONFIG & 0x20) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))  //down joystick
 		{
-			uint8_t ulCurrentState = GPIO2->FIOPIN;
+			lcdBuffer.length = 1;
+			lcdBuffer.buf[0] = 3;
+			if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
+				VT_HANDLE_FATAL_ERROR(0);
+			}
+			/*uint8_t ulCurrentState = GPIO2->FIOPIN;
 			if( ulCurrentState & 0x10 )
 			{
 				GPIO2->FIOCLR = 0x10;
@@ -93,11 +117,16 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 			else
 			{
 				GPIO2->FIOSET = 0x10;
-			}
+			}*/
 		}
-		else if ((test & 0x40) == 0) //left joystick
+		else if ((PIN_CONFIG & 0x40) == 0 && (PIN_CONFIG != PrevPIN_CONFIG)) //left joystick
 		{
-			uint8_t ulCurrentState = GPIO2->FIOPIN;
+			lcdBuffer.length = 1;
+			lcdBuffer.buf[0] = 4;
+			if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
+				VT_HANDLE_FATAL_ERROR(0);
+			}
+			/*uint8_t ulCurrentState = GPIO2->FIOPIN;
 			if( ulCurrentState & 0x10 )
 			{
 				GPIO2->FIOCLR = 0x10;
@@ -105,11 +134,8 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 			else
 			{
 				GPIO2->FIOSET = 0x10;
-			}
+			}*/
 		}
-#elif JOYSTICK_MODE==1
-	//shawn's code goes here
-#endif
 	}
 }
 

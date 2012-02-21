@@ -246,10 +246,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>4</ColumnNumber>
+      <ColumnNumber>62</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>793</TopLine>
+      <CurrentLine>793</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../FreeRTOS/Source/queue.c</PathWithFileName>
       <FilenameWithoutPath>queue.c</FilenameWithoutPath>
@@ -295,10 +295,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>1</ColumnNumber>
+      <ColumnNumber>48</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>18</TopLine>
-      <CurrentLine>18</CurrentLine>
+      <TopLine>78</TopLine>
+      <CurrentLine>113</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -323,10 +323,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>14</ColumnNumber>
+      <ColumnNumber>49</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>145</TopLine>
+      <CurrentLine>145</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../vtCode/vtUtilities.c</PathWithFileName>
       <FilenameWithoutPath>vtUtilities.c</FilenameWithoutPath>
@@ -335,7 +335,7 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>8</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <Focus>0</Focus>
       <ColumnNumber>48</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -361,31 +361,31 @@
     </File>
     <File>
       <GroupNumber>2</GroupNumber>
-      <FileNumber>10</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <Focus>0</Focus>
-      <ColumnNumber>38</ColumnNumber>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>52</TopLine>
-      <CurrentLine>52</CurrentLine>
-      <bDave2>0</bDave2>
-      <PathWithFileName>.\test.c</PathWithFileName>
-      <FilenameWithoutPath>test.c</FilenameWithoutPath>
-    </File>
-    <File>
-      <GroupNumber>2</GroupNumber>
       <FileNumber>11</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>25</ColumnNumber>
+      <ColumnNumber>46</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>36</TopLine>
-      <CurrentLine>36</CurrentLine>
+      <TopLine>31</TopLine>
+      <CurrentLine>46</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\joystick.c</PathWithFileName>
       <FilenameWithoutPath>joystick.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>2</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>70</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>31</TopLine>
+      <CurrentLine>31</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\I2C.c</PathWithFileName>
+      <FilenameWithoutPath>I2C.c</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -968,32 +968,6 @@
     </WindowPosition>
   </AlienFiles>
 
-  <AlienFiles>
-    <PathWithFilename>C:\ARMCode\VTCODE\VTI2C\VTI2C.H</PathWithFilename>
-    <TopLine>55</TopLine>
-    <CurrentLine>55</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
   <MDIGroups>
     <Orientation>1</Orientation>
     <ActiveMDIGroup>0</ActiveMDIGroup>
@@ -1002,16 +976,10 @@
       <ActiveTab>0</ActiveTab>
       <Documents>
         <Doc>
-          <Name>.\test.c</Name>
-          <ColumnNumber>38</ColumnNumber>
-          <TopLine>52</TopLine>
-          <CurrentLine>52</CurrentLine>
-        </Doc>
-        <Doc>
           <Name>.\MainFiles/main.c</Name>
-          <ColumnNumber>1</ColumnNumber>
-          <TopLine>18</TopLine>
-          <CurrentLine>18</CurrentLine>
+          <ColumnNumber>7</ColumnNumber>
+          <TopLine>72</TopLine>
+          <CurrentLine>78</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/LCDtask.c</Name>
@@ -1020,16 +988,10 @@
           <CurrentLine>158</CurrentLine>
         </Doc>
         <Doc>
-          <Name>C:\ARMCode\VTCODE\VTI2C\VTI2C.H</Name>
-          <ColumnNumber>61</ColumnNumber>
-          <TopLine>55</TopLine>
-          <CurrentLine>55</CurrentLine>
-        </Doc>
-        <Doc>
           <Name>.\joystick.c</Name>
-          <ColumnNumber>25</ColumnNumber>
-          <TopLine>36</TopLine>
-          <CurrentLine>36</CurrentLine>
+          <ColumnNumber>5</ColumnNumber>
+          <TopLine>25</TopLine>
+          <CurrentLine>43</CurrentLine>
         </Doc>
         <Doc>
           <Name>../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/ParTest.c</Name>
@@ -1045,9 +1007,21 @@
         </Doc>
         <Doc>
           <Name>../vtCode/vtI2C/vtI2C.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>64</TopLine>
-          <CurrentLine>64</CurrentLine>
+          <ColumnNumber>6</ColumnNumber>
+          <TopLine>71</TopLine>
+          <CurrentLine>82</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>../FreeRTOS/Source/queue.c</Name>
+          <ColumnNumber>62</ColumnNumber>
+          <TopLine>793</TopLine>
+          <CurrentLine>793</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\I2C.c</Name>
+          <ColumnNumber>70</ColumnNumber>
+          <TopLine>31</TopLine>
+          <CurrentLine>31</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

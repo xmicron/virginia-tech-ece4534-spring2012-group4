@@ -110,7 +110,7 @@ int main( void )
 	I2Cparams.dev = &vtI2C0;
 	I2Cparams.lcdData = &vtLCDdata;
 	vStartI2CTask(mainI2CTEMP_TASK_PRIORITY, &I2Cparams);
-	vStartJoystickTask(tskIDLE_PRIORITY);
+	vStartJoystickTask(tskIDLE_PRIORITY, &vtLCDdata);
 
 	vTaskStartScheduler();
 
