@@ -19,6 +19,8 @@
 #define lcdSTACK_SIZE		4*configMINIMAL_STACK_SIZE
 #endif
 
+#define JOYSTICK_MODE 0
+
 // Set the task up to run every 200 ms
 #define lcdWRITE_RATE_BASE	( ( portTickType ) 10 )
 
@@ -44,10 +46,15 @@ void vStartLCDTask( unsigned portBASE_TYPE uxPriority,vtLCDStruct *ptr )
 // If LCD_EXAMPLE_OP=0, then repeatedly write text
 // If LCD_EXAMPLE_OP=1, then do a rotating ARM bitmap display
 // If LCD_EXAMPLE_OP=2, then receive from a message queue and print the contents to the screen
-#define LCD_EXAMPLE_OP 2
+#define LCD_EXAMPLE_OP 3
 #if LCD_EXAMPLE_OP==1
 // This include the file with the definition of the ARM bitmap
 #include "ARM_Ani_16bpp.c"
+#elif LCD_EXAMPLE_OP==3
+typedef struct __cursorPos {
+	uint8_t x;
+	uint8_t y;
+} cursorPos;
 #endif
 
 // Convert from HSL colormap to RGB values in this weird colormap
@@ -122,17 +129,39 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	static char scrString[40];
 	unsigned char curLine = 0;
 	float hue=0, sat=0.2, light=0.2;
+	
+	
+	
 	#elif LCD_EXAMPLE_OP==1
 	unsigned char picIndex = 0;
+	
+	
+	
 	#elif LCD_EXAMPLE_OP==2
 	vtLCDMsg msgBuffer;
 	unsigned char curLine = 0;
+	
+	
+	
+	#elif LCD_EXAMPLE_OP==3
+	vtLCDMsg msgBuffer;
+	#if JOYSTICK_MODE==0
+	int Cur_Panel = 0;
+
+	#elif JOYSTICK_MODE==1 //shawn's initializations go here
+	cursorPos Cursor;
+	Cursor.x = 0;
+	Cursor.y = 0;
+	#endif
+	
+	
+	
 	#endif
 	vtLCDStruct *lcdPtr = (vtLCDStruct *) pvParameters;
 
 	/* Initialize the LCD */
 	GLCD_Init();
-	GLCD_Clear(Yellow);
+	GLCD_Clear(Black);
 
 	// Scale the update rate to ensure it really is in ms
 	xUpdateRate = lcdWRITE_RATE_BASE / portTICK_RATE_MS;
@@ -147,10 +176,81 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	#endif
 	// Like all good tasks, this should never exit
 
+	GLCD_SetTextColor(Green);
+	GLCD_SetBackColor(Black);
+
+	#if JOYSTICK_MODE==0
+	int a = 0;
+	for (a = 0; a < 180; a++)
+	{
+		GLCD_PutPixel(a, 80);
+		GLCD_PutPixel(a, 81);
+		GLCD_PutPixel(a, 160);
+		GLCD_PutPixel(a, 161);
+	}
+	for (a = 0; a < 240; a++)
+	{
+		GLCD_PutPixel(180, a);
+		GLCD_PutPixel(181, a);
+	}
+	for (a = 180; a < 320; a++)
+	{
+		GLCD_PutPixel(a, 60);
+		GLCD_PutPixel(a, 61);
+		GLCD_PutPixel(a, 120);
+		GLCD_PutPixel(a, 121);
+		GLCD_PutPixel(a, 180);
+		GLCD_PutPixel(a, 181);
+	}
+	GLCD_SetTextColor(Yellow);
+	for (a = 0; a < 180; a++)
+	{
+		GLCD_PutPixel(a, 0);
+		GLCD_PutPixel(a, 1);
+		GLCD_PutPixel(a, 78);
+		GLCD_PutPixel(a, 79);
+	}
+	for (a = 0; a < 80; a++)
+	{
+		GLCD_PutPixel(0, a);
+		GLCD_PutPixel(1, a);
+		GLCD_PutPixel(178, a);
+		GLCD_PutPixel(179, a);
+	}
+	GLCD_SetTextColor(Green);
+
+	GLCD_DisplayString(1,1,0,(unsigned char *)"Player Instrument 1");
+	GLCD_DisplayString(11,1,0,(unsigned char *)"Player Instrument 2");
+	GLCD_DisplayString(21,1,0,(unsigned char *)"Player Instrument 3");
+
+	GLCD_DisplayString(2,5,0,(unsigned char *)"<none selected>");
+	GLCD_DisplayString(12,5,0,(unsigned char *)"<none selected>");
+	GLCD_DisplayString(22,5,0,(unsigned char *)"<none selected>");
+
+	GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume");
+	GLCD_DisplayString(2,42,0,(unsigned char *)"0");
+
+	GLCD_DisplayString(9,31,0,(unsigned char *)"Repeating Instrument 1");
+	GLCD_DisplayString(10,32,0,(unsigned char *)"Inst: <none selected>");
+	GLCD_DisplayString(11,32,0,(unsigned char *)"Note: <none selected>");
+	GLCD_DisplayString(12,32,0,(unsigned char *)"BPM: 0");
+
+	GLCD_DisplayString(16,31,0,(unsigned char *)"Repeating Instrument 1");
+	GLCD_DisplayString(17,32,0,(unsigned char *)"Inst: <none selected>");
+	GLCD_DisplayString(18,32,0,(unsigned char *)"Note: <none selected>");
+	GLCD_DisplayString(19,32,0,(unsigned char *)"BPM: 0");
+
+	GLCD_DisplayString(24,31,0,(unsigned char *)"Repeating Instrument 1");
+	GLCD_DisplayString(25,32,0,(unsigned char *)"Inst: <none selected>");
+	GLCD_DisplayString(26,32,0,(unsigned char *)"Note: <none selected>");
+	GLCD_DisplayString(27,32,0,(unsigned char *)"BPM: 0");
+
+	//GLCD_DisplayString(8,30,0,(unsigned char *)"Repeating Instrument 1");
+	#elif JOYSTICK_MODE==1//shawn's LCD screen initializations
+	#endif
 	int i = 0;
 
-	GLCD_SetTextColor(Black);
-	GLCD_SetBackColor(Yellow);
+	
 
 
 	for(;;)
@@ -209,7 +309,385 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		vTaskDelayUntil( &xLastUpdateTime, xUpdateRate );
   		/* go through a  bitmap that is really a series of bitmaps */
 		picIndex = (picIndex + 1) % 9;
-		GLCD_Bmp(99,99,120,45,(unsigned char *) &ARM_Ani_16bpp[picIndex*(120*45*2)]);
+		GLCD_Bmp(99,99,120,45,(unsigned char *) &ARM_Ani_16bpp[picIndex*(120*45*2)]);*/
+
+
+
+#elif	LCD_EXAMPLE_OP==3					//this will be our UI mode OP
+		
+		uint8_t ulCurrentState = GPIO2->FIOPIN;
+		if( ulCurrentState & 0x10 )
+		{
+			GPIO2->FIOCLR = 0x10;
+		}
+		else
+		{
+			GPIO2->FIOSET = 0x10;
+		}
+		if (xQueueReceive(lcdPtr->inQ,(void *) &msgBuffer,portMAX_DELAY) != pdTRUE) //receive message from message queue
+		{
+			VT_HANDLE_FATAL_ERROR(0);
+		}
+		
+
+   #if JOYSTICK_MODE==0
+		
+		ulCurrentState = GPIO2->FIOPIN;
+		if( ulCurrentState & 0x08 )
+		{
+			GPIO2->FIOCLR = 0x08;
+		}
+		else
+		{
+			GPIO2->FIOSET = 0x08;
+		}
+   		//clear cur selection
+		/*if (msgBuffer.buf[0] == 0 || msgBuffer.buf[0] == 1 || msgBuffer.buf[0] == 2 || msgBuffer.buf[0] == 3 || msgBuffer.buf[0] == 4 )
+		{
+			if (Cur_Panel == 0)
+			{
+				GLCD_SetTextColor(Black);
+				for (a = 0; a < 180; a++)
+				{
+					GLCD_PutPixel(a, 0);
+					GLCD_PutPixel(a, 1);
+					GLCD_PutPixel(a, 78);
+					GLCD_PutPixel(a, 79);
+				}
+				for (a = 0; a < 80; a++)
+				{
+					GLCD_PutPixel(0, a);
+					GLCD_PutPixel(1, a);
+					GLCD_PutPixel(178, a);
+					GLCD_PutPixel(179, a);
+				}
+				GLCD_SetTextColor(Green);	
+			}
+			if (Cur_Panel == 1)
+			{
+			 	GLCD_SetTextColor(Black);
+				for (a = 0; a < 180; a++)
+				{
+					GLCD_PutPixel(a, 82);
+					GLCD_PutPixel(a, 83);
+					GLCD_PutPixel(a, 158);
+					GLCD_PutPixel(a, 159);
+				}
+				for (a = 82; a < 160; a++)
+				{
+					GLCD_PutPixel(0, a);
+					GLCD_PutPixel(1, a);
+					GLCD_PutPixel(178, a);
+					GLCD_PutPixel(179, a);
+				}
+				GLCD_SetTextColor(Green);
+			}
+			if (Cur_Panel == 2)
+			{
+				GLCD_SetTextColor(Black);
+				for (a = 0; a < 180; a++)
+				{
+					GLCD_PutPixel(a, 162);
+					GLCD_PutPixel(a, 163);
+					GLCD_PutPixel(a, 238);
+					GLCD_PutPixel(a, 239);
+				}
+				for (a = 162; a < 240; a++)
+				{
+					GLCD_PutPixel(0, a);
+					GLCD_PutPixel(1, a);
+					GLCD_PutPixel(178, a);
+					GLCD_PutPixel(179, a);
+				}
+				GLCD_SetTextColor(Green);
+			}
+			if (Cur_Panel == 3)
+			{
+			 	GLCD_SetTextColor(Black);
+				for (a = 182; a < 320; a++)
+				{
+					GLCD_PutPixel(a, 0);
+					GLCD_PutPixel(a, 1);
+					GLCD_PutPixel(a, 58);
+					GLCD_PutPixel(a, 59);
+				}
+				for (a = 0; a < 60; a++)
+				{
+					GLCD_PutPixel(182, a);
+					GLCD_PutPixel(183, a);
+					GLCD_PutPixel(318, a);
+					GLCD_PutPixel(319, a);
+				}
+				GLCD_SetTextColor(Green);
+			}
+			if (Cur_Panel == 4)
+			{
+			 	GLCD_SetTextColor(Black);
+				for (a = 182; a < 320; a++)
+				{
+					GLCD_PutPixel(a, 62);
+					GLCD_PutPixel(a, 63);
+					GLCD_PutPixel(a, 118);
+					GLCD_PutPixel(a, 119);
+				}
+				for (a = 62; a < 120; a++)
+				{
+					GLCD_PutPixel(182, a);
+					GLCD_PutPixel(183, a);
+					GLCD_PutPixel(318, a);
+					GLCD_PutPixel(319, a);
+				}
+				GLCD_SetTextColor(Green);
+			}
+			if (Cur_Panel == 5)
+			{
+			  	GLCD_SetTextColor(Black);
+				for (a = 182; a < 320; a++)
+				{
+					GLCD_PutPixel(a, 122);
+					GLCD_PutPixel(a, 123);
+					GLCD_PutPixel(a, 178);
+					GLCD_PutPixel(a, 179);
+				}
+				for (a = 122; a < 180; a++)
+				{
+					GLCD_PutPixel(182, a);
+					GLCD_PutPixel(183, a);
+					GLCD_PutPixel(318, a);
+					GLCD_PutPixel(319, a);
+				}
+				GLCD_SetTextColor(Green);
+			}
+			if (Cur_Panel == 6)
+			{
+			  	GLCD_SetTextColor(Black);
+				for (a = 182; a < 320; a++)
+				{
+					GLCD_PutPixel(a, 182);
+					GLCD_PutPixel(a, 183);
+					GLCD_PutPixel(a, 238);
+					GLCD_PutPixel(a, 239);
+				}
+				for (a = 182; a < 240; a++)
+				{
+					GLCD_PutPixel(182, a);
+					GLCD_PutPixel(183, a);
+					GLCD_PutPixel(318, a);
+					GLCD_PutPixel(319, a);
+				}
+				GLCD_SetTextColor(Green);
+			}
+		}
+
+
+
+		if (msgBuffer.buf[0] == 0) //select bit hit
+		{
+
+		}
+		if (msgBuffer.buf[0] == 1) //move crosshair up
+		{
+			if (Cur_Panel > 0)
+			{
+			 	Cur_Panel--;
+			}
+		}
+		if (msgBuffer.buf[0] == 2) //move crosshair right
+		{
+			if (Cur_Panel < 3)
+				Cur_Panel = Cur_Panel + 4;
+		}
+		if (msgBuffer.buf[0] == 3) //move crosshair down
+		{
+			if (Cur_Panel < 7)
+			{
+			 	Cur_Panel++;
+			}
+		}
+		if (msgBuffer.buf[0] == 4) //move crosshair left
+		{
+			if (Cur_Panel > 3)
+				Cur_Panel = Cur_Panel - 4;
+		}
+		
+		if (msgBuffer.buf[0] == 0 || msgBuffer.buf[0] == 1 || msgBuffer.buf[0] == 2 || msgBuffer.buf[0] == 3 || msgBuffer.buf[0] == 4 )
+		{
+			if (Cur_Panel == 0)
+			{
+				GLCD_SetTextColor(Yellow);
+				for (a = 0; a < 180; a++)
+				{
+					GLCD_PutPixel(a, 0);
+					GLCD_PutPixel(a, 1);
+					GLCD_PutPixel(a, 78);
+					GLCD_PutPixel(a, 79);
+				}
+				for (a = 0; a < 80; a++)
+				{
+					GLCD_PutPixel(0, a);
+					GLCD_PutPixel(1, a);
+					GLCD_PutPixel(178, a);
+					GLCD_PutPixel(179, a);
+				}
+				GLCD_SetTextColor(Green);	
+			}
+			if (Cur_Panel == 1)
+			{
+			 	GLCD_SetTextColor(Yellow);
+				for (a = 0; a < 180; a++)
+				{
+					GLCD_PutPixel(a, 82);
+					GLCD_PutPixel(a, 83);
+					GLCD_PutPixel(a, 158);
+					GLCD_PutPixel(a, 159);
+				}
+				for (a = 82; a < 160; a++)
+				{
+					GLCD_PutPixel(0, a);
+					GLCD_PutPixel(1, a);
+					GLCD_PutPixel(178, a);
+					GLCD_PutPixel(179, a);
+				}
+				GLCD_SetTextColor(Green);
+			}
+			if (Cur_Panel == 2)
+			{
+				GLCD_SetTextColor(Yellow);
+				for (a = 0; a < 180; a++)
+				{
+					GLCD_PutPixel(a, 162);
+					GLCD_PutPixel(a, 163);
+					GLCD_PutPixel(a, 238);
+					GLCD_PutPixel(a, 239);
+				}
+				for (a = 162; a < 240; a++)
+				{
+					GLCD_PutPixel(0, a);
+					GLCD_PutPixel(1, a);
+					GLCD_PutPixel(178, a);
+					GLCD_PutPixel(179, a);
+				}
+				GLCD_SetTextColor(Green);
+			}
+			if (Cur_Panel == 3)
+			{
+			 	GLCD_SetTextColor(Yellow);
+				for (a = 182; a < 320; a++)
+				{
+					GLCD_PutPixel(a, 0);
+					GLCD_PutPixel(a, 1);
+					GLCD_PutPixel(a, 58);
+					GLCD_PutPixel(a, 59);
+				}
+				for (a = 0; a < 60; a++)
+				{
+					GLCD_PutPixel(182, a);
+					GLCD_PutPixel(183, a);
+					GLCD_PutPixel(318, a);
+					GLCD_PutPixel(319, a);
+				}
+				GLCD_SetTextColor(Green);
+			}
+			if (Cur_Panel == 4)
+			{
+			 	GLCD_SetTextColor(Yellow);
+				for (a = 182; a < 320; a++)
+				{
+					GLCD_PutPixel(a, 62);
+					GLCD_PutPixel(a, 63);
+					GLCD_PutPixel(a, 118);
+					GLCD_PutPixel(a, 119);
+				}
+				for (a = 62; a < 120; a++)
+				{
+					GLCD_PutPixel(182, a);
+					GLCD_PutPixel(183, a);
+					GLCD_PutPixel(318, a);
+					GLCD_PutPixel(319, a);
+				}
+				GLCD_SetTextColor(Green);
+			}
+			if (Cur_Panel == 5)
+			{
+			  	GLCD_SetTextColor(Yellow);
+				for (a = 182; a < 320; a++)
+				{
+					GLCD_PutPixel(a, 122);
+					GLCD_PutPixel(a, 123);
+					GLCD_PutPixel(a, 178);
+					GLCD_PutPixel(a, 179);
+				}
+				for (a = 122; a < 180; a++)
+				{
+					GLCD_PutPixel(182, a);
+					GLCD_PutPixel(183, a);
+					GLCD_PutPixel(318, a);
+					GLCD_PutPixel(319, a);
+				}
+				GLCD_SetTextColor(Green);
+			}
+			if (Cur_Panel == 6)
+			{
+			  	GLCD_SetTextColor(Yellow);
+				for (a = 182; a < 320; a++)
+				{
+					GLCD_PutPixel(a, 182);
+					GLCD_PutPixel(a, 183);
+					GLCD_PutPixel(a, 238);
+					GLCD_PutPixel(a, 239);
+				}
+				for (a = 182; a < 240; a++)
+				{
+					GLCD_PutPixel(182, a);
+					GLCD_PutPixel(183, a);
+					GLCD_PutPixel(318, a);
+					GLCD_PutPixel(319, a);
+				}
+				GLCD_SetTextColor(Green);
+			}
+		}*/
+
+   #elif JOYSTICK_MODE==1 //shawn's code goes here
+		
+
+		//Starting code for handling the crosshair. Pretty much works
+		if (msgBuffer.buf[0] == 0) //select bit hit
+		{
+
+		}
+		if (msgBuffer.buf[0] == 1) //move crosshair up
+		{
+			if (Cursor.y > 0)
+				Cursor.y--;
+		}
+		if (msgBuffer.buf[0] == 2) //move crosshair right
+		{
+			if (Cursor.x < 320)
+				Cursor.x++;
+		}
+		if (msgBuffer.buf[0] == 3) //move crosshair down
+		{
+			if (Cursor.y < 240)
+				Cursor.y++;
+		}
+		if (msgBuffer.buf[0] == 4) //move crosshair left
+		{
+			if (Cursor.x > 0)
+				Cursor.x--;
+		}
+
+		//handle crosshair
+		GLCD_PutPixel(Cursor.x, Cursor.y-2);
+		GLCD_PutPixel(Cursor.x, Cursor.y-1);
+		GLCD_PutPixel(Cursor.x, Cursor.y);
+		GLCD_PutPixel(Cursor.x, Cursor.y+1);
+		GLCD_PutPixel(Cursor.x, Cursor.y+2);
+		GLCD_PutPixel(Cursor.x-2, Cursor.y);
+		GLCD_PutPixel(Cursor.x-1, Cursor.y);
+		GLCD_PutPixel(Cursor.x+1, Cursor.y);
+		GLCD_PutPixel(Cursor.x+2, Cursor.y);
+	#endif
+
 
 #elif 	LCD_EXAMPLE_OP==2
 		// wait for a message from another task telling us to send/recv over i2c

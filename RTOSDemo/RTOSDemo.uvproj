@@ -347,14 +347,14 @@
               <FilePath>.\MainFiles/LCDtask.c</FilePath>
             </File>
             <File>
-              <FileName>test.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\test.c</FilePath>
-            </File>
-            <File>
               <FileName>joystick.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\joystick.c</FilePath>
+            </File>
+            <File>
+              <FileName>I2C.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\I2C.c</FilePath>
             </File>
           </Files>
         </Group>
