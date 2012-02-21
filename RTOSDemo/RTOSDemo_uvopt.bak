@@ -339,7 +339,7 @@
       <Focus>0</Focus>
       <ColumnNumber>48</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>56</TopLine>
+      <TopLine>62</TopLine>
       <CurrentLine>62</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/ParTest.c</PathWithFileName>
@@ -353,7 +353,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>150</TopLine>
+      <TopLine>158</TopLine>
       <CurrentLine>158</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/LCDtask.c</PathWithFileName>
@@ -365,10 +365,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>3</ColumnNumber>
+      <ColumnNumber>38</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>89</TopLine>
-      <CurrentLine>106</CurrentLine>
+      <TopLine>52</TopLine>
+      <CurrentLine>52</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\test.c</PathWithFileName>
       <FilenameWithoutPath>test.c</FilenameWithoutPath>
@@ -970,7 +970,7 @@
 
   <AlienFiles>
     <PathWithFilename>C:\ARMCode\VTCODE\VTI2C\VTI2C.H</PathWithFilename>
-    <TopLine>51</TopLine>
+    <TopLine>55</TopLine>
     <CurrentLine>55</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
@@ -1003,9 +1003,9 @@
       <Documents>
         <Doc>
           <Name>.\test.c</Name>
-          <ColumnNumber>3</ColumnNumber>
-          <TopLine>89</TopLine>
-          <CurrentLine>106</CurrentLine>
+          <ColumnNumber>38</ColumnNumber>
+          <TopLine>52</TopLine>
+          <CurrentLine>52</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/main.c</Name>
@@ -1016,13 +1016,13 @@
         <Doc>
           <Name>.\MainFiles/LCDtask.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>150</TopLine>
+          <TopLine>158</TopLine>
           <CurrentLine>158</CurrentLine>
         </Doc>
         <Doc>
           <Name>C:\ARMCode\VTCODE\VTI2C\VTI2C.H</Name>
           <ColumnNumber>61</ColumnNumber>
-          <TopLine>51</TopLine>
+          <TopLine>55</TopLine>
           <CurrentLine>55</CurrentLine>
         </Doc>
         <Doc>
@@ -1034,7 +1034,7 @@
         <Doc>
           <Name>../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/ParTest.c</Name>
           <ColumnNumber>48</ColumnNumber>
-          <TopLine>56</TopLine>
+          <TopLine>62</TopLine>
           <CurrentLine>62</CurrentLine>
         </Doc>
         <Doc>
