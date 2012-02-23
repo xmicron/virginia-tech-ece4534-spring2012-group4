@@ -6,7 +6,7 @@ typedef struct __vtLCDStruct {
 	xQueueHandle inQ;					   	// Queue used to send messages from other tasks to the LCD task to print
 } vtLCDStruct;
 
-#define vtLCDQLen 100
+#define vtLCDQLen 10
 // Structure used to define the messages that are sent to the LCD thread
 //   the maximum length of a message to be printed is the size of the "buf" field below
 #define vtLCDMLen 20 
