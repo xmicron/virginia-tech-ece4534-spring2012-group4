@@ -315,34 +315,31 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 
 #elif	LCD_EXAMPLE_OP==3					//this will be our UI mode OP
 		
-		uint8_t ulCurrentState = GPIO2->FIOPIN;
-		if( ulCurrentState & 0x10 )
-		{
-			GPIO2->FIOCLR = 0x10;
-		}
-		else
-		{
-			GPIO2->FIOSET = 0x10;
-		}
+		
 		if (xQueueReceive(lcdPtr->inQ,(void *) &msgBuffer,portMAX_DELAY) != pdTRUE) //receive message from message queue
 		{
 			VT_HANDLE_FATAL_ERROR(0);
+		}
+		if (msgBuffer.buf[0] == 2)
+		{
+		   	uint8_t ulCurrentState = GPIO2->FIOPIN;
+			if( ulCurrentState & 0x08 )
+			{
+				GPIO2->FIOCLR = 0x08;
+			}
+			else
+			{
+				GPIO2->FIOSET = 0x08;
+			}
 		}
 		
 
    #if JOYSTICK_MODE==0
 		
-		ulCurrentState = GPIO2->FIOPIN;
-		if( ulCurrentState & 0x08 )
-		{
-			GPIO2->FIOCLR = 0x08;
-		}
-		else
-		{
-			GPIO2->FIOSET = 0x08;
-		}
-   		//clear cur selection
-		/*if (msgBuffer.buf[0] == 0 || msgBuffer.buf[0] == 1 || msgBuffer.buf[0] == 2 || msgBuffer.buf[0] == 3 || msgBuffer.buf[0] == 4 )
+		
+   		
+		//clear cur selection
+		if (msgBuffer.buf[0] == 0 || msgBuffer.buf[0] == 1 || msgBuffer.buf[0] == 2 || msgBuffer.buf[0] == 3 || msgBuffer.buf[0] == 4 )
 		{
 			if (Cur_Panel == 0)
 			{
@@ -363,7 +360,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				GLCD_SetTextColor(Green);	
 			}
-			if (Cur_Panel == 1)
+			else if (Cur_Panel == 1)
 			{
 			 	GLCD_SetTextColor(Black);
 				for (a = 0; a < 180; a++)
@@ -382,7 +379,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				GLCD_SetTextColor(Green);
 			}
-			if (Cur_Panel == 2)
+			else if (Cur_Panel == 2)
 			{
 				GLCD_SetTextColor(Black);
 				for (a = 0; a < 180; a++)
@@ -401,7 +398,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				GLCD_SetTextColor(Green);
 			}
-			if (Cur_Panel == 3)
+			else if (Cur_Panel == 3)
 			{
 			 	GLCD_SetTextColor(Black);
 				for (a = 182; a < 320; a++)
@@ -420,7 +417,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				GLCD_SetTextColor(Green);
 			}
-			if (Cur_Panel == 4)
+			else if (Cur_Panel == 4)
 			{
 			 	GLCD_SetTextColor(Black);
 				for (a = 182; a < 320; a++)
@@ -439,7 +436,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				GLCD_SetTextColor(Green);
 			}
-			if (Cur_Panel == 5)
+			else if (Cur_Panel == 5)
 			{
 			  	GLCD_SetTextColor(Black);
 				for (a = 182; a < 320; a++)
@@ -458,7 +455,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				GLCD_SetTextColor(Green);
 			}
-			if (Cur_Panel == 6)
+			else if (Cur_Panel == 6)
 			{
 			  	GLCD_SetTextColor(Black);
 				for (a = 182; a < 320; a++)
@@ -496,7 +493,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		{
 			if (Cur_Panel < 3)
 				Cur_Panel = Cur_Panel + 4;
-		}
+		} 
 		if (msgBuffer.buf[0] == 3) //move crosshair down
 		{
 			if (Cur_Panel < 7)
@@ -531,7 +528,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				GLCD_SetTextColor(Green);	
 			}
-			if (Cur_Panel == 1)
+			else if (Cur_Panel == 1)
 			{
 			 	GLCD_SetTextColor(Yellow);
 				for (a = 0; a < 180; a++)
@@ -550,7 +547,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				GLCD_SetTextColor(Green);
 			}
-			if (Cur_Panel == 2)
+			else if (Cur_Panel == 2)
 			{
 				GLCD_SetTextColor(Yellow);
 				for (a = 0; a < 180; a++)
@@ -569,7 +566,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				GLCD_SetTextColor(Green);
 			}
-			if (Cur_Panel == 3)
+			else if (Cur_Panel == 3)
 			{
 			 	GLCD_SetTextColor(Yellow);
 				for (a = 182; a < 320; a++)
@@ -588,7 +585,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				GLCD_SetTextColor(Green);
 			}
-			if (Cur_Panel == 4)
+			else if (Cur_Panel == 4)
 			{
 			 	GLCD_SetTextColor(Yellow);
 				for (a = 182; a < 320; a++)
@@ -607,7 +604,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				GLCD_SetTextColor(Green);
 			}
-			if (Cur_Panel == 5)
+			else if (Cur_Panel == 5)
 			{
 			  	GLCD_SetTextColor(Yellow);
 				for (a = 182; a < 320; a++)
@@ -626,7 +623,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				GLCD_SetTextColor(Green);
 			}
-			if (Cur_Panel == 6)
+			else if (Cur_Panel == 6)
 			{
 			  	GLCD_SetTextColor(Yellow);
 				for (a = 182; a < 320; a++)
@@ -645,7 +642,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				GLCD_SetTextColor(Green);
 			}
-		}*/
+		}
 
    #elif JOYSTICK_MODE==1 //shawn's code goes here
 		
