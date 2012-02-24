@@ -768,6 +768,7 @@ void GLCD_DisplayString (unsigned int ln, unsigned int col, unsigned char fi, un
   while (*s) {
     GLCD_DisplayChar(ln, col++, fi, *s++);
   }
+  GLCD_WindowMax();
 }
 
 

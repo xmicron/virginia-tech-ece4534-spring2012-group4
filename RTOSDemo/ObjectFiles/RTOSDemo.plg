@@ -3,8 +3,8 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\SVN ARMCODE\RTOSDemo\RTOSDemo.uvproj
-Project File Date:  02/21/2012
+C:\ARM Code\RTOSDemo\RTOSDemo.uvproj
+Project File Date:  02/23/2012
 
 <h2>Output:</h2>
 Build target 'WebServerELF'
@@ -31,7 +31,6 @@ compiling ParTest.c...
 compiling LCDtask.c...
 MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
 MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(149): warning: unused variable 'Cur_Panel'
 MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
 MainFiles/LCDtask.c(125): warning: unused variable 'min'
 MainFiles/LCDtask.c(124): warning: unused variable 'max'
@@ -40,8 +39,8 @@ MainFiles/LCDtask.c: At top level:
 MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
 compiling joystick.c...
 joystick.c: In function 'JoystickTask':
-joystick.c(47): warning: unused variable 'i'
-joystick.c(122): warning: 'PrevPIN_CONFIG' is used uninitialized in this function
+joystick.c(49): warning: unused variable 'i'
+joystick.c(44): warning: 'PrevPIN_CONFIG' may be used uninitialized in this function
 compiling I2C.c...
 I2C.c: In function 'I2CTask':
 I2C.c(168): warning: "/*" within comment
@@ -95,341 +94,21 @@ compiling lpc17xx_ssp.c...
 ../NXPDrivers/source/lpc17xx_ssp.c(345): warning: 'wdata16' may be used uninitialized in this function
 compiling vtI2C.c...
 linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 31 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 30 Warning(s).
+Load "C:\\ARM Code\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Internal DLL Error
+Load "C:\\ARM Code\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Internal DLL Error
+Load "C:\\ARM Code\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
 Full Chip Erase Done.
 Programming Done.
 Verify OK.
 Build target 'WebServerELF'
-compiling LCDtask.c...
-MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
-MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
-MainFiles/LCDtask.c(125): warning: unused variable 'min'
-MainFiles/LCDtask.c(124): warning: unused variable 'max'
-MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
-MainFiles/LCDtask.c: At top level:
-MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
+compiling list.c...
+compiling GLCD_SPI_LPC1700.c...
 linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling LCDtask.c...
-MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
-MainFiles/LCDtask.c(326): error: 'ulCurrentState' undeclared (first use in this function)
-MainFiles/LCDtask.c(326): error: note: each undeclared identifier is reported only once for each function it appears in
-MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
-MainFiles/LCDtask.c(125): warning: unused variable 'min'
-MainFiles/LCDtask.c(124): warning: unused variable 'max'
-MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
-MainFiles/LCDtask.c: At top level:
-MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
-compiling joystick.c...
-joystick.c: In function 'JoystickTask':
-joystick.c(47): warning: unused variable 'i'
-joystick.c(122): warning: 'PrevPIN_CONFIG' is used uninitialized in this function
-Target not created
-Build target 'WebServerELF'
-compiling LCDtask.c...
-MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
-MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
-MainFiles/LCDtask.c(125): warning: unused variable 'min'
-MainFiles/LCDtask.c(124): warning: unused variable 'max'
-MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
-MainFiles/LCDtask.c: At top level:
-MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling LCDtask.c...
-MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
-MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
-MainFiles/LCDtask.c(125): warning: unused variable 'min'
-MainFiles/LCDtask.c(124): warning: unused variable 'max'
-MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
-MainFiles/LCDtask.c: At top level:
-MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling LCDtask.c...
-MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
-MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
-MainFiles/LCDtask.c(125): warning: unused variable 'min'
-MainFiles/LCDtask.c(124): warning: unused variable 'max'
-MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
-MainFiles/LCDtask.c: At top level:
-MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling LCDtask.c...
-MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
-MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
-MainFiles/LCDtask.c(125): warning: unused variable 'min'
-MainFiles/LCDtask.c(124): warning: unused variable 'max'
-MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
-MainFiles/LCDtask.c: At top level:
-MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
-compiling joystick.c...
-joystick.c: In function 'JoystickTask':
-joystick.c(47): warning: unused variable 'i'
-joystick.c(122): warning: 'PrevPIN_CONFIG' is used uninitialized in this function
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 8 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling joystick.c...
-joystick.c: In function 'JoystickTask':
-joystick.c(47): warning: unused variable 'i'
-joystick.c(122): warning: 'PrevPIN_CONFIG' is used uninitialized in this function
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 2 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling LCDtask.c...
-MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
-MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
-MainFiles/LCDtask.c(125): warning: unused variable 'min'
-MainFiles/LCDtask.c(124): warning: unused variable 'max'
-MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
-MainFiles/LCDtask.c: At top level:
-MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling LCDtask.c...
-MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
-MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
-MainFiles/LCDtask.c(125): warning: unused variable 'min'
-MainFiles/LCDtask.c(124): warning: unused variable 'max'
-MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
-MainFiles/LCDtask.c: At top level:
-MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling LCDtask.c...
-MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
-MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
-MainFiles/LCDtask.c(125): warning: unused variable 'min'
-MainFiles/LCDtask.c(124): warning: unused variable 'max'
-MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
-MainFiles/LCDtask.c: At top level:
-MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling LCDtask.c...
-MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
-MainFiles/LCDtask.c(323): error: subscripted value is neither array nor pointer
-MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
-MainFiles/LCDtask.c(125): warning: unused variable 'min'
-MainFiles/LCDtask.c(124): warning: unused variable 'max'
-MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
-MainFiles/LCDtask.c: At top level:
-MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
-Target not created
-Build target 'WebServerELF'
-compiling LCDtask.c...
-MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
-MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
-MainFiles/LCDtask.c(125): warning: unused variable 'min'
-MainFiles/LCDtask.c(124): warning: unused variable 'max'
-MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
-MainFiles/LCDtask.c: At top level:
-MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling main.c...
-MainFiles/main.c: In function 'main':
-MainFiles/main.c(112): warning: implicit declaration of function 'vStartI2CTask'
-MainFiles/main.c(113): warning: implicit declaration of function 'vStartJoystickTask'
-compiling i2cTemp.c...
-MainFiles/i2cTemp.c: In function 'vi2cTempUpdateTask':
-MainFiles/i2cTemp.c(168): warning: format '%d' expects type 'int', but argument 2 has type 'long int'
-MainFiles/i2cTemp.c(168): warning: format '%d' expects type 'int', but argument 3 has type 'long int'
-MainFiles/i2cTemp.c(168): warning: format '%d' expects type 'int', but argument 2 has type 'long int'
-MainFiles/i2cTemp.c(168): warning: format '%d' expects type 'int', but argument 3 has type 'long int'
-MainFiles/i2cTemp.c(169): warning: format '%d' expects type 'int', but argument 3 has type 'long int'
-MainFiles/i2cTemp.c(169): warning: format '%d' expects type 'int', but argument 3 has type 'long int'
-MainFiles/i2cTemp.c(52): warning: unused variable 'i2cCmdStopConvert'
-MainFiles/i2cTemp.c(59): warning: 'rxLen' may be used uninitialized in this function
-compiling LCDtask.c...
-MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
-MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
-MainFiles/LCDtask.c(125): warning: unused variable 'min'
-MainFiles/LCDtask.c(124): warning: unused variable 'max'
-MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
-MainFiles/LCDtask.c: At top level:
-MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
-compiling joystick.c...
-joystick.c: In function 'JoystickTask':
-joystick.c(47): warning: unused variable 'i'
-joystick.c(122): warning: 'PrevPIN_CONFIG' is used uninitialized in this function
-compiling I2C.c...
-I2C.c: In function 'I2CTask':
-I2C.c(168): warning: "/*" within comment
-I2C.c(76): warning: unused variable 'i'
-I2C.c(67): warning: unused variable 'lcdBuffer'
-I2C.c(66): warning: unused variable 'lcdData'
-I2C.c(54): warning: unused variable 'temp1'
-I2C.c(52): warning: unused variable 'Gimmesomething'
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 24 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling main.c...
-MainFiles/main.c: In function 'main':
-MainFiles/main.c(112): warning: implicit declaration of function 'vStartI2CTask'
-MainFiles/main.c(113): warning: implicit declaration of function 'vStartJoystickTask'
-compiling LCDtask.c...
-MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
-MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(149): warning: unused variable 'Cur_Panel'
-MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
-MainFiles/LCDtask.c(125): warning: unused variable 'min'
-MainFiles/LCDtask.c(124): warning: unused variable 'max'
-MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
-MainFiles/LCDtask.c: At top level:
-MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 9 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling LCDtask.c...
-MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
-MainFiles/LCDtask.c(251): warning: unused variable 'i'
-MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
-MainFiles/LCDtask.c(125): warning: unused variable 'min'
-MainFiles/LCDtask.c(124): warning: unused variable 'max'
-MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
-MainFiles/LCDtask.c: At top level:
-MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
-compiling joystick.c...
-joystick.c: In function 'JoystickTask':
-joystick.c(49): warning: unused variable 'i'
-joystick.c(56): warning: 'PrevPIN_CONFIG' may be used uninitialized in this function
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 8 Warning(s).
-Build target 'WebServerELF'
-compiling joystick.c...
-joystick.c: In function 'JoystickTask':
-joystick.c(49): warning: unused variable 'i'
-joystick.c(56): warning: 'PrevPIN_CONFIG' may be used uninitialized in this function
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 2 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling joystick.c...
-joystick.c: In function 'JoystickTask':
-joystick.c(49): warning: unused variable 'i'
-joystick.c(56): warning: 'PrevPIN_CONFIG' may be used uninitialized in this function
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 2 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling joystick.c...
-joystick.c: In function 'JoystickTask':
-joystick.c(49): warning: unused variable 'i'
-joystick.c(56): warning: 'PrevPIN_CONFIG' may be used uninitialized in this function
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 2 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling joystick.c...
-joystick.c: In function 'JoystickTask':
-joystick.c(49): warning: unused variable 'i'
-joystick.c(56): warning: 'PrevPIN_CONFIG' may be used uninitialized in this function
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 2 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling joystick.c...
-joystick.c: In function 'JoystickTask':
-joystick.c(49): warning: unused variable 'i'
-joystick.c(44): warning: 'PrevPIN_CONFIG' may be used uninitialized in this function
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 2 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
-Full Chip Erase Done.
-Programming Done.
-Verify OK.
-Build target 'WebServerELF'
-compiling joystick.c...
-joystick.c: In function 'JoystickTask':
-joystick.c(49): warning: unused variable 'i'
-joystick.c(44): warning: 'PrevPIN_CONFIG' may be used uninitialized in this function
-linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 2 Warning(s).
-Load "C:\\SVN ARMCODE\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 0 Warning(s).
+Load "C:\\ARM Code\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
 Full Chip Erase Done.
 Programming Done.
 Verify OK.
