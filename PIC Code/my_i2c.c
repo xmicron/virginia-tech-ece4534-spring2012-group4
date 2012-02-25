@@ -240,6 +240,8 @@ void i2c_int_handler()
 
 	// Any time data is sent from the Keil (Master), execute this code
 	if (msg_ready) {
+		
+		
 		// Regardless of message type (request, or send from Keil), send buffer data to main
 		ic_ptr->buffer[ic_ptr->buflen] = ic_ptr->event_count;
 		ToMainHigh_sendmsg(ic_ptr->buflen+1,MSGT_I2C_DATA,(void *) ic_ptr->buffer);
@@ -262,7 +264,7 @@ void i2c_int_handler()
 		if(ic_ptr->buffer[0] == 0xaa)	{						// Check to make sure master sent 0xaa
 			int temp;
 			int error;
-			LATBbits.LATB1 = !LATBbits.LATB1;
+			//LATBbits.LATB1 = !LATBbits.LATB1;
 			// Use block_on_FromMainHigh to see if master is requesting data from an empty queue...if so,
 			// send 0xFF.  If not, send the ADC data received from the I2C message queue to the master.
 			if(block_on_FromMainHigh())	{						// Defined in messages.c	

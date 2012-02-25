@@ -72,8 +72,9 @@ void main (void)
 	int I2C_buffer[];
 	int index = 0;
 	int ITR = 0;
-	int I2C_MSG_COUNT = 0;
-	int I2C_MSG_PRECOUNT = 0;
+	int I2C_RX_MSG_COUNT = 0;
+	int I2C_RX_MSG_PRECOUNT = 0;
+	int I2C_TX_MSG_COUNT = 1;
 
 	// Timer variables
 	//timer1_thread_struct t1thread_data; 	// info for timer1_lthread
@@ -194,21 +195,20 @@ void main (void)
 
 					// Format I2C msg
 					msgbuffer[10] = adc_chan_num;
-					msgbuffer[11] = 0x00;
-					//msgbuffer[3] = 0x03;
-					//msgbuffer[4] = 0x04;
-					//msgbuffer[5] = 0x05;
-					//msgbuffer[6] = adc_chan_num;
-					//msgbuffer[7] = 0x00;
+					msgbuffer[11] = 0xaa;			// ADC MSG opcode
+
+					// Send I2C msg
+					FromMainHigh_sendmsg(12, msgtype, msgbuffer);	// Send ADC msg to FromMainHigh MQ, which I2C
+																	// int hdlr later Reads
+
 					/*
-					for (i = 0; i < 12; i++)
-					{
-						msgbuffer[i] = 0x11;
+					// Increment I2C message count from 1 to 100
+					if(I2C_TX_MSG_COUNT < 100)	{
+						I2C_TX_MSG_COUNT = I2C_TX_MSG_COUNT + 1;
 					}
-					*/
-					FromMainHigh_sendmsg(12, msgtype, msgbuffer);
-					//FromMainHigh_sendmsg(3, msgtype, msgbuffer);	// Send ADC values to FromMainLow MQ, which I2C	
-																	// int hdlr later Reads	
+					else	{
+						I2C_TX_MSG_COUNT = 1;
+					}*/
 
 					// Increment the channel number
 					if(adc_chan_num <= 0)	adc_chan_num++;
@@ -226,24 +226,21 @@ void main (void)
 
 				case MSGT_I2C_DATA: { //this data still needs to be put in a buffer
 					if(msgbuffer[0] == 0xaf)	{
-						//LATBbits.LATB2 = !LATBbits.LATB2;
-
 						FromMainLow_sendmsg(5, msgtype, msgbuffer);
-						// The code below checks message 'counts' too see if any I2C messages were dropped
-						I2C_MSG_COUNT = msgbuffer[4];
-						//LATB = I2C_MSG_COUNT;
+						// The code below checks message 'counts' to see if any I2C messages were dropped
+						I2C_RX_MSG_COUNT = msgbuffer[4];
 						
-						if(I2C_MSG_COUNT - I2C_MSG_PRECOUNT == 1)	{
+						if(I2C_RX_MSG_COUNT - I2C_RX_MSG_PRECOUNT == 1)	{
 							LATBbits.LATB1 = !LATBbits.LATB1;
-							if(I2C_MSG_PRECOUNT < 99)	{
-								I2C_MSG_PRECOUNT++;
+							if(I2C_RX_MSG_PRECOUNT < 99)	{
+								I2C_RX_MSG_PRECOUNT++;
 							}
 							else	{
-								I2C_MSG_PRECOUNT = 0;
+								I2C_RX_MSG_PRECOUNT = 0;
 							}
 						}
 						else	{
-							I2C_MSG_PRECOUNT = I2C_MSG_COUNT;
+							I2C_RX_MSG_PRECOUNT = I2C_RX_MSG_COUNT;
 							LATBbits.LATB0 = !LATBbits.LATB0;
 						}
 					}
