@@ -942,9 +942,13 @@ void InitPage(int pageNum, InstrumentStruct I1, InstrumentStruct I2, InstrumentS
 		GLCD_DisplayString(3,2,0,(unsigned char *)ReturnInstrumentLabel(0));
 		GLCD_SetBackColor(Black);
 		GLCD_SetTextColor(Green);
-		for (a = 1; a < 5; a++)
+		for (a = 1; a < 27; a++)
 		{
 			GLCD_DisplayString(a+3,2,0,(unsigned char *)ReturnInstrumentLabel(a));
+		}
+		for (a = 27; a < 54; a++)
+		{
+			GLCD_DisplayString(a-24,27,0,(unsigned char *)ReturnInstrumentLabel(a));
 		}
 	}
 	else if (pageNum == 2)
@@ -1291,7 +1295,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 			} 
 			if (msgBuffer.buf[0] == 3) //move crosshair down
 			{
-				if (Cur_Panel < 5)
+				if (Cur_Panel < 55)
 				{
 					P1SelectionClear(Cur_Panel);
 				 	Cur_Panel++;
