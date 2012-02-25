@@ -3,8 +3,8 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\ARM Code\RTOSDemo\RTOSDemo.uvproj
-Project File Date:  02/23/2012
+C:\ARMCode\RTOSDemo\RTOSDemo.uvproj
+Project File Date:  02/24/2012
 
 <h2>Output:</h2>
 Build target 'WebServerELF'
@@ -14,8 +14,8 @@ compiling tasks.c...
 compiling port.c...
 compiling main.c...
 MainFiles/main.c: In function 'main':
-MainFiles/main.c(112): warning: implicit declaration of function 'vStartI2CTask'
-MainFiles/main.c(113): warning: implicit declaration of function 'vStartJoystickTask'
+MainFiles/main.c(114): warning: implicit declaration of function 'vStartI2CTask'
+MainFiles/main.c(115): warning: implicit declaration of function 'vStartJoystickTask'
 compiling i2cTemp.c...
 MainFiles/i2cTemp.c: In function 'vi2cTempUpdateTask':
 MainFiles/i2cTemp.c(168): warning: format '%d' expects type 'int', but argument 2 has type 'long int'
@@ -43,12 +43,11 @@ joystick.c(49): warning: unused variable 'i'
 joystick.c(44): warning: 'PrevPIN_CONFIG' may be used uninitialized in this function
 compiling I2C.c...
 I2C.c: In function 'I2CTask':
-I2C.c(168): warning: "/*" within comment
-I2C.c(76): warning: unused variable 'i'
-I2C.c(67): warning: unused variable 'lcdBuffer'
-I2C.c(66): warning: unused variable 'lcdData'
-I2C.c(54): warning: unused variable 'temp1'
-I2C.c(52): warning: unused variable 'Gimmesomething'
+I2C.c(84): warning: unused variable 'i'
+I2C.c(75): warning: unused variable 'lcdBuffer'
+I2C.c(74): warning: unused variable 'lcdData'
+I2C.c(62): warning: unused variable 'temp1'
+I2C.c(58): warning: unused variable 'Gimmesomething'
 compiling syscalls.c...
 compiling system_LPC17xx.c...
 compiling USB_CDC.c...
@@ -94,21 +93,927 @@ compiling lpc17xx_ssp.c...
 ../NXPDrivers/source/lpc17xx_ssp.c(345): warning: 'wdata16' may be used uninitialized in this function
 compiling vtI2C.c...
 linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 30 Warning(s).
-Load "C:\\ARM Code\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 29 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
 Internal DLL Error
-Load "C:\\ARM Code\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
 Internal DLL Error
-Load "C:\\ARM Code\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
 Full Chip Erase Done.
 Programming Done.
 Verify OK.
 Build target 'WebServerELF'
-compiling list.c...
-compiling GLCD_SPI_LPC1700.c...
+compiling I2C.c...
+I2C.c: In function 'I2CTask':
+I2C.c(84): warning: unused variable 'i'
+I2C.c(75): warning: unused variable 'lcdBuffer'
+I2C.c(74): warning: unused variable 'lcdData'
+I2C.c(62): warning: unused variable 'temp1'
+I2C.c(58): warning: unused variable 'Gimmesomething'
 linking...
-".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 0 Warning(s).
-Load "C:\\ARM Code\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 5 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
 Full Chip Erase Done.
 Programming Done.
 Verify OK.
+Build target 'WebServerELF'
+compiling I2C.c...
+I2C.c: In function 'I2CTask':
+I2C.c(84): warning: unused variable 'i'
+I2C.c(75): warning: unused variable 'lcdBuffer'
+I2C.c(74): warning: unused variable 'lcdData'
+I2C.c(62): warning: unused variable 'temp1'
+I2C.c(58): warning: unused variable 'Gimmesomething'
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 5 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling I2C.c...
+I2C.c: In function 'I2CTask':
+I2C.c(84): warning: unused variable 'i'
+I2C.c(75): warning: unused variable 'lcdBuffer'
+I2C.c(74): warning: unused variable 'lcdData'
+I2C.c(62): warning: unused variable 'temp1'
+I2C.c(58): warning: unused variable 'Gimmesomething'
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 5 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling I2C.c...
+I2C.c: In function 'I2CTask':
+I2C.c(84): warning: unused variable 'i'
+I2C.c(75): warning: unused variable 'lcdBuffer'
+I2C.c(74): warning: unused variable 'lcdData'
+I2C.c(62): warning: unused variable 'temp1'
+I2C.c(58): warning: unused variable 'Gimmesomething'
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 5 Warning(s).
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(253): warning: unused variable 'i'
+MainFiles/LCDtask.c(126): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(125): warning: unused variable 'min'
+MainFiles/LCDtask.c(124): warning: unused variable 'max'
+MainFiles/LCDtask.c(123): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(68): warning: 'hsl2rgb' defined but not used
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ClearOldSelection':
+MainFiles/LCDtask.c(65): error: 'a' undeclared (first use in this function)
+MainFiles/LCDtask.c(65): error: note: each undeclared identifier is reported only once for each function it appears in
+MainFiles/LCDtask.c: In function 'MakeSelection':
+MainFiles/LCDtask.c(201): error: 'a' undeclared (first use in this function)
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(528): warning: unused variable 'i'
+MainFiles/LCDtask.c(401): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(400): warning: unused variable 'min'
+MainFiles/LCDtask.c(399): warning: unused variable 'max'
+MainFiles/LCDtask.c(398): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(343): warning: 'hsl2rgb' defined but not used
+Target not created
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(530): warning: unused variable 'i'
+MainFiles/LCDtask.c(403): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(402): warning: unused variable 'min'
+MainFiles/LCDtask.c(401): warning: unused variable 'max'
+MainFiles/LCDtask.c(400): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(345): warning: 'hsl2rgb' defined but not used
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(530): warning: unused variable 'i'
+MainFiles/LCDtask.c(403): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(402): warning: unused variable 'min'
+MainFiles/LCDtask.c(401): warning: unused variable 'max'
+MainFiles/LCDtask.c(400): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(345): warning: 'hsl2rgb' defined but not used
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(530): warning: unused variable 'i'
+MainFiles/LCDtask.c(403): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(402): warning: unused variable 'min'
+MainFiles/LCDtask.c(401): warning: unused variable 'max'
+MainFiles/LCDtask.c(400): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(345): warning: 'hsl2rgb' defined but not used
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(530): warning: unused variable 'i'
+MainFiles/LCDtask.c(403): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(402): warning: unused variable 'min'
+MainFiles/LCDtask.c(401): warning: unused variable 'max'
+MainFiles/LCDtask.c(400): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(345): warning: 'hsl2rgb' defined but not used
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling I2C.c...
+I2C.c: In function 'I2CTask':
+I2C.c(84): warning: unused variable 'i'
+I2C.c(75): warning: unused variable 'lcdBuffer'
+I2C.c(74): warning: unused variable 'lcdData'
+I2C.c(62): warning: unused variable 'temp1'
+I2C.c(58): warning: unused variable 'Gimmesomething'
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 5 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling I2C.c...
+I2C.c: In function 'I2CTask':
+I2C.c(84): warning: unused variable 'i'
+I2C.c(75): warning: unused variable 'lcdBuffer'
+I2C.c(74): warning: unused variable 'lcdData'
+I2C.c(62): warning: unused variable 'temp1'
+I2C.c(58): warning: unused variable 'Gimmesomething'
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 5 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling I2C.c...
+I2C.c: In function 'I2CTask':
+I2C.c(84): warning: unused variable 'i'
+I2C.c(75): warning: unused variable 'lcdBuffer'
+I2C.c(74): warning: unused variable 'lcdData'
+I2C.c(62): warning: unused variable 'temp1'
+I2C.c(58): warning: unused variable 'Gimmesomething'
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 5 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling I2C.c...
+I2C.c: In function 'I2CTask':
+I2C.c(84): warning: unused variable 'i'
+I2C.c(75): warning: unused variable 'lcdBuffer'
+I2C.c(74): warning: unused variable 'lcdData'
+I2C.c(62): warning: unused variable 'temp1'
+I2C.c(58): warning: unused variable 'Gimmesomething'
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 5 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling I2C.c...
+I2C.c: In function 'I2CTask':
+I2C.c(84): warning: unused variable 'i'
+I2C.c(75): warning: unused variable 'lcdBuffer'
+I2C.c(74): warning: unused variable 'lcdData'
+I2C.c(62): warning: unused variable 'temp1'
+I2C.c(58): warning: unused variable 'Gimmesomething'
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 5 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(552): warning: unused variable 'i'
+MainFiles/LCDtask.c(486): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(485): warning: unused variable 'min'
+MainFiles/LCDtask.c(484): warning: unused variable 'max'
+MainFiles/LCDtask.c(483): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(428): warning: 'hsl2rgb' defined but not used
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(561): warning: unused variable 'i'
+MainFiles/LCDtask.c(495): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(494): warning: unused variable 'min'
+MainFiles/LCDtask.c(493): warning: unused variable 'max'
+MainFiles/LCDtask.c(492): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(437): warning: 'hsl2rgb' defined but not used
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(561): warning: unused variable 'i'
+MainFiles/LCDtask.c(495): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(494): warning: unused variable 'min'
+MainFiles/LCDtask.c(493): warning: unused variable 'max'
+MainFiles/LCDtask.c(492): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(437): warning: 'hsl2rgb' defined but not used
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(561): warning: unused variable 'i'
+MainFiles/LCDtask.c(495): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(494): warning: unused variable 'min'
+MainFiles/LCDtask.c(493): warning: unused variable 'max'
+MainFiles/LCDtask.c(492): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(437): warning: 'hsl2rgb' defined but not used
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(561): warning: unused variable 'i'
+MainFiles/LCDtask.c(495): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(494): warning: unused variable 'min'
+MainFiles/LCDtask.c(493): warning: unused variable 'max'
+MainFiles/LCDtask.c(492): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(437): warning: 'hsl2rgb' defined but not used
+compiling I2C.c...
+I2C.c: In function 'I2CTask':
+I2C.c(84): warning: unused variable 'i'
+I2C.c(75): warning: unused variable 'lcdBuffer'
+I2C.c(74): warning: unused variable 'lcdData'
+I2C.c(62): warning: unused variable 'temp1'
+I2C.c(60): warning: unused variable 'ReceiveCount'
+I2C.c(58): warning: unused variable 'Gimmesomething'
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 12 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(561): warning: unused variable 'i'
+MainFiles/LCDtask.c(495): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(494): warning: unused variable 'min'
+MainFiles/LCDtask.c(493): warning: unused variable 'max'
+MainFiles/LCDtask.c(492): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(437): warning: 'hsl2rgb' defined but not used
+compiling I2C.c...
+I2C.c: In function 'I2CTask':
+I2C.c(82): warning: unused variable 'i'
+I2C.c(73): warning: unused variable 'lcdBuffer'
+I2C.c(72): warning: unused variable 'lcdData'
+I2C.c(60): warning: unused variable 'temp1'
+I2C.c(58): warning: unused variable 'Gimmesomething'
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 11 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(576): warning: unused variable 'i'
+MainFiles/LCDtask.c(510): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(509): warning: unused variable 'min'
+MainFiles/LCDtask.c(508): warning: unused variable 'max'
+MainFiles/LCDtask.c(507): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(452): warning: 'hsl2rgb' defined but not used
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(578): warning: unused variable 'i'
+MainFiles/LCDtask.c(512): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(511): warning: unused variable 'min'
+MainFiles/LCDtask.c(510): warning: unused variable 'max'
+MainFiles/LCDtask.c(509): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(454): warning: 'hsl2rgb' defined but not used
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(587): warning: unused variable 'i'
+MainFiles/LCDtask.c(521): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(520): warning: unused variable 'min'
+MainFiles/LCDtask.c(519): warning: unused variable 'max'
+MainFiles/LCDtask.c(518): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(463): warning: 'hsl2rgb' defined but not used
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 6 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'InitPage':
+MainFiles/LCDtask.c(419): warning: pointer targets in initialization differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(588): warning: unused variable 'i'
+MainFiles/LCDtask.c(522): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(521): warning: unused variable 'min'
+MainFiles/LCDtask.c(520): warning: unused variable 'max'
+MainFiles/LCDtask.c(519): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(464): warning: 'hsl2rgb' defined but not used
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 7 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'InitPage':
+MainFiles/LCDtask.c(442): warning: pointer targets in initialization differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(611): warning: unused variable 'i'
+MainFiles/LCDtask.c(545): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(544): warning: unused variable 'min'
+MainFiles/LCDtask.c(543): warning: unused variable 'max'
+MainFiles/LCDtask.c(542): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(487): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(82): warning: control reaches end of non-void function
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 9 Warning(s).
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(77): error: expected ';' before '}' token
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'InitPage':
+MainFiles/LCDtask.c(494): warning: pointer targets in initialization differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(663): warning: unused variable 'i'
+MainFiles/LCDtask.c(597): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(596): warning: unused variable 'min'
+MainFiles/LCDtask.c(595): warning: unused variable 'max'
+MainFiles/LCDtask.c(594): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(539): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(134): warning: control reaches end of non-void function
+Target not created
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'InitPage':
+MainFiles/LCDtask.c(494): warning: pointer targets in initialization differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(663): warning: unused variable 'i'
+MainFiles/LCDtask.c(597): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(596): warning: unused variable 'min'
+MainFiles/LCDtask.c(595): warning: unused variable 'max'
+MainFiles/LCDtask.c(594): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(539): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(134): warning: control reaches end of non-void function
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 13 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(645): warning: unused variable 'i'
+MainFiles/LCDtask.c(579): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(578): warning: unused variable 'min'
+MainFiles/LCDtask.c(577): warning: unused variable 'max'
+MainFiles/LCDtask.c(576): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(521): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(134): warning: control reaches end of non-void function
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 12 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(649): warning: unused variable 'i'
+MainFiles/LCDtask.c(583): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(582): warning: unused variable 'min'
+MainFiles/LCDtask.c(581): warning: unused variable 'max'
+MainFiles/LCDtask.c(580): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(525): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(134): warning: control reaches end of non-void function
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 12 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(651): warning: unused variable 'i'
+MainFiles/LCDtask.c(585): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(584): warning: unused variable 'min'
+MainFiles/LCDtask.c(583): warning: unused variable 'max'
+MainFiles/LCDtask.c(582): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(527): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(134): warning: control reaches end of non-void function
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 12 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling main.c...
+MainFiles/main.c: In function 'main':
+MainFiles/main.c(114): warning: implicit declaration of function 'vStartI2CTask'
+MainFiles/main.c(115): warning: implicit declaration of function 'vStartJoystickTask'
+compiling i2cTemp.c...
+MainFiles/i2cTemp.c: In function 'vi2cTempUpdateTask':
+MainFiles/i2cTemp.c(168): warning: format '%d' expects type 'int', but argument 2 has type 'long int'
+MainFiles/i2cTemp.c(168): warning: format '%d' expects type 'int', but argument 3 has type 'long int'
+MainFiles/i2cTemp.c(168): warning: format '%d' expects type 'int', but argument 2 has type 'long int'
+MainFiles/i2cTemp.c(168): warning: format '%d' expects type 'int', but argument 3 has type 'long int'
+MainFiles/i2cTemp.c(169): warning: format '%d' expects type 'int', but argument 3 has type 'long int'
+MainFiles/i2cTemp.c(169): warning: format '%d' expects type 'int', but argument 3 has type 'long int'
+MainFiles/i2cTemp.c(52): warning: unused variable 'i2cCmdStopConvert'
+MainFiles/i2cTemp.c(59): warning: 'rxLen' may be used uninitialized in this function
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'InitPage':
+MainFiles/LCDtask.c(470): warning: implicit declaration of function 'ReturnInstrumentID'
+MainFiles/LCDtask.c(470): error: 'Inst' undeclared (first use in this function)
+MainFiles/LCDtask.c(470): error: note: each undeclared identifier is reported only once for each function it appears in
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(662): warning: unused variable 'i'
+MainFiles/LCDtask.c(611): warning: unused variable 'RInst'
+MainFiles/LCDtask.c(585): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(584): warning: unused variable 'min'
+MainFiles/LCDtask.c(583): warning: unused variable 'max'
+MainFiles/LCDtask.c(582): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(527): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(134): warning: control reaches end of non-void function
+compiling joystick.c...
+joystick.c: In function 'JoystickTask':
+joystick.c(49): warning: unused variable 'i'
+joystick.c(44): warning: 'PrevPIN_CONFIG' may be used uninitialized in this function
+compiling I2C.c...
+I2C.c: In function 'I2CTask':
+I2C.c(82): warning: unused variable 'i'
+I2C.c(73): warning: unused variable 'lcdBuffer'
+I2C.c(72): warning: unused variable 'lcdData'
+I2C.c(60): warning: unused variable 'temp1'
+I2C.c(58): warning: unused variable 'Gimmesomething'
+Target not created
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'InitPage':
+MainFiles/LCDtask.c(470): warning: implicit declaration of function 'ReturnInstrumentID'
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(763): error: too few arguments to function 'InitPage'
+MainFiles/LCDtask.c(423): error: note: declared here
+MainFiles/LCDtask.c(824): error: too few arguments to function 'InitPage'
+MainFiles/LCDtask.c(423): error: note: declared here
+MainFiles/LCDtask.c(662): warning: unused variable 'i'
+MainFiles/LCDtask.c(611): warning: unused variable 'RInst'
+MainFiles/LCDtask.c(585): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(584): warning: unused variable 'min'
+MainFiles/LCDtask.c(583): warning: unused variable 'max'
+MainFiles/LCDtask.c(582): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(527): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(134): warning: control reaches end of non-void function
+Target not created
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'InitPage':
+MainFiles/LCDtask.c(470): warning: implicit declaration of function 'ReturnInstrumentID'
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(824): error: too few arguments to function 'InitPage'
+MainFiles/LCDtask.c(423): error: note: declared here
+MainFiles/LCDtask.c(662): warning: unused variable 'i'
+MainFiles/LCDtask.c(611): warning: unused variable 'RInst'
+MainFiles/LCDtask.c(585): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(584): warning: unused variable 'min'
+MainFiles/LCDtask.c(583): warning: unused variable 'max'
+MainFiles/LCDtask.c(582): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(527): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(134): warning: control reaches end of non-void function
+Target not created
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'InitPage':
+MainFiles/LCDtask.c(470): warning: implicit declaration of function 'ReturnInstrumentID'
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(662): warning: unused variable 'i'
+MainFiles/LCDtask.c(611): warning: unused variable 'RInst'
+MainFiles/LCDtask.c(585): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(584): warning: unused variable 'min'
+MainFiles/LCDtask.c(583): warning: unused variable 'max'
+MainFiles/LCDtask.c(582): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(527): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(134): warning: control reaches end of non-void function
+linking...
+./objectfiles/lcdtask.o: In function `InitPage':
+C:\ARMCode\RTOSDemo/MainFiles/LCDtask.c:470: undefined reference to `ReturnInstrumentID'
+C:\ARMCode\RTOSDemo/MainFiles/LCDtask.c:471: undefined reference to `ReturnInstrumentID'
+C:\ARMCode\RTOSDemo/MainFiles/LCDtask.c:472: undefined reference to `ReturnInstrumentID'
+collect2: ld returned 1 exit status
+Target not created
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(662): warning: unused variable 'i'
+MainFiles/LCDtask.c(611): warning: unused variable 'RInst'
+MainFiles/LCDtask.c(585): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(584): warning: unused variable 'min'
+MainFiles/LCDtask.c(583): warning: unused variable 'max'
+MainFiles/LCDtask.c(582): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(527): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(134): warning: control reaches end of non-void function
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 13 Warning(s).
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'InitPage':
+MainFiles/LCDtask.c(470): warning: implicit declaration of function 'ReturnInstrumentID'
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(662): warning: unused variable 'i'
+MainFiles/LCDtask.c(611): warning: unused variable 'RInst'
+MainFiles/LCDtask.c(585): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(584): warning: unused variable 'min'
+MainFiles/LCDtask.c(583): warning: unused variable 'max'
+MainFiles/LCDtask.c(582): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(527): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(134): warning: control reaches end of non-void function
+linking...
+./objectfiles/lcdtask.o: In function `InitPage':
+C:\ARMCode\RTOSDemo/MainFiles/LCDtask.c:470: undefined reference to `ReturnInstrumentID'
+collect2: ld returned 1 exit status
+Target not created
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(662): warning: unused variable 'i'
+MainFiles/LCDtask.c(611): warning: unused variable 'RInst'
+MainFiles/LCDtask.c(585): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(584): warning: unused variable 'min'
+MainFiles/LCDtask.c(583): warning: unused variable 'max'
+MainFiles/LCDtask.c(582): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(527): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(134): warning: control reaches end of non-void function
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 13 Warning(s).
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(662): warning: unused variable 'i'
+MainFiles/LCDtask.c(611): warning: unused variable 'RInst'
+MainFiles/LCDtask.c(585): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(584): warning: unused variable 'min'
+MainFiles/LCDtask.c(583): warning: unused variable 'max'
+MainFiles/LCDtask.c(582): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(527): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(134): warning: control reaches end of non-void function
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 13 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(663): warning: unused variable 'i'
+MainFiles/LCDtask.c(612): warning: unused variable 'RInst'
+MainFiles/LCDtask.c(585): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(584): warning: unused variable 'min'
+MainFiles/LCDtask.c(583): warning: unused variable 'max'
+MainFiles/LCDtask.c(582): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(527): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(134): warning: control reaches end of non-void function
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 13 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(84): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(88): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(92): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(96): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(100): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(104): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(108): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(112): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(116): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(120): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(124): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(128): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(132): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(136): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(140): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(144): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(148): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(152): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(156): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(160): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(164): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(168): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(172): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(176): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(180): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(184): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(188): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(192): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(196): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(200): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(204): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(208): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(212): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(216): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(220): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(224): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(228): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(232): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(236): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(240): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(244): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(248): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(252): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(256): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(260): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(264): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(268): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(272): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(276): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(280): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(284): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(288): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(292): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(296): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(300): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(304): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(308): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(312): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(316): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(320): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(324): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(328): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(332): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(336): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(340): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(344): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(348): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(352): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(356): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(360): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(364): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(368): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(372): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(376): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(380): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(384): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(388): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(392): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(396): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(400): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(404): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(408): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(412): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(416): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(420): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(424): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(428): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(432): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(436): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(440): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(444): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(448): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(452): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(456): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(460): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(464): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(468): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(472): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(476): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(480): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(484): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(488): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(492): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(496): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(500): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(504): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(508): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(512): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(516): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(520): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(524): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(528): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(532): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(536): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(540): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(544): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(548): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(552): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(556): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(560): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(564): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(568): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(572): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(576): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(1107): warning: unused variable 'i'
+MainFiles/LCDtask.c(1056): warning: unused variable 'RInst'
+MainFiles/LCDtask.c(1029): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(1028): warning: unused variable 'min'
+MainFiles/LCDtask.c(1027): warning: unused variable 'max'
+MainFiles/LCDtask.c(1026): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(971): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(578): warning: control reaches end of non-void function
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 137 Warning(s).

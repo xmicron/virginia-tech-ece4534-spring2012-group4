@@ -6,7 +6,7 @@ typedef struct __vtLCDStruct {
 	xQueueHandle inQ;					   	// Queue used to send messages from other tasks to the LCD task to print
 } vtLCDStruct;
 
-#define vtLCDQLen 10
+#define vtLCDQLen 100
 // Structure used to define the messages that are sent to the LCD thread
 //   the maximum length of a message to be printed is the size of the "buf" field below
 #define vtLCDMLen 20 
@@ -16,5 +16,17 @@ typedef struct __vtLCDMsg {
 } vtLCDMsg;
 
 void vStartLCDTask( unsigned portBASE_TYPE uxPriority, vtLCDStruct *);
+
+typedef struct __InstrumentStruct {
+	int InstrumentID;
+	int Note;
+	int Velocity;
+	int Pitch;					 
+} InstrumentStruct;
+typedef struct __RepeatingInstrumentStruct {
+	int instrumentID;
+	int Note;
+	int BPM;					 
+} RepeatingInstrumentStruct;
 
 #endif
