@@ -254,7 +254,7 @@ void i2c_int_handler()
 
 	// This is inside of the I2C interrupt handler fxn.  
 	if (msg_to_send) {
-		unsigned char TX_MSG[8];
+		unsigned char TX_MSG[12];
 		unsigned char type;
 		int t = 0;
 		
@@ -266,17 +266,17 @@ void i2c_int_handler()
 			// Use block_on_FromMainHigh to see if master is requesting data from an empty queue...if so,
 			// send 0xFF.  If not, send the ADC data received from the I2C message queue to the master.
 			if(block_on_FromMainHigh())	{						// Defined in messages.c	
-				error = FromMainHigh_recvmsg(8, &type, (void *) TX_MSG);	// receive ADC value from FromMainHighMQ
-				start_i2c_slave_reply(8,TX_MSG);							// send ADC value to Master via I2C
+				error = FromMainHigh_recvmsg(12, &type, (void *) TX_MSG);	// receive ADC value from FromMainHighMQ
+				start_i2c_slave_reply(12,TX_MSG);							// send ADC value to Master via I2C
 				// CHECK ERROR
 				
 			}	
 			else	{
 				// FF, FF is recognized by Keil as empty message queue, and are discarded
-				for(t = 0; t < 8; t++)	{
+				for(t = 0; t < 12; t++)	{
 					TX_MSG[t] = 0xFF;
 				}
-				start_i2c_slave_reply(8,TX_MSG);
+				start_i2c_slave_reply(12,TX_MSG);
 			}
 		}
 		

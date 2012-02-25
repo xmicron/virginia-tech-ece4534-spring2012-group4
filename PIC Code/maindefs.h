@@ -17,6 +17,7 @@
 #define MSGT_I2C_MASTER_RECV_COMPLETE 45
 #define MSGT_I2C_MASTER_RECV_FAILED 46
 #define MSGT_ADC 47
+#define MSGT_MIDI 48
 
 #endif
 

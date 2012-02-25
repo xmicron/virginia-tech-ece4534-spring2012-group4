@@ -11,6 +11,6 @@ int timer0_lthread(timer0_thread_struct *tptr,int msgtype,int length,unsigned ch
 
 	msgval = (unsigned int *) msgbuffer;
 
-	printf("TIMER1: %d %d %d\r\n",msgtype,length,(*msgval));
+	//printf("TIMER1: %d %d %d\r\n",msgtype,length,(*msgval));
 
 }
