@@ -2,7 +2,7 @@
 MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
 Version=1.0
 [File000]
-Location=D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.o
+Location=C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.o
 Folder=Intermediary
 DeviceName=PIC18F45J10
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -15,7 +15,7 @@ ToolArgsString=-Opa-
 TraceCmdString=
 DebugOptions=
 [File001]
-Location=D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.o
+Location=C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.o
 Folder=Intermediary
 DeviceName=PIC18F45J10
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -28,7 +28,7 @@ ToolArgsString=-Opa-
 TraceCmdString=
 DebugOptions=
 [File002]
-Location=D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.o
+Location=C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.o
 Folder=Intermediary
 DeviceName=PIC18F45J10
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -41,7 +41,7 @@ ToolArgsString=-Opa-
 TraceCmdString=
 DebugOptions=
 [File003]
-Location=D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\user_interrupts.o
+Location=C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.o
 Folder=Intermediary
 DeviceName=PIC18F45J10
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -54,7 +54,7 @@ ToolArgsString=-Opa-
 TraceCmdString=
 DebugOptions=
 [File004]
-Location=D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_uart.o
+Location=C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.o
 Folder=Intermediary
 DeviceName=PIC18F45J10
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -67,7 +67,7 @@ ToolArgsString=-Opa-
 TraceCmdString=
 DebugOptions=
 [File005]
-Location=D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\uart_thread.o
+Location=C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\uart_thread.o
 Folder=Intermediary
 DeviceName=PIC18F45J10
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -80,7 +80,7 @@ ToolArgsString=-Opa-
 TraceCmdString=
 DebugOptions=
 [File006]
-Location=D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\timer1_thread.o
+Location=C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.o
 Folder=Intermediary
 DeviceName=PIC18F45J10
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -93,7 +93,7 @@ ToolArgsString=-Opa-
 TraceCmdString=
 DebugOptions=
 [File007]
-Location=D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\timer0_thread.o
+Location=C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer0_thread.o
 Folder=Intermediary
 DeviceName=PIC18F45J10
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -106,7 +106,7 @@ ToolArgsString=-Opa-
 TraceCmdString=
 DebugOptions=
 [File008]
-Location=D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.o
+Location=C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.o
 Folder=Intermediary
 DeviceName=PIC18F45J10
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -119,7 +119,7 @@ ToolArgsString=-Opa-
 TraceCmdString=
 DebugOptions=
 [File009]
-Location=D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\newADC.o
+Location=C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.o
 Folder=Intermediary
 DeviceName=PIC18F45J10
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -132,7 +132,7 @@ ToolArgsString=-Opa-
 TraceCmdString=
 DebugOptions=
 [File010]
-Location=D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\Proj1.cof
+Location=C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\Proj1.cof
 Folder=Output
 DeviceName=PIC18F45J10
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -145,7 +145,7 @@ ToolArgsString=/m"$(BINDIR_)$(TARGETBASE).map" /w /o"$(BINDIR_)$(TARGETBASE).cof
 TraceCmdString=
 DebugOptions=
 [File011]
-Location=D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\Proj1.hex
+Location=C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\Proj1.hex
 Folder=Output
 DeviceName=PIC18F45J10
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -158,7 +158,7 @@ ToolArgsString=/m"$(BINDIR_)$(TARGETBASE).map" /w /o"$(BINDIR_)$(TARGETBASE).cof
 TraceCmdString=
 DebugOptions=
 [File012]
-Location=D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\Proj1.map
+Location=C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\Proj1.map
 Folder=Output
 DeviceName=PIC18F45J10
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
