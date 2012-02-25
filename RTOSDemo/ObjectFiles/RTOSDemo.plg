@@ -1017,3 +1017,602 @@ MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
 MainFiles/LCDtask.c(578): warning: control reaches end of non-void function
 linking...
 ".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 137 Warning(s).
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(84): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(88): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(92): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(96): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(100): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(104): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(108): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(112): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(116): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(120): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(124): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(128): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(132): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(136): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(140): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(144): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(148): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(152): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(156): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(160): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(164): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(168): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(172): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(176): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(180): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(184): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(188): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(192): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(196): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(200): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(204): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(208): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(212): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(216): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(220): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(224): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(228): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(232): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(236): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(240): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(244): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(248): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(252): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(256): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(260): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(264): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(268): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(272): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(276): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(280): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(284): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(288): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(292): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(296): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(300): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(304): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(308): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(312): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(316): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(320): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(324): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(328): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(332): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(336): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(340): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(344): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(348): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(352): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(356): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(360): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(364): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(368): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(372): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(376): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(380): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(384): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(388): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(392): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(396): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(400): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(404): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(408): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(412): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(416): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(420): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(424): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(428): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(432): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(436): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(440): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(444): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(448): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(452): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(456): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(460): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(464): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(468): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(472): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(476): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(480): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(484): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(488): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(492): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(496): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(500): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(504): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(508): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(512): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(516): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(520): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(524): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(528): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(532): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(536): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(540): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(544): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(548): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(552): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(556): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(560): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(564): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(568): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(572): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(576): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(1107): warning: unused variable 'i'
+MainFiles/LCDtask.c(1056): warning: unused variable 'RInst'
+MainFiles/LCDtask.c(1029): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(1028): warning: unused variable 'min'
+MainFiles/LCDtask.c(1027): warning: unused variable 'max'
+MainFiles/LCDtask.c(1026): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(971): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(578): warning: control reaches end of non-void function
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 137 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(84): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(88): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(92): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(96): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(100): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(104): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(108): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(112): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(116): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(120): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(124): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(128): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(132): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(136): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(140): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(144): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(148): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(152): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(156): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(160): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(164): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(168): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(172): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(176): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(180): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(184): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(188): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(192): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(196): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(200): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(204): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(208): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(212): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(216): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(220): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(224): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(228): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(232): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(236): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(240): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(244): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(248): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(252): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(256): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(260): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(264): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(268): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(272): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(276): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(280): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(284): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(288): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(292): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(296): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(300): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(304): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(308): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(312): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(316): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(320): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(324): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(328): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(332): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(336): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(340): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(344): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(348): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(352): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(356): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(360): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(364): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(368): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(372): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(376): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(380): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(384): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(388): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(392): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(396): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(400): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(404): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(408): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(412): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(416): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(420): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(424): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(428): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(432): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(436): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(440): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(444): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(448): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(452): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(456): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(460): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(464): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(468): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(472): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(476): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(480): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(484): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(488): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(492): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(496): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(500): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(504): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(508): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(512): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(516): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(520): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(524): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(528): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(532): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(536): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(540): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(544): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(548): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(552): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(556): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(560): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(564): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(568): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(572): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(576): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(1111): warning: unused variable 'i'
+MainFiles/LCDtask.c(1060): warning: unused variable 'RInst'
+MainFiles/LCDtask.c(1033): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(1032): warning: unused variable 'min'
+MainFiles/LCDtask.c(1031): warning: unused variable 'max'
+MainFiles/LCDtask.c(1030): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(975): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(578): warning: control reaches end of non-void function
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 137 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(84): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(88): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(92): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(96): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(100): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(104): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(108): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(112): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(116): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(120): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(124): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(128): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(132): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(136): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(140): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(144): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(148): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(152): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(156): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(160): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(164): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(168): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(172): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(176): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(180): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(184): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(188): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(192): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(196): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(200): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(204): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(208): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(212): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(216): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(220): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(224): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(228): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(232): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(236): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(240): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(244): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(248): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(252): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(256): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(260): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(264): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(268): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(272): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(276): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(280): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(284): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(288): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(292): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(296): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(300): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(304): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(308): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(312): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(316): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(320): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(324): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(328): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(332): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(336): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(340): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(344): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(348): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(352): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(356): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(360): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(364): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(368): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(372): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(376): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(380): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(384): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(388): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(392): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(396): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(400): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(404): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(408): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(412): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(416): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(420): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(424): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(428): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(432): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(436): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(440): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(444): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(448): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(452): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(456): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(460): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(464): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(468): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(472): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(476): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(480): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(484): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(488): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(492): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(496): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(500): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(504): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(508): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(512): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(516): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(520): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(524): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(528): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(532): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(536): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(540): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(544): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(548): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(552): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(556): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(560): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(564): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(568): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(572): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(576): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(1111): warning: unused variable 'i'
+MainFiles/LCDtask.c(1060): warning: unused variable 'RInst'
+MainFiles/LCDtask.c(1033): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(1032): warning: unused variable 'min'
+MainFiles/LCDtask.c(1031): warning: unused variable 'max'
+MainFiles/LCDtask.c(1030): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(975): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(578): warning: control reaches end of non-void function
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 137 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+compiling LCDtask.c...
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(64): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(68): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(72): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(76): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(80): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(84): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(88): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(92): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(96): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(100): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(104): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(108): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(112): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(116): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(120): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(124): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(128): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(132): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(136): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(140): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(144): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(148): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(152): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(156): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(160): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(164): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(168): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(172): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(176): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(180): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(184): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(188): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(192): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(196): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(200): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(204): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(208): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(212): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(216): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(220): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(224): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(228): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(232): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(236): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(240): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(244): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(248): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(252): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(256): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(260): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(264): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(268): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(272): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(276): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(280): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(284): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(288): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(292): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(296): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(300): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(304): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(308): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(312): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(316): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(320): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(324): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(328): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(332): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(336): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(340): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(344): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(348): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(352): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(356): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(360): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(364): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(368): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(372): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(376): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(380): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(384): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(388): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(392): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(396): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(400): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(404): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(408): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(412): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(416): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(420): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(424): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(428): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(432): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(436): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(440): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(444): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(448): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(452): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(456): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(460): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(464): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(468): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(472): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(476): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(480): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(484): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(488): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(492): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(496): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(500): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(504): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(508): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(512): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(516): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(520): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(524): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(528): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(532): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(536): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(540): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(544): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(548): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(552): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(556): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(560): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(564): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(568): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(572): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c(576): warning: pointer targets in return differ in signedness
+MainFiles/LCDtask.c: In function 'vLCDUpdateTask':
+MainFiles/LCDtask.c(1111): warning: unused variable 'i'
+MainFiles/LCDtask.c(1060): warning: unused variable 'RInst'
+MainFiles/LCDtask.c(1033): warning: unused variable 'screenColor'
+MainFiles/LCDtask.c(1032): warning: unused variable 'min'
+MainFiles/LCDtask.c(1031): warning: unused variable 'max'
+MainFiles/LCDtask.c(1030): warning: unused variable 'pixel_buffer'
+MainFiles/LCDtask.c: At top level:
+MainFiles/LCDtask.c(975): warning: 'hsl2rgb' defined but not used
+MainFiles/LCDtask.c: In function 'ReturnInstrumentLabel':
+MainFiles/LCDtask.c(578): warning: control reaches end of non-void function
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 137 Warning(s).
+Load "C:\\ARMCode\\RTOSDemo\\ObjectFiles\\RTOSDemo.ELF" 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+Build target 'WebServerELF'
+linking...
+".\ObjectFiles\RTOSDemo.elf" - 0 Error(s), 0 Warning(s).
