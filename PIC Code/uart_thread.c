@@ -12,6 +12,6 @@ int uart_lthread(uart_thread_struct *uptr,int msgtype,int length,unsigned char *
 		// print the message (this assumes that the message
 		// 		was a printable string)
 			msgbuffer[length] = '\0'; // null-terminate the array as a string
-			printf("MSG: %d %d %s\r\n",msgtype,length,msgbuffer);
+			//printf("MSG: %d %d %s\r\n",msgtype,length,msgbuffer);
 	}
 }

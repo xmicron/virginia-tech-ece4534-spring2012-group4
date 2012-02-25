@@ -23,6 +23,7 @@
 	Port A is configured for analog input (AN0-3)
 	Port B is configured for output.  For debugging, drive portB pins.
 	The PLL clock in enabled
+	UART Baud Rate is initially 29095
 	
 */
 
@@ -65,7 +66,7 @@ void main (void)
 	unsigned char last_reg_recvd;
 	i2c_comm ic;
 	//unsigned char msgbuffer[MSGLEN+1];
-	unsigned char msgbuffer[8];
+	unsigned char msgbuffer[12];
 	unsigned char i;
 	int temp_array[2];
 	int I2C_buffer[];
@@ -185,24 +186,27 @@ void main (void)
 		if (length < 0) {
 			// no message, check the error code to see if it is concern
 			if (length != MSGQUEUE_EMPTY) {
-				printf("Error: Bad high priority receive, code = %x\r\n",
-					length);
+				printf("Error: Bad high priority receive, code = %x\r\n", length);
 			}
 		} else {
 			switch (msgtype) {
 				case MSGT_ADC:	{
 
 					// Format I2C msg
-					//msgbuffer[3] = adc_chan_num;
-					//msgbuffer[10] = 0;
-					msgbuffer[3] = 0x03;
-					msgbuffer[4] = 0x04;
-					msgbuffer[5] = 0x05;
-					msgbuffer[6] = adc_chan_num;
-					msgbuffer[7] = 0x00;
-					
-					
-					FromMainHigh_sendmsg(8, msgtype, msgbuffer);
+					msgbuffer[10] = adc_chan_num;
+					msgbuffer[11] = 0x00;
+					//msgbuffer[3] = 0x03;
+					//msgbuffer[4] = 0x04;
+					//msgbuffer[5] = 0x05;
+					//msgbuffer[6] = adc_chan_num;
+					//msgbuffer[7] = 0x00;
+					/*
+					for (i = 0; i < 12; i++)
+					{
+						msgbuffer[i] = 0x11;
+					}
+					*/
+					FromMainHigh_sendmsg(12, msgtype, msgbuffer);
 					//FromMainHigh_sendmsg(3, msgtype, msgbuffer);	// Send ADC values to FromMainLow MQ, which I2C	
 																	// int hdlr later Reads	
 
@@ -220,16 +224,15 @@ void main (void)
 					break;
 				};
 
-				case MSGT_I2C_DATA: {
-					// Check to see if data sent from keil is request or just DATA
+				case MSGT_I2C_DATA: { //this data still needs to be put in a buffer
 					if(msgbuffer[0] == 0xaf)	{
 						//LATBbits.LATB2 = !LATBbits.LATB2;
 
-
+						FromMainLow_sendmsg(5, msgtype, msgbuffer);
 						// The code below checks message 'counts' too see if any I2C messages were dropped
 						I2C_MSG_COUNT = msgbuffer[4];
-						LATB = I2C_MSG_COUNT;
-						/*
+						//LATB = I2C_MSG_COUNT;
+						
 						if(I2C_MSG_COUNT - I2C_MSG_PRECOUNT == 1)	{
 							LATBbits.LATB1 = !LATBbits.LATB1;
 							if(I2C_MSG_PRECOUNT < 99)	{
@@ -242,22 +245,22 @@ void main (void)
 						else	{
 							I2C_MSG_PRECOUNT = I2C_MSG_COUNT;
 							LATBbits.LATB0 = !LATBbits.LATB0;
-						}*/
+						}
 					}
 				};
 
 				case MSGT_I2C_DBG: {
-					printf("I2C Interrupt received %x: ",msgtype);
+					//printf("I2C Interrupt received %x: ",msgtype);
 					for (i=0;i<length;i++) {
-						printf(" %x",msgbuffer[i]);
+						//printf(" %x",msgbuffer[i]);
 					}
-					printf("\r\n");
+					//printf("\r\n");
 					// keep track of the first byte received for later use
 					last_reg_recvd = msgbuffer[0];
 					break;
 				};
 				case MSGT_I2C_RQST: {
-					printf("I2C Slave Req\r\n");
+					//printf("I2C Slave Req\r\n");
 					// The last byte received is the "register" that is trying to be read
 					// The response is dependent on the register.
 					switch (last_reg_recvd) {
@@ -280,8 +283,7 @@ void main (void)
 					break;
 				};
 				default: {
-					printf("Error: Unexpected msg in queue, type = %x\r\n",
-						msgtype);
+					//printf("Error: Unexpected msg in queue, type = %x\r\n", msgtype);
 					break;
 				};
 			};

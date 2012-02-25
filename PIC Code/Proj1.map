@@ -1,5 +1,5 @@
 MPLINK 4.40, Linker
-Linker Map File - Created Fri Feb 24 16:46:28 2012
+Linker Map File - Created Fri Feb 24 18:10:21 2012
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -14,166 +14,166 @@ Linker Map File - Created Fri Feb 24 16:46:28 2012
          .code_vfprintf.o       code   0x00002c    program   0x000816
            .code_my_i2c.o       code   0x000842    program   0x00073e
          .code_messages.o       code   0x000f80    program   0x000506
-             .code_main.o       code   0x001486    program   0x000254
-       .code_interrupts.o       code   0x0016da    program   0x000216
-                     PROG       code   0x0018f0    program   0x0001be
-          .code_my_uart.o       code   0x001aae    program   0x0000d6
-             .stringtable    romdata   0x001b84    program   0x0000c7
-        .idata_newADC.o_i    romdata   0x001c4b    program   0x000000
-      .romdata_adcclose.o    romdata   0x001c4b    program   0x000000
-       .idata_adcconv.o_i    romdata   0x001c4b    program   0x000000
-       .romdata_adcopen.o    romdata   0x001c4b    program   0x000000
-        .idata_my_i2c.o_i    romdata   0x001c4b    program   0x000000
-         .idata_uopen.o_i    romdata   0x001c4b    program   0x000000
-         .romdata_uopen.o    romdata   0x001c4b    program   0x000000
-       .idata_adcread.o_i    romdata   0x001c4b    program   0x000000
-        .idata_t1read.o_i    romdata   0x001c4b    program   0x000000
-        .romdata_t1read.o    romdata   0x001c4b    program   0x000000
-      .romdata_adcsetch.o    romdata   0x001c4b    program   0x000000
-       .idata_t0write.o_i    romdata   0x001c4b    program   0x000000
-       .romdata_t0write.o    romdata   0x001c4b    program   0x000000
-        .romdata___init.o    romdata   0x001c4b    program   0x000000
-        .romdata_printf.o    romdata   0x001c4b    program   0x000000
-        .romdata_stdout.o    romdata   0x001c4b    program   0x000000
-          .idata_putc.o_i    romdata   0x001c4b    program   0x000000
-    .idata__user_putc.o_i    romdata   0x001c4b    program   0x000000
-       .idata_c018i_e.o_i    romdata   0x001c4b    program   0x000000
-          .idata_main.o_i    romdata   0x001c4b    program   0x000000
-      .romdata_messages.o    romdata   0x001c4b    program   0x000000
-    .romdata_interrupts.o    romdata   0x001c4b    program   0x000000
-.idata_user_interrupts.o_i    romdata   0x001c4b    program   0x000000
-.romdata_user_interrupts.o    romdata   0x001c4b    program   0x000000
-       .romdata_my_uart.o    romdata   0x001c4b    program   0x000000
-   .idata_uart_thread.o_i    romdata   0x001c4b    program   0x000000
-   .romdata_uart_thread.o    romdata   0x001c4b    program   0x000000
- .romdata_timer0_thread.o    romdata   0x001c4b    program   0x000000
- .idata_timer0_thread.o_i    romdata   0x001c4b    program   0x000000
-    .code_timer1_thread.o       code   0x001c4c    program   0x0000c0
-          .code_c018i_e.o       code   0x001c4c    program   0x000000
-            .code_udefs.o       code   0x001c4c    program   0x000000
-                   STRING       code   0x001d0c    program   0x0000bc
-               _cinit_scn       code   0x001dc8    program   0x00009e
-            .code_uopen.o       code   0x001e66    program   0x000082
-  .code_user_interrupts.o       code   0x001ee8    program   0x000074
-             .code_putc.o       code   0x001f5c    program   0x000066
-           .code_printf.o       code   0x001fc2    program   0x000064
-          .code_adcopen.o       code   0x002026    program   0x000064
-      .code_uart_thread.o       code   0x00208a    program   0x00005c
-    .code_timer0_thread.o       code   0x0020e6    program   0x00004c
-           .code_t1open.o       code   0x002132    program   0x000040
-            .code_uread.o       code   0x002172    program   0x00003e
-           .code_newADC.o       code   0x0021b0    program   0x000038
-           .code_t0open.o       code   0x0021e8    program   0x000036
-          .code_t1write.o       code   0x00221e    program   0x000030
-           .code_t1read.o       code   0x00224e    program   0x000030
-          .code_t0write.o       code   0x00227e    program   0x000030
-         .code_adcsetch.o       code   0x0022ae    program   0x000030
-                    CTYPE       code   0x0022de    program   0x000024
-                    .code       code   0x002302    program   0x000020
-                    STDIO       code   0x002322    program   0x00001c
-             _startup_scn       code   0x00233e    program   0x00001a
-          .code_adcread.o       code   0x002358    program   0x000018
-      .romdata_vfprintf.o    romdata   0x002370    program   0x000011
-      .idata_vfprintf.o_i    romdata   0x002381    program   0x000000
-          .romdata_main.o    romdata   0x002381    program   0x000000
-        .idata_printf.o_i    romdata   0x002381    program   0x000000
-          .romdata_putc.o    romdata   0x002381    program   0x000000
-        .idata___init.o_i    romdata   0x002381    program   0x000000
-    .romdata__user_putc.o    romdata   0x002381    program   0x000000
-       .romdata_t1write.o    romdata   0x002381    program   0x000000
-       .romdata_c018i_e.o    romdata   0x002381    program   0x000000
-      .idata_adcclose.o_i    romdata   0x002381    program   0x000000
- .idata_timer1_thread.o_i    romdata   0x002381    program   0x000000
-       .romdata_adcconv.o    romdata   0x002381    program   0x000000
-       .idata_adcopen.o_i    romdata   0x002381    program   0x000000
-        .romdata_newADC.o    romdata   0x002381    program   0x000000
-        .idata_t0open.o_i    romdata   0x002381    program   0x000000
-        .romdata_t0open.o    romdata   0x002381    program   0x000000
-        .idata_t1open.o_i    romdata   0x002381    program   0x000000
-        .romdata_t1open.o    romdata   0x002381    program   0x000000
-       .idata_my_uart.o_i    romdata   0x002381    program   0x000000
- .romdata_timer1_thread.o    romdata   0x002381    program   0x000000
-       .romdata_adcread.o    romdata   0x002381    program   0x000000
-        .romdata_my_i2c.o    romdata   0x002381    program   0x000000
-         .idata_uread.o_i    romdata   0x002381    program   0x000000
-         .romdata_uread.o    romdata   0x002381    program   0x000000
-      .idata_adcsetch.o_i    romdata   0x002381    program   0x000000
-    .idata_interrupts.o_i    romdata   0x002381    program   0x000000
-         .idata_udefs.o_i    romdata   0x002381    program   0x000000
-         .romdata_udefs.o    romdata   0x002381    program   0x000000
-      .idata_messages.o_i    romdata   0x002381    program   0x000000
-       .idata_t1write.o_i    romdata   0x002381    program   0x000000
-           .code_stdout.o       code   0x002382    program   0x000000
-           .code___init.o       code   0x002382    program   0x000002
-        .idata_stdout.o_i    romdata   0x002384    program   0x000002
+       .code_interrupts.o       code   0x001486    program   0x000216
+             .code_main.o       code   0x00169c    program   0x000214
+                     PROG       code   0x0018b0    program   0x0001be
+          .code_my_uart.o       code   0x001a6e    program   0x0000d6
+    .code_timer1_thread.o       code   0x001b44    program   0x0000c0
+                   STRING       code   0x001c04    program   0x0000bc
+               _cinit_scn       code   0x001cc0    program   0x00009e
+            .code_uopen.o       code   0x001d5e    program   0x000082
+  .code_user_interrupts.o       code   0x001de0    program   0x000074
+             .code_putc.o       code   0x001e54    program   0x000066
+           .code_printf.o       code   0x001eba    program   0x000064
+          .code_adcopen.o       code   0x001f1e    program   0x000064
+             .stringtable    romdata   0x001f82    program   0x000045
+       .idata_adcconv.o_i    romdata   0x001fc7    program   0x000000
+    .idata__user_putc.o_i    romdata   0x001fc7    program   0x000000
+       .romdata_adcopen.o    romdata   0x001fc7    program   0x000000
+         .idata_uopen.o_i    romdata   0x001fc7    program   0x000000
+         .romdata_uopen.o    romdata   0x001fc7    program   0x000000
+      .romdata_adcclose.o    romdata   0x001fc7    program   0x000000
+       .idata_adcread.o_i    romdata   0x001fc7    program   0x000000
+        .idata_t1read.o_i    romdata   0x001fc7    program   0x000000
+        .romdata_t1read.o    romdata   0x001fc7    program   0x000000
+      .romdata_adcsetch.o    romdata   0x001fc7    program   0x000000
+       .idata_t0write.o_i    romdata   0x001fc7    program   0x000000
+       .romdata_t0write.o    romdata   0x001fc7    program   0x000000
+        .romdata___init.o    romdata   0x001fc7    program   0x000000
+        .romdata_printf.o    romdata   0x001fc7    program   0x000000
+        .romdata_stdout.o    romdata   0x001fc7    program   0x000000
+          .idata_putc.o_i    romdata   0x001fc7    program   0x000000
+   .idata_uart_thread.o_i    romdata   0x001fc7    program   0x000000
+       .romdata_my_uart.o    romdata   0x001fc7    program   0x000000
+   .romdata_uart_thread.o    romdata   0x001fc7    program   0x000000
+.romdata_user_interrupts.o    romdata   0x001fc7    program   0x000000
+.idata_user_interrupts.o_i    romdata   0x001fc7    program   0x000000
+ .idata_timer0_thread.o_i    romdata   0x001fc7    program   0x000000
+ .romdata_timer0_thread.o    romdata   0x001fc7    program   0x000000
+       .idata_c018i_e.o_i    romdata   0x001fc7    program   0x000000
+          .idata_main.o_i    romdata   0x001fc7    program   0x000000
+        .idata_newADC.o_i    romdata   0x001fc7    program   0x000000
+      .romdata_messages.o    romdata   0x001fc7    program   0x000000
+        .idata_my_i2c.o_i    romdata   0x001fc7    program   0x000000
+    .romdata_interrupts.o    romdata   0x001fc7    program   0x000000
+            .code_udefs.o       code   0x001fc8    program   0x000000
+           .code_t1open.o       code   0x001fc8    program   0x000040
+          .code_c018i_e.o       code   0x001fc8    program   0x000000
+            .code_uread.o       code   0x002008    program   0x00003e
+           .code_newADC.o       code   0x002046    program   0x000038
+           .code_t0open.o       code   0x00207e    program   0x000036
+      .code_uart_thread.o       code   0x0020b4    program   0x000034
+          .code_t1write.o       code   0x0020e8    program   0x000030
+           .code_t1read.o       code   0x002118    program   0x000030
+          .code_t0write.o       code   0x002148    program   0x000030
+         .code_adcsetch.o       code   0x002178    program   0x000030
+                    CTYPE       code   0x0021a8    program   0x000024
+                    .code       code   0x0021cc    program   0x000020
+                    STDIO       code   0x0021ec    program   0x00001c
+    .code_timer0_thread.o       code   0x002208    program   0x00001c
+             _startup_scn       code   0x002224    program   0x00001a
+          .code_adcread.o       code   0x00223e    program   0x000018
+      .romdata_vfprintf.o    romdata   0x002256    program   0x000011
+    .romdata__user_putc.o    romdata   0x002267    program   0x000000
+       .romdata_c018i_e.o    romdata   0x002267    program   0x000000
+          .romdata_putc.o    romdata   0x002267    program   0x000000
+      .idata_adcclose.o_i    romdata   0x002267    program   0x000000
+        .romdata_newADC.o    romdata   0x002267    program   0x000000
+          .romdata_main.o    romdata   0x002267    program   0x000000
+      .idata_vfprintf.o_i    romdata   0x002267    program   0x000000
+      .idata_messages.o_i    romdata   0x002267    program   0x000000
+        .idata_printf.o_i    romdata   0x002267    program   0x000000
+        .romdata_my_i2c.o    romdata   0x002267    program   0x000000
+    .idata_interrupts.o_i    romdata   0x002267    program   0x000000
+       .romdata_adcconv.o    romdata   0x002267    program   0x000000
+       .romdata_adcread.o    romdata   0x002267    program   0x000000
+ .idata_timer1_thread.o_i    romdata   0x002267    program   0x000000
+         .idata_uread.o_i    romdata   0x002267    program   0x000000
+         .romdata_uread.o    romdata   0x002267    program   0x000000
+ .romdata_timer1_thread.o    romdata   0x002267    program   0x000000
+      .idata_adcsetch.o_i    romdata   0x002267    program   0x000000
+       .idata_my_uart.o_i    romdata   0x002267    program   0x000000
+        .romdata_t1open.o    romdata   0x002267    program   0x000000
+         .idata_udefs.o_i    romdata   0x002267    program   0x000000
+         .romdata_udefs.o    romdata   0x002267    program   0x000000
+        .idata_t1open.o_i    romdata   0x002267    program   0x000000
+        .romdata_t0open.o    romdata   0x002267    program   0x000000
+        .idata_t0open.o_i    romdata   0x002267    program   0x000000
+       .idata_adcopen.o_i    romdata   0x002267    program   0x000000
+       .idata_t1write.o_i    romdata   0x002267    program   0x000000
+       .romdata_t1write.o    romdata   0x002267    program   0x000000
+        .idata___init.o_i    romdata   0x002267    program   0x000000
+           .code_stdout.o       code   0x002268    program   0x000000
+           .code___init.o       code   0x002268    program   0x000002
+        .idata_stdout.o_i    romdata   0x00226a    program   0x000002
       .config_7ff8_main.o    romdata   0x007ff8    program   0x000001
       .config_7ffa_main.o    romdata   0x007ffa    program   0x000001
-                msgqueue4      udata   0x000000       data   0x00003b
-                 .tmpdata      udata   0x00003b       data   0x000007
-                MATH_DATA      udata   0x000042       data   0x000004
-          .udata_my_i2c.o      udata   0x000046       data   0x000002
-          .idata_stdout.o      idata   0x000048       data   0x000002
-           .udata_udefs.o      udata   0x00004a       data   0x000001
-         .udata_adcread.o      udata   0x00004b       data   0x000000
-           .idata_uopen.o      idata   0x00004b       data   0x000000
-         .idata_adcread.o      idata   0x00004b       data   0x000000
-          .udata_t1read.o      udata   0x00004b       data   0x000000
-           .udata_uopen.o      udata   0x00004b       data   0x000000
-          .idata_t1read.o      idata   0x00004b       data   0x000000
-           .udata_uread.o      udata   0x00004b       data   0x000000
-           .idata_uread.o      idata   0x00004b       data   0x000000
-          .idata_t1open.o      idata   0x00004b       data   0x000000
-          .udata_t1open.o      udata   0x00004b       data   0x000000
-        .udata_adcsetch.o      udata   0x00004b       data   0x000000
-        .idata_adcsetch.o      idata   0x00004b       data   0x000000
-          .idata_t0open.o      idata   0x00004b       data   0x000000
-           .idata_udefs.o      idata   0x00004b       data   0x000000
-         .udata_t0write.o      udata   0x00004b       data   0x000000
-         .idata_t0write.o      idata   0x00004b       data   0x000000
-         .udata_t1write.o      udata   0x00004b       data   0x000000
-         .idata_t1write.o      idata   0x00004b       data   0x000000
-          .udata___init.o      udata   0x00004b       data   0x000000
-          .idata___init.o      idata   0x00004b       data   0x000000
-          .udata_printf.o      udata   0x00004b       data   0x000000
-          .idata_printf.o      idata   0x00004b       data   0x000000
-          .udata_stdout.o      udata   0x00004b       data   0x000000
-        .udata_vfprintf.o      udata   0x00004b       data   0x000000
-        .idata_vfprintf.o      idata   0x00004b       data   0x000000
-            .udata_putc.o      udata   0x00004b       data   0x000000
-            .idata_putc.o      idata   0x00004b       data   0x000000
-      .udata__user_putc.o      udata   0x00004b       data   0x000000
-      .idata__user_putc.o      idata   0x00004b       data   0x000000
-         .idata_c018i_e.o      idata   0x00004b       data   0x000000
-            .udata_main.o      udata   0x00004b       data   0x000000
-            .idata_main.o      idata   0x00004b       data   0x000000
-        .udata_messages.o      udata   0x00004b       data   0x000000
-        .idata_messages.o      idata   0x00004b       data   0x000000
-      .udata_interrupts.o      udata   0x00004b       data   0x000000
-      .idata_interrupts.o      idata   0x00004b       data   0x000000
- .udata_user_interrupts.o      udata   0x00004b       data   0x000000
- .idata_user_interrupts.o      idata   0x00004b       data   0x000000
-         .idata_my_uart.o      idata   0x00004b       data   0x000000
-     .udata_uart_thread.o      udata   0x00004b       data   0x000000
-     .idata_uart_thread.o      idata   0x00004b       data   0x000000
-   .udata_timer1_thread.o      udata   0x00004b       data   0x000000
-   .idata_timer1_thread.o      idata   0x00004b       data   0x000000
-   .udata_timer0_thread.o      udata   0x00004b       data   0x000000
-   .idata_timer0_thread.o      idata   0x00004b       data   0x000000
-          .idata_my_i2c.o      idata   0x00004b       data   0x000000
-          .udata_newADC.o      udata   0x00004b       data   0x000000
-          .udata_t0open.o      udata   0x00004b       data   0x000000
-          .idata_newADC.o      idata   0x00004b       data   0x000000
-         .idata_adcopen.o      idata   0x00004b       data   0x000000
-        .udata_adcclose.o      udata   0x00004b       data   0x000000
-        .idata_adcclose.o      idata   0x00004b       data   0x000000
-         .udata_adcopen.o      udata   0x00004b       data   0x000000
-         .idata_adcconv.o      idata   0x00004b       data   0x000000
-         .udata_adcconv.o      udata   0x00004b       data   0x000000
-                msgqueue3      udata   0x000080       data   0x00003a
-                msgqueue2      udata   0x0000ba       data   0x00003a
-         .udata_c018i_e.o      udata   0x0000f4       data   0x00000a
-         .udata_my_uart.o      udata   0x0000fe       data   0x000002
-                msgqueue1      udata   0x000100       data   0x00003a
+                msgqueue4      udata   0x000000       data   0x00003f
+         .udata_c018i_e.o      udata   0x00003f       data   0x00000a
+                 .tmpdata      udata   0x000049       data   0x000007
+         .udata_my_uart.o      udata   0x000050       data   0x000002
+          .udata_my_i2c.o      udata   0x000052       data   0x000002
+          .idata_stdout.o      idata   0x000054       data   0x000002
+           .udata_udefs.o      udata   0x000056       data   0x000001
+           .idata_udefs.o      idata   0x000057       data   0x000000
+        .idata_adcsetch.o      idata   0x000057       data   0x000000
+        .udata_adcsetch.o      udata   0x000057       data   0x000000
+           .idata_uread.o      idata   0x000057       data   0x000000
+           .udata_uread.o      udata   0x000057       data   0x000000
+          .idata_t1read.o      idata   0x000057       data   0x000000
+          .udata_t1read.o      udata   0x000057       data   0x000000
+         .idata_adcread.o      idata   0x000057       data   0x000000
+         .udata_adcread.o      udata   0x000057       data   0x000000
+           .idata_uopen.o      idata   0x000057       data   0x000000
+           .udata_uopen.o      udata   0x000057       data   0x000000
+          .idata_t1open.o      idata   0x000057       data   0x000000
+          .udata_t1open.o      udata   0x000057       data   0x000000
+         .udata_t0write.o      udata   0x000057       data   0x000000
+         .idata_t0write.o      idata   0x000057       data   0x000000
+         .udata_t1write.o      udata   0x000057       data   0x000000
+         .idata_t1write.o      idata   0x000057       data   0x000000
+          .udata___init.o      udata   0x000057       data   0x000000
+          .idata___init.o      idata   0x000057       data   0x000000
+          .udata_printf.o      udata   0x000057       data   0x000000
+          .idata_printf.o      idata   0x000057       data   0x000000
+          .udata_stdout.o      udata   0x000057       data   0x000000
+        .udata_vfprintf.o      udata   0x000057       data   0x000000
+        .idata_vfprintf.o      idata   0x000057       data   0x000000
+            .udata_putc.o      udata   0x000057       data   0x000000
+            .idata_putc.o      idata   0x000057       data   0x000000
+      .udata__user_putc.o      udata   0x000057       data   0x000000
+      .idata__user_putc.o      idata   0x000057       data   0x000000
+         .idata_c018i_e.o      idata   0x000057       data   0x000000
+            .udata_main.o      udata   0x000057       data   0x000000
+            .idata_main.o      idata   0x000057       data   0x000000
+        .udata_messages.o      udata   0x000057       data   0x000000
+        .idata_messages.o      idata   0x000057       data   0x000000
+      .udata_interrupts.o      udata   0x000057       data   0x000000
+      .idata_interrupts.o      idata   0x000057       data   0x000000
+ .udata_user_interrupts.o      udata   0x000057       data   0x000000
+ .idata_user_interrupts.o      idata   0x000057       data   0x000000
+         .idata_my_uart.o      idata   0x000057       data   0x000000
+     .udata_uart_thread.o      udata   0x000057       data   0x000000
+     .idata_uart_thread.o      idata   0x000057       data   0x000000
+   .udata_timer1_thread.o      udata   0x000057       data   0x000000
+   .idata_timer1_thread.o      idata   0x000057       data   0x000000
+          .idata_t0open.o      idata   0x000057       data   0x000000
+          .udata_t0open.o      udata   0x000057       data   0x000000
+         .idata_adcopen.o      idata   0x000057       data   0x000000
+         .udata_adcopen.o      udata   0x000057       data   0x000000
+         .idata_adcconv.o      idata   0x000057       data   0x000000
+         .udata_adcconv.o      udata   0x000057       data   0x000000
+        .idata_adcclose.o      idata   0x000057       data   0x000000
+        .udata_adcclose.o      udata   0x000057       data   0x000000
+          .idata_newADC.o      idata   0x000057       data   0x000000
+          .udata_newADC.o      udata   0x000057       data   0x000000
+          .idata_my_i2c.o      idata   0x000057       data   0x000000
+   .idata_timer0_thread.o      idata   0x000057       data   0x000000
+   .udata_timer0_thread.o      udata   0x000057       data   0x000000
+                msgqueue3      udata   0x000080       data   0x00003e
+                msgqueue2      udata   0x0000be       data   0x00003e
+                MATH_DATA      udata   0x0000fc       data   0x000004
+                msgqueue1      udata   0x000100       data   0x00003e
                    .stack      udata   0x000300       data   0x000100
             SFR_UNBANKED0      udata   0x000f80       data   0x000080
 
@@ -182,12 +182,12 @@ Linker Map File - Created Fri Feb 24 16:46:28 2012
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x001c4a      
-                            0x001c4c    0x002380      
-                            0x002382    0x002385      
+                            0x000000    0x001fc6      
+                            0x001fc8    0x002266      
+                            0x002268    0x00226b      
                             0x007ff8    0x007ff8      
                             0x007ffa    0x007ffa      
-            9094 out of 32768 program addresses used, program memory utilization is 27%
+            8812 out of 32768 program addresses used, program memory utilization is 26%
 
 
 
@@ -196,52 +196,52 @@ Linker Map File - Created Fri Feb 24 16:46:28 2012
                 ---------  ---------  ---------  --------- ---------                
                  CloseADC   0x00000e    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcclose.c
                ConvertADC   0x000014    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcconv.c
-     FromMainHigh_recvmsg   0x00131a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-     FromMainHigh_sendmsg   0x0012ec    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-      FromMainLow_recvmsg   0x0012ba    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-      FromMainLow_sendmsg   0x00128c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-     InterruptHandlerHigh   0x001762    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-      InterruptHandlerLow   0x001826    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-      InterruptVectorHigh   0x000008    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-       InterruptVectorLow   0x000018    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-                  OpenADC   0x002026    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
-               OpenTimer0   0x0021e8    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
-               OpenTimer1   0x002132    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1open.c
-                OpenUSART   0x001e66    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
-                  RESTORE   0x0019fe    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                  RESTORE   0x00195a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-              RETQUOTIENT   0x0019ee    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-              RETQUOTIENT   0x001952    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                  ReadADC   0x002358    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
-               ReadTimer1   0x00224e    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1read.c
-                ReadUSART   0x002172    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uread.c
-                 SETUPSTK   0x0018f0    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                 SETUPSTK   0x001968    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-               SetChanADC   0x0022ae    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
-              SleepIfOkay   0x0013ce    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-       ToMainHigh_recvmsg   0x00125a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-       ToMainHigh_sendmsg   0x00122c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-        ToMainLow_recvmsg   0x0011fa    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-        ToMainLow_sendmsg   0x0011cc    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-              WriteTimer0   0x00227e    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
-              WriteTimer1   0x00221e    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
-                   _2jEnd   0x001db2    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-              _4jContinue   0x001d40    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                   _5jEnd   0x001d4a    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+     FromMainHigh_recvmsg   0x00131a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+     FromMainHigh_sendmsg   0x0012ec    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+      FromMainLow_recvmsg   0x0012ba    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+      FromMainLow_sendmsg   0x00128c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+     InterruptHandlerHigh   0x00150e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+      InterruptHandlerLow   0x0015d2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+      InterruptVectorHigh   0x000008    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+       InterruptVectorLow   0x000018    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+                  OpenADC   0x001f1e    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
+               OpenTimer0   0x00207e    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
+               OpenTimer1   0x001fc8    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1open.c
+                OpenUSART   0x001d5e    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
+                  RESTORE   0x0019be    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                  RESTORE   0x00191a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+              RETQUOTIENT   0x0019ae    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+              RETQUOTIENT   0x001912    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                  ReadADC   0x00223e    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
+               ReadTimer1   0x002118    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1read.c
+                ReadUSART   0x002008    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uread.c
+                 SETUPSTK   0x0018b0    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 SETUPSTK   0x001928    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+               SetChanADC   0x002178    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
+              SleepIfOkay   0x0013ce    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+       ToMainHigh_recvmsg   0x00125a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+       ToMainHigh_sendmsg   0x00122c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+        ToMainLow_recvmsg   0x0011fa    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+        ToMainLow_sendmsg   0x0011cc    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+              WriteTimer0   0x002148    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
+              WriteTimer1   0x0020e8    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
+                   _2jEnd   0x001caa    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+              _4jContinue   0x001c38    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                   _5jEnd   0x001c42    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00001   0x002356    program     static                          
-       ___return_lbl00002   0x001e64    program     static                          
+       ___return_lbl00001   0x00223c    program     static                          
+       ___return_lbl00002   0x001d5c    program     static                          
        ___return_lbl00012   0x00001c    program     static                          
        ___return_lbl00013   0x00000c    program     static                          
        ___return_lbl00019   0x001386    program     static                          
-               __config_0   0x007ff8    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __config_1   0x007ffa    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-                 __div16u   0x001908    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-                 __div32u   0x001980    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
-                   __init   0x002382    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
-                 __mod16u   0x00190e    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-                 __mod32u   0x001986    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
-                  __mul32   0x001a0c    program     extern C:\MCC18\v3_39\src\extended\math\mul32.asm
+               __config_0   0x007ff8    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+               __config_1   0x007ffa    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+                 __div16u   0x0018c8    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 __div32u   0x001940    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
+                   __init   0x002268    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
+                 __mod16u   0x0018ce    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 __mod32u   0x001946    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
+                  __mul32   0x0019cc    program     extern C:\MCC18\v3_39\src\extended\math\mul32.asm
                    __pa_0   0x0006ee    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
                    __pa_1   0x0006fc    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
                   __pa_10   0x00078a    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
@@ -266,92 +266,85 @@ Linker Map File - Created Fri Feb 24 16:46:28 2012
                    __pa_7   0x000760    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
                    __pa_8   0x00076c    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
                    __pa_9   0x00077e    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
-               __string_0   0x001c11    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __string_0   0x001c19    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\uart_thread.c
-               __string_0   0x001c38    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\timer0_thread.c
-               __string_0   0x001c29    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\timer1_thread.c
-               __string_1   0x001be3    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __string_2   0x001bc7    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __string_3   0x001bc3    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __string_4   0x001bc0    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __string_5   0x001bb0    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __string_6   0x001b84    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-            __zero_memory   0x002302    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                _do_cinit   0x001dc8    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-            _early16uexit   0x001912    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-            _early32uexit   0x00198a    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
+               __string_0   0x001fb0    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+               __string_0   0x001fb8    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
+               __string_1   0x001f82    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+            __zero_memory   0x0021cc    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                _do_cinit   0x001cc0    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+            _early16uexit   0x0018d2    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+            _early32uexit   0x00194a    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
                    _entry   0x000000    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                   _false   0x0019ce    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                 _startup   0x00233e    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-              _usart_putc   0x002322    program     extern C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
+                   _false   0x00198e    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                 _startup   0x002224    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+              _usart_putc   0x0021ec    program     extern C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
                _user_putc   0x000006    program     extern C:\MCC18\v3_39\src\extended\stdclib\_user_putc.c
-          adc_int_handler   0x001f1a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\user_interrupts.c
-    block_on_FromMainHigh   0x00142a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-    block_on_To_msgqueues   0x001446    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-                check_msg   0x001388    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-                compare_l   0x002318    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                copy_loop   0x001e3a    program     static                          
-            copy_one_byte   0x001e40    program     static                          
-                divmod16u   0x001914    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                divmod32u   0x00198c    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                     done   0x001e64    program     static                          
-             done_copying   0x001e4e    program     static                          
-        enable_interrupts   0x0016da    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-                  endloop   0x00193a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-         enter_sleep_mode   0x001382    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-             handle_start   0x00094a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-     i2c_configure_master   0x000842    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-      i2c_configure_slave   0x000f56    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-          i2c_int_handler   0x000a04    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-          i2c_master_recv   0x000866    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-          i2c_master_send   0x000854    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-              in_high_int   0x0016e4    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-               in_low_int   0x001724    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-                  in_main   0x00173c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-                  initADC   0x0021b0    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\newADC.c
-                 init_i2c   0x000ef2    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-               init_queue   0x000f80    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-              init_queues   0x00134c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-      init_timer1_lthread   0x001c4c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\timer1_thread.c
-           init_uart_recv   0x001b58    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_uart.c
-                  isdigit   0x0022de    program     extern C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
-                     jEnd   0x001db4    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-                     jEnd   0x001d7c    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
-                     jEnd   0x001d50    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                    jLoop   0x001d72    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
-                    jLoop   0x001d34    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                    jLoop   0x001d9c    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-                   jMatch   0x0022fe    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
-                 jNoMatch   0x002300    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
-                     loop   0x00191e    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                     loop   0x00199a    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                     loop   0x00234c    program     static                          
-                     loop   0x002332    program     static C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
-                   loop_h   0x002310    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                   loop_l   0x00231a    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-           low_int_active   0x001704    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-                     main   0x001486    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-                   memcpy   0x001d0c    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                   printf   0x001fc2    program     extern C:\MCC18\v3_39\src\extended\stdclib\printf.c
-                     putc   0x001f5c    program     extern C:\MCC18\v3_39\src\extended\stdclib\putc.c
-                  readADC   0x0021ce    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\newADC.c
-                 recv_msg   0x0010c6    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-                 s_digits   0x002370    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
+          adc_int_handler   0x001e12    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
+    block_on_FromMainHigh   0x00142a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+    block_on_To_msgqueues   0x001446    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+                check_msg   0x001388    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+                compare_l   0x0021e2    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                copy_loop   0x001d32    program     static                          
+            copy_one_byte   0x001d38    program     static                          
+                divmod16u   0x0018d4    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                divmod32u   0x00194c    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                     done   0x001d5c    program     static                          
+             done_copying   0x001d46    program     static                          
+        enable_interrupts   0x001486    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+                  endloop   0x0018fa    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+         enter_sleep_mode   0x001382    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+             handle_start   0x00094a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+     i2c_configure_master   0x000842    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+      i2c_configure_slave   0x000f56    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+          i2c_int_handler   0x000a04    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+          i2c_master_recv   0x000866    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+          i2c_master_send   0x000854    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+              in_high_int   0x001490    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+               in_low_int   0x0014d0    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+                  in_main   0x0014e8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+                  initADC   0x002046    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
+                 init_i2c   0x000ef2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+               init_queue   0x000f80    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+              init_queues   0x00134c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+      init_timer1_lthread   0x001b44    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
+           init_uart_recv   0x001b18    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
+                  isdigit   0x0021a8    program     extern C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
+                     jEnd   0x001cac    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+                     jEnd   0x001c74    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
+                     jEnd   0x001c48    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                    jLoop   0x001c6a    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
+                    jLoop   0x001c2c    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                    jLoop   0x001c94    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+                   jMatch   0x0021c8    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
+                 jNoMatch   0x0021ca    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
+                     loop   0x0018de    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                     loop   0x00195a    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                     loop   0x002232    program     static                          
+                     loop   0x0021fc    program     static C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
+                   loop_h   0x0021da    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                   loop_l   0x0021e4    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+           low_int_active   0x0014b0    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+                     main   0x00169c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+                   memcpy   0x001c04    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                   printf   0x001eba    program     extern C:\MCC18\v3_39\src\extended\stdclib\printf.c
+                     putc   0x001e54    program     extern C:\MCC18\v3_39\src\extended\stdclib\putc.c
+                  readADC   0x002064    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
+                 recv_msg   0x0010c6    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+                 s_digits   0x002256    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
             s_put_n_chars   0x00002c    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
-                 send_msg   0x000fde    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-    start_i2c_slave_reply   0x000878    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-                  stopADC   0x0021e4    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\newADC.c
-                   strlen   0x001d62    program     extern C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
-                strlenpgm   0x001d7e    program     extern C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-                     test   0x001de2    program     static                          
-       timer0_int_handler   0x001ee8    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\user_interrupts.c
-           timer0_lthread   0x0020e6    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\timer0_thread.c
-       timer1_int_handler   0x001f0c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\user_interrupts.c
-           timer1_lthread   0x001c6a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\timer1_thread.c
-             uart_lthread   0x00208a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\uart_thread.c
-    uart_recv_int_handler   0x001aae    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_uart.c
+                 send_msg   0x000fde    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+    start_i2c_slave_reply   0x000878    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+                  stopADC   0x00207a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
+                   strlen   0x001c5a    program     extern C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
+                strlenpgm   0x001c76    program     extern C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+                     test   0x001cda    program     static                          
+       timer0_int_handler   0x001de0    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
+           timer0_lthread   0x002208    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer0_thread.c
+       timer1_int_handler   0x001e04    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
+           timer1_lthread   0x001b62    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
+             uart_lthread   0x0020b4    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\uart_thread.c
+    uart_recv_int_handler   0x001a6e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
                  vfprintf   0x00005e    program     extern C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
-               zero_block   0x002310    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+               zero_block   0x0021da    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    ADCON0   0x000fc2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                ADCON0bits   0x000fc2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    ADCON1   0x000fc1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
@@ -408,8 +401,8 @@ Linker Map File - Created Fri Feb 24 16:46:28 2012
                      FSR2   0x000fd9       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     FSR2H   0x000fda       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     FSR2L   0x000fd9       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-          FromMainHigh_MQ   0x000000       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-           FromMainLow_MQ   0x000080       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
+          FromMainHigh_MQ   0x000000       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+           FromMainLow_MQ   0x000080       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
                     INDF0   0x000fef       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     INDF1   0x000fe7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     INDF2   0x000fdf       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
@@ -435,7 +428,7 @@ Linker Map File - Created Fri Feb 24 16:46:28 2012
                  LATDbits   0x000f8c       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      LATE   0x000f8d       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  LATEbits   0x000f8d       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
- MQ_Main_Willing_to_block   0x00003a       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
+ MQ_Main_Willing_to_block   0x00003e       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
                    OSCCON   0x000fd3       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                OSCCONbits   0x000fd3       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   OSCTUNE   0x000f9b       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
@@ -559,34 +552,34 @@ Linker Map File - Created Fri Feb 24 16:46:28 2012
                    TXSTA1   0x000fac       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                TXSTA1bits   0x000fac       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 TXSTAbits   0x000fac       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-            ToMainHigh_MQ   0x0000ba       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-             ToMainLow_MQ   0x000100       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-             USART_Status   0x00004a       data     extern C:\MCC18\v3_39\src\pmc_common\USART\udefs.c
+            ToMainHigh_MQ   0x0000be       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+             ToMainLow_MQ   0x000100       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+             USART_Status   0x000056       data     extern C:\MCC18\v3_39\src\pmc_common\USART\udefs.c
                    WDTCON   0x000fd1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                WDTCONbits   0x000fd1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      WREG   0x000fe8       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                __RETVAL0   0x000042       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
-                __RETVAL1   0x000043       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
-                __RETVAL2   0x000044       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
-                __RETVAL3   0x000045       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
-                  __tmp_0   0x00003b       data     static C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
-                  __tmp_0   0x00003b       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
-                  __tmp_0   0x00003b       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
-                  __tmp_0   0x00003b       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
-                  __tmp_0   0x00003b       data     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
-                  __tmp_0   0x00003b       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-                  __tmp_0   0x00003b       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\timer1_thread.c
-                  __tmp_0   0x00003b       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_uart.c
-                  __tmp_0   0x00003b       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-                  __tmp_0   0x00003b       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-                  __tmp_0   0x00003b       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-                curr_byte   0x0000f7       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-               curr_entry   0x0000f9       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                 data_ptr   0x0000fb       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                   ic_ptr   0x000046       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-                     prom   0x0000f4       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                   stdout   0x000048       data     extern C:\MCC18\v3_39\src\extended\stdclib\stdout.c
-                   uc_ptr   0x0000fe       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_uart.c
+                __RETVAL0   0x0000fc       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
+                __RETVAL1   0x0000fd       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
+                __RETVAL2   0x0000fe       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
+                __RETVAL3   0x0000ff       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
+                  __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
+                  __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
+                  __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
+                  __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
+                  __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
+                  __tmp_0   0x000049       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+                  __tmp_0   0x000049       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
+                  __tmp_0   0x000049       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
+                  __tmp_0   0x000049       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+                  __tmp_0   0x000049       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+                  __tmp_0   0x000049       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+                curr_byte   0x000042       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+               curr_entry   0x000044       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                 data_ptr   0x000046       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                   ic_ptr   0x000052       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+                     prom   0x00003f       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                   stdout   0x000054       data     extern C:\MCC18\v3_39\src\extended\stdclib\stdout.c
+                   uc_ptr   0x000050       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
 
 
 
@@ -596,11 +589,11 @@ Linker Map File - Created Fri Feb 24 16:46:28 2012
                    _entry   0x000000    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
        ___return_lbl00000   0x000004    program     static                          
                _user_putc   0x000006    program     extern C:\MCC18\v3_39\src\extended\stdclib\_user_putc.c
-      InterruptVectorHigh   0x000008    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
+      InterruptVectorHigh   0x000008    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
        ___return_lbl00013   0x00000c    program     static                          
                  CloseADC   0x00000e    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcclose.c
                ConvertADC   0x000014    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcconv.c
-       InterruptVectorLow   0x000018    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
+       InterruptVectorLow   0x000018    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
        ___return_lbl00012   0x00001c    program     static                          
             s_put_n_chars   0x00002c    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
                  vfprintf   0x00005e    program     extern C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
@@ -628,165 +621,158 @@ Linker Map File - Created Fri Feb 24 16:46:28 2012
                   __pa_21   0x000824    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
                   __pa_22   0x00082e    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
                   __pa_23   0x00083c    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
-     i2c_configure_master   0x000842    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-          i2c_master_send   0x000854    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-          i2c_master_recv   0x000866    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-    start_i2c_slave_reply   0x000878    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-             handle_start   0x00094a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-          i2c_int_handler   0x000a04    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-                 init_i2c   0x000ef2    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-      i2c_configure_slave   0x000f56    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-               init_queue   0x000f80    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-                 send_msg   0x000fde    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-                 recv_msg   0x0010c6    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-        ToMainLow_sendmsg   0x0011cc    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-        ToMainLow_recvmsg   0x0011fa    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-       ToMainHigh_sendmsg   0x00122c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-       ToMainHigh_recvmsg   0x00125a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-      FromMainLow_sendmsg   0x00128c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-      FromMainLow_recvmsg   0x0012ba    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-     FromMainHigh_sendmsg   0x0012ec    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-     FromMainHigh_recvmsg   0x00131a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-              init_queues   0x00134c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-         enter_sleep_mode   0x001382    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
+     i2c_configure_master   0x000842    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+          i2c_master_send   0x000854    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+          i2c_master_recv   0x000866    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+    start_i2c_slave_reply   0x000878    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+             handle_start   0x00094a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+          i2c_int_handler   0x000a04    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+                 init_i2c   0x000ef2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+      i2c_configure_slave   0x000f56    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+               init_queue   0x000f80    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+                 send_msg   0x000fde    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+                 recv_msg   0x0010c6    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+        ToMainLow_sendmsg   0x0011cc    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+        ToMainLow_recvmsg   0x0011fa    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+       ToMainHigh_sendmsg   0x00122c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+       ToMainHigh_recvmsg   0x00125a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+      FromMainLow_sendmsg   0x00128c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+      FromMainLow_recvmsg   0x0012ba    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+     FromMainHigh_sendmsg   0x0012ec    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+     FromMainHigh_recvmsg   0x00131a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+              init_queues   0x00134c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+         enter_sleep_mode   0x001382    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
        ___return_lbl00019   0x001386    program     static                          
-                check_msg   0x001388    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-              SleepIfOkay   0x0013ce    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-    block_on_FromMainHigh   0x00142a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-    block_on_To_msgqueues   0x001446    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-                     main   0x001486    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-        enable_interrupts   0x0016da    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-              in_high_int   0x0016e4    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-           low_int_active   0x001704    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-               in_low_int   0x001724    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-                  in_main   0x00173c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-     InterruptHandlerHigh   0x001762    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-      InterruptHandlerLow   0x001826    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-                 SETUPSTK   0x0018f0    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                 __div16u   0x001908    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-                 __mod16u   0x00190e    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-            _early16uexit   0x001912    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-                divmod16u   0x001914    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                     loop   0x00191e    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                  endloop   0x00193a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-              RETQUOTIENT   0x001952    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                  RESTORE   0x00195a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                 SETUPSTK   0x001968    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                 __div32u   0x001980    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
-                 __mod32u   0x001986    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
-            _early32uexit   0x00198a    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
-                divmod32u   0x00198c    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                     loop   0x00199a    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                   _false   0x0019ce    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-              RETQUOTIENT   0x0019ee    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                  RESTORE   0x0019fe    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                  __mul32   0x001a0c    program     extern C:\MCC18\v3_39\src\extended\math\mul32.asm
-    uart_recv_int_handler   0x001aae    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_uart.c
-           init_uart_recv   0x001b58    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_uart.c
-               __string_6   0x001b84    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __string_5   0x001bb0    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __string_4   0x001bc0    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __string_3   0x001bc3    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __string_2   0x001bc7    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __string_1   0x001be3    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __string_0   0x001c11    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __string_0   0x001c19    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\uart_thread.c
-               __string_0   0x001c29    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\timer1_thread.c
-               __string_0   0x001c38    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\timer0_thread.c
-      init_timer1_lthread   0x001c4c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\timer1_thread.c
-           timer1_lthread   0x001c6a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\timer1_thread.c
-                   memcpy   0x001d0c    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                    jLoop   0x001d34    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-              _4jContinue   0x001d40    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                   _5jEnd   0x001d4a    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                     jEnd   0x001d50    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                   strlen   0x001d62    program     extern C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
-                    jLoop   0x001d72    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
-                     jEnd   0x001d7c    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
-                strlenpgm   0x001d7e    program     extern C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-                    jLoop   0x001d9c    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-                   _2jEnd   0x001db2    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-                     jEnd   0x001db4    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-                _do_cinit   0x001dc8    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                     test   0x001de2    program     static                          
-                copy_loop   0x001e3a    program     static                          
-            copy_one_byte   0x001e40    program     static                          
-             done_copying   0x001e4e    program     static                          
-                     done   0x001e64    program     static                          
-       ___return_lbl00002   0x001e64    program     static                          
-                OpenUSART   0x001e66    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
-       timer0_int_handler   0x001ee8    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\user_interrupts.c
-       timer1_int_handler   0x001f0c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\user_interrupts.c
-          adc_int_handler   0x001f1a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\user_interrupts.c
-                     putc   0x001f5c    program     extern C:\MCC18\v3_39\src\extended\stdclib\putc.c
-                   printf   0x001fc2    program     extern C:\MCC18\v3_39\src\extended\stdclib\printf.c
-                  OpenADC   0x002026    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
-             uart_lthread   0x00208a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\uart_thread.c
-           timer0_lthread   0x0020e6    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\timer0_thread.c
-               OpenTimer1   0x002132    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1open.c
-                ReadUSART   0x002172    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uread.c
-                  initADC   0x0021b0    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\newADC.c
-                  readADC   0x0021ce    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\newADC.c
-                  stopADC   0x0021e4    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\newADC.c
-               OpenTimer0   0x0021e8    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
-              WriteTimer1   0x00221e    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
-               ReadTimer1   0x00224e    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1read.c
-              WriteTimer0   0x00227e    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
-               SetChanADC   0x0022ae    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
-                  isdigit   0x0022de    program     extern C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
-                   jMatch   0x0022fe    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
-                 jNoMatch   0x002300    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
-            __zero_memory   0x002302    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-               zero_block   0x002310    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                   loop_h   0x002310    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                compare_l   0x002318    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                   loop_l   0x00231a    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-              _usart_putc   0x002322    program     extern C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
-                     loop   0x002332    program     static C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
-                 _startup   0x00233e    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                     loop   0x00234c    program     static                          
-       ___return_lbl00001   0x002356    program     static                          
-                  ReadADC   0x002358    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
-                 s_digits   0x002370    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
-                   __init   0x002382    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
-               __config_0   0x007ff8    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-               __config_1   0x007ffa    program     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-          FromMainHigh_MQ   0x000000       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
- MQ_Main_Willing_to_block   0x00003a       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-                  __tmp_0   0x00003b       data     static C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
-                  __tmp_0   0x00003b       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\main.c
-                  __tmp_0   0x00003b       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-                  __tmp_0   0x00003b       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\interrupts.c
-                  __tmp_0   0x00003b       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_uart.c
-                  __tmp_0   0x00003b       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
-                  __tmp_0   0x00003b       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
-                  __tmp_0   0x00003b       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\timer1_thread.c
-                  __tmp_0   0x00003b       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-                  __tmp_0   0x00003b       data     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
-                  __tmp_0   0x00003b       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
-                __RETVAL0   0x000042       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
-                __RETVAL1   0x000043       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
-                __RETVAL2   0x000044       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
-                __RETVAL3   0x000045       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
-                   ic_ptr   0x000046       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_i2c.c
-                   stdout   0x000048       data     extern C:\MCC18\v3_39\src\extended\stdclib\stdout.c
-             USART_Status   0x00004a       data     extern C:\MCC18\v3_39\src\pmc_common\USART\udefs.c
-           FromMainLow_MQ   0x000080       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-            ToMainHigh_MQ   0x0000ba       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-                     prom   0x0000f4       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                curr_byte   0x0000f7       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-               curr_entry   0x0000f9       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                 data_ptr   0x0000fb       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                   uc_ptr   0x0000fe       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\my_uart.c
-             ToMainLow_MQ   0x000100       data     static D:\Virginia Tech\VT Spring 2012\Embedded\Electronics Information\Mark2 PIC45J10\PIC Example Code\PIC Example Code and MSG Queues\TestProject\Milestone1_2_18\Milestone1_2_12\Milestone1\NewTestProject\TestProject\messages.c
-                    PORTA   0x000f80       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                check_msg   0x001388    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+              SleepIfOkay   0x0013ce    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+    block_on_FromMainHigh   0x00142a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+    block_on_To_msgqueues   0x001446    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+        enable_interrupts   0x001486    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+              in_high_int   0x001490    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+           low_int_active   0x0014b0    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+               in_low_int   0x0014d0    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+                  in_main   0x0014e8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+     InterruptHandlerHigh   0x00150e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+      InterruptHandlerLow   0x0015d2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+                     main   0x00169c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+                 SETUPSTK   0x0018b0    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 __div16u   0x0018c8    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 __mod16u   0x0018ce    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+            _early16uexit   0x0018d2    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+                divmod16u   0x0018d4    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                     loop   0x0018de    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                  endloop   0x0018fa    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+              RETQUOTIENT   0x001912    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                  RESTORE   0x00191a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 SETUPSTK   0x001928    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                 __div32u   0x001940    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
+                 __mod32u   0x001946    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
+            _early32uexit   0x00194a    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
+                divmod32u   0x00194c    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                     loop   0x00195a    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                   _false   0x00198e    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+              RETQUOTIENT   0x0019ae    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                  RESTORE   0x0019be    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                  __mul32   0x0019cc    program     extern C:\MCC18\v3_39\src\extended\math\mul32.asm
+    uart_recv_int_handler   0x001a6e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
+           init_uart_recv   0x001b18    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
+      init_timer1_lthread   0x001b44    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
+           timer1_lthread   0x001b62    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
+                   memcpy   0x001c04    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                    jLoop   0x001c2c    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+              _4jContinue   0x001c38    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                   _5jEnd   0x001c42    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                     jEnd   0x001c48    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                   strlen   0x001c5a    program     extern C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
+                    jLoop   0x001c6a    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
+                     jEnd   0x001c74    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
+                strlenpgm   0x001c76    program     extern C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+                    jLoop   0x001c94    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+                   _2jEnd   0x001caa    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+                     jEnd   0x001cac    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+                _do_cinit   0x001cc0    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                     test   0x001cda    program     static                          
+                copy_loop   0x001d32    program     static                          
+            copy_one_byte   0x001d38    program     static                          
+             done_copying   0x001d46    program     static                          
+                     done   0x001d5c    program     static                          
+       ___return_lbl00002   0x001d5c    program     static                          
+                OpenUSART   0x001d5e    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
+       timer0_int_handler   0x001de0    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
+       timer1_int_handler   0x001e04    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
+          adc_int_handler   0x001e12    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
+                     putc   0x001e54    program     extern C:\MCC18\v3_39\src\extended\stdclib\putc.c
+                   printf   0x001eba    program     extern C:\MCC18\v3_39\src\extended\stdclib\printf.c
+                  OpenADC   0x001f1e    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
+               __string_1   0x001f82    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+               __string_0   0x001fb0    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+               __string_0   0x001fb8    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
+               OpenTimer1   0x001fc8    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1open.c
+                ReadUSART   0x002008    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uread.c
+                  initADC   0x002046    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
+                  readADC   0x002064    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
+                  stopADC   0x00207a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
+               OpenTimer0   0x00207e    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
+             uart_lthread   0x0020b4    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\uart_thread.c
+              WriteTimer1   0x0020e8    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
+               ReadTimer1   0x002118    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1read.c
+              WriteTimer0   0x002148    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
+               SetChanADC   0x002178    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
+                  isdigit   0x0021a8    program     extern C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
+                   jMatch   0x0021c8    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
+                 jNoMatch   0x0021ca    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
+            __zero_memory   0x0021cc    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                   loop_h   0x0021da    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+               zero_block   0x0021da    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                compare_l   0x0021e2    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                   loop_l   0x0021e4    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+              _usart_putc   0x0021ec    program     extern C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
+                     loop   0x0021fc    program     static C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
+           timer0_lthread   0x002208    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer0_thread.c
+                 _startup   0x002224    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                     loop   0x002232    program     static                          
+       ___return_lbl00001   0x00223c    program     static                          
+                  ReadADC   0x00223e    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
+                 s_digits   0x002256    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
+                   __init   0x002268    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
+               __config_0   0x007ff8    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+               __config_1   0x007ffa    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+          FromMainHigh_MQ   0x000000       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+ MQ_Main_Willing_to_block   0x00003e       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+                     prom   0x00003f       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                curr_byte   0x000042       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+               curr_entry   0x000044       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                 data_ptr   0x000046       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                  __tmp_0   0x000049       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+                  __tmp_0   0x000049       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
+                  __tmp_0   0x000049       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
+                  __tmp_0   0x000049       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+                  __tmp_0   0x000049       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+                  __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
+                  __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
+                  __tmp_0   0x000049       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+                  __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
+                  __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
+                  __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
+                   uc_ptr   0x000050       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
+                   ic_ptr   0x000052       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
+                   stdout   0x000054       data     extern C:\MCC18\v3_39\src\extended\stdclib\stdout.c
+             USART_Status   0x000056       data     extern C:\MCC18\v3_39\src\pmc_common\USART\udefs.c
+           FromMainLow_MQ   0x000080       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+            ToMainHigh_MQ   0x0000be       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
+                __RETVAL0   0x0000fc       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
+                __RETVAL1   0x0000fd       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
+                __RETVAL2   0x0000fe       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
+                __RETVAL3   0x0000ff       data     extern C:\MCC18\v3_39\src\extended\math\cmath18.asm
+             ToMainLow_MQ   0x000100       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
                 PORTAbits   0x000f80       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                    PORTB   0x000f81       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                    PORTA   0x000f80       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 PORTBbits   0x000f81       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                    PORTB   0x000f81       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     PORTC   0x000f82       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 PORTCbits   0x000f82       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                    PORTD   0x000f83       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 PORTDbits   0x000f83       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                    PORTD   0x000f83       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     PORTE   0x000f84       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 PORTEbits   0x000f84       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
              SSP2CON2bits   0x000f85       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
