@@ -57,6 +57,909 @@ typedef struct __cursorPos {
 } cursorPos;
 #endif
 
+unsigned char * ReturnInstrumentLabel(int index)
+{
+ 	if (index == 0)
+	{
+		return "<none selected>";
+	}
+	else if (index == 1)
+	{
+		return "Acoustic Grand Piano";
+	}
+	else if (index == 2)
+	{
+		return "Bright Acoustic Piano";
+	}
+	else if (index == 3)
+	{
+		return "Electric Grand Piano";
+	}
+	else if (index == 4)
+	{
+	  	return "Honky-tonk Piano";
+	}
+	else if (index == 5)
+	{
+	  	return "Electric Piano 1";
+	}
+	else if (index == 6)
+	{
+	  	return "Electric Piano 2";
+	}
+	else if (index == 7)
+	{
+	  	return "Harpsichord";
+	}
+	else if (index == 8)
+	{
+	  	return "Clavi";
+	}
+	else if (index == 9)
+	{
+	  	return "Celesta";
+	}
+	else if (index == 10)
+	{
+	  	return "Glockenspiel";
+	}
+	else if (index == 11)
+	{
+	  	return "Music Box";
+	}
+	else if (index == 12)
+	{
+	  	return "Vibraphone";
+	}
+	else if (index == 13)
+	{
+	  	return "Marimba";
+	}
+	else if (index == 14)
+	{
+	  	return "Xylophone";
+	}
+	else if (index == 15)
+	{
+	  	return "Tubular Bells";
+	}
+	else if (index == 16)
+	{
+	  	return "Dulcimer";
+	}
+	else if (index == 17)
+	{
+	  	return "Drawbar Organ";
+	}
+	else if (index == 18)
+	{
+	  	return "Percussive Organ";
+	}
+	else if (index == 19)
+	{
+	  	return "Rock Organ";
+	}
+	else if (index == 20)
+	{
+	  	return "Church Organ";
+	}
+	else if (index == 21)
+	{
+	  	return "Reed Organ";
+	}
+	else if (index == 22)
+	{
+	  	return "Accordion";
+	}
+	else if (index == 23)
+	{
+	  	return "Harmonica";
+	}
+	else if (index == 24)
+	{
+	  	return "Tango Accordian";
+	}
+	else if (index == 25)
+	{
+	  	return "Acoustic Guitar (nylon)";
+	}
+	else if (index == 26)
+	{
+	  	return "Acoustic Guitar (steel)";
+	}
+	else if (index == 27)
+	{
+	  	return "Electric Guitar (jazz)";
+	}
+	else if (index == 28)
+	{
+	  	return "Electric Guitar (clean)";
+	}
+	else if (index == 29)
+	{
+	  	return "Electric Guitar (muted)";
+	}
+	else if (index == 30)
+	{
+	  	return "Overdriven Guitar";
+	}
+	else if (index == 31)
+	{
+	  	return "Distortion Guitar";
+	}
+	else if (index == 32)
+	{
+	  	return "Guitar Harmonics";
+	}
+	else if (index == 33)
+	{
+	  	return "Acoustic Bass";
+	}
+	else if (index == 34)
+	{
+	  	return "Electric Bass (finger)";
+	}
+	else if (index == 35)
+	{
+	  	return "Electric Bass (pick)";
+	}
+	else if (index == 36)
+	{
+	  	return "Fretless Bass";
+	}
+	else if (index == 37)
+	{
+	  	return "Slap Bass 1";
+	}
+	else if (index == 38)
+	{
+	  	return "Slap Bass 2";
+	}
+	else if (index == 39)
+	{
+	  	return "Synth Bass 1";
+	}
+	else if (index == 40)
+	{
+	  	return "Synth Bass 2";
+	}
+	else if (index == 41)
+	{
+	  	return "Violin";
+	}
+	else if (index == 42)
+	{
+	  	return "Viola";
+	}
+	else if (index == 43)
+	{
+	  	return "Cello";
+	}
+	else if (index == 44)
+	{
+	  	return "Contrabass";
+	}
+	else if (index == 45)
+	{
+	  	return "Tremolo Strings";
+	}
+	else if (index == 46)
+	{
+	  	return "Pizzicato Strings";
+	}
+	else if (index == 47)
+	{
+	  	return "Orchestral Harp";
+	}
+	else if (index == 48)
+	{
+	  	return "Timpani";
+	}
+	else if (index == 49)
+	{
+	  	return "String Ensembles 1";
+	}
+	else if (index == 50)
+	{
+	  	return "String Ensembles 2";
+	}
+	else if (index == 51)
+	{
+	  	return "Synth Strings 1";
+	}
+	else if (index == 52)
+	{
+	  	return "Synth Strings 2";
+	}
+	else if (index == 53)
+	{
+	  	return "Choir Aahs";
+	}
+	else if (index == 54)
+	{
+	  	return "Choir Oohs";
+	}
+	else if (index == 55)
+	{
+	  	return "Synth Voice";
+	}
+	else if (index == 56)
+	{
+	  	return "Orchestra Hit";
+	}
+	else if (index == 57)
+	{
+	  	return "Trumpet";
+	}
+	else if (index == 58)
+	{
+	  	return "Trombone";
+	}
+	else if (index == 59)
+	{
+	  	return "Tuba";
+	}
+	else if (index == 60)
+	{
+	  	return "Muted Trumpet";
+	}
+	else if (index == 61)
+	{
+	  	return "French Horn";
+	}
+	else if (index == 62)
+	{
+	  	return "Brass Section";
+	}
+	else if (index == 63)
+	{
+	  	return "Synth Brass 1";
+	}
+	else if (index == 64)
+	{
+	  	return "Synth Brass 2";
+	}
+	else if (index == 65)
+	{
+	  	return "Soprano Sax";
+	}
+	else if (index == 66)
+	{
+	  	return "Alto Sax";
+	}
+	else if (index == 67)
+	{
+	  	return "Tenor Sax";
+	}
+	else if (index == 68)
+	{
+	  	return "Baritone Sax";
+	}
+	else if (index == 69)
+	{
+	  	return "Oboe";
+	}
+	else if (index == 70)
+	{
+	  	return "English Horn";
+	}
+	else if (index == 71)
+	{
+	  	return "Bassoon";
+	}
+	else if (index == 72)
+	{
+	  	return "Clarinet";
+	}
+	else if (index == 73)
+	{
+	  	return "Piccolo";
+	}
+	else if (index == 74)
+	{
+	  	return "Flute";
+	}
+	else if (index == 75)
+	{
+	  	return "Recorder";
+	}
+	else if (index == 76)
+	{
+	  	return "Pan Flute";
+	}
+	else if (index == 77)
+	{
+	  	return "Blown Bottle";
+	}
+	else if (index == 78)
+	{
+	  	return "Shakuhachi";
+	}
+	else if (index == 79)
+	{
+	  	return "Whistle";
+	}
+	else if (index == 80)
+	{
+	  	return "Ocarina";
+	}
+	else if (index == 81)
+	{
+	  	return "Square Lead (Lead 1)";
+	}
+	else if (index == 82)
+	{
+	  	return "Saw Lead (Lead 2)";
+	}
+	else if (index == 83)
+	{
+	  	return "Calliope Lead (Lead 3)";
+	}
+	else if (index == 84)
+	{
+	  	return "Chiff Lead (Lead 4)";
+	}
+	else if (index == 85)
+	{
+	  	return "Charang Lead (Lead 5)";
+	}
+	else if (index == 86)
+	{
+	  	return "Voice Lead (Lead 6)";
+	}
+	else if (index == 87)
+	{
+	  	return "Fifths Lead (Lead 7)";
+	}
+	else if (index == 88)
+	{
+	  	return "Bass + Lead (Lead 8)";
+	}
+	else if (index == 89)
+	{
+	  	return "New Age (Pad 1)";
+	}
+	else if (index == 90)
+	{
+	  	return "Warm Pad (Pad 2)";
+	}
+	else if (index == 91)
+	{
+	  	return "Polysynth (Pad 3)";
+	}
+	else if (index == 92)
+	{
+	  	return "Choir (Pad 4)";
+	}
+	else if (index == 93)
+	{
+	  	return "Bowed (Pad 5)";
+	}
+	else if (index == 94)
+	{
+	  	return "Metallic (Pad 6)";
+	}
+	else if (index == 95)
+	{
+	  	return "Halo (Pad 7)";
+	}
+	else if (index == 96)
+	{
+	  	return "Sweep (Pad 8)";
+	}
+	else if (index == 97)
+	{
+	  	return "Rain (FX 1)";
+	}
+	else if (index == 98)
+	{
+	  	return "Sound Track (FX 2)";
+	}
+	else if (index == 99)
+	{
+	  	return "Crystal (FX 3)";
+	}
+	else if (index == 100)
+	{
+	  	return "Atmosphere (FX 4)";
+	}
+	else if (index == 101)
+	{
+	  	return "Brightness (FX 5)";
+	}
+	else if (index == 102)
+	{
+	  	return "Goblins (FX 6)";
+	}
+	else if (index == 103)
+	{
+	  	return "Echoes (FX 7)";
+	}
+	else if (index == 104)
+	{
+	  	return "Sci-Fi (FX 8)";
+	}
+	else if (index == 105)
+	{
+	  	return "Sitar";
+	}
+	else if (index == 106)
+	{
+	  	return "Banjo";
+	}
+	else if (index == 107)
+	{
+	  	return "Shamisen";
+	}
+	else if (index == 108)
+	{
+	  	return "Koto";
+	}
+	else if (index == 109)
+	{
+	  	return "Kalimba";
+	}
+	else if (index == 110)
+	{
+	  	return "Bag Pipe";
+	}
+	else if (index == 111)
+	{
+	  	return "Fiddle";
+	}
+	else if (index == 112)
+	{
+	  	return "Shanai";
+	}
+	else if (index == 113)
+	{
+	  	return "Tinkle Bell";
+	}
+	else if (index == 114)
+	{
+	  	return "Agogo";
+	}
+	else if (index == 115)
+	{
+	  	return "Pitched Percussion";
+	}
+	else if (index == 116)
+	{
+	  	return "Woodblock";
+	}
+	else if (index == 117)
+	{
+	  	return "Taiko Drum";
+	}
+	else if (index == 118)
+	{
+	  	return "Melodic Tom";
+	}
+	else if (index == 119)
+	{
+	  	return "Synth Drum";
+	}
+	else if (index == 120)
+	{
+	  	return "Reverse Cymbal";
+	}
+	else if (index == 121)
+	{
+	  	return "Guitar Fret Noise";
+	}
+	else if (index == 122)
+	{
+	  	return "Breath Noise";
+	}
+	else if (index == 123)
+	{
+	  	return "Seashore";
+	}
+	else if (index == 124)
+	{
+	  	return "Bird Tweet";
+	}
+	else if (index == 125)
+	{
+	  	return "Telephone Ring";
+	}
+	else if (index == 126)
+	{
+	  	return "Helicopter";
+	}
+	else if (index == 127)
+	{
+	  	return "Applause";
+	}
+	else if (index == 128)
+	{
+	  	return "Gunshot";
+	}
+}
+void ClearOldSelection(int Cur_Panel)
+{
+	int a = 0;
+	if (Cur_Panel == 0)
+	{
+		GLCD_SetTextColor(Black);
+		for (a = 0; a < 180; a++)
+		{
+			GLCD_PutPixel(a, 0);
+			GLCD_PutPixel(a, 1);
+			GLCD_PutPixel(a, 78);
+			GLCD_PutPixel(a, 79);
+		}
+		for (a = 0; a < 80; a++)
+		{
+			GLCD_PutPixel(0, a);
+			GLCD_PutPixel(1, a);
+			GLCD_PutPixel(178, a);
+			GLCD_PutPixel(179, a);
+		}
+		GLCD_SetTextColor(Green);	
+	}
+	else if (Cur_Panel == 1)
+	{
+	 	GLCD_SetTextColor(Black);
+		for (a = 0; a < 180; a++)
+		{
+			GLCD_PutPixel(a, 82);
+			GLCD_PutPixel(a, 83);
+			GLCD_PutPixel(a, 158);
+			GLCD_PutPixel(a, 159);
+		}
+		for (a = 82; a < 160; a++)
+		{
+			GLCD_PutPixel(0, a);
+			GLCD_PutPixel(1, a);
+			GLCD_PutPixel(178, a);
+			GLCD_PutPixel(179, a);
+		}
+		GLCD_SetTextColor(Green);
+	}
+	else if (Cur_Panel == 2)
+	{
+		GLCD_SetTextColor(Black);
+		for (a = 0; a < 180; a++)
+		{
+			GLCD_PutPixel(a, 162);
+			GLCD_PutPixel(a, 163);
+			GLCD_PutPixel(a, 238);
+			GLCD_PutPixel(a, 239);
+		}
+		for (a = 162; a < 240; a++)
+		{
+			GLCD_PutPixel(0, a);
+			GLCD_PutPixel(1, a);
+			GLCD_PutPixel(178, a);
+			GLCD_PutPixel(179, a);
+		}
+		GLCD_SetTextColor(Green);
+	}
+	else if (Cur_Panel == 3)
+	{
+	 	GLCD_SetTextColor(Black);
+		for (a = 182; a < 320; a++)
+		{
+			GLCD_PutPixel(a, 0);
+			GLCD_PutPixel(a, 1);
+			GLCD_PutPixel(a, 58);
+			GLCD_PutPixel(a, 59);
+		}
+		for (a = 0; a < 60; a++)
+		{
+			GLCD_PutPixel(182, a);
+			GLCD_PutPixel(183, a);
+			GLCD_PutPixel(318, a);
+			GLCD_PutPixel(319, a);
+		}
+		GLCD_SetTextColor(Green);
+	}
+	else if (Cur_Panel == 4)
+	{
+	 	GLCD_SetTextColor(Black);
+		for (a = 182; a < 320; a++)
+		{
+			GLCD_PutPixel(a, 62);
+			GLCD_PutPixel(a, 63);
+			GLCD_PutPixel(a, 118);
+			GLCD_PutPixel(a, 119);
+		}
+		for (a = 62; a < 120; a++)
+		{
+			GLCD_PutPixel(182, a);
+			GLCD_PutPixel(183, a);
+			GLCD_PutPixel(318, a);
+			GLCD_PutPixel(319, a);
+		}
+		GLCD_SetTextColor(Green);
+	}
+	else if (Cur_Panel == 5)
+	{
+	  	GLCD_SetTextColor(Black);
+		for (a = 182; a < 320; a++)
+		{
+			GLCD_PutPixel(a, 122);
+			GLCD_PutPixel(a, 123);
+			GLCD_PutPixel(a, 178);
+			GLCD_PutPixel(a, 179);
+		}
+		for (a = 122; a < 180; a++)
+		{
+			GLCD_PutPixel(182, a);
+			GLCD_PutPixel(183, a);
+			GLCD_PutPixel(318, a);
+			GLCD_PutPixel(319, a);
+		}
+		GLCD_SetTextColor(Green);
+	}
+	else if (Cur_Panel == 6)
+	{
+	  	GLCD_SetTextColor(Black);
+		for (a = 182; a < 320; a++)
+		{
+			GLCD_PutPixel(a, 182);
+			GLCD_PutPixel(a, 183);
+			GLCD_PutPixel(a, 238);
+			GLCD_PutPixel(a, 239);
+		}
+		for (a = 182; a < 240; a++)
+		{
+			GLCD_PutPixel(182, a);
+			GLCD_PutPixel(183, a);
+			GLCD_PutPixel(318, a);
+			GLCD_PutPixel(319, a);
+		}
+		GLCD_SetTextColor(Green);
+	}
+}
+void MakeSelection(int Cur_Panel)
+{
+	int a = 0;
+ 	if (Cur_Panel == 0)
+	{
+		GLCD_SetTextColor(Yellow);
+		for (a = 0; a < 180; a++)
+		{
+			GLCD_PutPixel(a, 0);
+			GLCD_PutPixel(a, 1);
+			GLCD_PutPixel(a, 78);
+			GLCD_PutPixel(a, 79);
+		}
+		for (a = 0; a < 80; a++)
+		{
+			GLCD_PutPixel(0, a);
+			GLCD_PutPixel(1, a);
+			GLCD_PutPixel(178, a);
+			GLCD_PutPixel(179, a);
+		}
+		GLCD_SetTextColor(Green);	
+	}
+	else if (Cur_Panel == 1)
+	{
+	 	GLCD_SetTextColor(Yellow);
+		for (a = 0; a < 180; a++)
+		{
+			GLCD_PutPixel(a, 82);
+			GLCD_PutPixel(a, 83);
+			GLCD_PutPixel(a, 158);
+			GLCD_PutPixel(a, 159);
+		}
+		for (a = 82; a < 160; a++)
+		{
+			GLCD_PutPixel(0, a);
+			GLCD_PutPixel(1, a);
+			GLCD_PutPixel(178, a);
+			GLCD_PutPixel(179, a);
+		}
+		GLCD_SetTextColor(Green);
+	}
+	else if (Cur_Panel == 2)
+	{
+		GLCD_SetTextColor(Yellow);
+		for (a = 0; a < 180; a++)
+		{
+			GLCD_PutPixel(a, 162);
+			GLCD_PutPixel(a, 163);
+			GLCD_PutPixel(a, 238);
+			GLCD_PutPixel(a, 239);
+		}
+		for (a = 162; a < 240; a++)
+		{
+			GLCD_PutPixel(0, a);
+			GLCD_PutPixel(1, a);
+			GLCD_PutPixel(178, a);
+			GLCD_PutPixel(179, a);
+		}
+		GLCD_SetTextColor(Green);
+	}
+	else if (Cur_Panel == 3)
+	{
+	 	GLCD_SetTextColor(Yellow);
+		for (a = 182; a < 320; a++)
+		{
+			GLCD_PutPixel(a, 0);
+			GLCD_PutPixel(a, 1);
+			GLCD_PutPixel(a, 58);
+			GLCD_PutPixel(a, 59);
+		}
+		for (a = 0; a < 60; a++)
+		{
+			GLCD_PutPixel(182, a);
+			GLCD_PutPixel(183, a);
+			GLCD_PutPixel(318, a);
+			GLCD_PutPixel(319, a);
+		}
+		GLCD_SetTextColor(Green);
+	}
+	else if (Cur_Panel == 4)
+	{
+	 	GLCD_SetTextColor(Yellow);
+		for (a = 182; a < 320; a++)
+		{
+			GLCD_PutPixel(a, 62);
+			GLCD_PutPixel(a, 63);
+			GLCD_PutPixel(a, 118);
+			GLCD_PutPixel(a, 119);
+		}
+		for (a = 62; a < 120; a++)
+		{
+			GLCD_PutPixel(182, a);
+			GLCD_PutPixel(183, a);
+			GLCD_PutPixel(318, a);
+			GLCD_PutPixel(319, a);
+		}
+		GLCD_SetTextColor(Green);
+	}
+	else if (Cur_Panel == 5)
+	{
+	  	GLCD_SetTextColor(Yellow);
+		for (a = 182; a < 320; a++)
+		{
+			GLCD_PutPixel(a, 122);
+			GLCD_PutPixel(a, 123);
+			GLCD_PutPixel(a, 178);
+			GLCD_PutPixel(a, 179);
+		}
+		for (a = 122; a < 180; a++)
+		{
+			GLCD_PutPixel(182, a);
+			GLCD_PutPixel(183, a);
+			GLCD_PutPixel(318, a);
+			GLCD_PutPixel(319, a);
+		}
+		GLCD_SetTextColor(Green);
+	}
+	else if (Cur_Panel == 6)
+	{
+	  	GLCD_SetTextColor(Yellow);
+		for (a = 182; a < 320; a++)
+		{
+			GLCD_PutPixel(a, 182);
+			GLCD_PutPixel(a, 183);
+			GLCD_PutPixel(a, 238);
+			GLCD_PutPixel(a, 239);
+		}
+		for (a = 182; a < 240; a++)
+		{
+			GLCD_PutPixel(182, a);
+			GLCD_PutPixel(183, a);
+			GLCD_PutPixel(318, a);
+			GLCD_PutPixel(319, a);
+		}
+		GLCD_SetTextColor(Green);
+	}
+}
+void P1SelectionClear(Cur_Panel)
+{
+	GLCD_SetBackColor(Black);
+	GLCD_SetTextColor(Green);
+ 	GLCD_DisplayString(Cur_Panel+3,2,0,(unsigned char *)ReturnInstrumentLabel(Cur_Panel));
+}
+void P1MakeSelection(Cur_Panel)
+{
+  	GLCD_SetBackColor(Yellow);
+	GLCD_SetTextColor(Red);
+ 	GLCD_DisplayString(Cur_Panel+3,2,0,(unsigned char *)ReturnInstrumentLabel(Cur_Panel));
+	GLCD_SetBackColor(Black);
+	GLCD_SetTextColor(Green);
+}
+void InitPage(int pageNum, InstrumentStruct I1, InstrumentStruct I2, InstrumentStruct I3)
+{
+	if (pageNum == 0)
+	{
+	 	int a = 0;
+		for (a = 0; a < 180; a++)
+		{
+			GLCD_PutPixel(a, 80);
+			GLCD_PutPixel(a, 81);
+			GLCD_PutPixel(a, 160);
+			GLCD_PutPixel(a, 161);
+		}
+		for (a = 0; a < 240; a++)
+		{
+			GLCD_PutPixel(180, a);
+			GLCD_PutPixel(181, a);
+		}
+		for (a = 180; a < 320; a++)
+		{
+			GLCD_PutPixel(a, 60);
+			GLCD_PutPixel(a, 61);
+			GLCD_PutPixel(a, 120);
+			GLCD_PutPixel(a, 121);
+			GLCD_PutPixel(a, 180);
+			GLCD_PutPixel(a, 181);
+		}
+		GLCD_SetTextColor(Yellow);
+		for (a = 0; a < 180; a++)
+		{
+			GLCD_PutPixel(a, 0);
+			GLCD_PutPixel(a, 1);
+			GLCD_PutPixel(a, 78);
+			GLCD_PutPixel(a, 79);
+		}
+		for (a = 0; a < 80; a++)
+		{
+			GLCD_PutPixel(0, a);
+			GLCD_PutPixel(1, a);
+			GLCD_PutPixel(178, a);
+			GLCD_PutPixel(179, a);
+		}
+		GLCD_SetTextColor(Green);
+	
+		GLCD_DisplayString(1,1,0,(unsigned char *)"Player Instrument 1");
+		GLCD_DisplayString(11,1,0,(unsigned char *)"Player Instrument 2");
+		GLCD_DisplayString(21,1,0,(unsigned char *)"Player Instrument 3");
+	
+		GLCD_DisplayString(2,5,0,(unsigned char *)ReturnInstrumentLabel(I1.InstrumentID));
+		GLCD_DisplayString(12,5,0,(unsigned char *)ReturnInstrumentLabel(I2.InstrumentID));
+		GLCD_DisplayString(22,5,0,(unsigned char *)ReturnInstrumentLabel(I3.InstrumentID));
+	
+		GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume");
+		GLCD_DisplayString(2,42,0,(unsigned char *)"0");
+	
+		GLCD_DisplayString(9,31,0,(unsigned char *)"Repeating Instrument 1");
+		GLCD_DisplayString(10,32,0,(unsigned char *)"Inst: <none selected>");
+		GLCD_DisplayString(11,32,0,(unsigned char *)"Note: <none selected>");
+		GLCD_DisplayString(12,32,0,(unsigned char *)"BPM: 0");
+	
+		GLCD_DisplayString(16,31,0,(unsigned char *)"Repeating Instrument 1");
+		GLCD_DisplayString(17,32,0,(unsigned char *)"Inst: <none selected>");
+		GLCD_DisplayString(18,32,0,(unsigned char *)"Note: <none selected>");
+		GLCD_DisplayString(19,32,0,(unsigned char *)"BPM: 0");
+	
+		GLCD_DisplayString(24,31,0,(unsigned char *)"Repeating Instrument 1");
+		GLCD_DisplayString(25,32,0,(unsigned char *)"Inst: <none selected>");
+		GLCD_DisplayString(26,32,0,(unsigned char *)"Note: <none selected>");
+		GLCD_DisplayString(27,32,0,(unsigned char *)"BPM: 0");
+	}
+	else if (pageNum == 1)
+	{
+		int a = 0;
+	 	GLCD_DisplayString(0,0,1,(unsigned char *)"Select Instrument:");
+		GLCD_SetBackColor(Yellow);
+		GLCD_SetTextColor(Red);
+		GLCD_DisplayString(3,2,0,(unsigned char *)ReturnInstrumentLabel(0));
+		GLCD_SetBackColor(Black);
+		GLCD_SetTextColor(Green);
+		for (a = 1; a < 5; a++)
+		{
+			GLCD_DisplayString(a+3,2,0,(unsigned char *)ReturnInstrumentLabel(a));
+		}
+	}
+	else if (pageNum == 2)
+	{
+
+	}
+	else if (pageNum == 3)
+	{
+
+	}
+}
+
+
+
+
 // Convert from HSL colormap to RGB values in this weird colormap
 // H: 0 to 360
 // S: 0 to 1
@@ -147,6 +1050,19 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	vtLCDMsg msgBuffer;
 	#if JOYSTICK_MODE==0
 	int Cur_Panel = 0;
+	int Cur_Page = 0;
+	int Cur_Inst = 0;
+	InstrumentStruct Inst[3];
+	RepeatingInstrumentStruct RInst[3];
+	for (Cur_Page = 0; Cur_Page < 3; Cur_Page++)
+	{
+		Inst[Cur_Page].InstrumentID = 0;
+	}
+	for (Cur_Page = 0; Cur_Page < 3; Cur_Page++)
+	{
+		Inst[Cur_Page].InstrumentID = 0;
+	}
+	Cur_Page = 0;
 
 	#elif JOYSTICK_MODE==1 //shawn's initializations go here
 	cursorPos Cursor;
@@ -179,75 +1095,15 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	GLCD_SetTextColor(Green);
 	GLCD_SetBackColor(Black);
 
+#if LCD_EXAMPLE_OP==3
 	#if JOYSTICK_MODE==0
-	int a = 0;
-	for (a = 0; a < 180; a++)
-	{
-		GLCD_PutPixel(a, 80);
-		GLCD_PutPixel(a, 81);
-		GLCD_PutPixel(a, 160);
-		GLCD_PutPixel(a, 161);
-	}
-	for (a = 0; a < 240; a++)
-	{
-		GLCD_PutPixel(180, a);
-		GLCD_PutPixel(181, a);
-	}
-	for (a = 180; a < 320; a++)
-	{
-		GLCD_PutPixel(a, 60);
-		GLCD_PutPixel(a, 61);
-		GLCD_PutPixel(a, 120);
-		GLCD_PutPixel(a, 121);
-		GLCD_PutPixel(a, 180);
-		GLCD_PutPixel(a, 181);
-	}
-	GLCD_SetTextColor(Yellow);
-	for (a = 0; a < 180; a++)
-	{
-		GLCD_PutPixel(a, 0);
-		GLCD_PutPixel(a, 1);
-		GLCD_PutPixel(a, 78);
-		GLCD_PutPixel(a, 79);
-	}
-	for (a = 0; a < 80; a++)
-	{
-		GLCD_PutPixel(0, a);
-		GLCD_PutPixel(1, a);
-		GLCD_PutPixel(178, a);
-		GLCD_PutPixel(179, a);
-	}
-	GLCD_SetTextColor(Green);
-
-	GLCD_DisplayString(1,1,0,(unsigned char *)"Player Instrument 1");
-	GLCD_DisplayString(11,1,0,(unsigned char *)"Player Instrument 2");
-	GLCD_DisplayString(21,1,0,(unsigned char *)"Player Instrument 3");
-
-	GLCD_DisplayString(2,5,0,(unsigned char *)"<none selected>");
-	GLCD_DisplayString(12,5,0,(unsigned char *)"<none selected>");
-	GLCD_DisplayString(22,5,0,(unsigned char *)"<none selected>");
-
-	GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume");
-	GLCD_DisplayString(2,42,0,(unsigned char *)"0");
-
-	GLCD_DisplayString(9,31,0,(unsigned char *)"Repeating Instrument 1");
-	GLCD_DisplayString(10,32,0,(unsigned char *)"Inst: <none selected>");
-	GLCD_DisplayString(11,32,0,(unsigned char *)"Note: <none selected>");
-	GLCD_DisplayString(12,32,0,(unsigned char *)"BPM: 0");
-
-	GLCD_DisplayString(16,31,0,(unsigned char *)"Repeating Instrument 1");
-	GLCD_DisplayString(17,32,0,(unsigned char *)"Inst: <none selected>");
-	GLCD_DisplayString(18,32,0,(unsigned char *)"Note: <none selected>");
-	GLCD_DisplayString(19,32,0,(unsigned char *)"BPM: 0");
-
-	GLCD_DisplayString(24,31,0,(unsigned char *)"Repeating Instrument 1");
-	GLCD_DisplayString(25,32,0,(unsigned char *)"Inst: <none selected>");
-	GLCD_DisplayString(26,32,0,(unsigned char *)"Note: <none selected>");
-	GLCD_DisplayString(27,32,0,(unsigned char *)"BPM: 0");
+	InitPage(0, Inst[0], Inst[1], Inst[2]);
+	
 
 	//GLCD_DisplayString(8,30,0,(unsigned char *)"Repeating Instrument 1");
 	#elif JOYSTICK_MODE==1//shawn's LCD screen initializations
 	#endif
+#endif
 	int i = 0;
 
 	
@@ -339,310 +1195,134 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		
    		
 		//clear cur selection
-		if (msgBuffer.buf[0] == 0 || msgBuffer.buf[0] == 1 || msgBuffer.buf[0] == 2 || msgBuffer.buf[0] == 3 || msgBuffer.buf[0] == 4 )
+		
+		
+		if (Cur_Page == 0)
 		{
-			if (Cur_Panel == 0)
+			if (msgBuffer.buf[0] == 0) //select bit hit
 			{
-				GLCD_SetTextColor(Black);
-				for (a = 0; a < 180; a++)
+				if (Cur_Panel < 3)
 				{
-					GLCD_PutPixel(a, 0);
-					GLCD_PutPixel(a, 1);
-					GLCD_PutPixel(a, 78);
-					GLCD_PutPixel(a, 79);
+					GLCD_Clear(Black);
+					Cur_Page = 1;
+					Cur_Inst = Cur_Panel;
+					InitPage(1, Inst[0], Inst[1], Inst[2]);
+					Cur_Panel = 0;
 				}
-				for (a = 0; a < 80; a++)
+				else if (Cur_Panel == 3)
 				{
-					GLCD_PutPixel(0, a);
-					GLCD_PutPixel(1, a);
-					GLCD_PutPixel(178, a);
-					GLCD_PutPixel(179, a);
+					//Cur_Page = 2;
 				}
-				GLCD_SetTextColor(Green);	
+				else if (Cur_Panel > 3)
+				{
+					//Cur_Page = 3;
+				}
 			}
-			else if (Cur_Panel == 1)
+		 	if (msgBuffer.buf[0] == 1) //move crosshair up
 			{
-			 	GLCD_SetTextColor(Black);
-				for (a = 0; a < 180; a++)
+				if (Cur_Panel > 0)
 				{
-					GLCD_PutPixel(a, 82);
-					GLCD_PutPixel(a, 83);
-					GLCD_PutPixel(a, 158);
-					GLCD_PutPixel(a, 159);
+					ClearOldSelection(Cur_Panel);
+				 	Cur_Panel--;
+					MakeSelection(Cur_Panel);
 				}
-				for (a = 82; a < 160; a++)
-				{
-					GLCD_PutPixel(0, a);
-					GLCD_PutPixel(1, a);
-					GLCD_PutPixel(178, a);
-					GLCD_PutPixel(179, a);
-				}
-				GLCD_SetTextColor(Green);
 			}
-			else if (Cur_Panel == 2)
+			if (msgBuffer.buf[0] == 2) //move crosshair right
 			{
-				GLCD_SetTextColor(Black);
-				for (a = 0; a < 180; a++)
+				if (Cur_Panel < 3)
 				{
-					GLCD_PutPixel(a, 162);
-					GLCD_PutPixel(a, 163);
-					GLCD_PutPixel(a, 238);
-					GLCD_PutPixel(a, 239);
+					ClearOldSelection(Cur_Panel);
+					Cur_Panel = Cur_Panel + 4;
+					MakeSelection(Cur_Panel);
 				}
-				for (a = 162; a < 240; a++)
+			} 
+			if (msgBuffer.buf[0] == 3) //move crosshair down
+			{
+				if (Cur_Panel < 6)
 				{
-					GLCD_PutPixel(0, a);
-					GLCD_PutPixel(1, a);
-					GLCD_PutPixel(178, a);
-					GLCD_PutPixel(179, a);
+					ClearOldSelection(Cur_Panel);
+				 	Cur_Panel++;
+					MakeSelection(Cur_Panel);
 				}
-				GLCD_SetTextColor(Green);
 			}
-			else if (Cur_Panel == 3)
+			if (msgBuffer.buf[0] == 4) //move crosshair left
 			{
-			 	GLCD_SetTextColor(Black);
-				for (a = 182; a < 320; a++)
+				if (Cur_Panel > 3)
 				{
-					GLCD_PutPixel(a, 0);
-					GLCD_PutPixel(a, 1);
-					GLCD_PutPixel(a, 58);
-					GLCD_PutPixel(a, 59);
+					ClearOldSelection(Cur_Panel);
+					Cur_Panel = Cur_Panel - 4;
+					MakeSelection(Cur_Panel);
 				}
-				for (a = 0; a < 60; a++)
+				else if (Cur_Panel == 3)
 				{
-					GLCD_PutPixel(182, a);
-					GLCD_PutPixel(183, a);
-					GLCD_PutPixel(318, a);
-					GLCD_PutPixel(319, a);
+					ClearOldSelection(Cur_Panel);
+					Cur_Panel = 0;
+					MakeSelection(Cur_Panel);
 				}
-				GLCD_SetTextColor(Green);
-			}
-			else if (Cur_Panel == 4)
-			{
-			 	GLCD_SetTextColor(Black);
-				for (a = 182; a < 320; a++)
-				{
-					GLCD_PutPixel(a, 62);
-					GLCD_PutPixel(a, 63);
-					GLCD_PutPixel(a, 118);
-					GLCD_PutPixel(a, 119);
-				}
-				for (a = 62; a < 120; a++)
-				{
-					GLCD_PutPixel(182, a);
-					GLCD_PutPixel(183, a);
-					GLCD_PutPixel(318, a);
-					GLCD_PutPixel(319, a);
-				}
-				GLCD_SetTextColor(Green);
-			}
-			else if (Cur_Panel == 5)
-			{
-			  	GLCD_SetTextColor(Black);
-				for (a = 182; a < 320; a++)
-				{
-					GLCD_PutPixel(a, 122);
-					GLCD_PutPixel(a, 123);
-					GLCD_PutPixel(a, 178);
-					GLCD_PutPixel(a, 179);
-				}
-				for (a = 122; a < 180; a++)
-				{
-					GLCD_PutPixel(182, a);
-					GLCD_PutPixel(183, a);
-					GLCD_PutPixel(318, a);
-					GLCD_PutPixel(319, a);
-				}
-				GLCD_SetTextColor(Green);
-			}
-			else if (Cur_Panel == 6)
-			{
-			  	GLCD_SetTextColor(Black);
-				for (a = 182; a < 320; a++)
-				{
-					GLCD_PutPixel(a, 182);
-					GLCD_PutPixel(a, 183);
-					GLCD_PutPixel(a, 238);
-					GLCD_PutPixel(a, 239);
-				}
-				for (a = 182; a < 240; a++)
-				{
-					GLCD_PutPixel(182, a);
-					GLCD_PutPixel(183, a);
-					GLCD_PutPixel(318, a);
-					GLCD_PutPixel(319, a);
-				}
-				GLCD_SetTextColor(Green);
 			}
 		}
-
-
-
-		if (msgBuffer.buf[0] == 0) //select bit hit
+		else if (Cur_Page == 1)
+		{
+			if (msgBuffer.buf[0] == 0) //select bit hit
+			{
+				GLCD_Clear(Black);
+				Cur_Page = 0;
+				Inst[Cur_Inst].InstrumentID = Cur_Panel;
+				InitPage(0, Inst[0], Inst[1], Inst[2]);
+				Cur_Panel = 0;
+			}
+		 	if (msgBuffer.buf[0] == 1) //move crosshair up
+			{
+				if (Cur_Panel > 0)
+				{
+					P1SelectionClear(Cur_Panel);
+				 	Cur_Panel--;
+					P1MakeSelection(Cur_Panel);
+				}
+			}
+			if (msgBuffer.buf[0] == 2) //move crosshair right
+			{
+				/*if (Cur_Panel < 3)
+				{
+					ClearOldSelection(Cur_Panel);
+					Cur_Panel = Cur_Panel + 4;
+					MakeSelection(Cur_Panel);
+				}*/
+			} 
+			if (msgBuffer.buf[0] == 3) //move crosshair down
+			{
+				if (Cur_Panel < 5)
+				{
+					P1SelectionClear(Cur_Panel);
+				 	Cur_Panel++;
+					P1MakeSelection(Cur_Panel);
+				}
+			}
+			if (msgBuffer.buf[0] == 4) //move crosshair left
+			{
+				/*if (Cur_Panel > 3)
+				{
+					ClearOldSelection(Cur_Panel);
+					Cur_Panel = Cur_Panel - 4;
+					MakeSelection(Cur_Panel);
+				}
+				else if (Cur_Panel == 3)
+				{
+					ClearOldSelection(Cur_Panel);
+					Cur_Panel = 0;
+					MakeSelection(Cur_Panel);
+				}*/
+			}
+		}
+		else if (Cur_Page == 2)
 		{
 
 		}
-		if (msgBuffer.buf[0] == 1) //move crosshair up
+		else if (Cur_Page == 3)
 		{
-			if (Cur_Panel > 0)
-			{
-			 	Cur_Panel--;
-			}
-		}
-		if (msgBuffer.buf[0] == 2) //move crosshair right
-		{
-			if (Cur_Panel < 3)
-				Cur_Panel = Cur_Panel + 4;
-		} 
-		if (msgBuffer.buf[0] == 3) //move crosshair down
-		{
-			if (Cur_Panel < 7)
-			{
-			 	Cur_Panel++;
-			}
-		}
-		if (msgBuffer.buf[0] == 4) //move crosshair left
-		{
-			if (Cur_Panel > 3)
-				Cur_Panel = Cur_Panel - 4;
+
 		}
 		
-		if (msgBuffer.buf[0] == 0 || msgBuffer.buf[0] == 1 || msgBuffer.buf[0] == 2 || msgBuffer.buf[0] == 3 || msgBuffer.buf[0] == 4 )
-		{
-			if (Cur_Panel == 0)
-			{
-				GLCD_SetTextColor(Yellow);
-				for (a = 0; a < 180; a++)
-				{
-					GLCD_PutPixel(a, 0);
-					GLCD_PutPixel(a, 1);
-					GLCD_PutPixel(a, 78);
-					GLCD_PutPixel(a, 79);
-				}
-				for (a = 0; a < 80; a++)
-				{
-					GLCD_PutPixel(0, a);
-					GLCD_PutPixel(1, a);
-					GLCD_PutPixel(178, a);
-					GLCD_PutPixel(179, a);
-				}
-				GLCD_SetTextColor(Green);	
-			}
-			else if (Cur_Panel == 1)
-			{
-			 	GLCD_SetTextColor(Yellow);
-				for (a = 0; a < 180; a++)
-				{
-					GLCD_PutPixel(a, 82);
-					GLCD_PutPixel(a, 83);
-					GLCD_PutPixel(a, 158);
-					GLCD_PutPixel(a, 159);
-				}
-				for (a = 82; a < 160; a++)
-				{
-					GLCD_PutPixel(0, a);
-					GLCD_PutPixel(1, a);
-					GLCD_PutPixel(178, a);
-					GLCD_PutPixel(179, a);
-				}
-				GLCD_SetTextColor(Green);
-			}
-			else if (Cur_Panel == 2)
-			{
-				GLCD_SetTextColor(Yellow);
-				for (a = 0; a < 180; a++)
-				{
-					GLCD_PutPixel(a, 162);
-					GLCD_PutPixel(a, 163);
-					GLCD_PutPixel(a, 238);
-					GLCD_PutPixel(a, 239);
-				}
-				for (a = 162; a < 240; a++)
-				{
-					GLCD_PutPixel(0, a);
-					GLCD_PutPixel(1, a);
-					GLCD_PutPixel(178, a);
-					GLCD_PutPixel(179, a);
-				}
-				GLCD_SetTextColor(Green);
-			}
-			else if (Cur_Panel == 3)
-			{
-			 	GLCD_SetTextColor(Yellow);
-				for (a = 182; a < 320; a++)
-				{
-					GLCD_PutPixel(a, 0);
-					GLCD_PutPixel(a, 1);
-					GLCD_PutPixel(a, 58);
-					GLCD_PutPixel(a, 59);
-				}
-				for (a = 0; a < 60; a++)
-				{
-					GLCD_PutPixel(182, a);
-					GLCD_PutPixel(183, a);
-					GLCD_PutPixel(318, a);
-					GLCD_PutPixel(319, a);
-				}
-				GLCD_SetTextColor(Green);
-			}
-			else if (Cur_Panel == 4)
-			{
-			 	GLCD_SetTextColor(Yellow);
-				for (a = 182; a < 320; a++)
-				{
-					GLCD_PutPixel(a, 62);
-					GLCD_PutPixel(a, 63);
-					GLCD_PutPixel(a, 118);
-					GLCD_PutPixel(a, 119);
-				}
-				for (a = 62; a < 120; a++)
-				{
-					GLCD_PutPixel(182, a);
-					GLCD_PutPixel(183, a);
-					GLCD_PutPixel(318, a);
-					GLCD_PutPixel(319, a);
-				}
-				GLCD_SetTextColor(Green);
-			}
-			else if (Cur_Panel == 5)
-			{
-			  	GLCD_SetTextColor(Yellow);
-				for (a = 182; a < 320; a++)
-				{
-					GLCD_PutPixel(a, 122);
-					GLCD_PutPixel(a, 123);
-					GLCD_PutPixel(a, 178);
-					GLCD_PutPixel(a, 179);
-				}
-				for (a = 122; a < 180; a++)
-				{
-					GLCD_PutPixel(182, a);
-					GLCD_PutPixel(183, a);
-					GLCD_PutPixel(318, a);
-					GLCD_PutPixel(319, a);
-				}
-				GLCD_SetTextColor(Green);
-			}
-			else if (Cur_Panel == 6)
-			{
-			  	GLCD_SetTextColor(Yellow);
-				for (a = 182; a < 320; a++)
-				{
-					GLCD_PutPixel(a, 182);
-					GLCD_PutPixel(a, 183);
-					GLCD_PutPixel(a, 238);
-					GLCD_PutPixel(a, 239);
-				}
-				for (a = 182; a < 240; a++)
-				{
-					GLCD_PutPixel(182, a);
-					GLCD_PutPixel(183, a);
-					GLCD_PutPixel(318, a);
-					GLCD_PutPixel(319, a);
-				}
-				GLCD_SetTextColor(Green);
-			}
-		}
 
    #elif JOYSTICK_MODE==1 //shawn's code goes here
 		

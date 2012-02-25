@@ -26,7 +26,7 @@
 #endif
 
 // Set the task up to run every second
-#define i2cREAD_RATE_BASE	( ( portTickType ) 1 )
+#define i2cREAD_RATE_BASE	( ( portTickType ) 1000 )
 
 /* The i2cTemp task. */
 static portTASK_FUNCTION_PROTO( I2CTask, pvParameters );
@@ -35,6 +35,10 @@ static portTASK_FUNCTION_PROTO( I2CTask, pvParameters );
 
 void vStartI2CTask( unsigned portBASE_TYPE uxPriority, i2cTempStruct *params)
 {
+	if ((params->msgQ = xQueueCreate(I2CMsgQLen,sizeof(I2CMsgQueueMsg))) == NULL) {
+		VT_HANDLE_FATAL_ERROR(0);
+	}	
+
 	/* Start the task */
 	portBASE_TYPE retval;
 
@@ -48,11 +52,13 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 {
 	portTickType xUpdateRate, xLastUpdateTime;
 	const uint8_t ReturnADCValue = 0xAA;
-	const uint8_t SendValue[4] = {0xAF, 0xFF, 0x00, 0x0A};
+	
+	uint8_t SendCount = 1;
+	uint8_t SendValue[5] = {0xAF, 0xFF, 0x00, 0x0A, 0x00};
 	const uint8_t Gimmesomething = 0xBB;
 	
 	uint8_t temp1, rxLen, status;
-	uint8_t ADCValueReceived[8];
+	uint8_t ADCValueReceived[12];
 	uint8_t SecondaryReceived[2];
 
 
@@ -78,64 +84,27 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 	{
 		//delay for some amount of time before looping again
 		vTaskDelayUntil( &xLastUpdateTime, xUpdateRate );
-
-		//int i = 0;
-
-		//toggle the 2.4 LED
 		
 		//vTaskDelay(10);
-		//Ask for message from I2C
-		if (vtI2CEnQ(devPtr,0x01,0x4F,1,&ReturnADCValue,8) != pdTRUE) {
+		//Send a request to the PIC for ADC values
+		if (vtI2CEnQ(devPtr,0x01,0x4F,1,&ReturnADCValue,12) != pdTRUE) {
 			VT_HANDLE_FATAL_ERROR(0);
 		}
 
 		//wait for message from I2C
-		if (vtI2CDeQ(devPtr,8,&ADCValueReceived[0],&rxLen,&status) != pdTRUE) {
+		//bit0 is first portion of ADC value
+		//bit1 is last portion of ADC value
+		//bit2 is timer value
+		//bit3 thru bit7 are garbage (all 0's)
+		//bit8 is the size of the Midi buffer on the PIc
+		//bit9 is the count
+		//bit10 is the ADC channel number
+		//bit11 is the OPCode we sent (0xAA)
+		
+		if (vtI2CDeQ(devPtr,12,&ADCValueReceived[0],&rxLen,&status) != pdTRUE) {
 			//VT_HANDLE_FATAL_ERROR(0);
 		} 
-
-	   
-	   	vTaskDelayUntil( &xLastUpdateTime, xUpdateRate ); 
-		if (vtI2CEnQ(devPtr,0x00,0x4F,4,SendValue,0) != pdTRUE) {
-			VT_HANDLE_FATAL_ERROR(0);
-		}
-
-		//wait for message from I2C
-		if (vtI2CDeQ(devPtr,0,&SecondaryReceived[0],&rxLen,&status) != pdTRUE) {
-			//VT_HANDLE_FATAL_ERROR(0);
-		}  
-
-		//uint8_t testint = 0;
-		
-		//load the read message from I2C into the lcd Buffer
-		//lcdBuffer.buf[0] = ADCValueReceived[0];
-		//lcdBuffer.buf[1] = ADCValueReceived[1];
-		  
-		/*if (ADCValueReceived[6] == 0x01)  //channel 1 2.5 LED
-		{
-			uint8_t ulCurrentState = GPIO2->FIOPIN;
-			if( ulCurrentState & 0x20 )
-			{
-				GPIO2->FIOCLR = 0x20;
-			}
-			else
-			{
-				GPIO2->FIOSET = 0x20;
-			}
-		}*/
-		//if (ADCValueReceived[6] == 0x00)  //channel 0 bottom LED
-		//{
-			uint8_t ulCurrentState = GPIO2->FIOPIN;
-			if( ulCurrentState & 0x40 )
-			{
-				GPIO2->FIOCLR = 0x40;
-			}
-			else
-			{
-				GPIO2->FIOSET = 0x40;
-			}
-		//}
-		/*if (ADCValueReceived[3] == 0xFF)  //Junk 2.4 LED
+	 	if (ADCValueReceived[11] != 170) //check the message returned
 		{
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
 			if( ulCurrentState & 0x10 )
@@ -147,10 +116,44 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 				GPIO2->FIOSET = 0x10;
 			}
 		}
-		//if (lcdData != NULL && ADCValueReceived[0] == 0xFF) 
-		//{
+
+		
+		
+		
+		//prepare to send Midi message to I2Cto the PIC
+		if (SendCount > 100)
+			SendCount = 1;
+		SendValue[4] = SendCount;
+	   	//vTaskDelayUntil( &xLastUpdateTime, xUpdateRate ); 
+		if (vtI2CEnQ(devPtr,0x00,0x4F,5,SendValue,0) != pdTRUE) {
+			VT_HANDLE_FATAL_ERROR(0);
+		}
+
+		//wait for message from I2C
+		if (vtI2CDeQ(devPtr,0,&SecondaryReceived[0],&rxLen,&status) != pdTRUE) {
+			//VT_HANDLE_FATAL_ERROR(0);
+		}
+		SendCount++;  
+
+		
+		
+		
+		
+		uint8_t ulCurrentState = GPIO2->FIOPIN;
+		if( ulCurrentState & 0x40 )
+		{
+			GPIO2->FIOCLR = 0x40;
+		}
+		else
+		{
+			GPIO2->FIOSET = 0x40;
+		}
+		
+
+		/*if (lcdData != NULL && ADCValueReceived[0] == 0xFF) 
+		{
 			// Send a message to the LCD task for it to print (and the LCD task must be configured to receive this message)
-			//lcdBuffer.length = strlen((char*)(lcdBuffer.buf))+1;
+			lcdBuffer.length = strlen((char*)(lcdBuffer.buf))+1;
 			i++;
 			if (i>20)
 			{
@@ -165,10 +168,10 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 				}
 				i = 0;
 			}
-			/*if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
+			if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
-			} */
-		//}*/
+			} 
+		}*/
 	}
 }
 

@@ -76,6 +76,7 @@ static char *pcStatusMessage = mainPASS_STATUS_MESSAGE;//Holds the status messag
 static vtI2CStruct vtI2C0;
 static i2cTempStruct I2Cparams;
 static vtLCDStruct vtLCDdata;
+static I2CMsgQueue myI2Cdata;
 
 int main( void )
 { 
@@ -109,6 +110,7 @@ int main( void )
 	}
 	I2Cparams.dev = &vtI2C0;
 	I2Cparams.lcdData = &vtLCDdata;
+	I2Cparams.msgQ = &myI2Cdata;
 	vStartI2CTask(mainI2CTEMP_TASK_PRIORITY, &I2Cparams);
 	vStartJoystickTask(tskIDLE_PRIORITY, &vtLCDdata);
 
