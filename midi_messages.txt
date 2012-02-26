@@ -1,0 +1,10 @@
+MIDI Messages over UART
+
+Play Note (9 means play note 0 means channel, 50 means note, 64 means velocity)
+90 50 64 
+
+All Notes Stop
+B0 7B 00
+
+Set Channel 0 to instrument 4F
+C0 00 4F 
