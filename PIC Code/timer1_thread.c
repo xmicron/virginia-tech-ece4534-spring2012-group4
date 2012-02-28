@@ -21,7 +21,7 @@ int timer1_lthread(timer1_thread_struct *tptr,int msgtype,int length,unsigned ch
 	if ((tptr->msgcount % 10) == 9) {
 		retval = FromMainHigh_sendmsg(sizeof(tptr->msgcount),MSGT_MAIN1,(void *)&(tptr->msgcount));
 		if (retval < 0) {
-			printf("SendError %d\r\n",retval);
+			//printf("SendError %d\r\n",retval);
 		}
 	}
 }

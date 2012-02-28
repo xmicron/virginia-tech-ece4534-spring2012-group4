@@ -1,5 +1,5 @@
 MPLINK 4.40, Linker
-Linker Map File - Created Sun Feb 26 14:15:34 2012
+Linker Map File - Created Mon Feb 27 20:54:05 2012
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -14,98 +14,98 @@ Linker Map File - Created Sun Feb 26 14:15:34 2012
          .code_vfprintf.o       code   0x00002c    program   0x000816
            .code_my_i2c.o       code   0x000842    program   0x00073c
          .code_messages.o       code   0x000f7e    program   0x000506
-             .code_main.o       code   0x001484    program   0x000234
-       .code_interrupts.o       code   0x0016b8    program   0x000216
-                     PROG       code   0x0018ce    program   0x0001be
-          .code_my_uart.o       code   0x001a8c    program   0x0000d6
-    .code_timer1_thread.o       code   0x001b62    program   0x0000c0
-                   STRING       code   0x001c22    program   0x0000bc
-               _cinit_scn       code   0x001cde    program   0x00009e
-            .code_uopen.o       code   0x001d7c    program   0x000082
-  .code_user_interrupts.o       code   0x001dfe    program   0x000074
-             .code_putc.o       code   0x001e72    program   0x000066
-           .code_printf.o       code   0x001ed8    program   0x000064
-          .code_adcopen.o       code   0x001f3c    program   0x000064
-             .stringtable    romdata   0x001fa0    program   0x000045
-       .idata_adcconv.o_i    romdata   0x001fe5    program   0x000000
-    .idata__user_putc.o_i    romdata   0x001fe5    program   0x000000
-       .romdata_adcopen.o    romdata   0x001fe5    program   0x000000
-         .idata_uopen.o_i    romdata   0x001fe5    program   0x000000
-         .romdata_uopen.o    romdata   0x001fe5    program   0x000000
-      .romdata_adcclose.o    romdata   0x001fe5    program   0x000000
-       .idata_adcread.o_i    romdata   0x001fe5    program   0x000000
-        .idata_t1read.o_i    romdata   0x001fe5    program   0x000000
-        .romdata_t1read.o    romdata   0x001fe5    program   0x000000
-      .romdata_adcsetch.o    romdata   0x001fe5    program   0x000000
-       .idata_t0write.o_i    romdata   0x001fe5    program   0x000000
-       .romdata_t0write.o    romdata   0x001fe5    program   0x000000
-        .romdata___init.o    romdata   0x001fe5    program   0x000000
-        .romdata_printf.o    romdata   0x001fe5    program   0x000000
-        .romdata_stdout.o    romdata   0x001fe5    program   0x000000
-          .idata_putc.o_i    romdata   0x001fe5    program   0x000000
-   .idata_uart_thread.o_i    romdata   0x001fe5    program   0x000000
-       .romdata_my_uart.o    romdata   0x001fe5    program   0x000000
-   .romdata_uart_thread.o    romdata   0x001fe5    program   0x000000
-.romdata_user_interrupts.o    romdata   0x001fe5    program   0x000000
-.idata_user_interrupts.o_i    romdata   0x001fe5    program   0x000000
- .idata_timer0_thread.o_i    romdata   0x001fe5    program   0x000000
- .romdata_timer0_thread.o    romdata   0x001fe5    program   0x000000
-       .idata_c018i_e.o_i    romdata   0x001fe5    program   0x000000
-          .idata_main.o_i    romdata   0x001fe5    program   0x000000
-        .idata_newADC.o_i    romdata   0x001fe5    program   0x000000
-      .romdata_messages.o    romdata   0x001fe5    program   0x000000
-        .idata_my_i2c.o_i    romdata   0x001fe5    program   0x000000
-    .romdata_interrupts.o    romdata   0x001fe5    program   0x000000
-            .code_udefs.o       code   0x001fe6    program   0x000000
-           .code_t1open.o       code   0x001fe6    program   0x000040
-          .code_c018i_e.o       code   0x001fe6    program   0x000000
-            .code_uread.o       code   0x002026    program   0x00003e
-           .code_newADC.o       code   0x002064    program   0x000038
-           .code_t0open.o       code   0x00209c    program   0x000036
-      .code_uart_thread.o       code   0x0020d2    program   0x000034
-          .code_t1write.o       code   0x002106    program   0x000030
-           .code_t1read.o       code   0x002136    program   0x000030
-          .code_t0write.o       code   0x002166    program   0x000030
-         .code_adcsetch.o       code   0x002196    program   0x000030
-                    CTYPE       code   0x0021c6    program   0x000024
-                    .code       code   0x0021ea    program   0x000020
-                    STDIO       code   0x00220a    program   0x00001c
-    .code_timer0_thread.o       code   0x002226    program   0x00001c
-             _startup_scn       code   0x002242    program   0x00001a
-          .code_adcread.o       code   0x00225c    program   0x000018
-      .romdata_vfprintf.o    romdata   0x002274    program   0x000011
-    .romdata__user_putc.o    romdata   0x002285    program   0x000000
-       .romdata_c018i_e.o    romdata   0x002285    program   0x000000
-          .romdata_putc.o    romdata   0x002285    program   0x000000
-      .idata_adcclose.o_i    romdata   0x002285    program   0x000000
-        .romdata_newADC.o    romdata   0x002285    program   0x000000
-          .romdata_main.o    romdata   0x002285    program   0x000000
-      .idata_vfprintf.o_i    romdata   0x002285    program   0x000000
-      .idata_messages.o_i    romdata   0x002285    program   0x000000
-        .idata_printf.o_i    romdata   0x002285    program   0x000000
-        .romdata_my_i2c.o    romdata   0x002285    program   0x000000
-    .idata_interrupts.o_i    romdata   0x002285    program   0x000000
-       .romdata_adcconv.o    romdata   0x002285    program   0x000000
-       .romdata_adcread.o    romdata   0x002285    program   0x000000
- .idata_timer1_thread.o_i    romdata   0x002285    program   0x000000
-         .idata_uread.o_i    romdata   0x002285    program   0x000000
-         .romdata_uread.o    romdata   0x002285    program   0x000000
- .romdata_timer1_thread.o    romdata   0x002285    program   0x000000
-      .idata_adcsetch.o_i    romdata   0x002285    program   0x000000
-       .idata_my_uart.o_i    romdata   0x002285    program   0x000000
-        .romdata_t1open.o    romdata   0x002285    program   0x000000
-         .idata_udefs.o_i    romdata   0x002285    program   0x000000
-         .romdata_udefs.o    romdata   0x002285    program   0x000000
-        .idata_t1open.o_i    romdata   0x002285    program   0x000000
-        .romdata_t0open.o    romdata   0x002285    program   0x000000
-        .idata_t0open.o_i    romdata   0x002285    program   0x000000
-       .idata_adcopen.o_i    romdata   0x002285    program   0x000000
-       .idata_t1write.o_i    romdata   0x002285    program   0x000000
-       .romdata_t1write.o    romdata   0x002285    program   0x000000
-        .idata___init.o_i    romdata   0x002285    program   0x000000
-           .code_stdout.o       code   0x002286    program   0x000000
-           .code___init.o       code   0x002286    program   0x000002
-        .idata_stdout.o_i    romdata   0x002288    program   0x000002
+             .code_main.o       code   0x001484    program   0x000256
+       .code_interrupts.o       code   0x0016da    program   0x000216
+                     PROG       code   0x0018f0    program   0x0001be
+          .code_my_uart.o       code   0x001aae    program   0x0000d6
+                   STRING       code   0x001b84    program   0x0000bc
+               _cinit_scn       code   0x001c40    program   0x00009e
+    .code_timer1_thread.o       code   0x001cde    program   0x00009a
+            .code_uopen.o       code   0x001d78    program   0x000082
+  .code_user_interrupts.o       code   0x001dfa    program   0x000076
+             .code_putc.o       code   0x001e70    program   0x000066
+           .code_printf.o       code   0x001ed6    program   0x000064
+          .code_adcopen.o       code   0x001f3a    program   0x000064
+           .code_t1open.o       code   0x001f9e    program   0x000040
+            .code_uread.o       code   0x001fde    program   0x00003e
+           .code_newADC.o       code   0x00201c    program   0x000038
+           .code_t0open.o       code   0x002054    program   0x000036
+      .code_uart_thread.o       code   0x00208a    program   0x000034
+          .code_t1write.o       code   0x0020be    program   0x000030
+           .code_t1read.o       code   0x0020ee    program   0x000030
+          .code_t0write.o       code   0x00211e    program   0x000030
+         .code_adcsetch.o       code   0x00214e    program   0x000030
+                    CTYPE       code   0x00217e    program   0x000024
+                    .code       code   0x0021a2    program   0x000020
+                    STDIO       code   0x0021c2    program   0x00001c
+    .code_timer0_thread.o       code   0x0021de    program   0x00001c
+             _startup_scn       code   0x0021fa    program   0x00001a
+          .code_adcread.o       code   0x002214    program   0x000018
+      .romdata_vfprintf.o    romdata   0x00222c    program   0x000011
+             .stringtable    romdata   0x00223d    program   0x000005
+           .code___init.o       code   0x002242    program   0x000002
+         .romdata_uread.o    romdata   0x002244    program   0x000000
+         .idata_uread.o_i    romdata   0x002244    program   0x000000
+        .romdata_t1read.o    romdata   0x002244    program   0x000000
+        .idata_t1read.o_i    romdata   0x002244    program   0x000000
+       .romdata_adcread.o    romdata   0x002244    program   0x000000
+    .romdata__user_putc.o    romdata   0x002244    program   0x000000
+      .romdata_adcsetch.o    romdata   0x002244    program   0x000000
+         .idata_udefs.o_i    romdata   0x002244    program   0x000000
+         .romdata_udefs.o    romdata   0x002244    program   0x000000
+       .idata_t0write.o_i    romdata   0x002244    program   0x000000
+       .romdata_t0write.o    romdata   0x002244    program   0x000000
+       .idata_t1write.o_i    romdata   0x002244    program   0x000000
+       .romdata_t1write.o    romdata   0x002244    program   0x000000
+        .romdata___init.o    romdata   0x002244    program   0x000000
+          .romdata_putc.o    romdata   0x002244    program   0x000000
+        .romdata_printf.o    romdata   0x002244    program   0x000000
+        .idata_stdout.o_i    romdata   0x002244    program   0x000002
+      .idata_vfprintf.o_i    romdata   0x002244    program   0x000000
+        .romdata_stdout.o    romdata   0x002244    program   0x000000
+    .romdata_interrupts.o    romdata   0x002244    program   0x000000
+.idata_user_interrupts.o_i    romdata   0x002244    program   0x000000
+.romdata_user_interrupts.o    romdata   0x002244    program   0x000000
+       .romdata_my_uart.o    romdata   0x002244    program   0x000000
+   .idata_uart_thread.o_i    romdata   0x002244    program   0x000000
+   .romdata_uart_thread.o    romdata   0x002244    program   0x000000
+ .idata_timer1_thread.o_i    romdata   0x002244    program   0x000000
+      .romdata_messages.o    romdata   0x002244    program   0x000000
+ .romdata_timer1_thread.o    romdata   0x002244    program   0x000000
+ .idata_timer0_thread.o_i    romdata   0x002244    program   0x000000
+ .romdata_timer0_thread.o    romdata   0x002244    program   0x000000
+        .romdata_my_i2c.o    romdata   0x002244    program   0x000000
+          .romdata_main.o    romdata   0x002244    program   0x000000
+        .romdata_newADC.o    romdata   0x002244    program   0x000000
+         .romdata_uopen.o    romdata   0x002244    program   0x000000
+         .idata_uopen.o_i    romdata   0x002244    program   0x000000
+        .romdata_t1open.o    romdata   0x002244    program   0x000000
+        .idata_t1open.o_i    romdata   0x002244    program   0x000000
+        .romdata_t0open.o    romdata   0x002244    program   0x000000
+        .idata_t0open.o_i    romdata   0x002244    program   0x000000
+       .romdata_adcopen.o    romdata   0x002244    program   0x000000
+       .romdata_c018i_e.o    romdata   0x002244    program   0x000000
+       .romdata_adcconv.o    romdata   0x002244    program   0x000000
+      .romdata_adcclose.o    romdata   0x002244    program   0x000000
+          .code_c018i_e.o       code   0x002246    program   0x000000
+      .idata_messages.o_i    romdata   0x002246    program   0x000000
+    .idata__user_putc.o_i    romdata   0x002246    program   0x000000
+          .idata_putc.o_i    romdata   0x002246    program   0x000000
+    .idata_interrupts.o_i    romdata   0x002246    program   0x000000
+           .code_stdout.o       code   0x002246    program   0x000000
+       .idata_c018i_e.o_i    romdata   0x002246    program   0x000000
+          .idata_main.o_i    romdata   0x002246    program   0x000000
+       .idata_my_uart.o_i    romdata   0x002246    program   0x000000
+        .idata_printf.o_i    romdata   0x002246    program   0x000000
+        .idata___init.o_i    romdata   0x002246    program   0x000000
+        .idata_my_i2c.o_i    romdata   0x002246    program   0x000000
+        .idata_newADC.o_i    romdata   0x002246    program   0x000000
+            .code_udefs.o       code   0x002246    program   0x000000
+      .idata_adcclose.o_i    romdata   0x002246    program   0x000000
+       .idata_adcconv.o_i    romdata   0x002246    program   0x000000
+      .idata_adcsetch.o_i    romdata   0x002246    program   0x000000
+       .idata_adcopen.o_i    romdata   0x002246    program   0x000000
+       .idata_adcread.o_i    romdata   0x002246    program   0x000000
       .config_7ff8_main.o    romdata   0x007ff8    program   0x000001
       .config_7ffa_main.o    romdata   0x007ffa    program   0x000001
                 msgqueue4      udata   0x000000       data   0x00003f
@@ -182,12 +182,10 @@ Linker Map File - Created Sun Feb 26 14:15:34 2012
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x001fe4      
-                            0x001fe6    0x002284      
-                            0x002286    0x002289      
+                            0x000000    0x002245      
                             0x007ff8    0x007ff8      
                             0x007ffa    0x007ffa      
-            8842 out of 32768 program addresses used, program memory utilization is 26%
+            8776 out of 32768 program addresses used, program memory utilization is 26%
 
 
 
@@ -200,48 +198,48 @@ Linker Map File - Created Sun Feb 26 14:15:34 2012
      FromMainHigh_sendmsg   0x0012ea    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
       FromMainLow_recvmsg   0x0012b8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
       FromMainLow_sendmsg   0x00128a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
-     InterruptHandlerHigh   0x001740    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
-      InterruptHandlerLow   0x001804    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+     InterruptHandlerHigh   0x001762    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+      InterruptHandlerLow   0x001826    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
       InterruptVectorHigh   0x000008    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
        InterruptVectorLow   0x000018    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
-                  OpenADC   0x001f3c    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
-               OpenTimer0   0x00209c    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
-               OpenTimer1   0x001fe6    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1open.c
-                OpenUSART   0x001d7c    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
-                  RESTORE   0x0019dc    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                  RESTORE   0x001938    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-              RETQUOTIENT   0x0019cc    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-              RETQUOTIENT   0x001930    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                  ReadADC   0x00225c    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
-               ReadTimer1   0x002136    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1read.c
-                ReadUSART   0x002026    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uread.c
-                 SETUPSTK   0x0018ce    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                 SETUPSTK   0x001946    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-               SetChanADC   0x002196    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
+                  OpenADC   0x001f3a    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
+               OpenTimer0   0x002054    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
+               OpenTimer1   0x001f9e    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1open.c
+                OpenUSART   0x001d78    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
+                  RESTORE   0x0019fe    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                  RESTORE   0x00195a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+              RETQUOTIENT   0x0019ee    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+              RETQUOTIENT   0x001952    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                  ReadADC   0x002214    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
+               ReadTimer1   0x0020ee    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1read.c
+                ReadUSART   0x001fde    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uread.c
+                 SETUPSTK   0x0018f0    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 SETUPSTK   0x001968    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+               SetChanADC   0x00214e    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
               SleepIfOkay   0x0013cc    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
        ToMainHigh_recvmsg   0x001258    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
        ToMainHigh_sendmsg   0x00122a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
         ToMainLow_recvmsg   0x0011f8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
         ToMainLow_sendmsg   0x0011ca    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
-              WriteTimer0   0x002166    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
-              WriteTimer1   0x002106    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
-                   _2jEnd   0x001cc8    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-              _4jContinue   0x001c56    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                   _5jEnd   0x001c60    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+              WriteTimer0   0x00211e    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
+              WriteTimer1   0x0020be    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
+                   _2jEnd   0x001c2a    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+              _4jContinue   0x001bb8    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                   _5jEnd   0x001bc2    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00001   0x00225a    program     static                          
-       ___return_lbl00002   0x001d7a    program     static                          
+       ___return_lbl00001   0x002212    program     static                          
+       ___return_lbl00002   0x001cdc    program     static                          
        ___return_lbl00012   0x00001c    program     static                          
        ___return_lbl00013   0x00000c    program     static                          
        ___return_lbl00019   0x001384    program     static                          
                __config_0   0x007ff8    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
                __config_1   0x007ffa    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
-                 __div16u   0x0018e6    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-                 __div32u   0x00195e    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
-                   __init   0x002286    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
-                 __mod16u   0x0018ec    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-                 __mod32u   0x001964    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
-                  __mul32   0x0019ea    program     extern C:\MCC18\v3_39\src\extended\math\mul32.asm
+                 __div16u   0x001908    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 __div32u   0x001980    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
+                   __init   0x002242    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
+                 __mod16u   0x00190e    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 __mod32u   0x001986    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
+                  __mul32   0x001a0c    program     extern C:\MCC18\v3_39\src\extended\math\mul32.asm
                    __pa_0   0x0006ee    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
                    __pa_1   0x0006fc    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
                   __pa_10   0x00078a    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
@@ -266,31 +264,30 @@ Linker Map File - Created Sun Feb 26 14:15:34 2012
                    __pa_7   0x000760    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
                    __pa_8   0x00076c    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
                    __pa_9   0x00077e    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
-               __string_0   0x001fce    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
-               __string_0   0x001fd6    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
-               __string_1   0x001fa0    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
-            __zero_memory   0x0021ea    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                _do_cinit   0x001cde    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-            _early16uexit   0x0018f0    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-            _early32uexit   0x001968    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
+               __string_0   0x00223f    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+               __string_1   0x00223d    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+            __zero_memory   0x0021a2    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                _do_cinit   0x001c40    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+            _early16uexit   0x001912    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+            _early32uexit   0x00198a    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
                    _entry   0x000000    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                   _false   0x0019ac    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                 _startup   0x002242    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-              _usart_putc   0x00220a    program     extern C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
+                   _false   0x0019ce    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                 _startup   0x0021fa    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+              _usart_putc   0x0021c2    program     extern C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
                _user_putc   0x000006    program     extern C:\MCC18\v3_39\src\extended\stdclib\_user_putc.c
-          adc_int_handler   0x001e30    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
+          adc_int_handler   0x001e2c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
     block_on_FromMainHigh   0x001428    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
     block_on_To_msgqueues   0x001444    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
                 check_msg   0x001386    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
-                compare_l   0x002200    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                copy_loop   0x001d50    program     static                          
-            copy_one_byte   0x001d56    program     static                          
-                divmod16u   0x0018f2    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                divmod32u   0x00196a    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                     done   0x001d7a    program     static                          
-             done_copying   0x001d64    program     static                          
-        enable_interrupts   0x0016b8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
-                  endloop   0x001918    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                compare_l   0x0021b8    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                copy_loop   0x001cb2    program     static                          
+            copy_one_byte   0x001cb8    program     static                          
+                divmod16u   0x001914    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                divmod32u   0x00198c    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                     done   0x001cdc    program     static                          
+             done_copying   0x001cc6    program     static                          
+        enable_interrupts   0x0016da    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+                  endloop   0x00193a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
          enter_sleep_mode   0x001380    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
              handle_start   0x00094a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
      i2c_configure_master   0x000842    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
@@ -298,53 +295,53 @@ Linker Map File - Created Sun Feb 26 14:15:34 2012
           i2c_int_handler   0x000a04    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
           i2c_master_recv   0x000866    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
           i2c_master_send   0x000854    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
-              in_high_int   0x0016c2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
-               in_low_int   0x001702    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
-                  in_main   0x00171a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
-                  initADC   0x002064    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
+              in_high_int   0x0016e4    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+               in_low_int   0x001724    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+                  in_main   0x00173c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+                  initADC   0x00201c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
                  init_i2c   0x000ef0    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
                init_queue   0x000f7e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
               init_queues   0x00134a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
-      init_timer1_lthread   0x001b62    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
-           init_uart_recv   0x001b36    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
-                  isdigit   0x0021c6    program     extern C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
-                     jEnd   0x001cca    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-                     jEnd   0x001c92    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
-                     jEnd   0x001c66    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                    jLoop   0x001c88    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
-                    jLoop   0x001c4a    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                    jLoop   0x001cb2    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-                   jMatch   0x0021e6    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
-                 jNoMatch   0x0021e8    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
-                     loop   0x0018fc    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                     loop   0x001978    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                     loop   0x002250    program     static                          
-                     loop   0x00221a    program     static C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
-                   loop_h   0x0021f8    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                   loop_l   0x002202    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-           low_int_active   0x0016e2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+      init_timer1_lthread   0x001cde    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
+           init_uart_recv   0x001b58    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
+                  isdigit   0x00217e    program     extern C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
+                     jEnd   0x001c2c    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+                     jEnd   0x001bf4    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
+                     jEnd   0x001bc8    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                    jLoop   0x001bea    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
+                    jLoop   0x001bac    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                    jLoop   0x001c14    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+                   jMatch   0x00219e    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
+                 jNoMatch   0x0021a0    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
+                     loop   0x00191e    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                     loop   0x00199a    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                     loop   0x002208    program     static                          
+                     loop   0x0021d2    program     static C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
+                   loop_h   0x0021b0    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                   loop_l   0x0021ba    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+           low_int_active   0x001704    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
                      main   0x001484    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
-                   memcpy   0x001c22    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                   printf   0x001ed8    program     extern C:\MCC18\v3_39\src\extended\stdclib\printf.c
-                     putc   0x001e72    program     extern C:\MCC18\v3_39\src\extended\stdclib\putc.c
-                  readADC   0x002082    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
+                   memcpy   0x001b84    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                   printf   0x001ed6    program     extern C:\MCC18\v3_39\src\extended\stdclib\printf.c
+                     putc   0x001e70    program     extern C:\MCC18\v3_39\src\extended\stdclib\putc.c
+                  readADC   0x00203a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
                  recv_msg   0x0010c4    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
-                 s_digits   0x002274    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
+                 s_digits   0x00222c    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
             s_put_n_chars   0x00002c    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
                  send_msg   0x000fdc    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
     start_i2c_slave_reply   0x000878    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_i2c.c
-                  stopADC   0x002098    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
-                   strlen   0x001c78    program     extern C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
-                strlenpgm   0x001c94    program     extern C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-                     test   0x001cf8    program     static                          
-       timer0_int_handler   0x001dfe    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
-           timer0_lthread   0x002226    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer0_thread.c
-       timer1_int_handler   0x001e22    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
-           timer1_lthread   0x001b80    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
-             uart_lthread   0x0020d2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\uart_thread.c
-    uart_recv_int_handler   0x001a8c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
+                  stopADC   0x002050    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
+                   strlen   0x001bda    program     extern C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
+                strlenpgm   0x001bf6    program     extern C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+                     test   0x001c5a    program     static                          
+       timer0_int_handler   0x001dfa    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
+           timer0_lthread   0x0021de    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer0_thread.c
+       timer1_int_handler   0x001e1e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
+           timer1_lthread   0x001cfc    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
+             uart_lthread   0x00208a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\uart_thread.c
+    uart_recv_int_handler   0x001aae    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
                  vfprintf   0x00005e    program     extern C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
-               zero_block   0x0021f8    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+               zero_block   0x0021b0    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    ADCON0   0x000fc2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                ADCON0bits   0x000fc2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    ADCON1   0x000fc1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
@@ -648,93 +645,92 @@ Linker Map File - Created Sun Feb 26 14:15:34 2012
     block_on_FromMainHigh   0x001428    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
     block_on_To_msgqueues   0x001444    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c
                      main   0x001484    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
-        enable_interrupts   0x0016b8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
-              in_high_int   0x0016c2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
-           low_int_active   0x0016e2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
-               in_low_int   0x001702    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
-                  in_main   0x00171a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
-     InterruptHandlerHigh   0x001740    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
-      InterruptHandlerLow   0x001804    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
-                 SETUPSTK   0x0018ce    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                 __div16u   0x0018e6    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-                 __mod16u   0x0018ec    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-            _early16uexit   0x0018f0    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-                divmod16u   0x0018f2    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                     loop   0x0018fc    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                  endloop   0x001918    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-              RETQUOTIENT   0x001930    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                  RESTORE   0x001938    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                 SETUPSTK   0x001946    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                 __div32u   0x00195e    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
-                 __mod32u   0x001964    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
-            _early32uexit   0x001968    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
-                divmod32u   0x00196a    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                     loop   0x001978    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                   _false   0x0019ac    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-              RETQUOTIENT   0x0019cc    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                  RESTORE   0x0019dc    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
-                  __mul32   0x0019ea    program     extern C:\MCC18\v3_39\src\extended\math\mul32.asm
-    uart_recv_int_handler   0x001a8c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
-           init_uart_recv   0x001b36    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
-      init_timer1_lthread   0x001b62    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
-           timer1_lthread   0x001b80    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
-                   memcpy   0x001c22    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                    jLoop   0x001c4a    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-              _4jContinue   0x001c56    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                   _5jEnd   0x001c60    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                     jEnd   0x001c66    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                   strlen   0x001c78    program     extern C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
-                    jLoop   0x001c88    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
-                     jEnd   0x001c92    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
-                strlenpgm   0x001c94    program     extern C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-                    jLoop   0x001cb2    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-                   _2jEnd   0x001cc8    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-                     jEnd   0x001cca    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
-                _do_cinit   0x001cde    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                     test   0x001cf8    program     static                          
-                copy_loop   0x001d50    program     static                          
-            copy_one_byte   0x001d56    program     static                          
-             done_copying   0x001d64    program     static                          
-                     done   0x001d7a    program     static                          
-       ___return_lbl00002   0x001d7a    program     static                          
-                OpenUSART   0x001d7c    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
-       timer0_int_handler   0x001dfe    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
-       timer1_int_handler   0x001e22    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
-          adc_int_handler   0x001e30    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
-                     putc   0x001e72    program     extern C:\MCC18\v3_39\src\extended\stdclib\putc.c
-                   printf   0x001ed8    program     extern C:\MCC18\v3_39\src\extended\stdclib\printf.c
-                  OpenADC   0x001f3c    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
-               __string_1   0x001fa0    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
-               __string_0   0x001fce    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
-               __string_0   0x001fd6    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
-               OpenTimer1   0x001fe6    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1open.c
-                ReadUSART   0x002026    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uread.c
-                  initADC   0x002064    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
-                  readADC   0x002082    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
-                  stopADC   0x002098    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
-               OpenTimer0   0x00209c    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
-             uart_lthread   0x0020d2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\uart_thread.c
-              WriteTimer1   0x002106    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
-               ReadTimer1   0x002136    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1read.c
-              WriteTimer0   0x002166    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
-               SetChanADC   0x002196    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
-                  isdigit   0x0021c6    program     extern C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
-                   jMatch   0x0021e6    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
-                 jNoMatch   0x0021e8    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
-            __zero_memory   0x0021ea    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                   loop_h   0x0021f8    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-               zero_block   0x0021f8    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                compare_l   0x002200    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                   loop_l   0x002202    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-              _usart_putc   0x00220a    program     extern C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
-                     loop   0x00221a    program     static C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
-           timer0_lthread   0x002226    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer0_thread.c
-                 _startup   0x002242    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                     loop   0x002250    program     static                          
-       ___return_lbl00001   0x00225a    program     static                          
-                  ReadADC   0x00225c    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
-                 s_digits   0x002274    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
-                   __init   0x002286    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
+        enable_interrupts   0x0016da    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+              in_high_int   0x0016e4    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+           low_int_active   0x001704    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+               in_low_int   0x001724    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+                  in_main   0x00173c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+     InterruptHandlerHigh   0x001762    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+      InterruptHandlerLow   0x001826    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\interrupts.c
+                 SETUPSTK   0x0018f0    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 __div16u   0x001908    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 __mod16u   0x00190e    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+            _early16uexit   0x001912    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+                divmod16u   0x001914    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                     loop   0x00191e    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                  endloop   0x00193a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+              RETQUOTIENT   0x001952    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                  RESTORE   0x00195a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 SETUPSTK   0x001968    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                 __div32u   0x001980    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
+                 __mod32u   0x001986    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
+            _early32uexit   0x00198a    program     extern C:\MCC18\v3_39\src\extended\math\div32u.asm
+                divmod32u   0x00198c    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                     loop   0x00199a    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                   _false   0x0019ce    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+              RETQUOTIENT   0x0019ee    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                  RESTORE   0x0019fe    program     static C:\MCC18\v3_39\src\extended\math\div32u.asm
+                  __mul32   0x001a0c    program     extern C:\MCC18\v3_39\src\extended\math\mul32.asm
+    uart_recv_int_handler   0x001aae    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
+           init_uart_recv   0x001b58    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\my_uart.c
+                   memcpy   0x001b84    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                    jLoop   0x001bac    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+              _4jContinue   0x001bb8    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                   _5jEnd   0x001bc2    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                     jEnd   0x001bc8    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                   strlen   0x001bda    program     extern C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
+                    jLoop   0x001bea    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
+                     jEnd   0x001bf4    program     static C:\MCC18\v3_39\src\extended\stdclib\strlen.asm
+                strlenpgm   0x001bf6    program     extern C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+                    jLoop   0x001c14    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+                   _2jEnd   0x001c2a    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+                     jEnd   0x001c2c    program     static C:\MCC18\v3_39\src\extended\stdclib\slenpgm.asm
+                _do_cinit   0x001c40    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                     test   0x001c5a    program     static                          
+                copy_loop   0x001cb2    program     static                          
+            copy_one_byte   0x001cb8    program     static                          
+             done_copying   0x001cc6    program     static                          
+                     done   0x001cdc    program     static                          
+       ___return_lbl00002   0x001cdc    program     static                          
+      init_timer1_lthread   0x001cde    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
+           timer1_lthread   0x001cfc    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer1_thread.c
+                OpenUSART   0x001d78    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
+       timer0_int_handler   0x001dfa    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
+       timer1_int_handler   0x001e1e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
+          adc_int_handler   0x001e2c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\user_interrupts.c
+                     putc   0x001e70    program     extern C:\MCC18\v3_39\src\extended\stdclib\putc.c
+                   printf   0x001ed6    program     extern C:\MCC18\v3_39\src\extended\stdclib\printf.c
+                  OpenADC   0x001f3a    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
+               OpenTimer1   0x001f9e    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1open.c
+                ReadUSART   0x001fde    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uread.c
+                  initADC   0x00201c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
+                  readADC   0x00203a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
+                  stopADC   0x002050    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\newADC.c
+               OpenTimer0   0x002054    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
+             uart_lthread   0x00208a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\uart_thread.c
+              WriteTimer1   0x0020be    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
+               ReadTimer1   0x0020ee    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1read.c
+              WriteTimer0   0x00211e    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
+               SetChanADC   0x00214e    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
+                  isdigit   0x00217e    program     extern C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
+                   jMatch   0x00219e    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
+                 jNoMatch   0x0021a0    program     static C:\MCC18\v3_39\src\extended\stdclib\isdigit.asm
+            __zero_memory   0x0021a2    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+               zero_block   0x0021b0    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                   loop_h   0x0021b0    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                compare_l   0x0021b8    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                   loop_l   0x0021ba    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+              _usart_putc   0x0021c2    program     extern C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
+                     loop   0x0021d2    program     static C:\MCC18\v3_39\src\pmc_common\USART\_usartpc.asm
+           timer0_lthread   0x0021de    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\timer0_thread.c
+                 _startup   0x0021fa    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                     loop   0x002208    program     static                          
+       ___return_lbl00001   0x002212    program     static                          
+                  ReadADC   0x002214    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
+                 s_digits   0x00222c    program     static C:\MCC18\v3_39\src\extended\stdclib\vfprintf.c
+               __string_1   0x00223d    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+               __string_0   0x00223f    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
+                   __init   0x002242    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
                __config_0   0x007ff8    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
                __config_1   0x007ffa    program     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\main.c
           FromMainHigh_MQ   0x000000       data     static C:\Users\Homer\Desktop\Embedded\Project_code\PIC Code\messages.c

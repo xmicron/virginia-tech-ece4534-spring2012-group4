@@ -102,7 +102,7 @@ void main (void)
 	init_uart_recv(&uc);		// initialize my uart recv handling code
 	// configure the hardware USART device
   	OpenUSART( USART_TX_INT_OFF & USART_RX_INT_ON & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
-		USART_CONT_RX & USART_BRGH_LOW, 0x19);
+		USART_CONT_RX & USART_BRGH_LOW, 23);
 	
 	// I2C/MSG Q initialization
 	init_i2c(&ic);				// initialize the i2c code
@@ -166,13 +166,13 @@ void main (void)
 	// that should get them.  Although the subroutines are not threads, but
 	// they can be equated with the tasks in your task diagram if you 
 	// structure them properly.
-	printf("Hello\r\n");
+	
   	while (1) {
 		// Call a routine that blocks until either on the incoming
 		// messages queues has a message (this may put the processor into
 		// an idle mode
 		block_on_To_msgqueues();
-
+		
 
 		/*
 			High Priority MSGQ ----------------------------------------------------------------------
@@ -187,7 +187,7 @@ void main (void)
 		if (length < 0) {
 			// no message, check the error code to see if it is concern
 			if (length != MSGQUEUE_EMPTY) {
-				printf("Error: Bad high priority receive, code = %x\r\n", length);
+				//printf("Error: Bad high priority receive, code = %x\r\n", length);
 			}
 		} else {
 			switch (msgtype) {
@@ -196,19 +196,30 @@ void main (void)
 					// Format I2C msg
 					msgbuffer[10] = adc_chan_num;
 					msgbuffer[11] = 0xaa;			// ADC MSG opcode
-
+/*
+					if (msgbuffer[0] == 0x02)
+					{
+						putcUSART(0x90);
+						Delay1KTCYx(10);
+						putcUSART(0x40);
+						Delay1KTCYx(10);
+						putcUSART(0x64);
+					}
+					putcUSART(msgbuffer[0]);
+					Delay1KTCYx(10);
+					putcUSART(msgbuffer[1]);*/
 					// Send I2C msg
 					FromMainHigh_sendmsg(12, msgtype, msgbuffer);	// Send ADC msg to FromMainHigh MQ, which I2C
 																	// int hdlr later Reads
 
-					/*
+					
 					// Increment I2C message count from 1 to 100
 					if(I2C_TX_MSG_COUNT < 100)	{
 						I2C_TX_MSG_COUNT = I2C_TX_MSG_COUNT + 1;
 					}
 					else	{
 						I2C_TX_MSG_COUNT = 1;
-					}*/
+					}
 
 					// Increment the channel number
 					if(adc_chan_num <= 0)	adc_chan_num++;
@@ -226,10 +237,20 @@ void main (void)
 
 				case MSGT_I2C_DATA: { //this data still needs to be put in a buffer
 					if(msgbuffer[0] == 0xaf)	{
-						FromMainLow_sendmsg(5, msgtype, msgbuffer);
+						//FromMainLow_sendmsg(5, msgtype, msgbuffer);
 						// The code below checks message 'counts' to see if any I2C messages were dropped
 						I2C_RX_MSG_COUNT = msgbuffer[4];
-						
+						printf("%x", msgbuffer[1]);
+						printf("%x", msgbuffer[2]);
+						printf("%x", msgbuffer[3]);
+						printf("\n");
+/*
+						putcUSART(msgbuffer[1]);
+						Delay1KTCYx(10);	
+						putcUSART(msgbuffer[2]);
+						Delay1KTCYx(10);
+						putcUSART(msgbuffer[3]);
+						Delay1KTCYx(10);*/
 						if(I2C_RX_MSG_COUNT - I2C_RX_MSG_PRECOUNT == 1)	{
 							LATBbits.LATB1 = !LATBbits.LATB1;
 							if(I2C_RX_MSG_PRECOUNT < 99)	{
@@ -250,8 +271,7 @@ void main (void)
 					//printf("I2C Interrupt received %x: ",msgtype);
 					for (i=0;i<length;i++) {
 						//printf(" %x",msgbuffer[i]);
-					}
-					//printf("\r\n");
+					}					//printf("\r\n");
 					// keep track of the first byte received for later use
 					last_reg_recvd = msgbuffer[0];
 					break;
@@ -294,7 +314,7 @@ void main (void)
 		if (length < 0) {
 			// no message, check the error code to see if it is concern
 			if (length != MSGQUEUE_EMPTY) {
-				printf("Error: Bad low priority receive, code = %x\r\n",
+				//printf("Error: Bad low priority receive, code = %x\r\n",
 					length);
 			}
 		} else {
@@ -310,7 +330,7 @@ void main (void)
 					break;
 				};
 				default: {
-					printf("Error: Unexpected msg in queue, type = %x\r\n",
+					//printf("Error: Unexpected msg in queue, type = %x\r\n",
 						msgtype);
 					break;
 				};
