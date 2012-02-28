@@ -342,10 +342,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>29</ColumnNumber>
+      <ColumnNumber>23</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>103</TopLine>
-      <CurrentLine>113</CurrentLine>
+      <TopLine>13</TopLine>
+      <CurrentLine>21</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -358,8 +358,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>30</TopLine>
+      <CurrentLine>41</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/i2cTemp.c</PathWithFileName>
       <FilenameWithoutPath>i2cTemp.c</FilenameWithoutPath>
@@ -426,13 +426,27 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>37</ColumnNumber>
+      <ColumnNumber>47</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>118</TopLine>
-      <CurrentLine>118</CurrentLine>
+      <TopLine>46</TopLine>
+      <CurrentLine>57</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\I2C.c</PathWithFileName>
       <FilenameWithoutPath>I2C.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>2</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>4</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>22</TopLine>
+      <CurrentLine>41</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\MainThread.c</PathWithFileName>
+      <FilenameWithoutPath>MainThread.c</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -991,7 +1005,7 @@
 
   <AlienFiles>
     <PathWithFilename>C:\ARMCode\RTOSDemo\MAINFILES\LCDTASK.H</PathWithFilename>
-    <TopLine>9</TopLine>
+    <TopLine>11</TopLine>
     <CurrentLine>20</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
@@ -1017,8 +1031,8 @@
 
   <AlienFiles>
     <PathWithFilename>C:\ARMCode\RTOSDemo\MAINFILES\I2CTEMP.H</PathWithFilename>
-    <TopLine>16</TopLine>
-    <CurrentLine>23</CurrentLine>
+    <TopLine>1</TopLine>
+    <CurrentLine>5</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1046,19 +1060,25 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>2</ActiveTab>
+      <ActiveTab>6</ActiveTab>
       <Documents>
         <Doc>
+          <Name>.\MainFiles/i2cTemp.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>30</TopLine>
+          <CurrentLine>41</CurrentLine>
+        </Doc>
+        <Doc>
           <Name>C:\ARMCode\RTOSDemo\MAINFILES\I2CTEMP.H</Name>
-          <ColumnNumber>16</ColumnNumber>
-          <TopLine>16</TopLine>
-          <CurrentLine>23</CurrentLine>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>5</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/main.c</Name>
-          <ColumnNumber>29</ColumnNumber>
-          <TopLine>103</TopLine>
-          <CurrentLine>113</CurrentLine>
+          <ColumnNumber>23</ColumnNumber>
+          <TopLine>13</TopLine>
+          <CurrentLine>21</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/LCDtask.c</Name>
@@ -1067,28 +1087,22 @@
           <CurrentLine>1392</CurrentLine>
         </Doc>
         <Doc>
-          <Name>.\joystick.c</Name>
-          <ColumnNumber>5</ColumnNumber>
-          <TopLine>23</TopLine>
-          <CurrentLine>23</CurrentLine>
-        </Doc>
-        <Doc>
           <Name>.\I2C.c</Name>
-          <ColumnNumber>37</ColumnNumber>
-          <TopLine>118</TopLine>
-          <CurrentLine>118</CurrentLine>
+          <ColumnNumber>47</ColumnNumber>
+          <TopLine>46</TopLine>
+          <CurrentLine>57</CurrentLine>
         </Doc>
         <Doc>
           <Name>C:\ARMCode\RTOSDemo\MAINFILES\LCDTASK.H</Name>
           <ColumnNumber>17</ColumnNumber>
-          <TopLine>9</TopLine>
+          <TopLine>11</TopLine>
           <CurrentLine>20</CurrentLine>
         </Doc>
         <Doc>
-          <Name>../vtCode/vtLCD/GLCD_SPI_LPC1700.c</Name>
-          <ColumnNumber>17</ColumnNumber>
-          <TopLine>105</TopLine>
-          <CurrentLine>105</CurrentLine>
+          <Name>.\MainThread.c</Name>
+          <ColumnNumber>4</ColumnNumber>
+          <TopLine>22</TopLine>
+          <CurrentLine>41</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

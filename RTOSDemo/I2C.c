@@ -33,9 +33,9 @@ static portTASK_FUNCTION_PROTO( I2CTask, pvParameters );
 
 /*-----------------------------------------------------------*/
 
-void vStartI2CTask( unsigned portBASE_TYPE uxPriority, i2cTempStruct *params)
+void vStartI2CTask( unsigned portBASE_TYPE uxPriority, i2cParamStruct *params)
 {
-	if ((params->msgQ = xQueueCreate(I2CMsgQLen,sizeof(I2CMsgQueueMsg))) == NULL) {
+	if ((params->i2cQ->inQ = xQueueCreate(I2CMsgQLen,sizeof(I2CMsgQueueMsg))) == NULL) {
 		VT_HANDLE_FATAL_ERROR(0);
 	}	
 
@@ -54,7 +54,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 	const uint8_t ReturnADCValue = 0xAA;
 	
 	uint8_t SendCount = 1;
-	uint8_t SendValue[5] = {0xAF, 0xFF, 0x00, 0x0A, 0x00};
+	uint8_t SendValue[5] = {0xAF, 0x90, 0x64, 0x64, 0x00};
 	const uint8_t Gimmesomething = 0xBB;
 	
 	uint8_t temp1, rxLen, status;
@@ -63,13 +63,13 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 
 
 	// Get the parameters
-	i2cTempStruct *param = (i2cTempStruct *) pvParameters;
+	i2cParamStruct *param = (i2cParamStruct *) pvParameters;
 	
 	// Get the I2C device pointer
-	vtI2CStruct *devPtr = param->dev;
+	vtI2CStruct *devPtr = param->i2cDev;
 	
 	// Get the LCD information pointer
-	vtLCDStruct *lcdData = param->lcdData;
+	vtLCDMsgQueue *lcdData = param->lcdQ;
 	vtLCDMsg lcdBuffer;
 
 	vTaskDelay(10/portTICK_RATE_MS);

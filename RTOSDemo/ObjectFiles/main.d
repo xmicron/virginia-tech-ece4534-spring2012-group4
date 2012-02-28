@@ -22,10 +22,9 @@ ObjectFiles/main.o: MainFiles/main.c \
  ../FreeRTOS/Demo/Common/include/recmutex.h \
  ../FreeRTOS/Demo/Common/include/partest.h ../vtCode/vtUtilities.h \
  ../NXPDrivers/include/lpc_types.h C:/Keil/ARM/INC/NXP/LPC17xx/lpc17xx.h \
- MainFiles/lcdTask.h ../FreeRTOS/Source/include/queue.h \
- MainFiles/i2cTemp.h ../vtCode/vtI2C/vtI2C.h \
- ../NXPDrivers/include/lpc17xx_i2c.h ../NXPDrivers/include/lpc_types.h \
- ../FreeRTOS/Source/include/projDefs.h \
+ messagequeues.h ../FreeRTOS/Source/include/queue.h \
+ ../vtCode/vtI2C/vtI2C.h ../NXPDrivers/include/lpc17xx_i2c.h \
+ ../NXPDrivers/include/lpc_types.h ../FreeRTOS/Source/include/projDefs.h \
  ../FreeRTOS/Source/include/semphr.h ../FreeRTOS/Source/include/queue.h \
  ../SystemFiles/syscalls.h ../LPCUSB/extUSB.h \
  c:\program\ files\codesourcery\sourcery\ g++\ lite\bin\../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/include/stdio.h \
