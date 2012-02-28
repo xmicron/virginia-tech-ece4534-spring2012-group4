@@ -53,11 +53,14 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 {
 	MasterParamStruct *temp = pvParameters;
 	MasterMsgQueue *masterQ = temp->masterQ;
-	MasterMsgQueueMsg msgBuffer;
+	MasterMsgQueueMsg masterBuffer;
+
+	vtLCDMsgQueue *lcdQ = temp->lcdQ;
+	vtLCDMsg lcdmsgBuffer;
 
 	for(;;)
 	{
-		if (xQueueReceive(masterQ->inQ,(void *) &msgBuffer,portMAX_DELAY) != pdTRUE) //receive message from message queue
+		if (xQueueReceive(masterQ->inQ,(void *) &masterBuffer,portMAX_DELAY) != pdTRUE) //receive message from message queue
 		{
 			VT_HANDLE_FATAL_ERROR(0);
 		}
@@ -69,6 +72,10 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 		else
 		{
 			GPIO2->FIOSET = 0x08;
+		}
+		lcdmsgBuffer.buf[0] = masterBuffer.buf[0];
+		if (xQueueSend(lcdQ->inQ,(void *) (&lcdmsgBuffer),portMAX_DELAY) != pdTRUE) {  
+			VT_HANDLE_FATAL_ERROR(0);
 		}
 	}
 }
