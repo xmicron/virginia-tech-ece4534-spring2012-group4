@@ -205,9 +205,11 @@ void main (void)
 						Delay1KTCYx(10);
 						putcUSART(0x64);
 					}
+					
 					putcUSART(msgbuffer[0]);
 					Delay1KTCYx(10);
 					putcUSART(msgbuffer[1]);*/
+					
 					// Send I2C msg
 					FromMainHigh_sendmsg(12, msgtype, msgbuffer);	// Send ADC msg to FromMainHigh MQ, which I2C
 																	// int hdlr later Reads
