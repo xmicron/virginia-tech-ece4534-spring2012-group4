@@ -48,7 +48,8 @@ void adc_int_handler()	{
 	ReadADC();
 	val[0] = ADRESH;
 	val[1] = ADRESL;
-
+	LATBbits.LATB3 = !LATBbits.LATB3;
+	
 	// Read the timer to determine when the ADC was read
 	val[2] = ReadTimer1();
 
