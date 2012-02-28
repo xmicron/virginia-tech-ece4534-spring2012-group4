@@ -33,7 +33,7 @@ static portTASK_FUNCTION_PROTO( vi2cTempUpdateTask, pvParameters );
 
 /*-----------------------------------------------------------*/
 
-void vStarti2cTempTask( unsigned portBASE_TYPE uxPriority, i2cTempStruct *params)
+void vStarti2cTempTask( unsigned portBASE_TYPE uxPriority, i2cParamStruct *params)
 {
 	/* Start the task */
 	portBASE_TYPE retval;
@@ -58,11 +58,11 @@ static portTASK_FUNCTION( vi2cTempUpdateTask, pvParameters )
 	uint8_t messageReceived[2];
 	uint8_t temp1, rxLen, status;
 	// Get the parameters
-	i2cTempStruct *param = (i2cTempStruct *) pvParameters;
+	i2cParamStruct *param = (i2cParamStruct *) pvParameters;
 	// Get the I2C device pointer
-	vtI2CStruct *devPtr = param->dev;
+	vtI2CStruct *devPtr = param->i2cDev;
 	// Get the LCD information pointer
-	vtLCDStruct *lcdData = param->lcdData;
+	vtLCDMsgQueue *lcdData = param->lcdQ;
 	vtLCDMsg lcdBuffer;
 
 	// Assumes that the I2C device (and thread) have already been initialized

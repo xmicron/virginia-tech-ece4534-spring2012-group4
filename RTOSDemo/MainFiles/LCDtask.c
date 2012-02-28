@@ -29,7 +29,7 @@ static portTASK_FUNCTION_PROTO( vLCDUpdateTask, pvParameters );
 
 /*-----------------------------------------------------------*/
 
-void vStartLCDTask( unsigned portBASE_TYPE uxPriority,vtLCDStruct *ptr )
+void vStartLCDTask( unsigned portBASE_TYPE uxPriority,vtLCDMsgQueue *ptr )
 {
 
 	// Create the queue that will be used to talk to the LCD
@@ -1077,7 +1077,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	
 	
 	#endif
-	vtLCDStruct *lcdPtr = (vtLCDStruct *) pvParameters;
+	vtLCDMsgQueue *lcdPtr = (vtLCDMsgQueue *) pvParameters;
 
 	/* Initialize the LCD */
 	GLCD_Init();

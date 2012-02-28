@@ -18,9 +18,11 @@
 
 // Include file for MTJ's LCD & i2cTemp tasks
 #include "vtUtilities.h"
-#include "lcdTask.h"
-#include "i2cTemp.h"
-#include "vtI2C.h"
+#include "messagequeues.h"
+//#include "lcdTask.h"
+//#include "i2cTemp.h"
+//#include "vtI2C.h"
+//#include "MainThread.h"
 
 /* syscalls initialization -- *must* occur first */
 #include "syscalls.h"
@@ -74,9 +76,12 @@ char *pcGetTaskStatusMessage( void );//Simply returns the current status message
 static char *pcStatusMessage = mainPASS_STATUS_MESSAGE;//Holds the status message displayed by the WEB server.
 
 static vtI2CStruct vtI2C0;
-static i2cTempStruct I2Cparams;
-static vtLCDStruct vtLCDdata;
-static I2CMsgQueue myI2Cdata;
+static i2cParamStruct I2Cparams;//struct with pointer to i2c dev, i2c queue, and lcdqueue
+static MasterParamStruct MasterParams;
+
+static vtLCDMsgQueue myLCDQueue;
+static I2CMsgQueue myI2CQueue;
+static MasterMsgQueue myMasterQueue;
 
 int main( void )
 { 
@@ -98,7 +103,7 @@ int main( void )
 	//Web Server Task
     xTaskCreate( vuIP_Task, ( signed char * ) "uIP", mainBASIC_WEB_STACK_SIZE, ( void * ) NULL, mainUIP_TASK_PRIORITY, NULL );
 	
-	vStartLCDTask( mainLCD_TASK_PRIORITY,&vtLCDdata);//LCD Task
+	vStartLCDTask( mainLCD_TASK_PRIORITY,&myLCDQueue);//LCD Task
 
 	// MTJ: My i2cTemp demonstration task
 	vtI2C0.devNum = 0;
@@ -108,11 +113,15 @@ int main( void )
 	if ((retVal = vtI2CInit(&vtI2C0,100000)) != vtI2CInitSuccess) {
 		VT_HANDLE_FATAL_ERROR(retVal);
 	}
-	I2Cparams.dev = &vtI2C0;
-	I2Cparams.lcdData = &vtLCDdata;
-	I2Cparams.msgQ = &myI2Cdata;
+	I2Cparams.i2cDev = &vtI2C0;
+	I2Cparams.lcdQ = &myLCDQueue;
+	I2Cparams.i2cQ = &myI2CQueue;
+	MasterParams.masterQ = &myMasterQueue;
+	MasterParams.lcdQ = &myLCDQueue;
+	MasterParams.i2cQ = &myI2CQueue;
 	vStartI2CTask(mainI2CTEMP_TASK_PRIORITY, &I2Cparams);
-	vStartJoystickTask(tskIDLE_PRIORITY, &vtLCDdata);
+	vStartMainThread(tskIDLE_PRIORITY, &MasterParams);
+	vStartJoystickTask(tskIDLE_PRIORITY, &myMasterQueue);
 
 	vTaskStartScheduler();
 

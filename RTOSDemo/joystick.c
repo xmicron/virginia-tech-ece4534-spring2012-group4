@@ -27,7 +27,7 @@ static portTASK_FUNCTION_PROTO( JoystickTask, pvParameters );
 
 /*-----------------------------------------------------------*/
 
-void vStartJoystickTask( unsigned portBASE_TYPE uxPriority, i2cTempStruct *params)
+void vStartJoystickTask( unsigned portBASE_TYPE uxPriority, i2cParamStruct *params)
 {
 	/* Start the task */
 	portBASE_TYPE retval;
@@ -43,8 +43,8 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 	uint8_t PIN_CONFIG;
 	uint8_t PrevPIN_CONFIG;
 
-	vtLCDStruct *lcdData = pvParameters;
-	vtLCDMsg lcdBuffer;
+	MasterMsgQueue *masterQ = pvParameters;
+	MasterMsgQueueMsg masterBuffer;
 
 	uint8_t i = 0;
 
@@ -55,9 +55,9 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 		 
 		if ((PIN_CONFIG & 0x1) == 0 && /*makes sure only sends one message per button press -->*/(PIN_CONFIG != PrevPIN_CONFIG))	 //select BIT
 		{
-			lcdBuffer.length = 1;
-			lcdBuffer.buf[0] = 0;
-			if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
+			masterBuffer.length = 1;
+			masterBuffer.buf[0] = 0;
+			if (xQueueSend(masterQ->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
@@ -72,9 +72,9 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 		}
 		else if ((PIN_CONFIG & 0x8) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))	  //up joystick
 		{
-			lcdBuffer.length = 1;
-			lcdBuffer.buf[0] = 1;
-			if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
+			masterBuffer.length = 1;
+			masterBuffer.buf[0] = 1;
+			if (xQueueSend(masterQ->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
@@ -89,9 +89,9 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 		}
 		else if ((PIN_CONFIG & 0x10) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))  //right joystick
 		{
-			lcdBuffer.length = 1;
-			lcdBuffer.buf[0] = 2;
-			if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
+			masterBuffer.length = 1;
+			masterBuffer.buf[0] = 2;
+			if (xQueueSend(masterQ->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
@@ -106,9 +106,9 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 		}
 		else if ((PIN_CONFIG & 0x20) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))  //down joystick
 		{
-			lcdBuffer.length = 1;
-			lcdBuffer.buf[0] = 3;
-			if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
+			masterBuffer.length = 1;
+			masterBuffer.buf[0] = 3;
+			if (xQueueSend(masterQ->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
@@ -123,9 +123,9 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 		}
 		else if ((PIN_CONFIG & 0x40) == 0 && (PIN_CONFIG != PrevPIN_CONFIG)) //left joystick
 		{
-			lcdBuffer.length = 1;
-			lcdBuffer.buf[0] = 4;
-			if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
+			masterBuffer.length = 1;
+			masterBuffer.buf[0] = 4;
+			if (xQueueSend(masterQ->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
