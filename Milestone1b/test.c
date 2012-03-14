@@ -89,7 +89,7 @@ static portTASK_FUNCTION( SomeTask, pvParameters )
 		}
 
 		//Ask for message from I2C
-		if (vtI2CEnQ(devPtr,0x01,0x4F,sizeof(i2cCmdReadVals),i2cCmdReadVals,2) != pdTRUE) {
+		if (vtI2CEnQ(devPtr,0x01,0x48,sizeof(i2cCmdReadVals),0x00/*i2cCmdReadVals*/,2) != pdTRUE) {
 			VT_HANDLE_FATAL_ERROR(0);
 		}
 
@@ -101,8 +101,8 @@ static portTASK_FUNCTION( SomeTask, pvParameters )
 		uint8_t testint = 0;
 		
 		//load the read message from I2C into the lcd Buffer
-		lcdBuffer.buf[0] = messageReceived[0];
-		lcdBuffer.buf[1] = messageReceived[1];
+		lcdBuffer.buf[0] = messageReceived[1];
+		lcdBuffer.buf[1] = messageReceived[0];
 		
 		
 		if (lcdData != NULL && lcdBuffer.buf[0] != 0xFF) {

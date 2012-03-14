@@ -26,7 +26,7 @@
 #endif
 
 // Set the task up to run every second
-#define i2cREAD_RATE_BASE	( ( portTickType ) 1000 )
+#define i2cREAD_RATE_BASE	( ( portTickType ) 100 )
 
 /* The i2cTemp task. */
 static portTASK_FUNCTION_PROTO( I2CTask, pvParameters );
@@ -54,7 +54,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 	const uint8_t ReturnADCValue = 0xAA;
 	
 	uint8_t SendCount = 1;
-	uint8_t SendValue[5] = {0xAF, 0x90, 0x64, 0x64, 0x00};
+	uint8_t SendValue[5] = {0xAF, 0x80, 0x64, 0x64, 0x00};
 	const uint8_t Gimmesomething = 0xBB;
 	
 	uint8_t temp1, rxLen, status;
@@ -116,9 +116,28 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 				GPIO2->FIOSET = 0x10;
 			}
 		}
+		int calculate;
+		calculate = ADCValueReceived[0] & 0x03;
+		calculate = calculate << 8;
+		calculate = calculate | ADCValueReceived[1];
 
-		
-		
+		if (calculate > 192 && calculate < 232)
+			SendValue[1] = 0x01;
+		else if (calculate >= 232 && calculate < 272)
+			SendValue[1] = 0x02;
+		else if (calculate >= 272 && calculate < 312)
+			SendValue[1] = 0x04;
+		else if (calculate >= 312 && calculate < 342)
+			SendValue[1] = 0x08;
+		else if (calculate >= 342 && calculate < 372)
+			SendValue[1] = 0x10;
+		else if (calculate >= 372 && calculate < 412)
+			SendValue[1] = 0x20;
+		else if (calculate >= 412 && calculate < 442)
+			SendValue[1] = 0x40;
+		else if (calculate >= 442 && calculate < 472)
+			SendValue[1] = 0x80;
+		else SendValue[1] = 0xFF;
 		
 		//prepare to send Midi message to I2Cto the PIC
 		if (SendCount > 100)

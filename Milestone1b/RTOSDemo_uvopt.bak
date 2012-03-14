@@ -351,10 +351,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>31</ColumnNumber>
+      <ColumnNumber>19</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>273</TopLine>
-      <CurrentLine>279</CurrentLine>
+      <TopLine>262</TopLine>
+      <CurrentLine>286</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/LCDtask.c</PathWithFileName>
       <FilenameWithoutPath>LCDtask.c</FilenameWithoutPath>
@@ -365,10 +365,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>17</ColumnNumber>
+      <ColumnNumber>38</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>99</TopLine>
-      <CurrentLine>99</CurrentLine>
+      <TopLine>80</TopLine>
+      <CurrentLine>105</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\test.c</PathWithFileName>
       <FilenameWithoutPath>test.c</FilenameWithoutPath>
@@ -963,9 +963,9 @@
       <Documents>
         <Doc>
           <Name>.\test.c</Name>
-          <ColumnNumber>17</ColumnNumber>
-          <TopLine>99</TopLine>
-          <CurrentLine>99</CurrentLine>
+          <ColumnNumber>38</ColumnNumber>
+          <TopLine>80</TopLine>
+          <CurrentLine>105</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/main.c</Name>
@@ -975,9 +975,9 @@
         </Doc>
         <Doc>
           <Name>.\MainFiles/LCDtask.c</Name>
-          <ColumnNumber>31</ColumnNumber>
-          <TopLine>273</TopLine>
-          <CurrentLine>279</CurrentLine>
+          <ColumnNumber>19</ColumnNumber>
+          <TopLine>262</TopLine>
+          <CurrentLine>286</CurrentLine>
         </Doc>
         <Doc>
           <Name>C:\ARMCode\RTOSDemo\MAINFILES\LCDTASK.H</Name>
