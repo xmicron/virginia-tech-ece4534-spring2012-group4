@@ -270,19 +270,20 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 
 			//convert max and mins to voltages
 			max = max ;
-			min = min / 300;
+			
 
 			avg = avg / (80);
+			min = avg / 307;
 
 			//display the max and min voltages on the screen
 			uint8_t toprint[4];
 			sprintf((char *)toprint, "%5.2fV", avg);
 			GLCD_DisplayString(0,5,1, (unsigned char*)&toprint);
-			sprintf((char *)toprint, "%1.2fV", min);
-			GLCD_DisplayString(9,5,1, (unsigned char*)&toprint);
+			sprintf((char *)toprint, "%1.4fV", min);
+			GLCD_DisplayString(9,3,1, (unsigned char*)&toprint);
 			
-			max = (max + min) / 2;
-			avg = (avg - 125.6855)/3.3565625;
+			//max = (max + min) / 2;
+			avg = (avg - 595)/11.625;  //125.6855	 3.3565625		//126.62   3.375
 
 			//max = ((max*2 - 0.8) / 21)*1000;
 			//min = ((min*2 - 0.8) / 21)*1000;
