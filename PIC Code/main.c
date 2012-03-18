@@ -89,6 +89,7 @@ void main (void)
 	int ADCVALUE = 0;
 	int adc_counter = 0;
 	int adc_chan_num = 0;
+	int adcValue = 0;
 
 	/*
 		Initialization ------------------------------------------------------------------------
@@ -223,13 +224,14 @@ void main (void)
 						I2C_TX_MSG_COUNT = 1;
 					}
 
+					/*
 					// Increment the channel number
 					if(adc_chan_num <= 0)	adc_chan_num++;
 					else	adc_chan_num = 0;
 					// Set ADC channel based off of channel number
 					if(adc_chan_num == 0)	SetChanADC(ADC_CH0);
 					else if(adc_chan_num == 1)	SetChanADC(ADC_CH1);
-					else	SetChanADC(ADC_CH2);
+					else	SetChanADC(ADC_CH2);*/
 				};
 				case MSGT_TIMER0: {
 					timer0_lthread(&t0thread_data,msgtype,length,msgbuffer);
@@ -242,10 +244,14 @@ void main (void)
 						//FromMainLow_sendmsg(5, msgtype, msgbuffer);
 						// The code below checks message 'counts' to see if any I2C messages were dropped
 						I2C_RX_MSG_COUNT = msgbuffer[4];
+
+						LATB = msgbuffer[1];
+/*
 						printf("%x", msgbuffer[1]);
 						printf("%x", msgbuffer[2]);
 						printf("%x", msgbuffer[3]);
 						printf("\n");
+*/
 /*
 						putcUSART(msgbuffer[1]);
 						Delay1KTCYx(10);	
@@ -254,7 +260,7 @@ void main (void)
 						putcUSART(msgbuffer[3]);
 						Delay1KTCYx(10);*/
 						if(I2C_RX_MSG_COUNT - I2C_RX_MSG_PRECOUNT == 1)	{
-							LATBbits.LATB1 = !LATBbits.LATB1;
+							//LATBbits.LATB1 = !LATBbits.LATB1;
 							if(I2C_RX_MSG_PRECOUNT < 99)	{
 								I2C_RX_MSG_PRECOUNT++;
 							}
@@ -264,7 +270,7 @@ void main (void)
 						}
 						else	{
 							I2C_RX_MSG_PRECOUNT = I2C_RX_MSG_COUNT;
-							LATBbits.LATB0 = !LATBbits.LATB0;
+							//LATBbits.LATB0 = !LATBbits.LATB0;
 						}
 					}
 				};
