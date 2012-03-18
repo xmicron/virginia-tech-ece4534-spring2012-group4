@@ -26,7 +26,7 @@
 #endif
 
 // Set the task up to run every second
-#define i2cREAD_RATE_BASE	( ( portTickType ) 100 )
+#define i2cREAD_RATE_BASE	( ( portTickType ) 10 )
 
 /* The i2cTemp task. */
 static portTASK_FUNCTION_PROTO( I2CTask, pvParameters );
@@ -120,24 +120,36 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 		calculate = ADCValueReceived[0] & 0x03;
 		calculate = calculate << 8;
 		calculate = calculate | ADCValueReceived[1];
-
-		if (calculate > 192 && calculate < 232)
-			SendValue[1] = 0x01;
-		else if (calculate >= 232 && calculate < 272)
-			SendValue[1] = 0x02;
-		else if (calculate >= 272 && calculate < 312)
-			SendValue[1] = 0x04;
-		else if (calculate >= 312 && calculate < 342)
-			SendValue[1] = 0x08;
-		else if (calculate >= 342 && calculate < 372)
-			SendValue[1] = 0x10;
-		else if (calculate >= 372 && calculate < 412)
-			SendValue[1] = 0x20;
-		else if (calculate >= 412 && calculate < 442)
-			SendValue[1] = 0x40;
-		else if (calculate >= 442 && calculate < 472)
+/*
+		if (calculate > 183 && calculate < 236)
 			SendValue[1] = 0x80;
-		else SendValue[1] = 0xFF;
+		else if (calculate >= 236 && calculate < 283)
+			SendValue[1] = 0x40;
+		else if (calculate >= 283 && calculate < 325)
+			SendValue[1] = 0x20;
+		else if (calculate >= 325 && calculate < 362)
+			SendValue[1] = 0x10;
+		else if (calculate >= 362 && calculate < 394)
+			SendValue[1] = 0x08;
+		else if (calculate >= 394 && calculate < 424)
+			SendValue[1] = 0x04; */
+		if (calculate >= 180  && calculate < 220)
+			SendValue[1] = 0x80;
+		else if (calculate >= 220  && calculate < 260)
+			SendValue[1] = 0x40;
+		else if (calculate >= 260  && calculate < 290)
+			SendValue[1] = 0x20;
+		else if (calculate >= 290  && calculate < 320)
+			SendValue[1] = 0x10;
+		else if (calculate >= 320 && calculate < 380)
+			SendValue[1] = 0x08;
+		else if (calculate >= 380 && calculate < 460)
+			SendValue[1] = 0x04;
+		else if (calculate >= 460 && calculate < 530)
+			SendValue[1] = 0x02;
+		else if (calculate >= 530 && calculate < 780)
+			SendValue[1] = 0x01;
+		//else SendValue[1] = 0xFF;
 		
 		//prepare to send Midi message to I2Cto the PIC
 		if (SendCount > 100)
