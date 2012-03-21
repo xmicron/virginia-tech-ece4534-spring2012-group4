@@ -426,10 +426,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>27</ColumnNumber>
+      <ColumnNumber>73</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>112</TopLine>
-      <CurrentLine>140</CurrentLine>
+      <TopLine>106</TopLine>
+      <CurrentLine>106</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\I2C.c</PathWithFileName>
       <FilenameWithoutPath>I2C.c</FilenameWithoutPath>
@@ -1088,9 +1088,9 @@
         </Doc>
         <Doc>
           <Name>.\I2C.c</Name>
-          <ColumnNumber>27</ColumnNumber>
-          <TopLine>112</TopLine>
-          <CurrentLine>140</CurrentLine>
+          <ColumnNumber>73</ColumnNumber>
+          <TopLine>106</TopLine>
+          <CurrentLine>106</CurrentLine>
         </Doc>
         <Doc>
           <Name>C:\ARMCode\RTOSDemo\MAINFILES\LCDTASK.H</Name>
