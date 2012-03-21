@@ -140,7 +140,9 @@ void main (void)
 	// set direction for PORTB to output
 	TRISB = 0x0;
 	LATB = 0x0;
-	
+	PORTC = 0X00;
+	LATC = 0x00;
+	TRISC = 0xFF;
 		
 
 
@@ -181,7 +183,8 @@ void main (void)
 		// an idle mode
 		block_on_To_msgqueues();
 		
-
+		//LATBbits.LATB0 = LAT
+		LATB = LATC;
 		/*
 			High Priority MSGQ ----------------------------------------------------------------------
 		*/
@@ -204,7 +207,7 @@ void main (void)
 					// Format I2C msg
 					msgbuffer[10] = adc_chan_num;
 					msgbuffer[11] = 0xaa;			// ADC MSG opcode
-/*
+/*					
 					if (msgbuffer[0] == 0x02)
 					{
 						putcUSART(0x90);

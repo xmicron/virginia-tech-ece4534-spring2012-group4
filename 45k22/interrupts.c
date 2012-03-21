@@ -79,10 +79,11 @@ void InterruptHandlerHigh ()
 {
 	// We need to check the interrupt flag of each enabled high-priority interrupt to
 	// see which device generated this interrupt.  Then we can call the correct handler.
-
+	
 	// check to see if we have an I2C interrupt
 	if (PIR1bits.SSP1IF) {
 		// clear the interrupt flag
+		LATB++;
 		PIR1bits.SSP1IF = 0;
 		// call the handler
 		i2c_int_handler();

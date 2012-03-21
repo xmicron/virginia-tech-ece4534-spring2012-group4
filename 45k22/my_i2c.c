@@ -304,8 +304,8 @@ void i2c_configure_slave(unsigned char addr) {
 	// ensure the two lines are set for input (we are a slave)
 	TRISCbits.TRISC3=1;
 	TRISCbits.TRISC4=1;
+	TRISC = 0xFF;
 	// set the address
-	//SSPADD = 4;
 	SSP1ADD = addr;
 	//OpenI2C1(SLAVE_7,SLEW_OFF); // replaced w/ code below
 	SSP1STAT = 0x0;
@@ -313,8 +313,8 @@ void i2c_configure_slave(unsigned char addr) {
 	SSP1CON2 = 0x0;
 	SSP1CON1 |= 0x0E;  // enable Slave 7-bit w/ start/stop interrupts
 	SSP1STAT |= SLEW_OFF;
-	//I2C_SCL = 1;
-	//I2C_SDA = 1;
+	//SCL1 = 1;
+	//SDA1 = 1;
 	// enable clock-stretching 
 	SSP1CON2bits.SEN = 1;
 	SSP1CON1 |= SSPENB;
