@@ -46,7 +46,6 @@ unsigned char	i2c_master_recv(unsigned char length)
 
 void	start_i2c_slave_reply(unsigned char length,unsigned char *msg)
 {
-	LATB++;
 	for (ic_ptr->outbuflen=0;ic_ptr->outbuflen<length;ic_ptr->outbuflen++) {
 		ic_ptr->outbuffer[ic_ptr->outbuflen] = msg[ic_ptr->outbuflen];
 	}
@@ -240,7 +239,7 @@ void i2c_int_handler()
 
 	// Any time data is sent from the Keil (Master), execute this code
 	if (msg_ready) {
-		//LATB++;
+		LATB++;
 		// Regardless of message type (request, or send from Keil), send buffer data to main
 		ic_ptr->buffer[ic_ptr->buflen] = ic_ptr->event_count;
 		ToMainHigh_sendmsg(ic_ptr->buflen+1,MSGT_I2C_DATA,(void *) ic_ptr->buffer);
@@ -300,13 +299,15 @@ void init_i2c(i2c_comm *ic)
 // the address must include the R/W bit
 void i2c_configure_slave(unsigned char addr) {
 
+	//ADCON0 = 0b001111100;
+	//ADCON0 = 0b010000000;
 	// ensure the two lines are set for input (we are a slave)
 	TRISCbits.TRISC3=1;
 	TRISCbits.TRISC4=1;
 	// set the address
 	//SSPADD = 4;
 	SSP1ADD = addr;
-	//OpenI2C(SLAVE_7,SLEW_OFF); // replaced w/ code below
+	//OpenI2C1(SLAVE_7,SLEW_OFF); // replaced w/ code below
 	SSP1STAT = 0x0;
 	SSP1CON1 = 0x0;
 	SSP1CON2 = 0x0;

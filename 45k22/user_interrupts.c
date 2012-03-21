@@ -52,7 +52,7 @@ void adc_int_handler()	{
 	// Read the timer to determine when the ADC was read
 	val[2] = ReadTimer2();
 
-	LATB++;
+	LATB = SSP1STAT;
 
 	ToMainHigh_sendmsg(3, MSGT_ADC, (void *) val);	// Send ADC value to ToMainHigh MSGQ
 	PIR1bits.ADIF = 0;								// Reset the ADC interrupt
