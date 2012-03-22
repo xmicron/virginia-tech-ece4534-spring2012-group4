@@ -45,9 +45,8 @@ void adc_int_handler()	{
 	unsigned char val[3];
 
 	// Read ADC, then store the values into message buffer
-	ReadADC();
 	val[0] = ADRESH;
-	val[1] = ADRESL;	
+	val[1] = ADRESL;
 	
 	// Read the timer to determine when the ADC was read
 	val[2] = ReadTimer1();

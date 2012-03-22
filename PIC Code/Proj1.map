@@ -1,5 +1,5 @@
 MPLINK 4.40, Linker
-Linker Map File - Created Sun Mar 18 14:25:06 2012
+Linker Map File - Created Wed Mar 21 15:30:21 2012
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -19,75 +19,72 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
     .code_timer1_thread.o       code   0x0011b2    program   0x00009a
             .code_uopen.o       code   0x00124c    program   0x000082
                      PROG       code   0x0012ce    program   0x000078
-  .code_user_interrupts.o       code   0x001346    program   0x000074
-          .code_adcopen.o       code   0x0013ba    program   0x000064
-                   STRING       code   0x00141e    program   0x000056
-           .code_t1open.o       code   0x001474    program   0x000040
-            .code_uread.o       code   0x0014b4    program   0x00003e
-           .code_newADC.o       code   0x0014f2    program   0x000038
-           .code_t0open.o       code   0x00152a    program   0x000036
-      .code_uart_thread.o       code   0x001560    program   0x000034
-          .code_t1write.o       code   0x001594    program   0x000030
-           .code_t1read.o       code   0x0015c4    program   0x000030
-          .code_t0write.o       code   0x0015f4    program   0x000030
-         .code_adcsetch.o       code   0x001624    program   0x000030
-                    .code       code   0x001654    program   0x000020
-    .code_timer0_thread.o       code   0x001674    program   0x00001c
-             _startup_scn       code   0x001690    program   0x00001a
-          .code_adcread.o       code   0x0016aa    program   0x000018
-           .code___init.o       code   0x0016c2    program   0x000002
-         .idata_udefs.o_i    romdata   0x0016c4    program   0x000000
-        .romdata_t1open.o    romdata   0x0016c4    program   0x000000
-       .idata_c018i_e.o_i    romdata   0x0016c4    program   0x000000
-         .idata_uopen.o_i    romdata   0x0016c4    program   0x000000
-         .romdata_uopen.o    romdata   0x0016c4    program   0x000000
-        .romdata___init.o    romdata   0x0016c4    program   0x000000
-        .idata___init.o_i    romdata   0x0016c4    program   0x000000
-       .idata_adcread.o_i    romdata   0x0016c4    program   0x000000
-       .romdata_adcread.o    romdata   0x0016c4    program   0x000000
-        .idata_t1read.o_i    romdata   0x0016c4    program   0x000000
-         .romdata_udefs.o    romdata   0x0016c4    program   0x000000
-       .romdata_t1write.o    romdata   0x0016c4    program   0x000000
-        .romdata_t1read.o    romdata   0x0016c4    program   0x000000
-       .idata_t1write.o_i    romdata   0x0016c4    program   0x000000
-       .romdata_t0write.o    romdata   0x0016c4    program   0x000000
-         .idata_uread.o_i    romdata   0x0016c4    program   0x000000
-         .romdata_uread.o    romdata   0x0016c4    program   0x000000
-      .romdata_adcsetch.o    romdata   0x0016c4    program   0x000000
-       .idata_t0write.o_i    romdata   0x0016c4    program   0x000000
-      .idata_adcsetch.o_i    romdata   0x0016c4    program   0x000000
-            .code_udefs.o       code   0x0016c4    program   0x000000
-          .idata_main.o_i    romdata   0x0016c4    program   0x000000
-          .romdata_main.o    romdata   0x0016c4    program   0x000000
-      .idata_messages.o_i    romdata   0x0016c4    program   0x000000
-      .romdata_messages.o    romdata   0x0016c4    program   0x000000
-    .idata_interrupts.o_i    romdata   0x0016c4    program   0x000000
-    .romdata_interrupts.o    romdata   0x0016c4    program   0x000000
-          .code_c018i_e.o       code   0x0016c4    program   0x000000
-.idata_user_interrupts.o_i    romdata   0x0016c4    program   0x000000
-.romdata_user_interrupts.o    romdata   0x0016c4    program   0x000000
-       .idata_my_uart.o_i    romdata   0x0016c4    program   0x000000
-       .romdata_my_uart.o    romdata   0x0016c4    program   0x000000
-   .idata_uart_thread.o_i    romdata   0x0016c4    program   0x000000
-   .romdata_uart_thread.o    romdata   0x0016c4    program   0x000000
- .idata_timer1_thread.o_i    romdata   0x0016c4    program   0x000000
- .romdata_timer1_thread.o    romdata   0x0016c4    program   0x000000
-        .idata_t1open.o_i    romdata   0x0016c4    program   0x000000
-        .romdata_t0open.o    romdata   0x0016c4    program   0x000000
-        .idata_t0open.o_i    romdata   0x0016c4    program   0x000000
-       .romdata_adcopen.o    romdata   0x0016c4    program   0x000000
-       .idata_adcopen.o_i    romdata   0x0016c4    program   0x000000
-       .romdata_adcconv.o    romdata   0x0016c4    program   0x000000
-       .idata_adcconv.o_i    romdata   0x0016c4    program   0x000000
-       .romdata_c018i_e.o    romdata   0x0016c4    program   0x000000
-      .romdata_adcclose.o    romdata   0x0016c4    program   0x000000
-      .idata_adcclose.o_i    romdata   0x0016c4    program   0x000000
-        .romdata_newADC.o    romdata   0x0016c4    program   0x000000
-        .idata_newADC.o_i    romdata   0x0016c4    program   0x000000
-        .romdata_my_i2c.o    romdata   0x0016c4    program   0x000000
-        .idata_my_i2c.o_i    romdata   0x0016c4    program   0x000000
- .romdata_timer0_thread.o    romdata   0x0016c4    program   0x000000
- .idata_timer0_thread.o_i    romdata   0x0016c4    program   0x000000
+  .code_user_interrupts.o       code   0x001346    program   0x000070
+          .code_adcopen.o       code   0x0013b6    program   0x000064
+                   STRING       code   0x00141a    program   0x000056
+           .code_t1open.o       code   0x001470    program   0x000040
+            .code_uread.o       code   0x0014b0    program   0x00003e
+           .code_newADC.o       code   0x0014ee    program   0x000038
+           .code_t0open.o       code   0x001526    program   0x000036
+      .code_uart_thread.o       code   0x00155c    program   0x000034
+          .code_t1write.o       code   0x001590    program   0x000030
+           .code_t1read.o       code   0x0015c0    program   0x000030
+          .code_t0write.o       code   0x0015f0    program   0x000030
+         .code_adcsetch.o       code   0x001620    program   0x000030
+                    .code       code   0x001650    program   0x000020
+    .code_timer0_thread.o       code   0x001670    program   0x00001c
+             _startup_scn       code   0x00168c    program   0x00001a
+           .code___init.o       code   0x0016a6    program   0x000002
+        .romdata_t0open.o    romdata   0x0016a8    program   0x000000
+        .idata_t1open.o_i    romdata   0x0016a8    program   0x000000
+        .romdata___init.o    romdata   0x0016a8    program   0x000000
+        .romdata_t1open.o    romdata   0x0016a8    program   0x000000
+        .idata___init.o_i    romdata   0x0016a8    program   0x000000
+       .romdata_t1write.o    romdata   0x0016a8    program   0x000000
+         .idata_uopen.o_i    romdata   0x0016a8    program   0x000000
+         .romdata_uopen.o    romdata   0x0016a8    program   0x000000
+       .idata_t1write.o_i    romdata   0x0016a8    program   0x000000
+       .romdata_t0write.o    romdata   0x0016a8    program   0x000000
+        .idata_t1read.o_i    romdata   0x0016a8    program   0x000000
+       .idata_t0write.o_i    romdata   0x0016a8    program   0x000000
+        .romdata_t1read.o    romdata   0x0016a8    program   0x000000
+            .code_udefs.o       code   0x0016a8    program   0x000000
+         .idata_uread.o_i    romdata   0x0016a8    program   0x000000
+         .romdata_uread.o    romdata   0x0016a8    program   0x000000
+         .romdata_udefs.o    romdata   0x0016a8    program   0x000000
+         .idata_udefs.o_i    romdata   0x0016a8    program   0x000000
+      .idata_adcsetch.o_i    romdata   0x0016a8    program   0x000000
+      .romdata_adcsetch.o    romdata   0x0016a8    program   0x000000
+       .idata_c018i_e.o_i    romdata   0x0016a8    program   0x000000
+       .romdata_c018i_e.o    romdata   0x0016a8    program   0x000000
+          .code_c018i_e.o       code   0x0016a8    program   0x000000
+          .idata_main.o_i    romdata   0x0016a8    program   0x000000
+          .romdata_main.o    romdata   0x0016a8    program   0x000000
+      .idata_messages.o_i    romdata   0x0016a8    program   0x000000
+      .romdata_messages.o    romdata   0x0016a8    program   0x000000
+    .idata_interrupts.o_i    romdata   0x0016a8    program   0x000000
+    .romdata_interrupts.o    romdata   0x0016a8    program   0x000000
+.idata_user_interrupts.o_i    romdata   0x0016a8    program   0x000000
+.romdata_user_interrupts.o    romdata   0x0016a8    program   0x000000
+       .idata_my_uart.o_i    romdata   0x0016a8    program   0x000000
+       .romdata_my_uart.o    romdata   0x0016a8    program   0x000000
+   .idata_uart_thread.o_i    romdata   0x0016a8    program   0x000000
+   .romdata_uart_thread.o    romdata   0x0016a8    program   0x000000
+        .idata_t0open.o_i    romdata   0x0016a8    program   0x000000
+       .romdata_adcopen.o    romdata   0x0016a8    program   0x000000
+       .idata_adcopen.o_i    romdata   0x0016a8    program   0x000000
+       .romdata_adcconv.o    romdata   0x0016a8    program   0x000000
+       .idata_adcconv.o_i    romdata   0x0016a8    program   0x000000
+      .romdata_adcclose.o    romdata   0x0016a8    program   0x000000
+      .idata_adcclose.o_i    romdata   0x0016a8    program   0x000000
+        .romdata_newADC.o    romdata   0x0016a8    program   0x000000
+        .idata_newADC.o_i    romdata   0x0016a8    program   0x000000
+        .romdata_my_i2c.o    romdata   0x0016a8    program   0x000000
+        .idata_my_i2c.o_i    romdata   0x0016a8    program   0x000000
+ .romdata_timer0_thread.o    romdata   0x0016a8    program   0x000000
+ .idata_timer0_thread.o_i    romdata   0x0016a8    program   0x000000
+ .romdata_timer1_thread.o    romdata   0x0016a8    program   0x000000
+ .idata_timer1_thread.o_i    romdata   0x0016a8    program   0x000000
       .config_7ff8_main.o    romdata   0x007ff8    program   0x000001
       .config_7ffa_main.o    romdata   0x007ffa    program   0x000001
                 msgqueue4      udata   0x000000       data   0x00003f
@@ -96,30 +93,29 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
          .udata_my_uart.o      udata   0x00004d       data   0x000002
           .udata_my_i2c.o      udata   0x00004f       data   0x000002
            .udata_udefs.o      udata   0x000051       data   0x000001
-         .idata_adcconv.o      idata   0x000052       data   0x000000
-         .udata_adcopen.o      udata   0x000052       data   0x000000
-         .idata_adcopen.o      idata   0x000052       data   0x000000
-          .udata_t0open.o      udata   0x000052       data   0x000000
-          .idata_t0open.o      idata   0x000052       data   0x000000
-          .udata_t1open.o      udata   0x000052       data   0x000000
-          .idata_t1open.o      idata   0x000052       data   0x000000
-           .udata_uopen.o      udata   0x000052       data   0x000000
-           .idata_uopen.o      idata   0x000052       data   0x000000
-         .udata_adcread.o      udata   0x000052       data   0x000000
-         .idata_adcread.o      idata   0x000052       data   0x000000
           .udata_t1read.o      udata   0x000052       data   0x000000
+           .idata_uopen.o      idata   0x000052       data   0x000000
+           .udata_uopen.o      udata   0x000052       data   0x000000
+          .idata_t1open.o      idata   0x000052       data   0x000000
+          .udata_t1open.o      udata   0x000052       data   0x000000
+          .idata_t0open.o      idata   0x000052       data   0x000000
+          .udata_t0open.o      udata   0x000052       data   0x000000
+         .idata_adcopen.o      idata   0x000052       data   0x000000
+         .udata_adcopen.o      udata   0x000052       data   0x000000
+         .idata_adcconv.o      idata   0x000052       data   0x000000
+         .udata_adcconv.o      udata   0x000052       data   0x000000
           .idata_t1read.o      idata   0x000052       data   0x000000
-          .idata___init.o      idata   0x000052       data   0x000000
            .udata_uread.o      udata   0x000052       data   0x000000
            .idata_uread.o      idata   0x000052       data   0x000000
         .udata_adcsetch.o      udata   0x000052       data   0x000000
         .idata_adcsetch.o      idata   0x000052       data   0x000000
-          .udata___init.o      udata   0x000052       data   0x000000
            .idata_udefs.o      idata   0x000052       data   0x000000
          .udata_t0write.o      udata   0x000052       data   0x000000
          .idata_t0write.o      idata   0x000052       data   0x000000
          .udata_t1write.o      udata   0x000052       data   0x000000
          .idata_t1write.o      idata   0x000052       data   0x000000
+          .udata___init.o      udata   0x000052       data   0x000000
+          .idata___init.o      idata   0x000052       data   0x000000
          .idata_c018i_e.o      idata   0x000052       data   0x000000
             .udata_main.o      udata   0x000052       data   0x000000
             .idata_main.o      idata   0x000052       data   0x000000
@@ -138,10 +134,9 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
    .idata_timer0_thread.o      idata   0x000052       data   0x000000
           .idata_my_i2c.o      idata   0x000052       data   0x000000
           .udata_newADC.o      udata   0x000052       data   0x000000
-         .udata_adcconv.o      udata   0x000052       data   0x000000
-        .idata_adcclose.o      idata   0x000052       data   0x000000
           .idata_newADC.o      idata   0x000052       data   0x000000
         .udata_adcclose.o      udata   0x000052       data   0x000000
+        .idata_adcclose.o      idata   0x000052       data   0x000000
                 msgqueue3      udata   0x000080       data   0x00003e
                 msgqueue2      udata   0x0000be       data   0x00003e
                 MATH_DATA      udata   0x0000fc       data   0x000004
@@ -154,10 +149,10 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x0016c3      
+                            0x000000    0x0016a7      
                             0x007ff8    0x007ff8      
                             0x007ffa    0x007ffa      
-            5830 out of 32768 program addresses used, program memory utilization is 17%
+            5802 out of 32768 program addresses used, program memory utilization is 17%
 
 
 
@@ -174,28 +169,27 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
       InterruptHandlerLow   0x000dac    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\interrupts.c
       InterruptVectorHigh   0x000008    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\interrupts.c
        InterruptVectorLow   0x000018    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\interrupts.c
-                  OpenADC   0x0013ba    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
-               OpenTimer0   0x00152a    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
-               OpenTimer1   0x001474    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1open.c
+                  OpenADC   0x0013b6    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
+               OpenTimer0   0x001526    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
+               OpenTimer1   0x001470    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1open.c
                 OpenUSART   0x00124c    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
                   RESTORE   0x001338    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
               RETQUOTIENT   0x001330    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                  ReadADC   0x0016aa    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
-               ReadTimer1   0x0015c4    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1read.c
-                ReadUSART   0x0014b4    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uread.c
+               ReadTimer1   0x0015c0    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1read.c
+                ReadUSART   0x0014b0    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uread.c
                  SETUPSTK   0x0012ce    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-               SetChanADC   0x001624    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
+               SetChanADC   0x001620    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
               SleepIfOkay   0x000ba8    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
        ToMainHigh_recvmsg   0x000a34    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
        ToMainHigh_sendmsg   0x000a06    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
         ToMainLow_recvmsg   0x0009d4    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
         ToMainLow_sendmsg   0x0009a6    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
-              WriteTimer0   0x0015f4    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
-              WriteTimer1   0x001594    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
-              _4jContinue   0x001452    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                   _5jEnd   0x00145c    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+              WriteTimer0   0x0015f0    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
+              WriteTimer1   0x001590    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
+              _4jContinue   0x00144e    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                   _5jEnd   0x001458    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00001   0x0016a8    program     static                          
+       ___return_lbl00001   0x0016a4    program     static                          
        ___return_lbl00002   0x0011b0    program     static                          
        ___return_lbl00012   0x00001c    program     static                          
        ___return_lbl00013   0x00000c    program     static                          
@@ -203,18 +197,18 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
                __config_0   0x007ff8    program     static D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\main.c
                __config_1   0x007ffa    program     static D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\main.c
                  __div16u   0x0012e6    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-                   __init   0x0016c2    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
+                   __init   0x0016a6    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
                  __mod16u   0x0012ec    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-            __zero_memory   0x001654    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+            __zero_memory   0x001650    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 _do_cinit   0x001114    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
             _early16uexit   0x0012f0    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
                    _entry   0x000000    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                 _startup   0x001690    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                 _startup   0x00168c    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
           adc_int_handler   0x001378    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\user_interrupts.c
     block_on_FromMainHigh   0x000c04    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
     block_on_To_msgqueues   0x000c20    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
                 check_msg   0x000b62    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
-                compare_l   0x00166a    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                compare_l   0x001666    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 copy_loop   0x001186    program     static                          
             copy_one_byte   0x00118c    program     static                          
                 divmod16u   0x0012f2    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
@@ -232,34 +226,34 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
               in_high_int   0x000c6a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\interrupts.c
                in_low_int   0x000caa    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\interrupts.c
                   in_main   0x000cc2    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\interrupts.c
-                  initADC   0x0014f2    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\newADC.c
+                  initADC   0x0014ee    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\newADC.c
                  init_i2c   0x0006cc    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\my_i2c.c
                init_queue   0x00075a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
               init_queues   0x000b26    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
       init_timer1_lthread   0x0011b2    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\timer1_thread.c
            init_uart_recv   0x0010e8    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\my_uart.c
-                     jEnd   0x001462    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                    jLoop   0x001446    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                     loop   0x00169e    program     static                          
+                     jEnd   0x00145e    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                    jLoop   0x001442    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                     loop   0x00169a    program     static                          
                      loop   0x0012fc    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                   loop_h   0x001662    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                   loop_l   0x00166c    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                   loop_h   0x00165e    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                   loop_l   0x001668    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
            low_int_active   0x000c8a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\interrupts.c
                      main   0x000e76    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\main.c
-                   memcpy   0x00141e    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                  readADC   0x001510    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\newADC.c
+                   memcpy   0x00141a    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                  readADC   0x00150c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\newADC.c
                  recv_msg   0x0008a0    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
                  send_msg   0x0007b8    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
     start_i2c_slave_reply   0x000054    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\my_i2c.c
-                  stopADC   0x001526    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\newADC.c
+                  stopADC   0x001522    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\newADC.c
                      test   0x00112e    program     static                          
        timer0_int_handler   0x001346    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\user_interrupts.c
-           timer0_lthread   0x001674    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\timer0_thread.c
+           timer0_lthread   0x001670    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\timer0_thread.c
        timer1_int_handler   0x00136a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\user_interrupts.c
            timer1_lthread   0x0011d0    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\timer1_thread.c
-             uart_lthread   0x001560    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\uart_thread.c
+             uart_lthread   0x00155c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\uart_thread.c
     uart_recv_int_handler   0x00103e    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\my_uart.c
-               zero_block   0x001662    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+               zero_block   0x00165e    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    ADCON0   0x000fc2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                ADCON0bits   0x000fc2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    ADCON1   0x000fc1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
@@ -484,7 +478,6 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
                   __tmp_0   0x000049       data     static D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
                   __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
                   __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
-                  __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
                   __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
                   __tmp_0   0x000049       data     static D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\main.c
                 curr_byte   0x000042       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
@@ -565,34 +558,33 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
        timer0_int_handler   0x001346    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\user_interrupts.c
        timer1_int_handler   0x00136a    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\user_interrupts.c
           adc_int_handler   0x001378    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\user_interrupts.c
-                  OpenADC   0x0013ba    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
-                   memcpy   0x00141e    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                    jLoop   0x001446    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-              _4jContinue   0x001452    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                   _5jEnd   0x00145c    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                     jEnd   0x001462    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-               OpenTimer1   0x001474    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1open.c
-                ReadUSART   0x0014b4    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uread.c
-                  initADC   0x0014f2    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\newADC.c
-                  readADC   0x001510    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\newADC.c
-                  stopADC   0x001526    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\newADC.c
-               OpenTimer0   0x00152a    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
-             uart_lthread   0x001560    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\uart_thread.c
-              WriteTimer1   0x001594    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
-               ReadTimer1   0x0015c4    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1read.c
-              WriteTimer0   0x0015f4    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
-               SetChanADC   0x001624    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
-            __zero_memory   0x001654    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-               zero_block   0x001662    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                   loop_h   0x001662    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                compare_l   0x00166a    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                   loop_l   0x00166c    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-           timer0_lthread   0x001674    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\timer0_thread.c
-                 _startup   0x001690    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                     loop   0x00169e    program     static                          
-       ___return_lbl00001   0x0016a8    program     static                          
-                  ReadADC   0x0016aa    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
-                   __init   0x0016c2    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
+                  OpenADC   0x0013b6    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
+                   memcpy   0x00141a    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                    jLoop   0x001442    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+              _4jContinue   0x00144e    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                   _5jEnd   0x001458    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                     jEnd   0x00145e    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+               OpenTimer1   0x001470    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1open.c
+                ReadUSART   0x0014b0    program     extern C:\MCC18\v3_39\src\pmc_common\USART\uread.c
+                  initADC   0x0014ee    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\newADC.c
+                  readADC   0x00150c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\newADC.c
+                  stopADC   0x001522    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\newADC.c
+               OpenTimer0   0x001526    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
+             uart_lthread   0x00155c    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\uart_thread.c
+              WriteTimer1   0x001590    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
+               ReadTimer1   0x0015c0    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1read.c
+              WriteTimer0   0x0015f0    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
+               SetChanADC   0x001620    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
+            __zero_memory   0x001650    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+               zero_block   0x00165e    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                   loop_h   0x00165e    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                compare_l   0x001666    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                   loop_l   0x001668    program     static C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+           timer0_lthread   0x001670    program     extern D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\timer0_thread.c
+                 _startup   0x00168c    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                     loop   0x00169a    program     static                          
+       ___return_lbl00001   0x0016a4    program     static                          
+                   __init   0x0016a6    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
                __config_0   0x007ff8    program     static D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\main.c
                __config_1   0x007ffa    program     static D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\main.c
           FromMainHigh_MQ   0x000000       data     static D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
@@ -603,7 +595,6 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
                  data_ptr   0x000046       data     static C:\MCC18\v3_39\src\extended\startup\c018i_e.c
                   __tmp_0   0x000049       data     static D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\main.c
                   __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
-                  __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
                   __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\USART\uopen.c
                   __tmp_0   0x000049       data     static C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
                   __tmp_0   0x000049       data     static D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\PIC Code\messages.c
@@ -638,49 +629,49 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
              SSP2STATbits   0x000f87       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  SSP2STAT   0x000f87       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   SSP2ADD   0x000f88       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                     LATA   0x000f89       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  LATAbits   0x000f89       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                     LATB   0x000f8a       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                     LATA   0x000f89       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  LATBbits   0x000f8a       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                     LATB   0x000f8a       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      LATC   0x000f8b       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  LATCbits   0x000f8b       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                     LATD   0x000f8c       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  LATDbits   0x000f8c       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                     LATE   0x000f8d       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                     LATD   0x000f8c       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  LATEbits   0x000f8d       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                     LATE   0x000f8d       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   SSP2BUF   0x000f8e       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                     DDRA   0x000f92       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                    TRISA   0x000f92       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 TRISAbits   0x000f92       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  DDRAbits   0x000f92       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                    TRISA   0x000f92       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                     DDRA   0x000f92       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     TRISB   0x000f93       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                 DDRBbits   0x000f93       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 TRISBbits   0x000f93       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      DDRB   0x000f93       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                 DDRBbits   0x000f93       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                    TRISC   0x000f94       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                TRISCbits   0x000f94       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                 DDRCbits   0x000f94       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      DDRC   0x000f94       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                     DDRD   0x000f95       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                TRISCbits   0x000f94       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                    TRISC   0x000f94       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                 DDRCbits   0x000f94       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  DDRDbits   0x000f95       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                    TRISD   0x000f95       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                     DDRD   0x000f95       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 TRISDbits   0x000f95       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                     DDRE   0x000f96       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                 DDREbits   0x000f96       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                    TRISD   0x000f95       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     TRISE   0x000f96       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 TRISEbits   0x000f96       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-              OSCTUNEbits   0x000f9b       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                 DDREbits   0x000f96       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                     DDRE   0x000f96       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   OSCTUNE   0x000f9b       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                 PIE1bits   0x000f9d       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+              OSCTUNEbits   0x000f9b       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      PIE1   0x000f9d       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                 PIR1bits   0x000f9e       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                 PIE1bits   0x000f9d       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      PIR1   0x000f9e       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                 PIR1bits   0x000f9e       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  IPR1bits   0x000f9f       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      IPR1   0x000f9f       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  PIE2bits   0x000fa0       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      PIE2   0x000fa0       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                 PIR2bits   0x000fa1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      PIR2   0x000fa1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                 PIR2bits   0x000fa1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  IPR2bits   0x000fa2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      IPR2   0x000fa2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  PIE3bits   0x000fa3       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
@@ -692,18 +683,18 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
                    EECON1   0x000fa6       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                EECON1bits   0x000fa6       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    EECON2   0x000fa7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                    RCSTA   0x000fab       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                   RCSTA1   0x000fab       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                RCSTA1bits   0x000fab       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 RCSTAbits   0x000fab       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                   RCSTA1   0x000fab       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                    RCSTA   0x000fab       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     TXSTA   0x000fac       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    TXSTA1   0x000fac       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                TXSTA1bits   0x000fac       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 TXSTAbits   0x000fac       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     TXREG   0x000fad       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    TXREG1   0x000fad       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                    RCREG   0x000fae       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    RCREG1   0x000fae       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                    RCREG   0x000fae       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    SPBRG1   0x000faf       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     SPBRG   0x000faf       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    SPBRGH   0x000fb0       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
@@ -711,25 +702,25 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
                     CMCON   0x000fb4       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                CVRCONbits   0x000fb5       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    CVRCON   0x000fb5       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-              ECCP1ASbits   0x000fb6       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   ECCP1AS   0x000fb6       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                 ECCP1DEL   0x000fb7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-              PWM1CONbits   0x000fb7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+              ECCP1ASbits   0x000fb6       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   PWM1CON   0x000fb7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+              PWM1CONbits   0x000fb7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
              ECCP1DELbits   0x000fb7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                  BAUDCON   0x000fb8       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-              BAUDCONbits   0x000fb8       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                 ECCP1DEL   0x000fb7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   BAUDCTL   0x000fb8       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+              BAUDCONbits   0x000fb8       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                  BAUDCON   0x000fb8       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
               BAUDCTLbits   0x000fb8       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
               CCP2CONbits   0x000fba       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   CCP2CON   0x000fba       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     CCPR2   0x000fbb       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    CCPR2L   0x000fbb       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    CCPR2H   0x000fbc       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                  CCP1CON   0x000fbd       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
              ECCP1CONbits   0x000fbd       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  ECCP1CON   0x000fbd       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
               CCP1CONbits   0x000fbd       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                  CCP1CON   0x000fbd       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     CCPR1   0x000fbe       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    CCPR1L   0x000fbe       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    CCPR1H   0x000fbf       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
@@ -737,47 +728,47 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
                ADCON2bits   0x000fc0       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    ADCON1   0x000fc1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                ADCON1bits   0x000fc1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                   ADCON0   0x000fc2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                ADCON0bits   0x000fc2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                   ADCON0   0x000fc2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     ADRES   0x000fc3       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    ADRESL   0x000fc3       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    ADRESH   0x000fc4       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                  SSPCON2   0x000fc5       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  SSP1CON2   0x000fc5       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
              SSP1CON2bits   0x000fc5       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
               SSPCON2bits   0x000fc5       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                  SSPCON2   0x000fc5       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  SSP1CON1   0x000fc6       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
              SSP1CON1bits   0x000fc6       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
               SSPCON1bits   0x000fc6       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   SSPCON1   0x000fc6       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  SSP1STAT   0x000fc7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
              SSP1STATbits   0x000fc7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                  SSPSTAT   0x000fc7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
               SSPSTATbits   0x000fc7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                  SSPSTAT   0x000fc7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    SSPADD   0x000fc8       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   SSP1ADD   0x000fc8       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    SSPBUF   0x000fc9       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   SSP1BUF   0x000fc9       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                T2CONbits   0x000fca       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     T2CON   0x000fca       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                T2CONbits   0x000fca       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                       PR2   0x000fcb       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      TMR2   0x000fcc       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     T1CON   0x000fcd       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 T1CONbits   0x000fcd       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     TMR1L   0x000fce       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     TMR1H   0x000fcf       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                 RCONbits   0x000fd0       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      RCON   0x000fd0       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-               WDTCONbits   0x000fd1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                 RCONbits   0x000fd0       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    WDTCON   0x000fd1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                   OSCCON   0x000fd3       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+               WDTCONbits   0x000fd1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                OSCCONbits   0x000fd3       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                   OSCCON   0x000fd3       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                 T0CONbits   0x000fd5       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     T0CON   0x000fd5       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     TMR0L   0x000fd6       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     TMR0H   0x000fd7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                   STATUS   0x000fd8       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                STATUSbits   0x000fd8       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                   STATUS   0x000fd8       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      FSR2   0x000fd9       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     FSR2L   0x000fd9       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     FSR2H   0x000fda       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
@@ -787,8 +778,8 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
                  POSTINC2   0x000fde       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     INDF2   0x000fdf       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                       BSR   0x000fe0       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                    FSR1L   0x000fe1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      FSR1   0x000fe1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                    FSR1L   0x000fe1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     FSR1H   0x000fe2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    PLUSW1   0x000fe3       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   PREINC1   0x000fe4       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
@@ -796,16 +787,16 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
                  POSTINC1   0x000fe6       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     INDF1   0x000fe7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                      WREG   0x000fe8       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                     FSR0   0x000fe9       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     FSR0L   0x000fe9       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                     FSR0   0x000fe9       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     FSR0H   0x000fea       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    PLUSW0   0x000feb       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   PREINC0   0x000fec       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  POSTDEC0   0x000fed       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                  POSTINC0   0x000fee       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                     INDF0   0x000fef       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                  INTCON3   0x000ff0       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
               INTCON3bits   0x000ff0       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                  INTCON3   0x000ff0       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
               INTCON2bits   0x000ff1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   INTCON2   0x000ff1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                INTCONbits   0x000ff2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
@@ -818,8 +809,8 @@ Linker Map File - Created Sun Mar 18 14:25:06 2012
                    TBLPTR   0x000ff6       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   TBLPTRH   0x000ff7       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                   TBLPTRU   0x000ff8       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
-                      PCL   0x000ff9       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                        PC   0x000ff9       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
+                      PCL   0x000ff9       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    PCLATH   0x000ffa       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                    PCLATU   0x000ffb       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
                STKPTRbits   0x000ffc       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45J10.asm
