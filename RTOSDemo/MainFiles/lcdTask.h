@@ -12,7 +12,7 @@ typedef struct __InstrumentStruct {
 	int Pitch;					 
 } InstrumentStruct;
 typedef struct __RepeatingInstrumentStruct {
-	int instrumentID;
+	int InstrumentID;
 	int Note;
 	int BPM;					 
 } RepeatingInstrumentStruct;

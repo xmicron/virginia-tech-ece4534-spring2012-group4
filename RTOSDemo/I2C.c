@@ -26,7 +26,7 @@
 #endif
 
 // Set the task up to run every second
-#define i2cREAD_RATE_BASE	( ( portTickType ) 10 )
+#define i2cREAD_RATE_BASE	( ( portTickType ) 100 )
 
 /* The i2cTemp task. */
 static portTASK_FUNCTION_PROTO( I2CTask, pvParameters );
@@ -107,13 +107,13 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 	 	if (ADCValueReceived[11] != 170) //check the message returned
 		{
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
-			if( ulCurrentState & 0x10 )
+			if( ulCurrentState & 0x20 )
 			{
-				GPIO2->FIOCLR = 0x10;
+				GPIO2->FIOCLR = 0x20;
 			}
 			else
 			{
-				GPIO2->FIOSET = 0x10;
+				GPIO2->FIOSET = 0x20;
 			}
 		}
 		int calculate;
