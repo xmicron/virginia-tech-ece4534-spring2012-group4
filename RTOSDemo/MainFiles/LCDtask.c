@@ -576,6 +576,127 @@ unsigned char * ReturnInstrumentLabel(int index)
 	  	return "Gunshot";
 	}
 }
+unsigned char * ReturnInstrumentCategoryLabel(int index)
+{
+	if (index == 0)
+	{
+		return "Piano";
+	}
+	else if (index == 1)
+	{
+		return "Chromatic Percussion";
+	}
+	else if (index == 2)
+	{
+	 	return "Organ";
+	}
+	else if (index == 3)
+	{
+		return "Guitar";
+	}
+	else if (index == 4)
+	{
+	   	return "Bass";
+	}
+	else if (index == 5)
+	{
+	 	return "Strings";
+	}
+	else if (index == 6)
+	{
+	 	return "Ensemble";
+	}
+	else if (index == 7)
+	{
+	 	return "Brass";
+	}
+	else if (index == 8)
+	{
+	 	return "Reed";
+	}
+	else if (index == 9)
+	{
+	 	return "Pipe";
+	}
+	else if (index == 10)
+	{
+	 	return "Synth Lead";
+	}
+	else if (index == 11)
+	{
+	 	return "Synth Pad";
+	}
+	else if (index == 12)
+	{
+	 	return "Synth Effects";
+	}
+	else if (index == 13)
+	{
+	 	return "Ethnic";
+	}
+	else if (index == 14)
+	{
+	 	return "Percussive";
+	}
+	else if (index == 15)
+	{
+	 	return "Sound Effects";
+	}
+}
+unsigned char * ReturnRepeatingLabel(int index)
+{
+ 	if (index == 0)
+	{
+	 	return "Done";
+	}	
+	else if (index == 1)
+	{
+	 	return "Change Instrument";
+	}
+	else if (index == 2)
+	{
+	 	return "Change Note";
+	}
+	else if (index == 3)
+	{
+	  	return "Change BPM";
+	}
+}
+unsigned char * ReturnNoteLabel(int index)
+{
+	if (index == 0)
+	{
+	 	return "<none selected>";
+	}
+	else if (index == 1)
+	{
+	 	return "A";
+	}
+	else if (index == 2)
+	{
+	 	return "B";
+	}
+	else if (index == 3)
+	{
+	 	return "C";
+	}
+	else if (index == 4)
+	{
+	 	return "D";
+	}
+	else if (index == 5)
+	{
+	 	return "E";
+	}
+	else if (index == 6)
+	{
+	 	return "F";
+	}
+	else if (index == 7)
+	{
+	 	return "G";
+	}
+}
 void ClearOldSelection(int Cur_Panel)
 {
 	int a = 0;
@@ -662,10 +783,10 @@ void ClearOldSelection(int Cur_Panel)
 		{
 			GLCD_PutPixel(a, 62);
 			GLCD_PutPixel(a, 63);
-			GLCD_PutPixel(a, 118);
-			GLCD_PutPixel(a, 119);
+			GLCD_PutPixel(a, 148);
+			GLCD_PutPixel(a, 149);
 		}
-		for (a = 62; a < 120; a++)
+		for (a = 62; a < 150; a++)
 		{
 			GLCD_PutPixel(182, a);
 			GLCD_PutPixel(183, a);
@@ -679,31 +800,12 @@ void ClearOldSelection(int Cur_Panel)
 	  	GLCD_SetTextColor(Black);
 		for (a = 182; a < 320; a++)
 		{
-			GLCD_PutPixel(a, 122);
-			GLCD_PutPixel(a, 123);
-			GLCD_PutPixel(a, 178);
-			GLCD_PutPixel(a, 179);
-		}
-		for (a = 122; a < 180; a++)
-		{
-			GLCD_PutPixel(182, a);
-			GLCD_PutPixel(183, a);
-			GLCD_PutPixel(318, a);
-			GLCD_PutPixel(319, a);
-		}
-		GLCD_SetTextColor(Green);
-	}
-	else if (Cur_Panel == 6)
-	{
-	  	GLCD_SetTextColor(Black);
-		for (a = 182; a < 320; a++)
-		{
-			GLCD_PutPixel(a, 182);
-			GLCD_PutPixel(a, 183);
+			GLCD_PutPixel(a, 152);
+			GLCD_PutPixel(a, 153);
 			GLCD_PutPixel(a, 238);
 			GLCD_PutPixel(a, 239);
 		}
-		for (a = 182; a < 240; a++)
+		for (a = 152; a < 240; a++)
 		{
 			GLCD_PutPixel(182, a);
 			GLCD_PutPixel(183, a);
@@ -799,10 +901,10 @@ void MakeSelection(int Cur_Panel)
 		{
 			GLCD_PutPixel(a, 62);
 			GLCD_PutPixel(a, 63);
-			GLCD_PutPixel(a, 118);
-			GLCD_PutPixel(a, 119);
+			GLCD_PutPixel(a, 148);
+			GLCD_PutPixel(a, 149);
 		}
-		for (a = 62; a < 120; a++)
+		for (a = 62; a < 150; a++)
 		{
 			GLCD_PutPixel(182, a);
 			GLCD_PutPixel(183, a);
@@ -816,31 +918,12 @@ void MakeSelection(int Cur_Panel)
 	  	GLCD_SetTextColor(Yellow);
 		for (a = 182; a < 320; a++)
 		{
-			GLCD_PutPixel(a, 122);
-			GLCD_PutPixel(a, 123);
-			GLCD_PutPixel(a, 178);
-			GLCD_PutPixel(a, 179);
-		}
-		for (a = 122; a < 180; a++)
-		{
-			GLCD_PutPixel(182, a);
-			GLCD_PutPixel(183, a);
-			GLCD_PutPixel(318, a);
-			GLCD_PutPixel(319, a);
-		}
-		GLCD_SetTextColor(Green);
-	}
-	else if (Cur_Panel == 6)
-	{
-	  	GLCD_SetTextColor(Yellow);
-		for (a = 182; a < 320; a++)
-		{
-			GLCD_PutPixel(a, 182);
-			GLCD_PutPixel(a, 183);
+			GLCD_PutPixel(a, 152);
+			GLCD_PutPixel(a, 153);
 			GLCD_PutPixel(a, 238);
 			GLCD_PutPixel(a, 239);
 		}
-		for (a = 182; a < 240; a++)
+		for (a = 152; a < 240; a++)
 		{
 			GLCD_PutPixel(182, a);
 			GLCD_PutPixel(183, a);
@@ -850,25 +933,60 @@ void MakeSelection(int Cur_Panel)
 		GLCD_SetTextColor(Green);
 	}
 }
-void P1SelectionClear(Cur_Panel)
+void P2SelectionClear(int Cur_Panel, int mult)
 {
 	GLCD_SetBackColor(Black);
 	GLCD_SetTextColor(Green);
- 	GLCD_DisplayString(Cur_Panel+3,2,0,(unsigned char *)ReturnInstrumentLabel(Cur_Panel));
+	if (Cur_Panel == 0)
+		GLCD_DisplayString(Cur_Panel+3,2,0,(unsigned char *)ReturnInstrumentLabel(0));
+	else
+ 		GLCD_DisplayString(Cur_Panel+3,2,0,(unsigned char *)ReturnInstrumentLabel(mult*8+Cur_Panel));
 }
-void P1MakeSelection(Cur_Panel)
+void P2MakeSelection(int Cur_Panel, int mult)
 {
   	GLCD_SetBackColor(Yellow);
 	GLCD_SetTextColor(Red);
- 	GLCD_DisplayString(Cur_Panel+3,2,0,(unsigned char *)ReturnInstrumentLabel(Cur_Panel));
+	if (Cur_Panel == 0)
+ 		GLCD_DisplayString(Cur_Panel+3,2,0,(unsigned char *)ReturnInstrumentLabel(0));
+	else
+		GLCD_DisplayString(Cur_Panel+3,2,0,(unsigned char *)ReturnInstrumentLabel(mult*8+Cur_Panel));
 	GLCD_SetBackColor(Black);
 	GLCD_SetTextColor(Green);
 }
-void InitPage(int pageNum, InstrumentStruct I1, InstrumentStruct I2, InstrumentStruct I3)
+void P1CatSelectionClear(Cur_Panel)
+{
+	GLCD_SetBackColor(Black);
+	GLCD_SetTextColor(Green);
+ 	GLCD_DisplayString(Cur_Panel+3,2,0,(unsigned char *)ReturnInstrumentCategoryLabel(Cur_Panel));
+}
+void P1CatMakeSelection(Cur_Panel)
+{
+  	GLCD_SetBackColor(Yellow);
+	GLCD_SetTextColor(Red);
+ 	GLCD_DisplayString(Cur_Panel+3,2,0,(unsigned char *)ReturnInstrumentCategoryLabel(Cur_Panel));
+	GLCD_SetBackColor(Black);
+	GLCD_SetTextColor(Green);
+}
+void P3CatSelectionClear(Cur_Panel)
+{
+	GLCD_SetBackColor(Black);
+	GLCD_SetTextColor(Green);
+ 	GLCD_DisplayString(Cur_Panel+7,2,0,(unsigned char *)ReturnRepeatingLabel(Cur_Panel));
+}
+void P3CatMakeSelection(Cur_Panel)
+{
+  	GLCD_SetBackColor(Yellow);
+	GLCD_SetTextColor(Red);
+ 	GLCD_DisplayString(Cur_Panel+7,2,0,(unsigned char *)ReturnRepeatingLabel(Cur_Panel));
+	GLCD_SetBackColor(Black);
+	GLCD_SetTextColor(Green);
+}
+void InitPage(int pageNum, InstrumentStruct I1, InstrumentStruct I2, RepeatingInstrumentStruct R1, RepeatingInstrumentStruct R2, RepeatingInstrumentStruct R3, int Mult)
 {
 	if (pageNum == 0)
 	{
 	 	int a = 0;
+		char toPr[6];
 		for (a = 0; a < 180; a++)
 		{
 			GLCD_PutPixel(a, 80);
@@ -885,10 +1003,10 @@ void InitPage(int pageNum, InstrumentStruct I1, InstrumentStruct I2, InstrumentS
 		{
 			GLCD_PutPixel(a, 60);
 			GLCD_PutPixel(a, 61);
-			GLCD_PutPixel(a, 120);
-			GLCD_PutPixel(a, 121);
-			GLCD_PutPixel(a, 180);
-			GLCD_PutPixel(a, 181);
+			GLCD_PutPixel(a, 150);
+			GLCD_PutPixel(a, 151);
+			//GLCD_PutPixel(a, 180);
+			//GLCD_PutPixel(a, 181);
 		}
 		GLCD_SetTextColor(Yellow);
 		for (a = 0; a < 180; a++)
@@ -907,57 +1025,117 @@ void InitPage(int pageNum, InstrumentStruct I1, InstrumentStruct I2, InstrumentS
 		}
 		GLCD_SetTextColor(Green);
 	
-		GLCD_DisplayString(1,1,0,(unsigned char *)"Player Instrument 1");
-		GLCD_DisplayString(11,1,0,(unsigned char *)"Player Instrument 2");
-		GLCD_DisplayString(21,1,0,(unsigned char *)"Player Instrument 3");
+		GLCD_DisplayString(1,1,0,(unsigned char *)"Repeating Instrument 1");
+		GLCD_DisplayString(11,1,0,(unsigned char *)"Repeating Instrument 2");
+		GLCD_DisplayString(21,1,0,(unsigned char *)"Repeating Instrument 3");
 	
-		GLCD_DisplayString(2,5,0,(unsigned char *)ReturnInstrumentLabel(I1.InstrumentID));
-		GLCD_DisplayString(12,5,0,(unsigned char *)ReturnInstrumentLabel(I2.InstrumentID));
-		GLCD_DisplayString(22,5,0,(unsigned char *)ReturnInstrumentLabel(I3.InstrumentID));
+		GLCD_DisplayString(2,5,0,(unsigned char *)"Inst: ");
+		GLCD_DisplayString(2,11,0,(unsigned char *)ReturnInstrumentLabel(R1.InstrumentID));
+		GLCD_DisplayString(3,5,0,(unsigned char *)"Note: ");
+		GLCD_DisplayString(3,11,0,(unsigned char *)ReturnNoteLabel(R1.Note));
+		sprintf(toPr, "BPM: %i", R1.BPM);
+		GLCD_DisplayString(4,5,0,(unsigned char *)toPr);
+
+		GLCD_DisplayString(12,5,0,(unsigned char *)"Inst: ");
+		GLCD_DisplayString(12,11,0,(unsigned char *)ReturnInstrumentLabel(R2.InstrumentID));
+		GLCD_DisplayString(13,5,0,(unsigned char *)"Note: ");
+		GLCD_DisplayString(13,11,0,(unsigned char *)ReturnNoteLabel(R2.Note));
+		sprintf(toPr, "BPM: %i", R2.BPM);
+		GLCD_DisplayString(14,5,0,(unsigned char *)toPr);
+
+		GLCD_DisplayString(22,5,0,(unsigned char *)"Inst: ");
+		GLCD_DisplayString(22,11,0,(unsigned char *)ReturnInstrumentLabel(R3.InstrumentID));
+		GLCD_DisplayString(23,5,0,(unsigned char *)"Note: ");
+		GLCD_DisplayString(23,11,0,(unsigned char *)ReturnNoteLabel(R3.Note));
+		sprintf(toPr, "BPM: %i", R3.BPM);
+		GLCD_DisplayString(24,5,0,(unsigned char *)toPr);
 	
 		GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume");
 		GLCD_DisplayString(2,42,0,(unsigned char *)"0");
 	
-		GLCD_DisplayString(9,31,0,(unsigned char *)"Repeating Instrument 1");
-		GLCD_DisplayString(10,32,0,(unsigned char *)"Inst: <none selected>");
-		GLCD_DisplayString(11,32,0,(unsigned char *)"Note: <none selected>");
-		GLCD_DisplayString(12,32,0,(unsigned char *)"BPM: 0");
+		GLCD_DisplayString(9,31,0,(unsigned char *)"Player Instrument 1");
+		GLCD_DisplayString(10,32,0,(unsigned char *)ReturnInstrumentLabel(I1.InstrumentID));
 	
-		GLCD_DisplayString(16,31,0,(unsigned char *)"Repeating Instrument 1");
-		GLCD_DisplayString(17,32,0,(unsigned char *)"Inst: <none selected>");
-		GLCD_DisplayString(18,32,0,(unsigned char *)"Note: <none selected>");
-		GLCD_DisplayString(19,32,0,(unsigned char *)"BPM: 0");
-	
-		GLCD_DisplayString(24,31,0,(unsigned char *)"Repeating Instrument 1");
-		GLCD_DisplayString(25,32,0,(unsigned char *)"Inst: <none selected>");
-		GLCD_DisplayString(26,32,0,(unsigned char *)"Note: <none selected>");
-		GLCD_DisplayString(27,32,0,(unsigned char *)"BPM: 0");
+		GLCD_DisplayString(20,31,0,(unsigned char *)"Player Instrument 2");
+		GLCD_DisplayString(21,32,0,(unsigned char *)ReturnInstrumentLabel(I2.InstrumentID));
 	}
 	else if (pageNum == 1)
 	{
 		int a = 0;
+	 	GLCD_DisplayString(0,0,1,(unsigned char *)"Select Category:");
+		GLCD_SetBackColor(Yellow);
+		GLCD_SetTextColor(Red);
+		GLCD_DisplayString(3,2,0,(unsigned char *)ReturnInstrumentCategoryLabel(0));
+		GLCD_SetBackColor(Black);
+		GLCD_SetTextColor(Green);
+
+		for (a = 1; a < 16; a++)
+		{
+			GLCD_DisplayString(a+3,2,0,(unsigned char *)ReturnInstrumentCategoryLabel(a));
+		}
+	}
+	else if (pageNum == 2)
+	{
+	 	int a = Mult * 8 + 1;
+		int b = 0;
+		int c = 1;
 	 	GLCD_DisplayString(0,0,1,(unsigned char *)"Select Instrument:");
 		GLCD_SetBackColor(Yellow);
 		GLCD_SetTextColor(Red);
 		GLCD_DisplayString(3,2,0,(unsigned char *)ReturnInstrumentLabel(0));
 		GLCD_SetBackColor(Black);
 		GLCD_SetTextColor(Green);
-		for (a = 1; a < 27; a++)
-		{
-			GLCD_DisplayString(a+3,2,0,(unsigned char *)ReturnInstrumentLabel(a));
-		}
-		for (a = 27; a < 54; a++)
-		{
-			GLCD_DisplayString(a-24,27,0,(unsigned char *)ReturnInstrumentLabel(a));
-		}
-	}
-	else if (pageNum == 2)
-	{
 
+		for (b = a; b < a+8; b++)
+		{
+			GLCD_DisplayString(c+3,2,0,(unsigned char *)ReturnInstrumentLabel(b));
+			c++;
+		}
 	}
 	else if (pageNum == 3)
 	{
+		char toPr[7];
+		int a = 0;
+		GLCD_DisplayString(0,0,1,(unsigned char *)"Repeating Settings:");
 
+		if (Mult == 0)
+		{
+		  	GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
+			GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(R1.InstrumentID));
+			GLCD_DisplayString(4,2,0,(unsigned char *)"Note: ");
+			GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(R1.Note));
+			sprintf(toPr, "BPM: %i", R1.BPM);
+			GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+		}
+		else if (Mult == 1)
+		{
+		  	GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
+			GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(R2.InstrumentID));
+			GLCD_DisplayString(4,2,0,(unsigned char *)"Note: ");
+			GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(R2.Note));
+			sprintf(toPr, "BPM: %i", R2.BPM);
+			GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+		}
+		else if (Mult == 2)
+		{
+		  	GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
+			GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(R3.InstrumentID));
+			GLCD_DisplayString(4,2,0,(unsigned char *)"Note: ");
+			GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(R3.Note));
+			sprintf(toPr, "BPM: %i", R3.BPM);
+			GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+		}
+
+		GLCD_SetBackColor(Yellow);
+		GLCD_SetTextColor(Red);
+		GLCD_DisplayString(7,2,0,(unsigned char *)ReturnRepeatingLabel(0));
+		GLCD_SetBackColor(Black);
+		GLCD_SetTextColor(Green);
+
+		for (a = 1; a < 4; a++)
+		{
+			GLCD_DisplayString(a+7,2,0,(unsigned char *)ReturnRepeatingLabel(a));
+		} 	
 	}
 }
 
@@ -1056,11 +1234,17 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	int Cur_Panel = 0;
 	int Cur_Page = 0;
 	int Cur_Inst = 0;
-	InstrumentStruct Inst[3];
+	int RorP = 0;
+	int P2SelectionMultiplier = 0;
+	int P3Selection = 0;
+	InstrumentStruct Inst[2];
 	RepeatingInstrumentStruct RInst[3];
 	for (Cur_Page = 0; Cur_Page < 3; Cur_Page++)
 	{
 		Inst[Cur_Page].InstrumentID = 0;
+		RInst[Cur_Page].InstrumentID = 0;
+		RInst[Cur_Page].Note = 0;
+		RInst[Cur_Page].BPM = 0;
 	}
 	for (Cur_Page = 0; Cur_Page < 3; Cur_Page++)
 	{
@@ -1101,7 +1285,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 
 #if LCD_EXAMPLE_OP==3
 	#if JOYSTICK_MODE==0
-	InitPage(0, Inst[0], Inst[1], Inst[2]);
+	InitPage(0, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
 	
 
 	//GLCD_DisplayString(8,30,0,(unsigned char *)"Repeating Instrument 1");
@@ -1197,29 +1381,32 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
    #if JOYSTICK_MODE==0
 		
 		
-   		
-		//clear cur selection
-		
-		
 		if (Cur_Page == 0)
 		{
 			if (msgBuffer.buf[0] == 0) //select bit hit
 			{
-				if (Cur_Panel < 3)
+				if (Cur_Panel > 3)
 				{
 					GLCD_Clear(Black);
 					Cur_Page = 1;
-					Cur_Inst = Cur_Panel;
-					InitPage(1, Inst[0], Inst[1], Inst[2]);
+					Cur_Inst = Cur_Panel-4;
+					RorP = 0;
+					InitPage(1, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
 					Cur_Panel = 0;
 				}
 				else if (Cur_Panel == 3)
 				{
 					//Cur_Page = 2;
 				}
-				else if (Cur_Panel > 3)
+				else if (Cur_Panel < 3)
 				{
-					//Cur_Page = 3;
+					GLCD_Clear(Black);
+					Cur_Page = 3;
+					Cur_Inst = Cur_Panel;
+					P3Selection = 0;
+					RorP = 1;
+					InitPage(3, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
+					Cur_Panel = 0;
 				}
 			}
 		 	if (msgBuffer.buf[0] == 1) //move crosshair up
@@ -1236,13 +1423,13 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				if (Cur_Panel < 3)
 				{
 					ClearOldSelection(Cur_Panel);
-					Cur_Panel = Cur_Panel + 4;
+					Cur_Panel = Cur_Panel + 3;
 					MakeSelection(Cur_Panel);
 				}
 			} 
 			if (msgBuffer.buf[0] == 3) //move crosshair down
 			{
-				if (Cur_Panel < 6)
+				if (Cur_Panel < 5)
 				{
 					ClearOldSelection(Cur_Panel);
 				 	Cur_Panel++;
@@ -1254,7 +1441,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				if (Cur_Panel > 3)
 				{
 					ClearOldSelection(Cur_Panel);
-					Cur_Panel = Cur_Panel - 4;
+					Cur_Panel = Cur_Panel - 3;
 					MakeSelection(Cur_Panel);
 				}
 				else if (Cur_Panel == 3)
@@ -1270,61 +1457,273 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 			if (msgBuffer.buf[0] == 0) //select bit hit
 			{
 				GLCD_Clear(Black);
-				Cur_Page = 0;
-				Inst[Cur_Inst].InstrumentID = Cur_Panel;
-				InitPage(0, Inst[0], Inst[1], Inst[2]);
+				Cur_Page = 2;
+				P2SelectionMultiplier = Cur_Panel;
+				InitPage(2, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
 				Cur_Panel = 0;
 			}
 		 	if (msgBuffer.buf[0] == 1) //move crosshair up
 			{
 				if (Cur_Panel > 0)
 				{
-					P1SelectionClear(Cur_Panel);
+					P1CatSelectionClear(Cur_Panel);
 				 	Cur_Panel--;
-					P1MakeSelection(Cur_Panel);
+					P1CatMakeSelection(Cur_Panel);
 				}
 			}
 			if (msgBuffer.buf[0] == 2) //move crosshair right
 			{
-				/*if (Cur_Panel < 3)
-				{
-					ClearOldSelection(Cur_Panel);
-					Cur_Panel = Cur_Panel + 4;
-					MakeSelection(Cur_Panel);
-				}*/
 			} 
 			if (msgBuffer.buf[0] == 3) //move crosshair down
 			{
-				if (Cur_Panel < 55)
+				if (Cur_Panel < 15)
 				{
-					P1SelectionClear(Cur_Panel);
+					P1CatSelectionClear(Cur_Panel);
 				 	Cur_Panel++;
-					P1MakeSelection(Cur_Panel);
+					P1CatMakeSelection(Cur_Panel);
 				}
 			}
 			if (msgBuffer.buf[0] == 4) //move crosshair left
 			{
-				/*if (Cur_Panel > 3)
-				{
-					ClearOldSelection(Cur_Panel);
-					Cur_Panel = Cur_Panel - 4;
-					MakeSelection(Cur_Panel);
-				}
-				else if (Cur_Panel == 3)
-				{
-					ClearOldSelection(Cur_Panel);
-					Cur_Panel = 0;
-					MakeSelection(Cur_Panel);
-				}*/
 			}
 		}
 		else if (Cur_Page == 2)
 		{
-
+		 	if (msgBuffer.buf[0] == 0) //select bit hit
+			{
+				
+				if (RorP == 0)
+				{
+					GLCD_Clear(Black);
+					Cur_Page = 0;
+					if (Cur_Panel == 0)
+						Inst[Cur_Inst].InstrumentID = 0;
+					else
+						Inst[Cur_Inst].InstrumentID = P2SelectionMultiplier*8+Cur_Panel;
+					P2SelectionMultiplier = 0;
+					InitPage(0, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+					Cur_Panel = 0;
+				}
+				else if (RorP == 1)
+				{
+					GLCD_Clear(Black);
+					Cur_Page = 3;
+					if (Cur_Panel == 0)
+						RInst[Cur_Inst].InstrumentID = 0;
+					else
+						RInst[Cur_Inst].InstrumentID = P2SelectionMultiplier*8+Cur_Panel;
+					P3Selection = 0;
+					RorP = 1;
+					InitPage(3, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
+					Cur_Panel = 0;
+				}
+			}
+		 	if (msgBuffer.buf[0] == 1) //move crosshair up
+			{
+				if (Cur_Panel > 0)
+				{
+					P2SelectionClear(Cur_Panel, P2SelectionMultiplier);
+				 	Cur_Panel--;
+					P2MakeSelection(Cur_Panel, P2SelectionMultiplier);
+				}
+			}
+			if (msgBuffer.buf[0] == 2) //move crosshair right
+			{
+			} 
+			if (msgBuffer.buf[0] == 3) //move crosshair down
+			{
+				if (Cur_Panel < 8)
+				{
+					P2SelectionClear(Cur_Panel, P2SelectionMultiplier);
+				 	Cur_Panel++;
+					P2MakeSelection(Cur_Panel, P2SelectionMultiplier);
+				}
+			}
+			if (msgBuffer.buf[0] == 4) //move crosshair left
+			{
+			}
 		}
 		else if (Cur_Page == 3)
 		{
+			if (P3Selection == 0)
+			{
+			   	if (msgBuffer.buf[0] == 0) //select bit hit
+				{
+					if (Cur_Panel == 0)
+					{
+					   	GLCD_Clear(Black);
+						Cur_Page = 0;
+						//P2SelectionMultiplier = Cur_Panel;
+						InitPage(0, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+						Cur_Panel = 0;
+					}
+					else if (Cur_Panel == 1)
+					{
+					  	GLCD_Clear(Black);
+						Cur_Page = 1;
+						RorP = 1;
+						InitPage(1, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+						Cur_Panel = 0;
+					}
+					else if (Cur_Panel == 2)
+					{
+						P3Selection = 1;
+						GLCD_DisplayString(12,5,0,(unsigned char *)"Select Note: ");
+						GLCD_SetBackColor(Yellow);
+						GLCD_SetTextColor(Red);
+						GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+						GLCD_SetBackColor(Black);
+						GLCD_SetTextColor(Green);  	
+					}
+					else if (Cur_Panel == 3)
+					{
+						char toPr[2];
+					 	P3Selection = 2;
+						GLCD_DisplayString(12,5,0,(unsigned char *)"Select BPM: ");
+						GLCD_SetBackColor(Yellow);
+						GLCD_SetTextColor(Red);
+						sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+						GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+						GLCD_SetBackColor(Black);
+						GLCD_SetTextColor(Green); 
+					}
+				}
+			 	if (msgBuffer.buf[0] == 1) //move crosshair up
+				{
+					if (Cur_Panel > 0)
+					{
+						P3CatSelectionClear(Cur_Panel);
+					 	Cur_Panel--;
+						P3CatMakeSelection(Cur_Panel);
+					}
+				}
+				if (msgBuffer.buf[0] == 2) //move crosshair right
+				{
+				} 
+				if (msgBuffer.buf[0] == 3) //move crosshair down
+				{
+					if (Cur_Panel < 3)
+					{
+						P3CatSelectionClear(Cur_Panel);
+					 	Cur_Panel++;
+						P3CatMakeSelection(Cur_Panel);
+					}
+				}
+				if (msgBuffer.buf[0] == 4) //move crosshair left
+				{
+				}
+			}
+			else if (P3Selection == 1)
+			{
+			   	if (msgBuffer.buf[0] == 0) //select bit hit
+				{
+					P3Selection = 0;
+					GLCD_SetBackColor(Black);
+					GLCD_SetTextColor(Black);
+					GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(0));
+					GLCD_DisplayString(12,5,0,(unsigned char *)"Select Note: ");
+					GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+					GLCD_SetBackColor(Black);
+					GLCD_SetTextColor(Green);
 
+					GLCD_DisplayString(4,2,0,(unsigned char *)"Note: ");
+					GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+				}
+			 	if (msgBuffer.buf[0] == 1) //move crosshair up
+				{
+					if (RInst[Cur_Inst].Note < 7)
+					{
+						GLCD_SetTextColor(Black);
+						GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+						RInst[Cur_Inst].Note++;
+						GLCD_SetBackColor(Yellow);
+						GLCD_SetTextColor(Red);
+						GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+						GLCD_SetBackColor(Black);
+						GLCD_SetTextColor(Green);
+					}
+				}
+				if (msgBuffer.buf[0] == 2) //move crosshair right
+				{
+				} 
+				if (msgBuffer.buf[0] == 3) //move crosshair down
+				{
+					if (RInst[Cur_Inst].Note > 0)
+					{
+						GLCD_SetTextColor(Black);
+						GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+						RInst[Cur_Inst].Note--;
+						GLCD_SetBackColor(Yellow);
+						GLCD_SetTextColor(Red);
+						GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+						GLCD_SetBackColor(Black);
+						GLCD_SetTextColor(Green);
+					}
+				}
+				if (msgBuffer.buf[0] == 4) //move crosshair left
+				{
+				}
+			}
+			else if (P3Selection == 2)
+			{
+			   	if (msgBuffer.buf[0] == 0) //select bit hit
+				{
+					char toPr[7];
+				 	P3Selection = 0;
+					GLCD_SetBackColor(Black);
+					GLCD_SetTextColor(Black);
+					sprintf(toPr, "BPM: XX");
+					GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+					GLCD_DisplayString(12,5,0,(unsigned char *)"Select BPM: ");
+					sprintf(toPr, "%2i", RInst[Cur_Inst].BPM);
+					GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+					GLCD_SetBackColor(Black);
+					GLCD_SetTextColor(Green);
+
+					sprintf(toPr, "BPM: %i", RInst[Cur_Inst].BPM);
+					GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+				}
+			 	if (msgBuffer.buf[0] == 1) //move crosshair up
+				{
+					if (RInst[Cur_Inst].BPM < 100)
+					{
+						char toPr[2];
+						GLCD_SetTextColor(Black);
+						sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+						GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+					 	RInst[Cur_Inst].BPM++;
+						GLCD_SetBackColor(Yellow);
+						GLCD_SetTextColor(Red);
+						sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+						GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+						GLCD_SetBackColor(Black);
+						GLCD_SetTextColor(Green);
+					}
+				}
+				if (msgBuffer.buf[0] == 2) //move crosshair right
+				{
+				} 
+				if (msgBuffer.buf[0] == 3) //move crosshair down
+				{
+					if (RInst[Cur_Inst].BPM > 0)
+					{
+						char toPr[2];
+						GLCD_SetTextColor(Black);
+						sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+						GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+					 	RInst[Cur_Inst].BPM--;
+						GLCD_SetBackColor(Yellow);
+						GLCD_SetTextColor(Red);
+						sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+						GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+						GLCD_SetBackColor(Black);
+						GLCD_SetTextColor(Green);
+					}
+				}
+				if (msgBuffer.buf[0] == 4) //move crosshair left
+				{
+				}
+			}
 		}
 		
 

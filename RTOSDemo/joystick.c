@@ -61,13 +61,13 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
-			if( ulCurrentState & 0x20 )
+			if( ulCurrentState & 0x10 )
 			{
-				GPIO2->FIOCLR = 0x20;
+				GPIO2->FIOCLR = 0x10;
 			}
 			else
 			{
-				GPIO2->FIOSET = 0x20;
+				GPIO2->FIOSET = 0x10;
 			}
 		}
 		else if ((PIN_CONFIG & 0x8) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))	  //up joystick
@@ -78,13 +78,13 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
-			if( ulCurrentState & 0x20 )
+			if( ulCurrentState & 0x10 )
 			{
-				GPIO2->FIOCLR = 0x20;
+				GPIO2->FIOCLR = 0x10;
 			}
 			else
 			{
-				GPIO2->FIOSET = 0x20;
+				GPIO2->FIOSET = 0x10;
 			}
 		}
 		else if ((PIN_CONFIG & 0x10) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))  //right joystick
@@ -95,13 +95,13 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
-			if( ulCurrentState & 0x20 )
+			if( ulCurrentState & 0x10 )
 			{
-				GPIO2->FIOCLR = 0x20;
+				GPIO2->FIOCLR = 0x10;
 			}
 			else
 			{
-				GPIO2->FIOSET = 0x20;
+				GPIO2->FIOSET = 0x10;
 			}
 		}
 		else if ((PIN_CONFIG & 0x20) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))  //down joystick
@@ -112,13 +112,13 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
-			if( ulCurrentState & 0x20 )
+			if( ulCurrentState & 0x10 )
 			{
-				GPIO2->FIOCLR = 0x20;
+				GPIO2->FIOCLR = 0x10;
 			}
 			else
 			{
-				GPIO2->FIOSET = 0x20;
+				GPIO2->FIOSET = 0x10;
 			}
 		}
 		else if ((PIN_CONFIG & 0x40) == 0 && (PIN_CONFIG != PrevPIN_CONFIG)) //left joystick
@@ -129,13 +129,13 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
-			if( ulCurrentState & 0x20 )
+			if( ulCurrentState & 0x10 )
 			{
-				GPIO2->FIOCLR = 0x20;
+				GPIO2->FIOCLR = 0x10;
 			}
 			else
 			{
-				GPIO2->FIOSET = 0x20;
+				GPIO2->FIOSET = 0x10;
 			}
 		}
 		PrevPIN_CONFIG = PIN_CONFIG;
