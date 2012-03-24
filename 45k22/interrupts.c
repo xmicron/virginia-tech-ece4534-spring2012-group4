@@ -83,7 +83,7 @@ void InterruptHandlerHigh ()
 	// check to see if we have an I2C interrupt
 	if (PIR1bits.SSP1IF) {
 		// clear the interrupt flag
-		LATB++;
+//		LATB++;
 		PIR1bits.SSP1IF = 0;
 		// call the handler
 		i2c_int_handler();

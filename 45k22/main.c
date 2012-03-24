@@ -100,7 +100,7 @@ void main (void)
 
 	// Clock initialization
 	OSCCON = 0x7C; // 16 MHz	// Use for internal oscillator	
-	OSCTUNEbits.PLLEN = 0; 		// 4x the clock speed in the previous line
+	OSCTUNEbits.PLLEN = 1; 		// 4x the clock speed in the previous line
 	
 	
 	// UART initialization
@@ -123,6 +123,7 @@ void main (void)
 	PORTA = 0x0;	// clear the port
 	LATA = 0x0;		// clear the output latch
 	TRISA = 0x0F;	// set RA3-RA0 to inputs
+	ANSELA = 0xFF;	
 	initADC();
 
 	// Interrupt initialization
@@ -141,7 +142,7 @@ void main (void)
 	TRISB = 0x0;
 	LATB = 0x0;
 	ANSELC = 0x00;
-		
+	
 
 
 	///////////////////////////////////////////////////////////////////////////////////////////////

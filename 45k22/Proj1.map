@@ -1,5 +1,5 @@
 MPLINK 4.40, Linker
-Linker Map File - Created Sat Mar 24 13:12:51 2012
+Linker Map File - Created Sat Mar 24 14:10:12 2012
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -10,10 +10,10 @@ Linker Map File - Created Sat Mar 24 13:12:51 2012
          .code_adcclose.o       code   0x00000e    program   0x000006
           .code_adcconv.o       code   0x000014    program   0x000004
        InterruptVectorLow       code   0x000018    program   0x000006
-           .code_my_i2c.o       code   0x00001e    program   0x000740
-         .code_messages.o       code   0x00075e    program   0x000506
-       .code_interrupts.o       code   0x000c64    program   0x000218
-             .code_main.o       code   0x000e7c    program   0x0001e0
+           .code_my_i2c.o       code   0x00001e    program   0x00073e
+         .code_messages.o       code   0x00075c    program   0x000506
+       .code_interrupts.o       code   0x000c62    program   0x000216
+             .code_main.o       code   0x000e78    program   0x0001e4
           .code_my_uart.o       code   0x00105c    program   0x0000d6
                _cinit_scn       code   0x001132    program   0x00009e
     .code_timer1_thread.o       code   0x0011d0    program   0x00009a
@@ -23,68 +23,68 @@ Linker Map File - Created Sat Mar 24 13:12:51 2012
           .code_adcopen.o       code   0x0013be    program   0x000058
                    STRING       code   0x001416    program   0x000056
            .code_u1read.o       code   0x00146c    program   0x00003e
-           .code_newADC.o       code   0x0014aa    program   0x000038
-           .code_t0open.o       code   0x0014e2    program   0x000036
-      .code_uart_thread.o       code   0x001518    program   0x000034
-           .code_t2open.o       code   0x00154c    program   0x000034
-          .code_t1write.o       code   0x001580    program   0x000030
-          .code_t0write.o       code   0x0015b0    program   0x000030
-         .code_adcsetch.o       code   0x0015e0    program   0x00002e
-                    .code       code   0x00160e    program   0x000020
-    .code_timer0_thread.o       code   0x00162e    program   0x00001c
-             _startup_scn       code   0x00164a    program   0x00001a
-          .code_adcread.o       code   0x001664    program   0x000018
-           .code___init.o       code   0x00167c    program   0x000002
-       .romdata_adcopen.o    romdata   0x00167e    program   0x000000
-        .idata_t0open.o_i    romdata   0x00167e    program   0x000000
-        .romdata___init.o    romdata   0x00167e    program   0x000000
-        .romdata_t0open.o    romdata   0x00167e    program   0x000000
-        .idata___init.o_i    romdata   0x00167e    program   0x000000
-       .romdata_t1write.o    romdata   0x00167e    program   0x000000
-        .idata_t2open.o_i    romdata   0x00167e    program   0x000000
-        .romdata_t2open.o    romdata   0x00167e    program   0x000000
-       .idata_t1write.o_i    romdata   0x00167e    program   0x000000
-       .romdata_t0write.o    romdata   0x00167e    program   0x000000
-        .idata_u1read.o_i    romdata   0x00167e    program   0x000000
-       .idata_t0write.o_i    romdata   0x00167e    program   0x000000
-        .romdata_u1read.o    romdata   0x00167e    program   0x000000
-           .code_u1defs.o       code   0x00167e    program   0x000000
-       .idata_adcread.o_i    romdata   0x00167e    program   0x000000
-       .romdata_adcread.o    romdata   0x00167e    program   0x000000
-        .romdata_u1defs.o    romdata   0x00167e    program   0x000000
-      .idata_adcsetch.o_i    romdata   0x00167e    program   0x000000
-        .idata_u1defs.o_i    romdata   0x00167e    program   0x000000
-      .romdata_adcsetch.o    romdata   0x00167e    program   0x000000
-       .idata_c018i_e.o_i    romdata   0x00167e    program   0x000000
-       .romdata_c018i_e.o    romdata   0x00167e    program   0x000000
-          .code_c018i_e.o       code   0x00167e    program   0x000000
-          .idata_main.o_i    romdata   0x00167e    program   0x000000
-          .romdata_main.o    romdata   0x00167e    program   0x000000
-      .idata_messages.o_i    romdata   0x00167e    program   0x000000
-      .romdata_messages.o    romdata   0x00167e    program   0x000000
-    .idata_interrupts.o_i    romdata   0x00167e    program   0x000000
-    .romdata_interrupts.o    romdata   0x00167e    program   0x000000
-.idata_user_interrupts.o_i    romdata   0x00167e    program   0x000000
-.romdata_user_interrupts.o    romdata   0x00167e    program   0x000000
-       .idata_my_uart.o_i    romdata   0x00167e    program   0x000000
-       .romdata_my_uart.o    romdata   0x00167e    program   0x000000
-   .idata_uart_thread.o_i    romdata   0x00167e    program   0x000000
-   .romdata_uart_thread.o    romdata   0x00167e    program   0x000000
-       .idata_adcopen.o_i    romdata   0x00167e    program   0x000000
-        .romdata_u1open.o    romdata   0x00167e    program   0x000000
-        .idata_u1open.o_i    romdata   0x00167e    program   0x000000
-       .romdata_adcconv.o    romdata   0x00167e    program   0x000000
-       .idata_adcconv.o_i    romdata   0x00167e    program   0x000000
-      .romdata_adcclose.o    romdata   0x00167e    program   0x000000
-      .idata_adcclose.o_i    romdata   0x00167e    program   0x000000
-        .romdata_newADC.o    romdata   0x00167e    program   0x000000
-        .idata_newADC.o_i    romdata   0x00167e    program   0x000000
-        .romdata_my_i2c.o    romdata   0x00167e    program   0x000000
-        .idata_my_i2c.o_i    romdata   0x00167e    program   0x000000
- .romdata_timer0_thread.o    romdata   0x00167e    program   0x000000
- .idata_timer0_thread.o_i    romdata   0x00167e    program   0x000000
- .romdata_timer1_thread.o    romdata   0x00167e    program   0x000000
- .idata_timer1_thread.o_i    romdata   0x00167e    program   0x000000
+           .code_newADC.o       code   0x0014aa    program   0x00003c
+           .code_t0open.o       code   0x0014e6    program   0x000036
+      .code_uart_thread.o       code   0x00151c    program   0x000034
+           .code_t2open.o       code   0x001550    program   0x000034
+          .code_t1write.o       code   0x001584    program   0x000030
+          .code_t0write.o       code   0x0015b4    program   0x000030
+         .code_adcsetch.o       code   0x0015e4    program   0x00002e
+                    .code       code   0x001612    program   0x000020
+    .code_timer0_thread.o       code   0x001632    program   0x00001c
+             _startup_scn       code   0x00164e    program   0x00001a
+          .code_adcread.o       code   0x001668    program   0x000018
+           .code___init.o       code   0x001680    program   0x000002
+       .romdata_adcopen.o    romdata   0x001682    program   0x000000
+        .idata_t0open.o_i    romdata   0x001682    program   0x000000
+        .romdata___init.o    romdata   0x001682    program   0x000000
+        .romdata_t0open.o    romdata   0x001682    program   0x000000
+        .idata___init.o_i    romdata   0x001682    program   0x000000
+       .romdata_t1write.o    romdata   0x001682    program   0x000000
+        .idata_t2open.o_i    romdata   0x001682    program   0x000000
+        .romdata_t2open.o    romdata   0x001682    program   0x000000
+       .idata_t1write.o_i    romdata   0x001682    program   0x000000
+       .romdata_t0write.o    romdata   0x001682    program   0x000000
+        .idata_u1read.o_i    romdata   0x001682    program   0x000000
+       .idata_t0write.o_i    romdata   0x001682    program   0x000000
+        .romdata_u1read.o    romdata   0x001682    program   0x000000
+           .code_u1defs.o       code   0x001682    program   0x000000
+       .idata_adcread.o_i    romdata   0x001682    program   0x000000
+       .romdata_adcread.o    romdata   0x001682    program   0x000000
+        .romdata_u1defs.o    romdata   0x001682    program   0x000000
+      .idata_adcsetch.o_i    romdata   0x001682    program   0x000000
+        .idata_u1defs.o_i    romdata   0x001682    program   0x000000
+      .romdata_adcsetch.o    romdata   0x001682    program   0x000000
+       .idata_c018i_e.o_i    romdata   0x001682    program   0x000000
+       .romdata_c018i_e.o    romdata   0x001682    program   0x000000
+          .code_c018i_e.o       code   0x001682    program   0x000000
+          .idata_main.o_i    romdata   0x001682    program   0x000000
+          .romdata_main.o    romdata   0x001682    program   0x000000
+      .idata_messages.o_i    romdata   0x001682    program   0x000000
+      .romdata_messages.o    romdata   0x001682    program   0x000000
+    .idata_interrupts.o_i    romdata   0x001682    program   0x000000
+    .romdata_interrupts.o    romdata   0x001682    program   0x000000
+.idata_user_interrupts.o_i    romdata   0x001682    program   0x000000
+.romdata_user_interrupts.o    romdata   0x001682    program   0x000000
+       .idata_my_uart.o_i    romdata   0x001682    program   0x000000
+       .romdata_my_uart.o    romdata   0x001682    program   0x000000
+   .idata_uart_thread.o_i    romdata   0x001682    program   0x000000
+   .romdata_uart_thread.o    romdata   0x001682    program   0x000000
+       .idata_adcopen.o_i    romdata   0x001682    program   0x000000
+        .romdata_u1open.o    romdata   0x001682    program   0x000000
+        .idata_u1open.o_i    romdata   0x001682    program   0x000000
+       .romdata_adcconv.o    romdata   0x001682    program   0x000000
+       .idata_adcconv.o_i    romdata   0x001682    program   0x000000
+      .romdata_adcclose.o    romdata   0x001682    program   0x000000
+      .idata_adcclose.o_i    romdata   0x001682    program   0x000000
+        .romdata_newADC.o    romdata   0x001682    program   0x000000
+        .idata_newADC.o_i    romdata   0x001682    program   0x000000
+        .romdata_my_i2c.o    romdata   0x001682    program   0x000000
+        .idata_my_i2c.o_i    romdata   0x001682    program   0x000000
+ .romdata_timer0_thread.o    romdata   0x001682    program   0x000000
+ .idata_timer0_thread.o_i    romdata   0x001682    program   0x000000
+ .romdata_timer1_thread.o    romdata   0x001682    program   0x000000
+ .idata_timer1_thread.o_i    romdata   0x001682    program   0x000000
     .config_300003_main.o    romdata   0x300003    program   0x000001
     .config_300006_main.o    romdata   0x300006    program   0x000001
                 msgqueue4      udata   0x000000       data   0x00003f
@@ -150,10 +150,10 @@ Linker Map File - Created Sat Mar 24 13:12:51 2012
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x00167d      
+                            0x000000    0x001681      
                             0x300003    0x300003      
                             0x300006    0x300006      
-            5760 out of 33048 program addresses used, program memory utilization is 17%
+            5764 out of 33048 program addresses used, program memory utilization is 17%
 
 
 
@@ -162,99 +162,99 @@ Linker Map File - Created Sat Mar 24 13:12:51 2012
                 ---------  ---------  ---------  --------- ---------                
                  CloseADC   0x00000e    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcclose.c
                ConvertADC   0x000014    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcconv.c
-     FromMainHigh_recvmsg   0x000af8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-     FromMainHigh_sendmsg   0x000aca    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-      FromMainLow_recvmsg   0x000a98    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-      FromMainLow_sendmsg   0x000a6a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-     InterruptHandlerHigh   0x000cec    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
-      InterruptHandlerLow   0x000db2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
+     FromMainHigh_recvmsg   0x000af6    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+     FromMainHigh_sendmsg   0x000ac8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+      FromMainLow_recvmsg   0x000a96    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+      FromMainLow_sendmsg   0x000a68    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+     InterruptHandlerHigh   0x000cea    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
+      InterruptHandlerLow   0x000dae    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
       InterruptVectorHigh   0x000008    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
        InterruptVectorLow   0x000018    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
                Open1USART   0x001352    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u1open.c
                   OpenADC   0x0013be    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
-               OpenTimer0   0x0014e2    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
-               OpenTimer2   0x00154c    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t2open.c
+               OpenTimer0   0x0014e6    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
+               OpenTimer2   0x001550    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t2open.c
                   RESTORE   0x0012d4    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
               RETQUOTIENT   0x0012cc    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
                Read1USART   0x00146c    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u1read.c
-                  ReadADC   0x001664    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
+                  ReadADC   0x001668    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
                  SETUPSTK   0x00126a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-               SetChanADC   0x0015e0    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
-              SleepIfOkay   0x000bac    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-       ToMainHigh_recvmsg   0x000a38    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-       ToMainHigh_sendmsg   0x000a0a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-        ToMainLow_recvmsg   0x0009d8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-        ToMainLow_sendmsg   0x0009aa    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-              WriteTimer0   0x0015b0    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
-              WriteTimer1   0x001580    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
+               SetChanADC   0x0015e4    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
+              SleepIfOkay   0x000baa    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+       ToMainHigh_recvmsg   0x000a36    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+       ToMainHigh_sendmsg   0x000a08    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+        ToMainLow_recvmsg   0x0009d6    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+        ToMainLow_sendmsg   0x0009a8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+              WriteTimer0   0x0015b4    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
+              WriteTimer1   0x001584    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
               _4jContinue   0x00144a    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
                    _5jEnd   0x001454    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00001   0x001662    program     static                          
+       ___return_lbl00001   0x001666    program     static                          
        ___return_lbl00002   0x0011ce    program     static                          
        ___return_lbl00012   0x00001c    program     static                          
        ___return_lbl00013   0x00000c    program     static                          
-       ___return_lbl00019   0x000b64    program     static                          
+       ___return_lbl00019   0x000b62    program     static                          
                __config_0   0x300003    program     static C:\Users\Homer\Desktop\Embedded\Project_code\45k22\main.c
                __config_1   0x300006    program     static C:\Users\Homer\Desktop\Embedded\Project_code\45k22\main.c
                  __div16u   0x001282    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-                   __init   0x00167c    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
+                   __init   0x001680    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
                  __mod16u   0x001288    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-            __zero_memory   0x00160e    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+            __zero_memory   0x001612    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
                 _do_cinit   0x001132    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
             _early16uexit   0x00128c    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
                    _entry   0x000000    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                 _startup   0x00164a    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                 _startup   0x00164e    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
           adc_int_handler   0x001314    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\user_interrupts.c
-    block_on_FromMainHigh   0x000c08    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-    block_on_To_msgqueues   0x000c24    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-                check_msg   0x000b66    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-                compare_l   0x001624    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+    block_on_FromMainHigh   0x000c06    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+    block_on_To_msgqueues   0x000c22    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+                check_msg   0x000b64    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+                compare_l   0x001628    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
                 copy_loop   0x0011a4    program     static                          
             copy_one_byte   0x0011aa    program     static                          
                 divmod16u   0x00128e    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
                      done   0x0011ce    program     static                          
              done_copying   0x0011b8    program     static                          
-        enable_interrupts   0x000c64    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
+        enable_interrupts   0x000c62    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
                   endloop   0x0012b4    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-         enter_sleep_mode   0x000b60    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+         enter_sleep_mode   0x000b5e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
              handle_start   0x000126    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
      i2c_configure_master   0x00001e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
-      i2c_configure_slave   0x000732    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
+      i2c_configure_slave   0x000730    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
           i2c_int_handler   0x0001e0    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
           i2c_master_recv   0x000042    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
           i2c_master_send   0x000030    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
-              in_high_int   0x000c6e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
-               in_low_int   0x000cae    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
-                  in_main   0x000cc6    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
+              in_high_int   0x000c6c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
+               in_low_int   0x000cac    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
+                  in_main   0x000cc4    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
                   initADC   0x0014aa    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\newADC.c
-                 init_i2c   0x0006ce    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
-               init_queue   0x00075e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-              init_queues   0x000b2a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+                 init_i2c   0x0006cc    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
+               init_queue   0x00075c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+              init_queues   0x000b28    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
       init_timer1_lthread   0x0011d0    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\timer1_thread.c
            init_uart_recv   0x001106    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_uart.c
                      jEnd   0x00145a    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
                     jLoop   0x00143e    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                     loop   0x001658    program     static                          
+                     loop   0x00165c    program     static                          
                      loop   0x001298    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                   loop_h   0x00161c    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-                   loop_l   0x001626    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-           low_int_active   0x000c8e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
-                     main   0x000e7c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\main.c
+                   loop_h   0x001620    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+                   loop_l   0x00162a    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+           low_int_active   0x000c8c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
+                     main   0x000e78    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\main.c
                    memcpy   0x001416    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                  readADC   0x0014c8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\newADC.c
-                 recv_msg   0x0008a4    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-                 send_msg   0x0007bc    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+                  readADC   0x0014cc    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\newADC.c
+                 recv_msg   0x0008a2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+                 send_msg   0x0007ba    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
     start_i2c_slave_reply   0x000054    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
-                  stopADC   0x0014de    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\newADC.c
+                  stopADC   0x0014e2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\newADC.c
                      test   0x00114c    program     static                          
        timer0_int_handler   0x0012e2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\user_interrupts.c
-           timer0_lthread   0x00162e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\timer0_thread.c
+           timer0_lthread   0x001632    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\timer0_thread.c
        timer1_int_handler   0x001306    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\user_interrupts.c
            timer1_lthread   0x0011ee    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\timer1_thread.c
-             uart_lthread   0x001518    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\uart_thread.c
+             uart_lthread   0x00151c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\uart_thread.c
     uart_recv_int_handler   0x00105c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_uart.c
-               zero_block   0x00161c    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+               zero_block   0x001620    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
                    ADCON0   0x000fc2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
                ADCON0bits   0x000fc2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
                    ADCON1   0x000fc1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
@@ -711,34 +711,34 @@ Linker Map File - Created Sat Mar 24 13:12:51 2012
     start_i2c_slave_reply   0x000054    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
              handle_start   0x000126    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
           i2c_int_handler   0x0001e0    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
-                 init_i2c   0x0006ce    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
-      i2c_configure_slave   0x000732    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
-               init_queue   0x00075e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-                 send_msg   0x0007bc    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-                 recv_msg   0x0008a4    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-        ToMainLow_sendmsg   0x0009aa    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-        ToMainLow_recvmsg   0x0009d8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-       ToMainHigh_sendmsg   0x000a0a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-       ToMainHigh_recvmsg   0x000a38    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-      FromMainLow_sendmsg   0x000a6a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-      FromMainLow_recvmsg   0x000a98    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-     FromMainHigh_sendmsg   0x000aca    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-     FromMainHigh_recvmsg   0x000af8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-              init_queues   0x000b2a    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-         enter_sleep_mode   0x000b60    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-       ___return_lbl00019   0x000b64    program     static                          
-                check_msg   0x000b66    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-              SleepIfOkay   0x000bac    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-    block_on_FromMainHigh   0x000c08    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-    block_on_To_msgqueues   0x000c24    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
-        enable_interrupts   0x000c64    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
-              in_high_int   0x000c6e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
-           low_int_active   0x000c8e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
-               in_low_int   0x000cae    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
-                  in_main   0x000cc6    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
-     InterruptHandlerHigh   0x000cec    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
-      InterruptHandlerLow   0x000db2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
-                     main   0x000e7c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\main.c
+                 init_i2c   0x0006cc    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
+      i2c_configure_slave   0x000730    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_i2c.c
+               init_queue   0x00075c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+                 send_msg   0x0007ba    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+                 recv_msg   0x0008a2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+        ToMainLow_sendmsg   0x0009a8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+        ToMainLow_recvmsg   0x0009d6    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+       ToMainHigh_sendmsg   0x000a08    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+       ToMainHigh_recvmsg   0x000a36    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+      FromMainLow_sendmsg   0x000a68    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+      FromMainLow_recvmsg   0x000a96    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+     FromMainHigh_sendmsg   0x000ac8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+     FromMainHigh_recvmsg   0x000af6    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+              init_queues   0x000b28    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+         enter_sleep_mode   0x000b5e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+       ___return_lbl00019   0x000b62    program     static                          
+                check_msg   0x000b64    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+              SleepIfOkay   0x000baa    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+    block_on_FromMainHigh   0x000c06    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+    block_on_To_msgqueues   0x000c22    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
+        enable_interrupts   0x000c62    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
+              in_high_int   0x000c6c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
+           low_int_active   0x000c8c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
+               in_low_int   0x000cac    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
+                  in_main   0x000cc4    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
+     InterruptHandlerHigh   0x000cea    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
+      InterruptHandlerLow   0x000dae    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\interrupts.c
+                     main   0x000e78    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\main.c
     uart_recv_int_handler   0x00105c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_uart.c
            init_uart_recv   0x001106    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\my_uart.c
                 _do_cinit   0x001132    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
@@ -771,25 +771,25 @@ Linker Map File - Created Sat Mar 24 13:12:51 2012
                      jEnd   0x00145a    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
                Read1USART   0x00146c    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u1read.c
                   initADC   0x0014aa    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\newADC.c
-                  readADC   0x0014c8    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\newADC.c
-                  stopADC   0x0014de    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\newADC.c
-               OpenTimer0   0x0014e2    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
-             uart_lthread   0x001518    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\uart_thread.c
-               OpenTimer2   0x00154c    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t2open.c
-              WriteTimer1   0x001580    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
-              WriteTimer0   0x0015b0    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
-               SetChanADC   0x0015e0    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
-            __zero_memory   0x00160e    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-               zero_block   0x00161c    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-                   loop_h   0x00161c    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-                compare_l   0x001624    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-                   loop_l   0x001626    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-           timer0_lthread   0x00162e    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\timer0_thread.c
-                 _startup   0x00164a    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                     loop   0x001658    program     static                          
-       ___return_lbl00001   0x001662    program     static                          
-                  ReadADC   0x001664    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
-                   __init   0x00167c    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
+                  readADC   0x0014cc    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\newADC.c
+                  stopADC   0x0014e2    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\newADC.c
+               OpenTimer0   0x0014e6    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
+             uart_lthread   0x00151c    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\uart_thread.c
+               OpenTimer2   0x001550    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t2open.c
+              WriteTimer1   0x001584    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
+              WriteTimer0   0x0015b4    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
+               SetChanADC   0x0015e4    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
+            __zero_memory   0x001612    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+               zero_block   0x001620    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+                   loop_h   0x001620    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+                compare_l   0x001628    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+                   loop_l   0x00162a    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+           timer0_lthread   0x001632    program     extern C:\Users\Homer\Desktop\Embedded\Project_code\45k22\timer0_thread.c
+                 _startup   0x00164e    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                     loop   0x00165c    program     static                          
+       ___return_lbl00001   0x001666    program     static                          
+                  ReadADC   0x001668    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
+                   __init   0x001680    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
                __config_0   0x300003    program     static C:\Users\Homer\Desktop\Embedded\Project_code\45k22\main.c
                __config_1   0x300006    program     static C:\Users\Homer\Desktop\Embedded\Project_code\45k22\main.c
           FromMainHigh_MQ   0x000000       data     static C:\Users\Homer\Desktop\Embedded\Project_code\45k22\messages.c
