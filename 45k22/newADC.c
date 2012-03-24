@@ -19,8 +19,9 @@ void initADC()
 	OpenADC(ADC_FOSC_32 & ADC_RIGHT_JUST & ADC_12_TAD,
 		ADC_CH0 & ADC_CH1 &
 		ADC_INT_ON /*& ADC_VREFPLUS_VDD & 
-		ADC_VREFMINUS_VSS*/, 0b1011);	// WAS binary 11
+		ADC_VREFMINUS_VDD*/, 0b1011);	// WAS binary 11
 	// Use SetChanADC(ADC_CH1) to look at sensor channel
+	ADCON1 &= 0xF0;
 	SetChanADC(ADC_CH0);
 	//Delay10TCYx(50);	// WAS 50
 }
