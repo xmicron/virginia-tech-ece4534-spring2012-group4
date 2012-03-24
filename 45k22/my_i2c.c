@@ -318,5 +318,6 @@ void i2c_configure_slave(unsigned char addr) {
 	// enable clock-stretching 
 	SSP1CON2bits.SEN = 1;
 	SSP1CON1 |= SSPENB;
+//	SSP1CON1 |= 0x20;
 	// end of i2c configure
 }
