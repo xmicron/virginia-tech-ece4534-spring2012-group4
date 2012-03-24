@@ -140,9 +140,7 @@ void main (void)
 	// set direction for PORTB to output
 	TRISB = 0x0;
 	LATB = 0x0;
-	PORTC = 0X00;
-	LATC = 0x00;
-	TRISC = 0xFF;
+	ANSELC = 0x00;
 		
 
 
@@ -184,7 +182,7 @@ void main (void)
 		block_on_To_msgqueues();
 		
 		//LATBbits.LATB0 = LAT
-		LATB = LATC;
+		//LATB = LATC;
 		/*
 			High Priority MSGQ ----------------------------------------------------------------------
 		*/
