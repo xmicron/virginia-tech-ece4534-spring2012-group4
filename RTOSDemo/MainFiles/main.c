@@ -78,6 +78,7 @@ static char *pcStatusMessage = mainPASS_STATUS_MESSAGE;//Holds the status messag
 static vtI2CStruct vtI2C0;
 static i2cParamStruct I2Cparams;//struct with pointer to i2c dev, i2c queue, and lcdqueue
 static MasterParamStruct MasterParams;
+//static lcdParamStruct lcdParams;
 
 static vtLCDMsgQueue myLCDQueue;
 static I2CMsgQueue myI2CQueue;
@@ -103,7 +104,9 @@ int main( void )
 	//Web Server Task
     xTaskCreate( vuIP_Task, ( signed char * ) "uIP", mainBASIC_WEB_STACK_SIZE, ( void * ) NULL, mainUIP_TASK_PRIORITY, NULL );
 	
-	vStartLCDTask( mainLCD_TASK_PRIORITY,&myLCDQueue);//LCD Task
+	lcdParams.lcdQ = &myLCDQueue;
+	lcdParams.masterQ = &myMasterQueue;
+	vStartLCDTask( mainLCD_TASK_PRIORITY,&lcdParams);//LCD Task
 
 	// MTJ: My i2cTemp demonstration task
 	vtI2C0.devNum = 0;
@@ -115,6 +118,7 @@ int main( void )
 	}
 	I2Cparams.i2cDev = &vtI2C0;
 	I2Cparams.lcdQ = &myLCDQueue;
+	I2Cparams.masterQ = &myMasterQueue;
 	I2Cparams.i2cQ = &myI2CQueue;
 	MasterParams.masterQ = &myMasterQueue;
 	MasterParams.lcdQ = &myLCDQueue;

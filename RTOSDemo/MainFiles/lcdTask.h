@@ -3,7 +3,7 @@
 
 #include "messagequeues.h"
 
-void vStartLCDTask( unsigned portBASE_TYPE uxPriority, vtLCDMsgQueue *);
+void vStartLCDTask( unsigned portBASE_TYPE uxPriority, lcdParamStruct *);
 
 typedef struct __InstrumentStruct {
 	int InstrumentID;

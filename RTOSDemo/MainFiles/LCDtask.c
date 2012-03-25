@@ -29,11 +29,11 @@ static portTASK_FUNCTION_PROTO( vLCDUpdateTask, pvParameters );
 
 /*-----------------------------------------------------------*/
 
-void vStartLCDTask( unsigned portBASE_TYPE uxPriority,vtLCDMsgQueue *ptr )
+void vStartLCDTask( unsigned portBASE_TYPE uxPriority,lcdParamStruct *ptr )
 {
 
 	// Create the queue that will be used to talk to the LCD
-	if ((ptr->inQ = xQueueCreate(vtLCDQLen,sizeof(vtLCDMsg))) == NULL) {
+	if ((ptr->lcdQ->inQ = xQueueCreate(vtLCDQLen,sizeof(vtLCDMsg))) == NULL) {
 		VT_HANDLE_FATAL_ERROR(0);
 	}
 	/* Start the task */
@@ -46,7 +46,7 @@ void vStartLCDTask( unsigned portBASE_TYPE uxPriority,vtLCDMsgQueue *ptr )
 // If LCD_EXAMPLE_OP=0, then repeatedly write text
 // If LCD_EXAMPLE_OP=1, then do a rotating ARM bitmap display
 // If LCD_EXAMPLE_OP=2, then receive from a message queue and print the contents to the screen
-#define LCD_EXAMPLE_OP 2
+#define LCD_EXAMPLE_OP 3
 #if LCD_EXAMPLE_OP==1
 // This include the file with the definition of the ARM bitmap
 #include "ARM_Ani_16bpp.c"
@@ -1262,7 +1262,10 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	
 	
 	#endif
-	vtLCDMsgQueue *lcdPtr = (vtLCDMsgQueue *) pvParameters;
+	lcdParamStruct * params = pvParameters;
+	vtLCDMsgQueue *lcdPtr = (vtLCDMsgQueue *) params->lcdQ;
+	MasterMsgQueue * masterData = params->masterQ;
+	MasterMsgQueueMsg masterBuffer;
 
 	/* Initialize the LCD */
 	GLCD_Init();
@@ -1508,6 +1511,15 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					P2SelectionMultiplier = 0;
 					InitPage(0, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
 					Cur_Panel = 0;
+
+					masterBuffer.length = 3;
+					masterBuffer.buf[0] = 0x0A; //signifies comes from lcd thread - instrument change
+					masterBuffer.buf[1] = Cur_Inst;
+					masterBuffer.buf[2] = Inst[Cur_Inst].InstrumentID;
+
+					if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
 				}
 				else if (RorP == 1)
 				{
@@ -1521,6 +1533,17 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					RorP = 1;
 					InitPage(3, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
 					Cur_Panel = 0;
+
+					masterBuffer.length = 5;
+					masterBuffer.buf[0] = 0x0A; //signifies comes from lcd thread Instrument change
+					masterBuffer.buf[1] = Cur_Inst+2;
+					masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
+					masterBuffer.buf[3] = RInst[Cur_Inst].Note;
+					masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
+
+					if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
 				}
 			}
 		 	if (msgBuffer.buf[0] == 1) //move crosshair up
@@ -1633,6 +1656,17 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 
 					GLCD_DisplayString(4,2,0,(unsigned char *)"Note: ");
 					GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+
+					masterBuffer.length = 5;
+					masterBuffer.buf[0] = 0x0B; //signifies comes from lcd thread Note Change
+					masterBuffer.buf[1] = Cur_Inst+2;
+					masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
+					masterBuffer.buf[3] = RInst[Cur_Inst].Note;
+					masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
+
+					if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
 				}
 			 	if (msgBuffer.buf[0] == 1) //move crosshair up
 				{
@@ -1687,6 +1721,17 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 
 					sprintf(toPr, "BPM: %i", RInst[Cur_Inst].BPM);
 					GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+
+					masterBuffer.length = 5;
+					masterBuffer.buf[0] = 0x0C; //signifies comes from lcd thread BPM change
+					masterBuffer.buf[1] = Cur_Inst+2;
+					masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
+					masterBuffer.buf[3] = RInst[Cur_Inst].Note;
+					masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
+
+					if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
 				}
 			 	if (msgBuffer.buf[0] == 1) //move crosshair up
 				{
