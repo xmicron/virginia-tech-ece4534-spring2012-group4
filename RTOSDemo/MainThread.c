@@ -58,25 +58,75 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 	vtLCDMsgQueue *lcdQ = temp->lcdQ;
 	vtLCDMsg lcdmsgBuffer;
 
+	I2CMsgQueue *i2cQ = temp->i2cQ;
+	I2CMsgQueueMsg i2cBuffer;
+
+	InstrumentStruct Inst[2];
+	RepeatingInstrumentStruct RInst[3];
+	int i = 0;
+	for (i = 0; i < 3; i++)
+	{
+		Inst[i].InstrumentID = 0;
+		RInst[i].InstrumentID = 0;
+		RInst[i].Note = 0;
+		RInst[i].BPM = 0;
+	}
+	for (i = 0; i < 3; i++)
+	{
+		Inst[i].InstrumentID = 0;
+	}
+
 	for(;;)
 	{
 		if (xQueueReceive(masterQ->inQ,(void *) &masterBuffer,portMAX_DELAY) != pdTRUE) //receive message from message queue
 		{
 			VT_HANDLE_FATAL_ERROR(0);
 		}
-	   	uint8_t ulCurrentState = GPIO2->FIOPIN;
-		if( ulCurrentState & 0x08 )
+		
+		if (masterBuffer.buf[0] == 0x08) //message from I2C
 		{
-			GPIO2->FIOCLR = 0x08;
+			int calculate;
+			calculate = masterBuffer.buf[0] & 0x03;
+			calculate = calculate << 8;
+			calculate |= masterBuffer.buf[1];
+
+			i2cBuffer.length = 3;
+
+		 	if (calculate >= 180  && calculate < 220)
+				i2cbuffer.buf[1] = 0x80;
+			else if (calculate >= 220  && calculate < 260)
+				i2cBuffer.buf[1] = 0x40;
+			else if (calculate >= 260  && calculate < 290)
+				i2cBuffer.buf[1] = 0x20;
+			else if (calculate >= 290  && calculate < 320)
+				i2cBuffer.buf[1] = 0x10;
+			else if (calculate >= 320 && calculate < 380)
+				i2cBuffer.buf[1] = 0x08;
+			else if (calculate >= 380 && calculate < 460)
+				i2cBuffer.buf[1] = 0x04;
+			else if (calculate >= 460 && calculate < 530)
+				i2cBuffer.buf[1] = 0x02;
+			else if (calculate >= 530 && calculate < 780)
+				i2cBuffer.buf[1] = 0x01;
+			
+			if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+				VT_HANDLE_FATAL_ERROR(0);
+			}
 		}
-		else
+		else if (masterBuffer.buf[0] == 0x0A) //message from LCD thread - Instrument Change
 		{
-			GPIO2->FIOSET = 0x08;
-		}
-		lcdmsgBuffer.buf[0] = masterBuffer.buf[0];
-		if (xQueueSend(lcdQ->inQ,(void *) (&lcdmsgBuffer),portMAX_DELAY) != pdTRUE) {  
-			VT_HANDLE_FATAL_ERROR(0);
-		}
+		 	Inst[masterBuffer.buf[1]].InstrumentID = masterBuffer.buf[2];
+
+			//uint8_t MidiSendMsg[3];
+			i2cBuffer.length = 3;
+			i2cBuffer.buf[0] = 0xC0 + masterBuffer.buf[1];
+			i2cBuffer.buf[1] = Inst[masterBuffer.buf[1]].InstrumentID;
+			i2cBuffer.buf[2] - 0x00;
+
+			if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+				VT_HANDLE_FATAL_ERROR(0);
+			}
+		}	
 	}
 }
 
