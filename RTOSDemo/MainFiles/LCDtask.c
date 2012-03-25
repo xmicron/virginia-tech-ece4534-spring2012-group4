@@ -46,7 +46,7 @@ void vStartLCDTask( unsigned portBASE_TYPE uxPriority,vtLCDMsgQueue *ptr )
 // If LCD_EXAMPLE_OP=0, then repeatedly write text
 // If LCD_EXAMPLE_OP=1, then do a rotating ARM bitmap display
 // If LCD_EXAMPLE_OP=2, then receive from a message queue and print the contents to the screen
-#define LCD_EXAMPLE_OP 3
+#define LCD_EXAMPLE_OP 2
 #if LCD_EXAMPLE_OP==1
 // This include the file with the definition of the ARM bitmap
 #include "ARM_Ani_16bpp.c"
@@ -1225,6 +1225,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	#elif LCD_EXAMPLE_OP==2
 	vtLCDMsg msgBuffer;
 	unsigned char curLine = 0;
+	float avg = 0;
 	
 	
 	
@@ -1265,7 +1266,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 
 	/* Initialize the LCD */
 	GLCD_Init();
-	GLCD_Clear(Black);
+	
 
 	// Scale the update rate to ensure it really is in ms
 	xUpdateRate = lcdWRITE_RATE_BASE / portTICK_RATE_MS;
@@ -1285,12 +1286,16 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 
 #if LCD_EXAMPLE_OP==3
 	#if JOYSTICK_MODE==0
+	GLCD_Clear(Black);
 	InitPage(0, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
 	
 
 	//GLCD_DisplayString(8,30,0,(unsigned char *)"Repeating Instrument 1");
 	#elif JOYSTICK_MODE==1//shawn's LCD screen initializations
 	#endif
+#elif LCD_EXAMPLE_OP==2
+	GLCD_Clear(Yellow);
+	GLCD_SetTextColor(Black);
 #endif
 	int i = 0;
 
@@ -1772,13 +1777,56 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 #elif 	LCD_EXAMPLE_OP==2
 		// wait for a message from another task telling us to send/recv over i2c
 		
+		
 		if (xQueueReceive(lcdPtr->inQ,(void *) &msgBuffer,portMAX_DELAY) != pdTRUE) {
 			VT_HANDLE_FATAL_ERROR(0);
 		}
 		
 		//get the data from the message queue and reconvert it into a 10-bit value
-		int pixel = msgBuffer.buf[1]<<8;
-		pixel = pixel + msgBuffer.buf[0];
+		int pixel = msgBuffer.buf[0]<<8;
+		pixel |= msgBuffer.buf[1];
+		float temp = pixel;
+		avg = /*avg + */temp / 300;
+
+		GLCD_SetBackColor(Yellow);
+		GLCD_SetTextColor(Black);
+		if (msgBuffer.buf[2] == 0)
+		{
+			char toprint[20];
+			sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
+			GLCD_DisplayString(0,2,0, (unsigned char*)&toprint);
+		}
+		else if (msgBuffer.buf[2] == 1)
+		{
+		 	char toprint[20];
+			sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
+			GLCD_DisplayString(1,2,0, (unsigned char*)&toprint);
+		} 
+		else if (msgBuffer.buf[2] == 2)
+		{
+		  	char toprint[20];
+			sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
+			GLCD_DisplayString(2,2,0, (unsigned char*)&toprint);
+		} 
+		else if (msgBuffer.buf[2] == 3)
+		{
+			char toprint[20];
+			sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
+			GLCD_DisplayString(3,2,0, (unsigned char*)&toprint);
+		} 
+		else if (msgBuffer.buf[2] == 4)
+		{
+			char toprint[20];
+			sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
+			GLCD_DisplayString(4,2,0, (unsigned char*)&toprint);
+		} 
+		else if (msgBuffer.buf[2] == 5)
+		{
+		 	char toprint[20];
+			sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
+			GLCD_DisplayString(5,2,0, (unsigned char*)&toprint);
+		}
+		
 
 		//set minimum and maximum values should they change across the 80 data points in buffer
 		if (pixel > max)
@@ -1789,61 +1837,82 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		pixel = pixel / 5;
 
 		//add pixel to a data buffer so we can clear the screen and keep accurate data
-		pixel_buffer[i] = pixel;
-		
-		//increment for next position in the buffer
-		i++;
+		if (msgBuffer.buf[2] < 6 && msgBuffer.buf[2] > 0)
+		{
+			GLCD_SetTextColor(Yellow);
+
+			GLCD_PutPixel(i*4, 240-pixel_buffer[i]);
+			GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]);
+			GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]);
+			GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]);
+
+			pixel_buffer[i] = pixel;
+
+			GLCD_SetTextColor(Black);
+
+			GLCD_PutPixel(i*4, 240-pixel_buffer[i]);
+			GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]);
+			GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]);
+			GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]);
+
+			i++;
+		}
+
+		//i++;
 
 		//once we have a filled buffer of data points, print the screen
 		if (i > 79)
 		{
-			GLCD_Clear(Yellow);
+			//GLCD_Clear(Yellow);
 
 			//each data point is 4 pixels by 4 pixels
-			for (i = 0; i < 80; i++)
-			{
-				GLCD_PutPixel(i*4, 240-pixel_buffer[i]);
-				GLCD_PutPixel(i*4, 240-pixel_buffer[i]+1);
-				GLCD_PutPixel(i*4, 240-pixel_buffer[i]+2);
-				GLCD_PutPixel(i*4, 240-pixel_buffer[i]+3);
-		
-				GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]);
-				GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]+1);
-				GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]+2);
-				GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]+3);
-		
-				GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]);
-				GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]+1);
-				GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]+2);
-				GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]+3);
-		
-				GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]);
-				GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]+1);
-				GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]+2);
-				GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]+3);
-			}
-
+			//for (i = 0; i < 80; i++)
+			//{
+					/*GLCD_PutPixel(i*4, 240-pixel_buffer[i]);
+					GLCD_PutPixel(i*4, 240-pixel_buffer[i]+1);
+					GLCD_PutPixel(i*4, 240-pixel_buffer[i]+2);
+					GLCD_PutPixel(i*4, 240-pixel_buffer[i]+3);*/
+			
+					/*GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]);
+					GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]+1);
+					GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]+2);
+					GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]+3);*/
+			
+					/*GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]);
+					GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]+1);
+					GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]+2);
+					GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]+3);*/
+			
+					/*GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]);
+					GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]+1);
+					GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]+2);
+					GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]+3);*/
+			//}
+			//GLCD_SetBackColor(Yellow);
+			//GLCD_SetTextColor(Black);
 			//convert max and mins to voltages
-			/*max = max / 300;
+			max = max / 300;
 			min = min / 300;
+			avg = avg / 80;
 
 			//display the max and min voltages on the screen
-			uint8_t toprint[4];
-			sprintf((char *)toprint, "%1.1fV", max);
-			GLCD_DisplayString(0,9,1, (unsigned char*)&toprint);
-			sprintf((char *)toprint, "%1.1fV", min);
-			GLCD_DisplayString(9,9,1, (unsigned char*)&toprint);
+			//char toprint[20];
+			//sprintf((char *)toprint, "val: %7.1f", avg);
+			//GLCD_DisplayString(2,9,0, (unsigned char*)&toprint);
+			//sprintf((char *)toprint, "%1.1fV", min);
+			//GLCD_DisplayString(9,9,1, (unsigned char*)&toprint);
 
 			//display the scalar on the screen
-			GLCD_DisplayString(9,0,1, (unsigned char *)"0V");
-			GLCD_DisplayString(7,0,1, (unsigned char *)"1V");
-			GLCD_DisplayString(5,0,1, (unsigned char *)"2V");
-			GLCD_DisplayString(3,0,1, (unsigned char *)"3V");
+			//GLCD_DisplayString(9,0,1, (unsigned char *)"0V");
+			//GLCD_DisplayString(7,0,1, (unsigned char *)"1V");
+			//GLCD_DisplayString(5,0,1, (unsigned char *)"2V");
+			//GLCD_DisplayString(3,0,1, (unsigned char *)"3V");
 
-			//reset values for the next buffer screen*/
+			//reset values for the next buffer screen
 			i = 0;
 			max = 0;
 			min = 990;
+			avg = 0;
 		}
 #else
 		Bad setting
