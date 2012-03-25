@@ -26,7 +26,7 @@
 #endif
 
 // Set the task up to run every second
-#define i2cREAD_RATE_BASE	( ( portTickType ) 100 )
+#define i2cREAD_RATE_BASE	( ( portTickType ) 1 )
 
 /* The i2cTemp task. */
 static portTASK_FUNCTION_PROTO( I2CTask, pvParameters );
@@ -56,6 +56,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 	uint8_t SendCount = 1;
 	uint8_t SendValue[5] = {0xAF, 0x80, 0x64, 0x64, 0x00};
 	const uint8_t Gimmesomething = 0xBB;
+	int msgcount = 0;
 	
 	uint8_t temp1, rxLen, status;
 	uint8_t ADCValueReceived[12];
@@ -78,12 +79,10 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 
 	/* We need to initialise xLastUpdateTime prior to the first call to vTaskDelayUntil(). */
 	xLastUpdateTime = xTaskGetTickCount();
-
-	int i = 0;
 	for(;;)
 	{
 		//delay for some amount of time before looping again
-		vTaskDelayUntil( &xLastUpdateTime, xUpdateRate );
+		//vTaskDelayUntil( &xLastUpdateTime, xUpdateRate );
 		
 		//vTaskDelay(10);
 		//Send a request to the PIC for ADC values
@@ -103,8 +102,9 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 		
 		if (vtI2CDeQ(devPtr,12,&ADCValueReceived[0],&rxLen,&status) != pdTRUE) {
 			//VT_HANDLE_FATAL_ERROR(0);
-		} 
-	 	if (ADCValueReceived[11] != 170) //check the message returned
+		}
+		if (ADCValueReceived[0] == 0xFF) 
+	 	//if (ADCValueReceived[11] != 170) //check the message returned
 		{
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
 			if( ulCurrentState & 0x20 )
@@ -116,10 +116,33 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 				GPIO2->FIOSET = 0x20;
 			}
 		}
+		else
+		{
+			if (msgcount > 100)
+			{
+			   	uint8_t ulCurrentState = GPIO2->FIOPIN;
+				if( ulCurrentState & 0x10 )
+				{
+					GPIO2->FIOCLR = 0x10;
+				}
+				else
+				{
+					GPIO2->FIOSET = 0x10;
+				}
+				msgcount = 0;
+			}
+			else
+		  		msgcount++;
+		}
+		uint8_t tosend[3];
+		tosend[0] = ADCValueReceived[0];
+		tosend[1] = ADCValueReceived[1];
+		tosend[2] = ADCValueReceived[10];
 		int calculate;
 		calculate = ADCValueReceived[0] & 0x03;
 		calculate = calculate << 8;
 		calculate = calculate | ADCValueReceived[1];
+		
 /*
 		if (calculate > 183 && calculate < 236)
 			SendValue[1] = 0x80;
@@ -170,7 +193,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 		
 		
 		
-		uint8_t ulCurrentState = GPIO2->FIOPIN;
+		/*uint8_t ulCurrentState = GPIO2->FIOPIN;
 		if( ulCurrentState & 0x40 )
 		{
 			GPIO2->FIOCLR = 0x40;
@@ -178,15 +201,18 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 		else
 		{
 			GPIO2->FIOSET = 0x40;
-		}
+		}*/
 		
 
-		/*if (lcdData != NULL && ADCValueReceived[0] == 0xFF) 
+		if (lcdData != NULL && ADCValueReceived[0] != 0xFF) 
 		{
 			// Send a message to the LCD task for it to print (and the LCD task must be configured to receive this message)
-			lcdBuffer.length = strlen((char*)(lcdBuffer.buf))+1;
-			i++;
-			if (i>20)
+			lcdBuffer.length = 3;
+			lcdBuffer.buf[0] = tosend[0];
+			lcdBuffer.buf[1] = tosend[1];
+			lcdBuffer.buf[2] = tosend[2];
+
+			/*if (i>20)
 			{
 				uint8_t ulCurrentState = GPIO2->FIOPIN;
 				if( ulCurrentState & 0x08 )
@@ -198,11 +224,11 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 					GPIO2->FIOSET = 0x08;
 				}
 				i = 0;
-			}
+			} */
 			if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
 			} 
-		}*/
+		}
 	}
 }
 
