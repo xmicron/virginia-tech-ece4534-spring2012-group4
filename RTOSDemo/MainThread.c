@@ -15,6 +15,7 @@
 #include "LCDtask.h"
 #include "i2cTemp.h"
 #include "MainThread.h"
+#include "timer.h"
 
 
 
@@ -64,6 +65,10 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 	InstrumentStruct Inst[2];
 	RepeatingInstrumentStruct RInst[3];
 	int i = 0;
+
+	timer R1timer;
+	timer R2timer;
+	timer R3timer;
 	for (i = 0; i < 3; i++)
 	{
 		Inst[i].InstrumentID = 0;
@@ -93,7 +98,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 			i2cBuffer.length = 3;
 
 		 	if (calculate >= 180  && calculate < 220)
-				i2cbuffer.buf[1] = 0x80;
+				i2cBuffer.buf[1] = 0x80;
 			else if (calculate >= 220  && calculate < 260)
 				i2cBuffer.buf[1] = 0x40;
 			else if (calculate >= 260  && calculate < 290)
