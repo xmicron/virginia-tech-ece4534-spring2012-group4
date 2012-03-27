@@ -125,7 +125,7 @@ int main( void )
 	MasterParams.i2cQ = &myI2CQueue;
 	vStartI2CTask(mainI2CTEMP_TASK_PRIORITY, &I2Cparams);
 	vStartMainThread(tskIDLE_PRIORITY, &MasterParams);
-	vStartJoystickTask(tskIDLE_PRIORITY, &myMasterQueue);
+	vStartJoystickTask(tskIDLE_PRIORITY, &myLCDQueue);
 
 	vTaskStartScheduler();
 

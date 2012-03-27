@@ -10,6 +10,7 @@
 #include "semphr.h"
 
 /* include files. */
+#include "queue.h"
 #include "vtUtilities.h"
 #include "vtI2C.h"
 #include "LCDtask.h"
@@ -79,6 +80,9 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 
 	MasterMsgQueue * masterData = param->masterQ;
 	MasterMsgQueueMsg masterBuffer;
+
+	I2CMsgQueue * i2cQ = param->i2cQ;
+	I2CMsgQueueMsg i2cBuffer;
 
 	vTaskDelay(10/portTICK_RATE_MS);
 
@@ -153,19 +157,21 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 #endif
 	 	if (ADCValueReceived[11] != 170) //check the message returned make sure it is 0xAA signifying it's the correct op-code
 		{
-			//FlipBit(0);
+			FlipBit(6);
 		}
 		if (ADCValueReceived[0] > 3)
 		{
-		 	//FlipBit(1);
+		 	FlipBit(1);
 		}
 		if (ADCValueReceived[10] < 0 || ADCValueReceived[10] > 5)
 		{
-			//FlipBit(2);
+			FlipBit(2);
 		}
 
-		if (ADCValueReceived[8] < 4)
+		//if (ADCValueReceived[8] < 4) //for nick's code
+		if (ADCValueReceived[8] < 4 && uxQueueMessagesWaiting(i2cQ->inQ) > 0) // for everything else
 		{
+			//if (prvIsQueueEmpty(i2cQ->inQ) == pdFALE)
 			int calculate;
 			calculate = ADCValueReceived[0] & 0x03;
 			calculate = calculate << 8;
@@ -216,7 +222,9 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 				//VT_HANDLE_FATAL_ERROR(0);
 			}
 			MidiSendCount++;
-		} 
+		}
+		else
+			FlipBit(5); 
 		  
 		FlipBit(7);
 
@@ -233,19 +241,19 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 		if (lcdData != NULL && ADCValueReceived[0] != 0xFF) 
 		{
 			// Send a message to the LCD task for it to print (and the LCD task must be configured to receive this message)
-			lcdBuffer.length = 3;
+			/*lcdBuffer.length = 3;
 			lcdBuffer.buf[0] = ADCValueReceived[0];
 			lcdBuffer.buf[1] = ADCValueReceived[1];
 			lcdBuffer.buf[2] = ADCValueReceived[10];
 
 			if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
-			}
+			}*/
 			
 
 			//message sent to the master message queue
 			masterBuffer.length = 5;
-			masterBuffer.buf[0] = 0x08; //means the message is from I2C
+			masterBuffer.buf[0] = 0x08; //means the message is from I2C	- change to 0x09 for Nick's program
 			masterBuffer.buf[1] = ADCValueReceived[0];
 			masterBuffer.buf[2] = ADCValueReceived[1];
 			masterBuffer.buf[3] = ADCValueReceived[2];

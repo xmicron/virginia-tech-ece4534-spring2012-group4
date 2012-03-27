@@ -66,9 +66,9 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 	RepeatingInstrumentStruct RInst[3];
 	int i = 0;
 
-	timer R1timer;
-	timer R2timer;
-	timer R3timer;
+	//timer R1timer;
+	//timer R2timer;
+	//timer R3timer;
 	for (i = 0; i < 3; i++)
 	{
 		Inst[i].InstrumentID = 0;
@@ -87,10 +87,11 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 		{
 			VT_HANDLE_FATAL_ERROR(0);
 		}
+		//FlipBit(5);
 		
 		if (masterBuffer.buf[0] == 0x08) //message from I2C
 		{
-			int calculate;
+			/*int calculate;
 			calculate = masterBuffer.buf[0] & 0x03;
 			calculate = calculate << 8;
 			calculate |= masterBuffer.buf[1];
@@ -116,21 +117,36 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 			
 			if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
+			}*/
+			FlipBit(3);
+			
+		}
+		else if (masterBuffer.buf[0] == 0x09) //temporary for nick
+		{
+		  	lcdmsgBuffer.buf[0] = 0x06;
+			lcdmsgBuffer.buf[1] = masterBuffer.buf[1];
+			lcdmsgBuffer.buf[2] = masterBuffer.buf[2];
+			lcdmsgBuffer.buf[3] = masterBuffer.buf[4];
+
+			if (xQueueSend(lcdQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+				VT_HANDLE_FATAL_ERROR(0);
 			}
 		}
-		else if (masterBuffer.buf[0] == 0x0A) //message from LCD thread - Instrument Change
+		else if (masterBuffer.buf[0] == 0x0A || masterBuffer.buf[0] == 0x0B || masterBuffer.buf[0] == 0x0C) //message from LCD thread - Instrument Change
 		{
-		 	Inst[masterBuffer.buf[1]].InstrumentID = masterBuffer.buf[2];
+			FlipBit(4);
+
+		 	/*Inst[masterBuffer.buf[1]].InstrumentID = masterBuffer.buf[2];
 
 			//uint8_t MidiSendMsg[3];
 			i2cBuffer.length = 3;
 			i2cBuffer.buf[0] = 0xC0 + masterBuffer.buf[1];
 			i2cBuffer.buf[1] = Inst[masterBuffer.buf[1]].InstrumentID;
-			i2cBuffer.buf[2] - 0x00;
+			i2cBuffer.buf[2] = 0x00;
 
 			if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
-			}
+			}*/
 		}	
 	}
 }
