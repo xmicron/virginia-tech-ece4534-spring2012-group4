@@ -111,6 +111,8 @@ void main (void)
 	// configure the hardware USART device
   	Open1USART( USART_TX_INT_OFF & USART_RX_INT_ON & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
 		USART_CONT_RX & USART_BRGH_LOW, 31);
+	Open2USART( USART_TX_INT_OFF & USART_RX_INT_ON & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
+		USART_CONT_RX & USART_BRGH_LOW, 51);
 	
 	// I2C/MSG Q initialization
 	init_i2c(&ic);				// initialize the i2c code
@@ -183,6 +185,7 @@ void main (void)
 				case MSGT_ADC:	{
 
 					// Format I2C msg
+					msgbuffer[8] = 0x00;
 					msgbuffer[10] = adc_chan_num;
 					msgbuffer[11] = 0xaa;			// ADC MSG opcode
 					
@@ -232,6 +235,8 @@ void main (void)
 						};
 
 						// Send note data to the MIDI device
+						putc1USART(0xAA);
+						putc2USART(0xCC);
 /*
 						putc1USART(0x90);
 						Delay1KTCYx(10);
