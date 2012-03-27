@@ -14,7 +14,7 @@ void timer0_int_handler()
  
 	// reset the timer
 	//WriteTimer0(0xDFFF);
-	WriteTimer0(0);
+	WriteTimer0(0x9777);
 
 	ConvertADC();	// Call convert ADC() to start ADC conversion
 
