@@ -93,6 +93,9 @@ void main (void)
 	int adc_chan_num = 0;
 	int adcValue = 0;
 
+	// MIDI variable
+	char notePlayed;
+
 	/*
 		Initialization ------------------------------------------------------------------------
 	*/
@@ -107,7 +110,7 @@ void main (void)
 	init_uart_recv(&uc);		// initialize my uart recv handling code
 	// configure the hardware USART device
   	Open1USART( USART_TX_INT_OFF & USART_RX_INT_ON & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
-		USART_CONT_RX & USART_BRGH_LOW, 23);
+		USART_CONT_RX & USART_BRGH_LOW, 31);
 	
 	// I2C/MSG Q initialization
 	init_i2c(&ic);				// initialize the i2c code
@@ -116,7 +119,7 @@ void main (void)
 
 	// Timer initialization
 	init_timer1_lthread(&t1thread_data);	// init the timer1 lthread
-	OpenTimer0( TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_8);
+	OpenTimer0( TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_16);
 	OpenTimer2( TIMER_INT_OFF & T2_PS_1_16 /*& T2_8BIT_RW & T2_SOURCE_INT & T2_OSC1EN_OFF & T2_SYNC_EXT_OFF*/); // Turn Off
 	// ADC initialization
 	// set up PORTA for input
@@ -142,30 +145,6 @@ void main (void)
 	TRISB = 0x0;
 	LATB = 0x0;
 	ANSELC = 0x00;
-	
-
-
-	///////////////////////////////////////////////////////////////////////////////////////////////
-	/*	NOTE: This code is used to test the A/D.  Hook up portA to analog input, port B to LEDs.
-	while(1)	{
-		readADC(&ADCVALUE);
-		if(ADCVALUE<0x0A5)
-			LATB = 0x00;
-		else if (ADCVALUE<0x14A)
-			LATB = 0x01;
-		else if (ADCVALUE<0x1EF)
-			LATB = 0x03;
-		else if (ADCVALUE<0x294)
-			LATB = 0x07;
-		else if (ADCVALUE<0x339)
-			LATB = 0x0F;
-		else if (ADCVALUE<0x3DE)
-			LATB = 0x1F;
-		else 
-			LATB = 0x0F;
-	}*/
-	// END SETTING UP ADC
-	////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 	/*
@@ -206,19 +185,6 @@ void main (void)
 					// Format I2C msg
 					msgbuffer[10] = adc_chan_num;
 					msgbuffer[11] = 0xaa;			// ADC MSG opcode
-/*					
-					if (msgbuffer[0] == 0x02)
-					{
-						putcUSART(0x90);
-						Delay1KTCYx(10);
-						putcUSART(0x40);
-						Delay1KTCYx(10);
-						putcUSART(0x64);
-					}
-					
-					putcUSART(msgbuffer[0]);
-					Delay1KTCYx(10);
-					putcUSART(msgbuffer[1]);*/
 					
 					// Send I2C msg
 					FromMainHigh_sendmsg(12, msgtype, msgbuffer);	// Send ADC msg to FromMainHigh MQ, which I2C
@@ -233,14 +199,16 @@ void main (void)
 						I2C_TX_MSG_COUNT = 1;
 					}
 
-					/*
 					// Increment the channel number
-					if(adc_chan_num <= 0)	adc_chan_num++;
+					if(adc_chan_num <= 4)	adc_chan_num++;
 					else	adc_chan_num = 0;
 					// Set ADC channel based off of channel number
 					if(adc_chan_num == 0)	SetChanADC(ADC_CH0);
 					else if(adc_chan_num == 1)	SetChanADC(ADC_CH1);
-					else	SetChanADC(ADC_CH2);*/
+					else if(adc_chan_num == 2)	SetChanADC(ADC_CH2);
+					else if(adc_chan_num == 3)	SetChanADC(ADC_CH3);
+					else if(adc_chan_num == 4)	SetChanADC(ADC_CH4);
+					else	SetChanADC(ADC_CH5);
 				};
 				case MSGT_TIMER0: {
 					timer0_lthread(&t0thread_data,msgtype,length,msgbuffer);
@@ -255,19 +223,24 @@ void main (void)
 						I2C_RX_MSG_COUNT = msgbuffer[4];
 
 						LATB = msgbuffer[1];
+
+						// Determine the current note being played
+
+						switch(msgbuffer[1])	{
+							case 0x01:	notePlayed = 0x40;
+							default:	notePlayed = 0x00;
+						};
+
+						// Send note data to the MIDI device
 /*
-						printf("%x", msgbuffer[1]);
-						printf("%x", msgbuffer[2]);
-						printf("%x", msgbuffer[3]);
-						printf("\n");
-*/
-/*
-						putcUSART(msgbuffer[1]);
-						Delay1KTCYx(10);	
-						putcUSART(msgbuffer[2]);
+						putc1USART(0x90);
 						Delay1KTCYx(10);
-						putcUSART(msgbuffer[3]);
+						putc1USART(0x40);
+						Delay1KTCYx(10);
+						putc1USART(0x64);
 						Delay1KTCYx(10);*/
+		
+
 						if(I2C_RX_MSG_COUNT - I2C_RX_MSG_PRECOUNT == 1)	{
 							//LATBbits.LATB1 = !LATBbits.LATB1;
 							if(I2C_RX_MSG_PRECOUNT < 99)	{
