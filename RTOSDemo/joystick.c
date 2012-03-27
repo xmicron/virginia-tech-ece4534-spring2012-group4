@@ -43,8 +43,8 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 	uint8_t PIN_CONFIG;
 	uint8_t PrevPIN_CONFIG;
 
-	MasterMsgQueue *masterQ = pvParameters;
-	MasterMsgQueueMsg masterBuffer;
+	vtLCDMsgQueue *lcdQ = pvParameters;
+	vtLCDMsg lcdBuffer;
 
 	uint8_t i = 0;
 
@@ -55,9 +55,10 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 		 
 		if ((PIN_CONFIG & 0x1) == 0 && /*makes sure only sends one message per button press -->*/(PIN_CONFIG != PrevPIN_CONFIG))	 //select BIT
 		{
-			masterBuffer.length = 1;
-			masterBuffer.buf[0] = 0;
-			if (xQueueSend(masterQ->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+			lcdBuffer.length = 2;
+			lcdBuffer.buf[0] = 0x11;
+			lcdBuffer.buf[1] = 0;
+			if (xQueueSend(lcdQ->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
@@ -65,36 +66,40 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 		}
 		else if ((PIN_CONFIG & 0x8) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))	  //up joystick
 		{
-			masterBuffer.length = 1;
-			masterBuffer.buf[0] = 1;
-			if (xQueueSend(masterQ->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+			lcdBuffer.length = 2;
+			lcdBuffer.buf[0] = 0x11;
+			lcdBuffer.buf[1] = 1;
+			if (xQueueSend(lcdQ->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			//FlipBit(5);
 		}
 		else if ((PIN_CONFIG & 0x10) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))  //right joystick
 		{
-			masterBuffer.length = 1;
-			masterBuffer.buf[0] = 2;
-			if (xQueueSend(masterQ->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+			lcdBuffer.length = 2;
+			lcdBuffer.buf[0] = 0x11;
+			lcdBuffer.buf[1] = 2;
+			if (xQueueSend(lcdQ->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			//FlipBit(5);
 		}
 		else if ((PIN_CONFIG & 0x20) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))  //down joystick
 		{
-			masterBuffer.length = 1;
-			masterBuffer.buf[0] = 3;
-			if (xQueueSend(masterQ->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+			lcdBuffer.length = 2;
+			lcdBuffer.buf[0] = 0x11;
+			lcdBuffer.buf[1] = 3;
+			if (xQueueSend(lcdQ->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			//FlipBit(5);
 		}
 		else if ((PIN_CONFIG & 0x40) == 0 && (PIN_CONFIG != PrevPIN_CONFIG)) //left joystick
 		{
-			masterBuffer.length = 1;
-			masterBuffer.buf[0] = 4;
-			if (xQueueSend(masterQ->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+			lcdBuffer.length = 2;
+			lcdBuffer.buf[0] = 0x11;
+			lcdBuffer.buf[1] = 4;
+			if (xQueueSend(lcdQ->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			//FlipBit(5);

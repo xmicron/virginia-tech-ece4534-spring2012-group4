@@ -1259,9 +1259,9 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	Cursor.y = 0;
 	#endif
 	
-	
-	
-	#endif
+#endif
+
+
 	lcdParamStruct * params = pvParameters;
 	vtLCDMsgQueue *lcdPtr = (vtLCDMsgQueue *) params->lcdQ;
 	MasterMsgQueue * masterData = params->masterQ;
@@ -1372,410 +1372,400 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		{
 			VT_HANDLE_FATAL_ERROR(0);
 		}
-		if (msgBuffer.buf[0] == 2)
-		{
-		   	uint8_t ulCurrentState = GPIO2->FIOPIN;
-			if( ulCurrentState & 0x08 )
-			{
-				GPIO2->FIOCLR = 0x08;
-			}
-			else
-			{
-				GPIO2->FIOSET = 0x08;
-			}
-		}
 		
 
    #if JOYSTICK_MODE==0
 		
-		
-		if (Cur_Page == 0)
+		if (msgBuffer.buf[0] = 0x11)
 		{
-			if (msgBuffer.buf[0] == 0) //select bit hit
+			FlipBit(0);
+			if (Cur_Page == 0)
 			{
-				if (Cur_Panel > 3)
+				if (msgBuffer.buf[1] == 0) //select bit hit
 				{
-					GLCD_Clear(Black);
-					Cur_Page = 1;
-					Cur_Inst = Cur_Panel-4;
-					RorP = 0;
-					InitPage(1, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
-					Cur_Panel = 0;
-				}
-				else if (Cur_Panel == 3)
-				{
-					//Cur_Page = 2;
-				}
-				else if (Cur_Panel < 3)
-				{
-					GLCD_Clear(Black);
-					Cur_Page = 3;
-					Cur_Inst = Cur_Panel;
-					P3Selection = 0;
-					RorP = 1;
-					InitPage(3, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
-					Cur_Panel = 0;
-				}
-			}
-		 	if (msgBuffer.buf[0] == 1) //move crosshair up
-			{
-				if (Cur_Panel > 0)
-				{
-					ClearOldSelection(Cur_Panel);
-				 	Cur_Panel--;
-					MakeSelection(Cur_Panel);
-				}
-			}
-			if (msgBuffer.buf[0] == 2) //move crosshair right
-			{
-				if (Cur_Panel < 3)
-				{
-					ClearOldSelection(Cur_Panel);
-					Cur_Panel = Cur_Panel + 3;
-					MakeSelection(Cur_Panel);
-				}
-			} 
-			if (msgBuffer.buf[0] == 3) //move crosshair down
-			{
-				if (Cur_Panel < 5)
-				{
-					ClearOldSelection(Cur_Panel);
-				 	Cur_Panel++;
-					MakeSelection(Cur_Panel);
-				}
-			}
-			if (msgBuffer.buf[0] == 4) //move crosshair left
-			{
-				if (Cur_Panel > 3)
-				{
-					ClearOldSelection(Cur_Panel);
-					Cur_Panel = Cur_Panel - 3;
-					MakeSelection(Cur_Panel);
-				}
-				else if (Cur_Panel == 3)
-				{
-					ClearOldSelection(Cur_Panel);
-					Cur_Panel = 0;
-					MakeSelection(Cur_Panel);
-				}
-			}
-		}
-		else if (Cur_Page == 1)
-		{
-			if (msgBuffer.buf[0] == 0) //select bit hit
-			{
-				GLCD_Clear(Black);
-				Cur_Page = 2;
-				P2SelectionMultiplier = Cur_Panel;
-				InitPage(2, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
-				Cur_Panel = 0;
-			}
-		 	if (msgBuffer.buf[0] == 1) //move crosshair up
-			{
-				if (Cur_Panel > 0)
-				{
-					P1CatSelectionClear(Cur_Panel);
-				 	Cur_Panel--;
-					P1CatMakeSelection(Cur_Panel);
-				}
-			}
-			if (msgBuffer.buf[0] == 2) //move crosshair right
-			{
-			} 
-			if (msgBuffer.buf[0] == 3) //move crosshair down
-			{
-				if (Cur_Panel < 15)
-				{
-					P1CatSelectionClear(Cur_Panel);
-				 	Cur_Panel++;
-					P1CatMakeSelection(Cur_Panel);
-				}
-			}
-			if (msgBuffer.buf[0] == 4) //move crosshair left
-			{
-			}
-		}
-		else if (Cur_Page == 2)
-		{
-		 	if (msgBuffer.buf[0] == 0) //select bit hit
-			{
-				
-				if (RorP == 0)
-				{
-					GLCD_Clear(Black);
-					Cur_Page = 0;
-					if (Cur_Panel == 0)
-						Inst[Cur_Inst].InstrumentID = 0;
-					else
-						Inst[Cur_Inst].InstrumentID = P2SelectionMultiplier*8+Cur_Panel;
-					P2SelectionMultiplier = 0;
-					InitPage(0, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
-					Cur_Panel = 0;
-
-					masterBuffer.length = 3;
-					masterBuffer.buf[0] = 0x0A; //signifies comes from lcd thread - instrument change
-					masterBuffer.buf[1] = Cur_Inst;
-					masterBuffer.buf[2] = Inst[Cur_Inst].InstrumentID;
-
-					if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
-						VT_HANDLE_FATAL_ERROR(0);
-					}
-				}
-				else if (RorP == 1)
-				{
-					GLCD_Clear(Black);
-					Cur_Page = 3;
-					if (Cur_Panel == 0)
-						RInst[Cur_Inst].InstrumentID = 0;
-					else
-						RInst[Cur_Inst].InstrumentID = P2SelectionMultiplier*8+Cur_Panel;
-					P3Selection = 0;
-					RorP = 1;
-					InitPage(3, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
-					Cur_Panel = 0;
-
-					masterBuffer.length = 5;
-					masterBuffer.buf[0] = 0x0A; //signifies comes from lcd thread Instrument change
-					masterBuffer.buf[1] = Cur_Inst+2;
-					masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
-					masterBuffer.buf[3] = RInst[Cur_Inst].Note;
-					masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
-
-					if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
-						VT_HANDLE_FATAL_ERROR(0);
-					}
-				}
-			}
-		 	if (msgBuffer.buf[0] == 1) //move crosshair up
-			{
-				if (Cur_Panel > 0)
-				{
-					P2SelectionClear(Cur_Panel, P2SelectionMultiplier);
-				 	Cur_Panel--;
-					P2MakeSelection(Cur_Panel, P2SelectionMultiplier);
-				}
-			}
-			if (msgBuffer.buf[0] == 2) //move crosshair right
-			{
-			} 
-			if (msgBuffer.buf[0] == 3) //move crosshair down
-			{
-				if (Cur_Panel < 8)
-				{
-					P2SelectionClear(Cur_Panel, P2SelectionMultiplier);
-				 	Cur_Panel++;
-					P2MakeSelection(Cur_Panel, P2SelectionMultiplier);
-				}
-			}
-			if (msgBuffer.buf[0] == 4) //move crosshair left
-			{
-			}
-		}
-		else if (Cur_Page == 3)
-		{
-			if (P3Selection == 0)
-			{
-			   	if (msgBuffer.buf[0] == 0) //select bit hit
-				{
-					if (Cur_Panel == 0)
+					if (Cur_Panel > 3)
 					{
-					   	GLCD_Clear(Black);
-						Cur_Page = 0;
-						//P2SelectionMultiplier = Cur_Panel;
-						InitPage(0, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
-						Cur_Panel = 0;
-					}
-					else if (Cur_Panel == 1)
-					{
-					  	GLCD_Clear(Black);
+						GLCD_Clear(Black);
 						Cur_Page = 1;
-						RorP = 1;
+						Cur_Inst = Cur_Panel-4;
+						RorP = 0;
 						InitPage(1, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
 						Cur_Panel = 0;
 					}
-					else if (Cur_Panel == 2)
-					{
-						P3Selection = 1;
-						GLCD_DisplayString(12,5,0,(unsigned char *)"Select Note: ");
-						GLCD_SetBackColor(Yellow);
-						GLCD_SetTextColor(Red);
-						GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
-						GLCD_SetBackColor(Black);
-						GLCD_SetTextColor(Green);  	
-					}
 					else if (Cur_Panel == 3)
 					{
-						char toPr[2];
-					 	P3Selection = 2;
-						GLCD_DisplayString(12,5,0,(unsigned char *)"Select BPM: ");
-						GLCD_SetBackColor(Yellow);
-						GLCD_SetTextColor(Red);
-						sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
-						GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
-						GLCD_SetBackColor(Black);
-						GLCD_SetTextColor(Green); 
+						//Cur_Page = 2;
+					}
+					else if (Cur_Panel < 3)
+					{
+						GLCD_Clear(Black);
+						Cur_Page = 3;
+						Cur_Inst = Cur_Panel;
+						P3Selection = 0;
+						RorP = 1;
+						InitPage(3, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
+						Cur_Panel = 0;
 					}
 				}
-			 	if (msgBuffer.buf[0] == 1) //move crosshair up
+			 	if (msgBuffer.buf[1] == 1) //move crosshair up
 				{
 					if (Cur_Panel > 0)
 					{
-						P3CatSelectionClear(Cur_Panel);
+						ClearOldSelection(Cur_Panel);
 					 	Cur_Panel--;
-						P3CatMakeSelection(Cur_Panel);
+						MakeSelection(Cur_Panel);
 					}
 				}
-				if (msgBuffer.buf[0] == 2) //move crosshair right
-				{
-				} 
-				if (msgBuffer.buf[0] == 3) //move crosshair down
+				if (msgBuffer.buf[1] == 2) //move crosshair right
 				{
 					if (Cur_Panel < 3)
 					{
-						P3CatSelectionClear(Cur_Panel);
+						ClearOldSelection(Cur_Panel);
+						Cur_Panel = Cur_Panel + 3;
+						MakeSelection(Cur_Panel);
+					}
+				} 
+				if (msgBuffer.buf[1] == 3) //move crosshair down
+				{
+					if (Cur_Panel < 5)
+					{
+						ClearOldSelection(Cur_Panel);
 					 	Cur_Panel++;
-						P3CatMakeSelection(Cur_Panel);
+						MakeSelection(Cur_Panel);
 					}
 				}
-				if (msgBuffer.buf[0] == 4) //move crosshair left
+				if (msgBuffer.buf[1] == 4) //move crosshair left
+				{
+					if (Cur_Panel > 3)
+					{
+						ClearOldSelection(Cur_Panel);
+						Cur_Panel = Cur_Panel - 3;
+						MakeSelection(Cur_Panel);
+					}
+					else if (Cur_Panel == 3)
+					{
+						ClearOldSelection(Cur_Panel);
+						Cur_Panel = 0;
+						MakeSelection(Cur_Panel);
+					}
+				}
+			}
+			else if (Cur_Page == 1)
+			{
+				if (msgBuffer.buf[1] == 0) //select bit hit
+				{
+					GLCD_Clear(Black);
+					Cur_Page = 2;
+					P2SelectionMultiplier = Cur_Panel;
+					InitPage(2, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+					Cur_Panel = 0;
+				}
+			 	if (msgBuffer.buf[1] == 1) //move crosshair up
+				{
+					if (Cur_Panel > 0)
+					{
+						P1CatSelectionClear(Cur_Panel);
+					 	Cur_Panel--;
+						P1CatMakeSelection(Cur_Panel);
+					}
+				}
+				if (msgBuffer.buf[1] == 2) //move crosshair right
+				{				
+				} 
+				if (msgBuffer.buf[1] == 3) //move crosshair down
+				{
+					if (Cur_Panel < 15)
+					{
+						P1CatSelectionClear(Cur_Panel);
+					 	Cur_Panel++;
+						P1CatMakeSelection(Cur_Panel);
+					}
+				}
+				if (msgBuffer.buf[1] == 4) //move crosshair left
 				{
 				}
 			}
-			else if (P3Selection == 1)
+			else if (Cur_Page == 2)
 			{
-			   	if (msgBuffer.buf[0] == 0) //select bit hit
+			 	if (msgBuffer.buf[1] == 0) //select bit hit
 				{
-					P3Selection = 0;
-					GLCD_SetBackColor(Black);
-					GLCD_SetTextColor(Black);
-					GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(0));
-					GLCD_DisplayString(12,5,0,(unsigned char *)"Select Note: ");
-					GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
-					GLCD_SetBackColor(Black);
-					GLCD_SetTextColor(Green);
-
-					GLCD_DisplayString(4,2,0,(unsigned char *)"Note: ");
-					GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
-
-					masterBuffer.length = 5;
-					masterBuffer.buf[0] = 0x0B; //signifies comes from lcd thread Note Change
-					masterBuffer.buf[1] = Cur_Inst+2;
-					masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
-					masterBuffer.buf[3] = RInst[Cur_Inst].Note;
-					masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
-
-					if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
-						VT_HANDLE_FATAL_ERROR(0);
-					}
-				}
-			 	if (msgBuffer.buf[0] == 1) //move crosshair up
-				{
-					if (RInst[Cur_Inst].Note < 7)
+					
+					if (RorP == 0)
 					{
-						GLCD_SetTextColor(Black);
-						GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
-						RInst[Cur_Inst].Note++;
-						GLCD_SetBackColor(Yellow);
-						GLCD_SetTextColor(Red);
-						GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
-						GLCD_SetBackColor(Black);
-						GLCD_SetTextColor(Green);
+						masterBuffer.length = 3;
+						masterBuffer.buf[0] = 0x0A; //signifies comes from lcd thread - instrument change
+						masterBuffer.buf[1] = Cur_Inst;
+						masterBuffer.buf[2] = Inst[Cur_Inst].InstrumentID;
+	
+						if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+						}
+
+						GLCD_Clear(Black);
+						Cur_Page = 0;
+						if (Cur_Panel == 0)
+							Inst[Cur_Inst].InstrumentID = 0;
+						else
+							Inst[Cur_Inst].InstrumentID = P2SelectionMultiplier*8+Cur_Panel;
+						P2SelectionMultiplier = 0;
+						InitPage(0, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+						Cur_Panel = 0;
+					}
+					else if (RorP == 1)
+					{
+						masterBuffer.length = 5;
+						masterBuffer.buf[0] = 0x0A; //signifies comes from lcd thread Instrument change
+						masterBuffer.buf[1] = Cur_Inst+2;
+						masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
+						masterBuffer.buf[3] = RInst[Cur_Inst].Note;
+						masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
+	
+						if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+						}
+
+						GLCD_Clear(Black);
+						Cur_Page = 3;
+						if (Cur_Panel == 0)
+							RInst[Cur_Inst].InstrumentID = 0;
+						else
+							RInst[Cur_Inst].InstrumentID = P2SelectionMultiplier*8+Cur_Panel;
+						P3Selection = 0;
+						RorP = 1;
+						InitPage(3, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
+						Cur_Panel = 0;
 					}
 				}
-				if (msgBuffer.buf[0] == 2) //move crosshair right
+			 	if (msgBuffer.buf[1] == 1) //move crosshair up
+				{
+					if (Cur_Panel > 0)
+					{
+						P2SelectionClear(Cur_Panel, P2SelectionMultiplier);
+					 	Cur_Panel--;
+						P2MakeSelection(Cur_Panel, P2SelectionMultiplier);
+					}
+				}
+				if (msgBuffer.buf[1] == 2) //move crosshair right
 				{
 				} 
-				if (msgBuffer.buf[0] == 3) //move crosshair down
+				if (msgBuffer.buf[1] == 3) //move crosshair down
 				{
-					if (RInst[Cur_Inst].Note > 0)
+					if (Cur_Panel < 8)
 					{
-						GLCD_SetTextColor(Black);
-						GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
-						RInst[Cur_Inst].Note--;
-						GLCD_SetBackColor(Yellow);
-						GLCD_SetTextColor(Red);
-						GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
-						GLCD_SetBackColor(Black);
-						GLCD_SetTextColor(Green);
+						P2SelectionClear(Cur_Panel, P2SelectionMultiplier);
+					 	Cur_Panel++;
+						P2MakeSelection(Cur_Panel, P2SelectionMultiplier);
 					}
 				}
-				if (msgBuffer.buf[0] == 4) //move crosshair left
+				if (msgBuffer.buf[1] == 4) //move crosshair left
 				{
 				}
 			}
-			else if (P3Selection == 2)
+			else if (Cur_Page == 3)
 			{
-			   	if (msgBuffer.buf[0] == 0) //select bit hit
+				if (P3Selection == 0)
 				{
-					char toPr[7];
-				 	P3Selection = 0;
-					GLCD_SetBackColor(Black);
-					GLCD_SetTextColor(Black);
-					sprintf(toPr, "BPM: XX");
-					GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
-					GLCD_DisplayString(12,5,0,(unsigned char *)"Select BPM: ");
-					sprintf(toPr, "%2i", RInst[Cur_Inst].BPM);
-					GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
-					GLCD_SetBackColor(Black);
-					GLCD_SetTextColor(Green);
-
-					sprintf(toPr, "BPM: %i", RInst[Cur_Inst].BPM);
-					GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
-
-					masterBuffer.length = 5;
-					masterBuffer.buf[0] = 0x0C; //signifies comes from lcd thread BPM change
-					masterBuffer.buf[1] = Cur_Inst+2;
-					masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
-					masterBuffer.buf[3] = RInst[Cur_Inst].Note;
-					masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
-
-					if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
-						VT_HANDLE_FATAL_ERROR(0);
+				   	if (msgBuffer.buf[1] == 0) //select bit hit
+					{
+						if (Cur_Panel == 0)
+						{
+						   	GLCD_Clear(Black);
+							Cur_Page = 0;
+							//P2SelectionMultiplier = Cur_Panel;
+							InitPage(0, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+							Cur_Panel = 0;
+						}
+						else if (Cur_Panel == 1)
+						{
+						  	GLCD_Clear(Black);
+							Cur_Page = 1;
+							RorP = 1;
+							InitPage(1, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+							Cur_Panel = 0;
+						}
+						else if (Cur_Panel == 2)
+						{
+							P3Selection = 1;
+							GLCD_DisplayString(12,5,0,(unsigned char *)"Select Note: ");
+							GLCD_SetBackColor(Yellow);
+							GLCD_SetTextColor(Red);
+							GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+							GLCD_SetBackColor(Black);
+							GLCD_SetTextColor(Green);  	
+						}
+						else if (Cur_Panel == 3)
+						{
+							char toPr[2];
+						 	P3Selection = 2;
+							GLCD_DisplayString(12,5,0,(unsigned char *)"Select BPM: ");
+							GLCD_SetBackColor(Yellow);
+							GLCD_SetTextColor(Red);
+							sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+							GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+							GLCD_SetBackColor(Black);
+							GLCD_SetTextColor(Green); 
+						}
+					}
+				 	if (msgBuffer.buf[1] == 1) //move crosshair up
+					{
+						if (Cur_Panel > 0)
+						{
+							P3CatSelectionClear(Cur_Panel);
+						 	Cur_Panel--;
+							P3CatMakeSelection(Cur_Panel);
+						}
+					}
+					if (msgBuffer.buf[1] == 2) //move crosshair right
+					{
+					} 
+					if (msgBuffer.buf[1] == 3) //move crosshair down
+					{
+						if (Cur_Panel < 3)
+						{
+							P3CatSelectionClear(Cur_Panel);
+						 	Cur_Panel++;
+							P3CatMakeSelection(Cur_Panel);
+						}
+					}
+					if (msgBuffer.buf[1] == 4) //move crosshair left
+					{
 					}
 				}
-			 	if (msgBuffer.buf[0] == 1) //move crosshair up
+				else if (P3Selection == 1)
 				{
-					if (RInst[Cur_Inst].BPM < 100)
+				   	if (msgBuffer.buf[1] == 0) //select bit hit
 					{
-						char toPr[2];
+						P3Selection = 0;
+						GLCD_SetBackColor(Black);
 						GLCD_SetTextColor(Black);
-						sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
-						GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
-					 	RInst[Cur_Inst].BPM++;
-						GLCD_SetBackColor(Yellow);
-						GLCD_SetTextColor(Red);
-						sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+						GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(0));
+						GLCD_DisplayString(12,5,0,(unsigned char *)"Select Note: ");
+						GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+						GLCD_SetBackColor(Black);
+						GLCD_SetTextColor(Green);
+	
+						GLCD_DisplayString(4,2,0,(unsigned char *)"Note: ");
+						GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+	
+						masterBuffer.length = 5;
+						masterBuffer.buf[0] = 0x0B; //signifies comes from lcd thread Note Change
+						masterBuffer.buf[1] = Cur_Inst+2;
+						masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
+						masterBuffer.buf[3] = RInst[Cur_Inst].Note;
+						masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
+	
+						if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+						}
+					}
+				 	if (msgBuffer.buf[1] == 1) //move crosshair up
+					{
+						if (RInst[Cur_Inst].Note < 7)
+						{
+							GLCD_SetTextColor(Black);
+							GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+							RInst[Cur_Inst].Note++;
+							GLCD_SetBackColor(Yellow);
+							GLCD_SetTextColor(Red);
+							GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+							GLCD_SetBackColor(Black);
+							GLCD_SetTextColor(Green);
+						}
+					}
+					if (msgBuffer.buf[1] == 2) //move crosshair right
+					{
+					} 
+					if (msgBuffer.buf[1] == 3) //move crosshair down
+					{
+						if (RInst[Cur_Inst].Note > 0)
+						{
+							GLCD_SetTextColor(Black);
+							GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+							RInst[Cur_Inst].Note--;
+							GLCD_SetBackColor(Yellow);
+							GLCD_SetTextColor(Red);
+							GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+							GLCD_SetBackColor(Black);
+							GLCD_SetTextColor(Green);
+						}
+					}
+					if (msgBuffer.buf[1] == 4) //move crosshair left
+					{
+					}
+				}
+				else if (P3Selection == 2)
+				{
+				   	if (msgBuffer.buf[1] == 0) //select bit hit
+					{
+						char toPr[7];
+					 	P3Selection = 0;
+						GLCD_SetBackColor(Black);
+						GLCD_SetTextColor(Black);
+						sprintf(toPr, "BPM: XX");
+						GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+						GLCD_DisplayString(12,5,0,(unsigned char *)"Select BPM: ");
+						sprintf(toPr, "%2i", RInst[Cur_Inst].BPM);
 						GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
 						GLCD_SetBackColor(Black);
 						GLCD_SetTextColor(Green);
+	
+						sprintf(toPr, "BPM: %i", RInst[Cur_Inst].BPM);
+						GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+	
+						masterBuffer.length = 5;
+						masterBuffer.buf[0] = 0x0C; //signifies comes from lcd thread BPM change
+						masterBuffer.buf[1] = Cur_Inst+2;
+						masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
+						masterBuffer.buf[3] = RInst[Cur_Inst].Note;
+						masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
+	
+						if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+						}
 					}
-				}
-				if (msgBuffer.buf[0] == 2) //move crosshair right
-				{
-				} 
-				if (msgBuffer.buf[0] == 3) //move crosshair down
-				{
-					if (RInst[Cur_Inst].BPM > 0)
+				 	if (msgBuffer.buf[1] == 1) //move crosshair up
 					{
-						char toPr[2];
-						GLCD_SetTextColor(Black);
-						sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
-						GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
-					 	RInst[Cur_Inst].BPM--;
-						GLCD_SetBackColor(Yellow);
-						GLCD_SetTextColor(Red);
-						sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
-						GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
-						GLCD_SetBackColor(Black);
-						GLCD_SetTextColor(Green);
+						if (RInst[Cur_Inst].BPM < 100)
+						{
+							char toPr[2];
+							GLCD_SetTextColor(Black);
+							sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+							GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+						 	RInst[Cur_Inst].BPM++;
+							GLCD_SetBackColor(Yellow);
+							GLCD_SetTextColor(Red);
+							sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+							GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+							GLCD_SetBackColor(Black);
+							GLCD_SetTextColor(Green);
+						}
 					}
-				}
-				if (msgBuffer.buf[0] == 4) //move crosshair left
-				{
+					if (msgBuffer.buf[1] == 2) //move crosshair right
+					{
+					} 
+					if (msgBuffer.buf[1] == 3) //move crosshair down
+					{
+						if (RInst[Cur_Inst].BPM > 0)
+						{
+							char toPr[2];
+							GLCD_SetTextColor(Black);
+							sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+							GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+						 	RInst[Cur_Inst].BPM--;
+							GLCD_SetBackColor(Yellow);
+							GLCD_SetTextColor(Red);
+							sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+							GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+							GLCD_SetBackColor(Black);
+							GLCD_SetTextColor(Green);
+						}
+					}
+					if (msgBuffer.buf[1] == 4) //move crosshair left
+					{
+					}
 				}
 			}
-		}
-		
+		}	
 
    #elif JOYSTICK_MODE==1 //shawn's code goes here
 		
@@ -1828,139 +1818,144 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		}
 		
 		//get the data from the message queue and reconvert it into a 10-bit value
-		int pixel = msgBuffer.buf[0]<<8;
-		pixel |= msgBuffer.buf[1];
-		float temp = pixel;
-		avg = /*avg + */temp / 300;
-
-		GLCD_SetBackColor(Yellow);
-		GLCD_SetTextColor(Black);
-		if (msgBuffer.buf[2] == 0)
+		if (msgBuffer.buf[0] = 0x06)
 		{
-			char toprint[20];
-			sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
-			GLCD_DisplayString(0,2,0, (unsigned char*)&toprint);
-		}
-		else if (msgBuffer.buf[2] == 1)
-		{
-		 	char toprint[20];
-			sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
-			GLCD_DisplayString(1,2,0, (unsigned char*)&toprint);
-		} 
-		else if (msgBuffer.buf[2] == 2)
-		{
-		  	char toprint[20];
-			sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
-			GLCD_DisplayString(2,2,0, (unsigned char*)&toprint);
-		} 
-		else if (msgBuffer.buf[2] == 3)
-		{
-			char toprint[20];
-			sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
-			GLCD_DisplayString(3,2,0, (unsigned char*)&toprint);
-		} 
-		else if (msgBuffer.buf[2] == 4)
-		{
-			char toprint[20];
-			sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
-			GLCD_DisplayString(4,2,0, (unsigned char*)&toprint);
-		} 
-		else if (msgBuffer.buf[2] == 5)
-		{
-		 	char toprint[20];
-			sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
-			GLCD_DisplayString(5,2,0, (unsigned char*)&toprint);
+		 	int pixel = msgBuffer.buf[1]<<8;
+			pixel |= msgBuffer.buf[2];
+			float temp = pixel;
+			avg = /*avg + */temp / 300;
+	
+			GLCD_SetBackColor(Yellow);
+			GLCD_SetTextColor(Black);
+			if (msgBuffer.buf[3] == 0)
+			{
+				char toprint[20];
+				sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
+				GLCD_DisplayString(0,2,0, (unsigned char*)&toprint);
+			}
+			else if (msgBuffer.buf[3] == 1)
+			{
+			 	char toprint[20];
+				sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
+				GLCD_DisplayString(1,2,0, (unsigned char*)&toprint);
+			} 
+			else if (msgBuffer.buf[3] == 2)
+			{
+			  	char toprint[20];
+				sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
+				GLCD_DisplayString(2,2,0, (unsigned char*)&toprint);
+			} 
+			else if (msgBuffer.buf[3] == 3)
+			{
+				char toprint[20];
+				sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
+				GLCD_DisplayString(3,2,0, (unsigned char*)&toprint);
+			} 
+			else if (msgBuffer.buf[3] == 4)
+			{
+				char toprint[20];
+				sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
+				GLCD_DisplayString(4,2,0, (unsigned char*)&toprint);
+			} 
+			else if (msgBuffer.buf[3] == 5)
+			{
+			 	char toprint[20];
+				sprintf((char *)toprint, "%3.0i-%1.2f", pixel, avg);
+				GLCD_DisplayString(5,2,0, (unsigned char*)&toprint);
+			}
+			
+	
+			//set minimum and maximum values should they change across the 80 data points in buffer
+			if (pixel > max)
+				max = pixel;
+			if (pixel < min)
+				min = pixel;
+			//trim pixel data value to fit it on screen
+			pixel = pixel / 5;
+	
+			//add pixel to a data buffer so we can clear the screen and keep accurate data
+			if (msgBuffer.buf[3] < 6 && msgBuffer.buf[3] > 0)
+			{
+				GLCD_SetTextColor(Yellow);
+	
+				GLCD_PutPixel(i*4, 240-pixel_buffer[i]);
+				GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]);
+				GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]);
+				GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]);
+	
+				pixel_buffer[i] = pixel;
+	
+				GLCD_SetTextColor(Black);
+	
+				GLCD_PutPixel(i*4, 240-pixel_buffer[i]);
+				GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]);
+				GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]);
+				GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]);
+	
+				i++;
+			}
+	
+			//i++;
+	
+			//once we have a filled buffer of data points, print the screen
+			if (i > 79)
+			{
+				//GLCD_Clear(Yellow);
+	
+				//each data point is 4 pixels by 4 pixels
+				//for (i = 0; i < 80; i++)
+				//{
+						/*GLCD_PutPixel(i*4, 240-pixel_buffer[i]);
+						GLCD_PutPixel(i*4, 240-pixel_buffer[i]+1);
+						GLCD_PutPixel(i*4, 240-pixel_buffer[i]+2);
+						GLCD_PutPixel(i*4, 240-pixel_buffer[i]+3);*/
+				
+						/*GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]);
+						GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]+1);
+						GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]+2);
+						GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]+3);*/
+				
+						/*GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]);
+						GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]+1);
+						GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]+2);
+						GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]+3);*/
+				
+						/*GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]);
+						GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]+1);
+						GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]+2);
+						GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]+3);*/
+				//}
+				//GLCD_SetBackColor(Yellow);
+				//GLCD_SetTextColor(Black);
+				//convert max and mins to voltages
+				max = max / 300;
+				min = min / 300;
+				avg = avg / 80;
+	
+				//display the max and min voltages on the screen
+				//char toprint[20];
+				//sprintf((char *)toprint, "val: %7.1f", avg);
+				//GLCD_DisplayString(2,9,0, (unsigned char*)&toprint);
+				//sprintf((char *)toprint, "%1.1fV", min);
+				//GLCD_DisplayString(9,9,1, (unsigned char*)&toprint);
+	
+				//display the scalar on the screen
+				//GLCD_DisplayString(9,0,1, (unsigned char *)"0V");
+				//GLCD_DisplayString(7,0,1, (unsigned char *)"1V");
+				//GLCD_DisplayString(5,0,1, (unsigned char *)"2V");
+				//GLCD_DisplayString(3,0,1, (unsigned char *)"3V");
+	
+				//reset values for the next buffer screen
+				i = 0;
+				max = 0;
+				min = 990;
+				avg = 0;
+			}
 		}
 		
 
-		//set minimum and maximum values should they change across the 80 data points in buffer
-		if (pixel > max)
-			max = pixel;
-		if (pixel < min)
-			min = pixel;
-		//trim pixel data value to fit it on screen
-		pixel = pixel / 5;
-
-		//add pixel to a data buffer so we can clear the screen and keep accurate data
-		if (msgBuffer.buf[2] < 6 && msgBuffer.buf[2] > 0)
-		{
-			GLCD_SetTextColor(Yellow);
-
-			GLCD_PutPixel(i*4, 240-pixel_buffer[i]);
-			GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]);
-			GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]);
-			GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]);
-
-			pixel_buffer[i] = pixel;
-
-			GLCD_SetTextColor(Black);
-
-			GLCD_PutPixel(i*4, 240-pixel_buffer[i]);
-			GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]);
-			GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]);
-			GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]);
-
-			i++;
-		}
-
-		//i++;
-
-		//once we have a filled buffer of data points, print the screen
-		if (i > 79)
-		{
-			//GLCD_Clear(Yellow);
-
-			//each data point is 4 pixels by 4 pixels
-			//for (i = 0; i < 80; i++)
-			//{
-					/*GLCD_PutPixel(i*4, 240-pixel_buffer[i]);
-					GLCD_PutPixel(i*4, 240-pixel_buffer[i]+1);
-					GLCD_PutPixel(i*4, 240-pixel_buffer[i]+2);
-					GLCD_PutPixel(i*4, 240-pixel_buffer[i]+3);*/
-			
-					/*GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]);
-					GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]+1);
-					GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]+2);
-					GLCD_PutPixel(i*4+1, 240-pixel_buffer[i]+3);*/
-			
-					/*GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]);
-					GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]+1);
-					GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]+2);
-					GLCD_PutPixel(i*4+2, 240-pixel_buffer[i]+3);*/
-			
-					/*GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]);
-					GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]+1);
-					GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]+2);
-					GLCD_PutPixel(i*4+3, 240-pixel_buffer[i]+3);*/
-			//}
-			//GLCD_SetBackColor(Yellow);
-			//GLCD_SetTextColor(Black);
-			//convert max and mins to voltages
-			max = max / 300;
-			min = min / 300;
-			avg = avg / 80;
-
-			//display the max and min voltages on the screen
-			//char toprint[20];
-			//sprintf((char *)toprint, "val: %7.1f", avg);
-			//GLCD_DisplayString(2,9,0, (unsigned char*)&toprint);
-			//sprintf((char *)toprint, "%1.1fV", min);
-			//GLCD_DisplayString(9,9,1, (unsigned char*)&toprint);
-
-			//display the scalar on the screen
-			//GLCD_DisplayString(9,0,1, (unsigned char *)"0V");
-			//GLCD_DisplayString(7,0,1, (unsigned char *)"1V");
-			//GLCD_DisplayString(5,0,1, (unsigned char *)"2V");
-			//GLCD_DisplayString(3,0,1, (unsigned char *)"3V");
-
-			//reset values for the next buffer screen
-			i = 0;
-			max = 0;
-			min = 990;
-			avg = 0;
-		}
 #else
-		Bad setting
+		//
 #endif	
 	}
 }
