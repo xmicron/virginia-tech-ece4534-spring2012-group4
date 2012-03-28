@@ -67,6 +67,8 @@
  * Simple parallel port IO routines.
  *-----------------------------------------------------------*/
 
+
+
 void vParTestInitialise( void )
 {
 	/* LEDs on ports 1 and 2 to output. */
@@ -78,6 +80,7 @@ void vParTestInitialise( void )
     GPIO1->FIOCLR = partstFIO1_BITS;
 }
 /*-----------------------------------------------------------*/
+
 
 void vParTestSetLED( unsigned long ulLEDIn, signed long xValue )
 {

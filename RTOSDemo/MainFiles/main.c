@@ -62,6 +62,103 @@ handling library calls. */
 without an error being reported. */
 #define mainPASS_STATUS_MESSAGE				"All tasks are executing without error."
 
+void FlipBit(int bit)
+{
+ 	if (bit == 0)
+	{
+		if( GPIO1->FIOPIN & 0x10000000 )
+		{
+			GPIO1->FIOCLR = 0x10000000;
+		}
+		else
+		{
+			GPIO1->FIOSET = 0x10000000;
+		}
+	}
+	else if (bit == 1)
+	{
+	 	if( GPIO1->FIOPIN & 0x20000000 )
+		{
+			GPIO1->FIOCLR = 0x20000000;
+		}
+		else
+		{
+			GPIO1->FIOSET = 0x20000000;
+		}
+	}
+	else if (bit == 2)
+	{
+	  	if( GPIO1->FIOPIN & 0x80000000 )
+		{
+			GPIO1->FIOCLR = 0x80000000;
+		}
+		else
+		{
+			GPIO1->FIOSET = 0x80000000;
+		}
+	}
+	else if (bit == 3)
+	{
+	 	uint8_t ulCurrentState = GPIO2->FIOPIN;
+		if( ulCurrentState & 0x4 )
+		{
+			GPIO2->FIOCLR = 0x4;
+		}
+		else
+		{
+			GPIO2->FIOSET = 0x4;
+		}
+	}
+	else if (bit == 4)
+	{
+	 	uint8_t ulCurrentState = GPIO2->FIOPIN;
+		if( ulCurrentState & 0x8 )
+		{
+			GPIO2->FIOCLR = 0x8;
+		}
+		else
+		{
+			GPIO2->FIOSET = 0x8;
+		}
+	}
+	else if (bit == 5)
+	{
+		uint8_t ulCurrentState = GPIO2->FIOPIN;
+		if( ulCurrentState & 0x10 )
+		{
+			GPIO2->FIOCLR = 0x10;
+		}
+		else
+		{
+			GPIO2->FIOSET = 0x10;
+		}
+	}
+	else if (bit == 6)
+	{
+	  	uint8_t ulCurrentState = GPIO2->FIOPIN;
+		if( ulCurrentState & 0x20 )
+		{
+			GPIO2->FIOCLR = 0x20;
+		}
+		else
+		{
+			GPIO2->FIOSET = 0x20;
+		}
+	}
+	else if (bit == 7)
+	{
+	 	uint8_t ulCurrentState = GPIO2->FIOPIN;
+		if( ulCurrentState & 0x40 )
+		{
+			GPIO2->FIOCLR = 0x40;
+		}
+		else
+		{
+			GPIO2->FIOSET = 0x40;
+		}
+	}
+}
+
 
 
 
