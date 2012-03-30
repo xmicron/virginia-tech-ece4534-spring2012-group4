@@ -105,7 +105,7 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 			//FlipBit(5);
 		}
 		PrevPIN_CONFIG = PIN_CONFIG;
-		//vTaskDelay(100/portTICK_RATE_MS);
+		//vTaskDelay(100);
 	}
 }
 

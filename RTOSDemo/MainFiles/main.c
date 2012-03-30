@@ -50,7 +50,7 @@ tick hook). */
 #define mainGEN_QUEUE_TASK_PRIORITY			( tskIDLE_PRIORITY)
 #define mainFLASH_TASK_PRIORITY				( tskIDLE_PRIORITY)
 #define mainLCD_TASK_PRIORITY				( tskIDLE_PRIORITY)
-#define mainI2CTEMP_TASK_PRIORITY			( 3)
+#define mainI2CTEMP_TASK_PRIORITY			( 5)
 #define mainUSB_TASK_PRIORITY				( tskIDLE_PRIORITY)
 #define mainI2CMONITOR_TASK_PRIORITY		( tskIDLE_PRIORITY)
 
@@ -188,14 +188,14 @@ int main( void )
 	prvSetupHardware();//setup the hardware
 
 	//Start the tasks
-	vStartBlockingQueueTasks( mainBLOCK_Q_PRIORITY );
+	/*vStartBlockingQueueTasks( mainBLOCK_Q_PRIORITY );
     vCreateBlockTimeTasks();
     vStartSemaphoreTasks( mainSEM_TEST_PRIORITY );
     vStartPolledQueueTasks( mainQUEUE_POLL_PRIORITY );
     vStartIntegerMathTasks( mainINTEGER_TASK_PRIORITY );
     vStartGenericQueueTasks( mainGEN_QUEUE_TASK_PRIORITY );
     vStartQueuePeekTasks();
-    vStartRecursiveMutexTasks();
+    vStartRecursiveMutexTasks(); */
 	//vStartLEDFlashTasks( mainFLASH_TASK_PRIORITY );
 	
 	//Web Server Task

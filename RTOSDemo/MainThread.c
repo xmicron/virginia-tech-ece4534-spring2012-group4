@@ -128,9 +128,9 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 			lcdmsgBuffer.buf[2] = masterBuffer.buf[2];
 			lcdmsgBuffer.buf[3] = masterBuffer.buf[4];
 
-			if (xQueueSend(lcdQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+			if (xQueueSend(lcdQ->inQ,(void *) (&lcdmsgBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
-			}
+			}  
 		}
 		else if (masterBuffer.buf[0] == 0x0A || masterBuffer.buf[0] == 0x0B || masterBuffer.buf[0] == 0x0C) //message from LCD thread - Instrument Change
 		{
