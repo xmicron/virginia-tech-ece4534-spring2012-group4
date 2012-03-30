@@ -1816,6 +1816,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		if (xQueueReceive(lcdPtr->inQ,(void *) &msgBuffer,portMAX_DELAY) != pdTRUE) {
 			VT_HANDLE_FATAL_ERROR(0);
 		}
+		//FlipBit(0);
 		
 		//get the data from the message queue and reconvert it into a 10-bit value
 		if (msgBuffer.buf[0] = 0x06)

@@ -45,7 +45,7 @@ void vStartI2CTask( unsigned portBASE_TYPE uxPriority, i2cParamStruct *params)
 	/* Start the task */
 	portBASE_TYPE retval;
 
-	if ((retval = xTaskCreate( I2CTask, ( signed char * ) "i2cTemp", i2cSTACK_SIZE, (void *) params, uxPriority, ( xTaskHandle * ) NULL )) != pdPASS) {
+	if ((retval = xTaskCreate( I2CTask, ( signed char * ) "i2cThread", i2cSTACK_SIZE, (void *) params, uxPriority, ( xTaskHandle * ) NULL )) != pdPASS) {
 		VT_HANDLE_FATAL_ERROR(retval);
 	}
 }
@@ -113,7 +113,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 		if (vtI2CDeQ(devPtr,12,&ADCValueReceived[0],&rxLen,&status) != pdTRUE) {
 			//VT_HANDLE_FATAL_ERROR(0);
 		}
-
+	  
 #if testNUM==1 // Valid I2C message from PIC - expected to send result to Main Thread
 	ADCValueReceived[0] = 2;
 	ADCValueReceived[1] = 0xC2;
@@ -168,8 +168,8 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 			FlipBit(2);
 		}
 
-		//if (ADCValueReceived[8] < 4) //for nick's code
-		if (ADCValueReceived[8] < 4 && uxQueueMessagesWaiting(i2cQ->inQ) > 0) // for everything else
+		if (ADCValueReceived[8] < 4) //for nick's code
+		//if (ADCValueReceived[8] < 4 && uxQueueMessagesWaiting(i2cQ->inQ) > 0) // for everything else
 		{
 			//if (prvIsQueueEmpty(i2cQ->inQ) == pdFALE)
 			int calculate;
@@ -214,7 +214,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 				MidiSendCount = 1;
 			MidiSendValue[4] = MidiSendCount;
 		 	if (vtI2CEnQ(devPtr,0x00,0x4F,5,MidiSendValue,0) != pdTRUE) {
-			VT_HANDLE_FATAL_ERROR(0);
+				VT_HANDLE_FATAL_ERROR(0);
 			}
 	
 			//wait for message from I2C
@@ -226,25 +226,19 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 		else
 			FlipBit(5); 
 		  
-		FlipBit(7);
+		FlipBit(7);	  
 
 
-		/*Reserved Space for Insteon I2C messaging format*/
-
-		/*Reserved Space for Insteon I2C messaging format*/
-
-		/*Reserved Space for Insteon I2C messaging format*/
-
-		/*Reserved Space for Insteon I2C messaging format*/
 		
 
 		if (lcdData != NULL && ADCValueReceived[0] != 0xFF) 
 		{
 			// Send a message to the LCD task for it to print (and the LCD task must be configured to receive this message)
-			/*lcdBuffer.length = 3;
-			lcdBuffer.buf[0] = ADCValueReceived[0];
-			lcdBuffer.buf[1] = ADCValueReceived[1];
-			lcdBuffer.buf[2] = ADCValueReceived[10];
+			/*lcdBuffer.length = 4;
+			lcdBuffer.buf[0] = 0x06;
+			lcdBuffer.buf[1] = ADCValueReceived[0];
+			lcdBuffer.buf[2] = ADCValueReceived[1];
+			lcdBuffer.buf[3] = ADCValueReceived[10];
 
 			if (xQueueSend(lcdData->inQ,(void *) (&lcdBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
@@ -262,7 +256,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 			if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
 			} 
-		}
+		}  
 	}
 }
 
