@@ -71,12 +71,11 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 	//timer R3timer;
 	for (i = 0; i < 3; i++)
 	{
-		Inst[i].InstrumentID = 0;
 		RInst[i].InstrumentID = 0;
 		RInst[i].Note = 0;
 		RInst[i].BPM = 0;
 	}
-	for (i = 0; i < 3; i++)
+	for (i = 0; i < 2; i++)
 	{
 		Inst[i].InstrumentID = 0;
 	}
@@ -91,35 +90,137 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 		
 		if (masterBuffer.buf[0] == 0x08) //message from I2C
 		{
-			/*int calculate;
-			calculate = masterBuffer.buf[0] & 0x03;
-			calculate = calculate << 8;
-			calculate |= masterBuffer.buf[1];
+			//masterBuffer.buf[1]	 //most significant ADC value
+			//masterBuffer.buf[2]	 //least significant ADC value
+			//masterBuffer.buf[3]	 //timer value
+			//masterBuffer.buf[4]	 //channel number
 
-			i2cBuffer.length = 3;
+			/*
+			channel 1: ADC note
+			channel 2: ADC velocity
+			channel 3: ADC pitch
+			channel 4: ADC note #2
+			channel 5: ADC velocity #2
+			channel 6: ADC pitch #2
+			*/
 
-		 	if (calculate >= 180  && calculate < 220)
-				i2cBuffer.buf[1] = 0x80;
-			else if (calculate >= 220  && calculate < 260)
-				i2cBuffer.buf[1] = 0x40;
-			else if (calculate >= 260  && calculate < 290)
-				i2cBuffer.buf[1] = 0x20;
-			else if (calculate >= 290  && calculate < 320)
-				i2cBuffer.buf[1] = 0x10;
-			else if (calculate >= 320 && calculate < 380)
-				i2cBuffer.buf[1] = 0x08;
-			else if (calculate >= 380 && calculate < 460)
-				i2cBuffer.buf[1] = 0x04;
-			else if (calculate >= 460 && calculate < 530)
-				i2cBuffer.buf[1] = 0x02;
-			else if (calculate >= 530 && calculate < 780)
-				i2cBuffer.buf[1] = 0x01;
-			
-			if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+			int ADCValue = masterBuffer.buf[1] << 8;
+			ADCValue |= masterBuffer.buf[2];
+
+			if (masterBuffer.buf[4] == 0)  // Instrument 1 Note
+			{
+				if (ADCValue >= 200  && ADCValue < 250) // C4
+				{	
+					Inst[0].Note = 1; 	
+				}
+				else if (ADCValue >= 260 && ADCValue < 300) // D4
+				{
+					Inst[0].Note = 2;
+				}
+				else if (ADCValue >= 310 && ADCValue < 345) // E4 
+				{
+					Inst[0].Note = 3;
+				}
+				else if (ADCValue >= 360 && ADCValue < 390)	// F4
+				{
+					Inst[0].Note = 4;
+				}
+				else if (ADCValue >= 410 && ADCValue < 455)	// G4
+				{
+					Inst[0].Note = 5;
+				}
+				else if (ADCValue >= 470 && ADCValue < 540)	// A4
+				{
+					Inst[0].Note = 6;
+				}
+				else if (ADCValue >= 550 && ADCValue < 645)	// B4
+				{
+					Inst[0].Note = 7;
+				}
+				else if (ADCValue >= 660 && ADCValue < 790)	// C5
+				{
+					Inst[0].Note = 8;
+				}
+				else if (ADCValue < 180)
+				{
+					Inst[0].Note = 0;
+				}
+
+				FlipBit(6);
+				
+
+				i2cBuffer.length = 1;
+				i2cBuffer.buf[0] = 1 << (Inst[masterBuffer.buf[4]].Note - 1);
+	
+				/*if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+					VT_HANDLE_FATAL_ERROR(0);
+				}*/
+			}
+			else if (masterBuffer.buf[4] == 1)	//Instrument 1 Velocity
+			{
+				ADCValue = ADCValue / 7; //change to properly make between 1-127 for velocity value
+			 	//if (ADCValue > Inst[0].Velocity || ADCValue == 0)
+					Inst[0].Velocity = ADCValue;
+				
+				FlipBit(3);
+
+				if (Inst[0].InstrumentID != 0)
+				{
+				  	i2cBuffer.length = 3;
+					i2cBuffer.buf[0] = 0x90;
+					if (Inst[0].Note == 1)
+						i2cBuffer.buf[1] = 60;
+					else if (Inst[0].Note == 2)
+						i2cBuffer.buf[1] = 62;
+					else if (Inst[0].Note == 3)
+						i2cBuffer.buf[1] = 64;
+					else if (Inst[0].Note == 4)
+						i2cBuffer.buf[1] = 65;
+					else if (Inst[0].Note == 5)
+						i2cBuffer.buf[1] = 67;
+					else if (Inst[0].Note == 6)
+						i2cBuffer.buf[1] = 69;
+					else if (Inst[0].Note == 7)
+						i2cBuffer.buf[1] = 71;
+					else if (Inst[0].Note == 8)
+						i2cBuffer.buf[1] = 72;
+
+					i2cBuffer.buf[2] = Inst[0].Velocity;
+		
+					if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
+					FlipBit(2);
+				}
+				//prepare to send to I2C to play an instrument
+			}
+			else if (masterBuffer.buf[4] == 2)	//Instrument 1 Pitch
+			{
+
+			}
+			else if (masterBuffer.buf[4] == 3)	//Instrument 2 Note
+			{
+
+			}
+			else if (masterBuffer.buf[4] == 4)  //Instrument 2 Velocity
+			{
+
+			}
+			else if (masterBuffer.buf[4] == 5)	//Instrument 2 Pitch
+			{
+
+			}
+
+			lcdmsgBuffer.buf[0] = 0x06;
+			lcdmsgBuffer.buf[1] = masterBuffer.buf[1];
+			lcdmsgBuffer.buf[2] = masterBuffer.buf[2];
+			lcdmsgBuffer.buf[3] = masterBuffer.buf[4];
+
+			/*if (xQueueSend(lcdQ->inQ,(void *) (&lcdmsgBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
 			}*/
-			FlipBit(3);
-			
+
+			//FlipBit(4);			
 		}
 		else if (masterBuffer.buf[0] == 0x09) //temporary for nick
 		{
@@ -135,18 +236,38 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 		else if (masterBuffer.buf[0] == 0x0A || masterBuffer.buf[0] == 0x0B || masterBuffer.buf[0] == 0x0C) //message from LCD thread - Instrument Change
 		{
 			FlipBit(4);
+			if (masterBuffer.buf[0] == 0x0A)
+			{
+			 	Inst[masterBuffer.buf[1]].InstrumentID = masterBuffer.buf[2];
 
-		 	/*Inst[masterBuffer.buf[1]].InstrumentID = masterBuffer.buf[2];
+				/*construct MIDI message to change instrument*/
+				i2cBuffer.length = 3;
+				i2cBuffer.buf[0] = 0xC0 + masterBuffer.buf[1];
+				i2cBuffer.buf[2] = Inst[masterBuffer.buf[1]].InstrumentID;
+				i2cBuffer.buf[1] = 0x00;
+	
+				if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+					VT_HANDLE_FATAL_ERROR(0);
+				}
+			}
+			else if (masterBuffer.buf[0] == 0x0B || masterBuffer.buf[0] == 0x0C)
+			{
+			 	RInst[masterBuffer.buf[1]].InstrumentID = masterBuffer.buf[2];
+				RInst[masterBuffer.buf[1]].Note = masterBuffer.buf[3];
+				RInst[masterBuffer.buf[1]].BPM = masterBuffer.buf[4];
 
-			//uint8_t MidiSendMsg[3];
-			i2cBuffer.length = 3;
-			i2cBuffer.buf[0] = 0xC0 + masterBuffer.buf[1];
-			i2cBuffer.buf[1] = Inst[masterBuffer.buf[1]].InstrumentID;
-			i2cBuffer.buf[2] = 0x00;
-
-			if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
-				VT_HANDLE_FATAL_ERROR(0);
-			}*/
+				/*construct MIDI message to change instrument
+				
+				//uint8_t MidiSendMsg[3];
+				i2cBuffer.length = 3;
+				i2cBuffer.buf[0] = 0xC0 + masterBuffer.buf[1];
+				i2cBuffer.buf[1] = Inst[masterBuffer.buf[1]].InstrumentID;
+				i2cBuffer.buf[2] = 0x00;
+	
+				if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+					VT_HANDLE_FATAL_ERROR(0);
+				}*/
+			}
 		}	
 	}
 }

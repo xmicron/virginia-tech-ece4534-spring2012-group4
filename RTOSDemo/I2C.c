@@ -157,57 +157,27 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 #endif
 	 	if (ADCValueReceived[11] != 170) //check the message returned make sure it is 0xAA signifying it's the correct op-code
 		{
-			FlipBit(6);
+			//FlipBit(6);
 		}
 		if (ADCValueReceived[0] > 3)
 		{
-		 	FlipBit(1);
+		 	//FlipBit(1);
 		}
 		if (ADCValueReceived[10] < 0 || ADCValueReceived[10] > 5)
 		{
-			FlipBit(2);
+			//FlipBit(2);
 		}
 
-		if (ADCValueReceived[8] < 4) //for nick's code
-		//if (ADCValueReceived[8] < 4 && uxQueueMessagesWaiting(i2cQ->inQ) > 0) // for everything else
+		//if (ADCValueReceived[8] < 4) //for nick's code
+		if (ADCValueReceived[8] < 4 && uxQueueMessagesWaiting(i2cQ->inQ) > 0) // for everything else
 		{
-			//if (prvIsQueueEmpty(i2cQ->inQ) == pdFALE)
-			int calculate;
-			calculate = ADCValueReceived[0] & 0x03;
-			calculate = calculate << 8;
-			calculate = calculate | ADCValueReceived[1];
-			
-	/*
-			if (calculate > 183 && calculate < 236)
-				SendValue[1] = 0x80;
-			else if (calculate >= 236 && calculate < 283)
-				SendValue[1] = 0x40;
-			else if (calculate >= 283 && calculate < 325)
-				SendValue[1] = 0x20;
-			else if (calculate >= 325 && calculate < 362)
-				SendValue[1] = 0x10;
-			else if (calculate >= 362 && calculate < 394)
-				SendValue[1] = 0x08;
-			else if (calculate >= 394 && calculate < 424)
-				SendValue[1] = 0x04; */
-	
-			if (calculate >= 180  && calculate < 220)
-				MidiSendValue[1] = 0x80;
-			else if (calculate >= 220  && calculate < 260)
-				MidiSendValue[1] = 0x40;
-			else if (calculate >= 260  && calculate < 290)
-				MidiSendValue[1] = 0x20;
-			else if (calculate >= 290  && calculate < 320)
-				MidiSendValue[1] = 0x10;
-			else if (calculate >= 320 && calculate < 380)
-				MidiSendValue[1] = 0x08;
-			else if (calculate >= 380 && calculate < 460)
-				MidiSendValue[1] = 0x04;
-			else if (calculate >= 460 && calculate < 530)
-				MidiSendValue[1] = 0x02;
-			else if (calculate >= 530 && calculate < 780)
-				MidiSendValue[1] = 0x01;
-			//else SendValue[1] = 0xFF;
+			if (xQueueReceive(i2cQ->inQ,(void *) &i2cBuffer,portMAX_DELAY) != pdTRUE) //receive message from message queue
+			{
+				VT_HANDLE_FATAL_ERROR(0);
+			}
+			MidiSendValue[1] = i2cBuffer.buf[0];
+			MidiSendValue[2] = i2cBuffer.buf[1];
+			MidiSendValue[3] = i2cBuffer.buf[2];
 			
 			//prepare to send Midi message to I2Cto the PIC
 			if (MidiSendCount > 100)
@@ -222,9 +192,9 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 				//VT_HANDLE_FATAL_ERROR(0);
 			}
 			MidiSendCount++;
+
+			FlipBit(1);
 		}
-		else
-			FlipBit(5); 
 		  
 		FlipBit(7);	  
 
