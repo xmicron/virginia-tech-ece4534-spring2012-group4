@@ -563,6 +563,19 @@ void GLCD_PutPixel (unsigned int x, unsigned int y) {
   wr_dat(TextColor);
 }
 
+unsigned short GLCD_ReadPixelColor (unsigned int x, unsigned int y) {
+
+#if (HORIZONTAL == 1)
+  wr_reg(0x20, y);
+  wr_reg(0x21, WIDTH-1-x);
+#else
+  wr_reg(0x20, x);
+  wr_reg(0x21, y);
+#endif
+  wr_cmd(0x22);
+  return (rd_dat());
+}
+
 
 /*******************************************************************************
 * Set foreground color                                                         *
