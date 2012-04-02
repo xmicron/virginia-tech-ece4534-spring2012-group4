@@ -19,7 +19,7 @@
 #define lcdSTACK_SIZE		4*configMINIMAL_STACK_SIZE
 #endif
 
-#define JOYSTICK_MODE 0
+#define JOYSTICK_MODE 1
 
 // Set the task up to run every 200 ms
 #define lcdWRITE_RATE_BASE	( ( portTickType ) 10 )
@@ -141,7 +141,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	
 	#elif LCD_EXAMPLE_OP==3
 	vtLCDMsg msgBuffer;
-	#if JOYSTICK_MODE==0
+	//#if JOYSTICK_MODE==0
 	int Cur_Panel = 0;
 	int Cur_Page = 0;
 	int Cur_Inst = 0;
@@ -163,11 +163,11 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	}
 	Cur_Page = 0;
 
-	#elif JOYSTICK_MODE==1 //shawn's initializations go here
+	//#elif JOYSTICK_MODE==1 //shawn's initializations go here
 	cursorPos Cursor;
 	Cursor.x = 0;
 	Cursor.y = 0;
-	#endif
+//	#endif
 	
 #endif
 
@@ -198,15 +198,10 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	GLCD_SetBackColor(Black);
 
 #if LCD_EXAMPLE_OP==3
-	#if JOYSTICK_MODE==0
 	GLCD_Clear(Black);
 	InitPage(0, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
 
-	
 
-	//GLCD_DisplayString(8,30,0,(unsigned char *)"Repeating Instrument 1");
-	#elif JOYSTICK_MODE==1//shawn's LCD screen initializations
-	#endif
 #elif LCD_EXAMPLE_OP==2
 	GLCD_Clear(Yellow);
 	GLCD_SetTextColor(Black);
@@ -707,7 +702,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		}
 
 		//handle crosshair
-		GLCD_PutPixel(Cursor.x, Cursor.y-2);
+		/*GLCD_PutPixel(Cursor.x, Cursor.y-2);
 		GLCD_PutPixel(Cursor.x, Cursor.y-1);
 		GLCD_PutPixel(Cursor.x, Cursor.y);
 		GLCD_PutPixel(Cursor.x, Cursor.y+1);
@@ -715,7 +710,28 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		GLCD_PutPixel(Cursor.x-2, Cursor.y);
 		GLCD_PutPixel(Cursor.x-1, Cursor.y);
 		GLCD_PutPixel(Cursor.x+1, Cursor.y);
-		GLCD_PutPixel(Cursor.x+2, Cursor.y);
+		GLCD_PutPixel(Cursor.x+2, Cursor.y);*/
+
+		int y = 0;
+		for (y = 0; y < 240; y++) 
+		{
+		 	unsigned short temp = GLCD_ReadPixelColor (y, 1);
+			if (temp == 0xFFE0)
+				FlipBit(2);
+			GLCD_SetTextColor(temp);
+			//GLCD_PutPixel(10, 10);
+			//GLCD_SetTextColor(Yellow);
+			int x = 0;
+			for (x = 2; x < 320; x++)
+			{
+			 	GLCD_PutPixel(x, y);
+			}
+		}
+		
+		//GLCD_SetTextColor(Blue);
+		//GLCD_PutPixel(1,1);
+
+		FlipBit(0);
 	#endif
 
 
