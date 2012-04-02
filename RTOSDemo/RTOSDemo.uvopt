@@ -281,8 +281,8 @@
       <Focus>0</Focus>
       <ColumnNumber>25</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>163</TopLine>
-      <CurrentLine>163</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../FreeRTOS/Source/list.c</PathWithFileName>
       <FilenameWithoutPath>list.c</FilenameWithoutPath>
@@ -295,8 +295,8 @@
       <Focus>0</Focus>
       <ColumnNumber>26</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>79</TopLine>
-      <CurrentLine>79</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../FreeRTOS/Source/queue.c</PathWithFileName>
       <FilenameWithoutPath>queue.c</FilenameWithoutPath>
@@ -309,8 +309,8 @@
       <Focus>0</Focus>
       <ColumnNumber>1</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>331</TopLine>
-      <CurrentLine>331</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../FreeRTOS/Source/tasks.c</PathWithFileName>
       <FilenameWithoutPath>tasks.c</FilenameWithoutPath>
@@ -386,8 +386,8 @@
       <Focus>0</Focus>
       <ColumnNumber>48</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>62</TopLine>
-      <CurrentLine>62</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/ParTest.c</PathWithFileName>
       <FilenameWithoutPath>ParTest.c</FilenameWithoutPath>
@@ -400,8 +400,8 @@
       <Focus>0</Focus>
       <ColumnNumber>22</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1392</TopLine>
-      <CurrentLine>1392</CurrentLine>
+      <TopLine>736</TopLine>
+      <CurrentLine>736</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/LCDtask.c</PathWithFileName>
       <FilenameWithoutPath>LCDtask.c</FilenameWithoutPath>
@@ -414,8 +414,8 @@
       <Focus>0</Focus>
       <ColumnNumber>5</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>23</TopLine>
-      <CurrentLine>23</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\joystick.c</PathWithFileName>
       <FilenameWithoutPath>joystick.c</FilenameWithoutPath>
@@ -426,10 +426,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>73</ColumnNumber>
+      <ColumnNumber>76</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>82</TopLine>
-      <CurrentLine>106</CurrentLine>
+      <TopLine>157</TopLine>
+      <CurrentLine>157</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\I2C.c</PathWithFileName>
       <FilenameWithoutPath>I2C.c</FilenameWithoutPath>
@@ -440,10 +440,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>24</ColumnNumber>
+      <ColumnNumber>9</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>23</TopLine>
-      <CurrentLine>35</CurrentLine>
+      <TopLine>180</TopLine>
+      <CurrentLine>195</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainThread.c</PathWithFileName>
       <FilenameWithoutPath>MainThread.c</FilenameWithoutPath>
@@ -1060,7 +1060,7 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>4</ActiveTab>
+      <ActiveTab>6</ActiveTab>
       <Documents>
         <Doc>
           <Name>.\MainFiles/i2cTemp.c</Name>
@@ -1083,14 +1083,14 @@
         <Doc>
           <Name>.\MainFiles/LCDtask.c</Name>
           <ColumnNumber>22</ColumnNumber>
-          <TopLine>1392</TopLine>
-          <CurrentLine>1392</CurrentLine>
+          <TopLine>736</TopLine>
+          <CurrentLine>736</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\I2C.c</Name>
-          <ColumnNumber>73</ColumnNumber>
-          <TopLine>82</TopLine>
-          <CurrentLine>106</CurrentLine>
+          <ColumnNumber>76</ColumnNumber>
+          <TopLine>157</TopLine>
+          <CurrentLine>157</CurrentLine>
         </Doc>
         <Doc>
           <Name>C:\ARMCode\RTOSDemo\MAINFILES\LCDTASK.H</Name>
@@ -1100,9 +1100,9 @@
         </Doc>
         <Doc>
           <Name>.\MainThread.c</Name>
-          <ColumnNumber>24</ColumnNumber>
-          <TopLine>23</TopLine>
-          <CurrentLine>35</CurrentLine>
+          <ColumnNumber>9</ColumnNumber>
+          <TopLine>180</TopLine>
+          <CurrentLine>195</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

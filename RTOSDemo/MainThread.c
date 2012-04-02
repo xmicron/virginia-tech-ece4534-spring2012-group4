@@ -64,7 +64,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 
 	InstrumentStruct Inst[2];
 	RepeatingInstrumentStruct RInst[3];
-	int i = 0;
+	int i = 0, prevRange = 0, curRange = 0, count = -1;
 
 	//timer R1timer;
 	//timer R2timer;
@@ -158,14 +158,62 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 			}
 			else if (masterBuffer.buf[4] == 1)	//Instrument 1 Velocity
 			{
-				ADCValue = ADCValue / 7; //change to properly make between 1-127 for velocity value
-			 	//if (ADCValue > Inst[0].Velocity || ADCValue == 0)
-					Inst[0].Velocity = ADCValue;
-				
-				FlipBit(3);
+				// NOTE: If a hand is not in the range of a sensor, play nothing (do not send a MIDI msg)
+				// NOTE: This is a state machine which determines if a sensor beam has been struck, and subsequently,
+				// if a note should be played.  Additionally, it determines the velocity that the note should be played with
 
-				if (Inst[0].InstrumentID != 0)
+				// Check to see if a hand is in the range of a sensor.
+				if (ADCValue > 200) curRange = 1;
+				else curRange = 0;
+
+				if (count >= 0) count--;
+
+				// STATE 1: if the beam has just been struck
+				if (prevRange == 0 && curRange == 1)
 				{
+					// Set the COUNT variable to designate the number of messages which should be ignored 
+					// before reding the velocity sensor.  In this manner, you can ignore the first (few) invalid
+					// sensor reads as a hand crosses its beam.
+				 	count = 1; 		
+					prevRange = 1;	
+				}
+				// STATE 2: if a hand has been removed from a beam, reset to look for a new break	B0 7B 00
+				else if (prevRange == 1 && curRange == 0) 
+				{
+					prevRange = 0;
+					/*
+					i2cBuffer.buf[0] = 0x80;
+					if (Inst[0].Note == 1)
+						i2cBuffer.buf[1] = 60;
+					else if (Inst[0].Note == 2)
+						i2cBuffer.buf[1] = 62;
+					else if (Inst[0].Note == 3)
+						i2cBuffer.buf[1] = 64;
+					else if (Inst[0].Note == 4)
+						i2cBuffer.buf[1] = 65;
+					else if (Inst[0].Note == 5)
+						i2cBuffer.buf[1] = 67;
+					else if (Inst[0].Note == 6)
+						i2cBuffer.buf[1] = 69;
+					else if (Inst[0].Note == 7)
+						i2cBuffer.buf[1] = 71;
+					else if (Inst[0].Note == 8)
+						i2cBuffer.buf[1] = 72;
+					i2cBuffer.buf[2] = 50;
+					if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
+					 */
+				}
+
+				// STATE 3: if count == 0, it is time to read the sensor, and play a note
+				if (Inst[0].InstrumentID != 0 && count == 0)
+				{
+					ADCValue = ADCValue / 7; //change to properly make between 1-127 for velocity value
+			 		//if (ADCValue > Inst[0].Velocity || ADCValue == 0)
+					Inst[0].Velocity = ADCValue;
+								
+
 				  	i2cBuffer.length = 3;
 					i2cBuffer.buf[0] = 0x90;
 					if (Inst[0].Note == 1)
@@ -184,14 +232,16 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 						i2cBuffer.buf[1] = 71;
 					else if (Inst[0].Note == 8)
 						i2cBuffer.buf[1] = 72;
-
-					i2cBuffer.buf[2] = Inst[0].Velocity;
+					
+					if (Inst[0].Velocity > 28) i2cBuffer.buf[2] = Inst[0].Velocity;
+					else i2cBuffer.buf[2] = 0;
 		
 					if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
 						VT_HANDLE_FATAL_ERROR(0);
 					}
 					FlipBit(2);
 				}
+				
 				//prepare to send to I2C to play an instrument
 			}
 			else if (masterBuffer.buf[4] == 2)	//Instrument 1 Pitch
