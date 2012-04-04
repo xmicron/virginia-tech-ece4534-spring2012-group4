@@ -268,6 +268,7 @@ static void wr_dat_only (unsigned short dat) {
 *******************************************************************************/
 
 static unsigned short rd_dat (void) {
+	FlipBit(4);
 #if 0
   unsigned short val = 0;
 
@@ -282,7 +283,7 @@ static unsigned short rd_dat (void) {
   SSP_DATA_SETUP_Type dataCfg; 
   unsigned char tbuf[4];
   unsigned char rbuf[4];
-  unsigned short val;
+  unsigned short val = 0;
   LCD_CS(0);
   tbuf[0] = SPI_START | SPI_RD | SPI_DATA;
   tbuf[1] = 0x0;
@@ -296,6 +297,8 @@ static unsigned short rd_dat (void) {
   val = val << 8;
   val = val + rbuf[3];
   LCD_CS(1);
+  if (val == Yellow)
+  	FlipBit(1);
   return (val);
 }
 
@@ -320,7 +323,8 @@ static void wr_reg (unsigned char reg, unsigned short val) {
 *******************************************************************************/
 
 static unsigned short rd_reg (unsigned char reg) {
-
+  if (reg == 0x22)
+  	FlipBit(3);
   wr_cmd(reg);
   return(rd_dat());
 }
@@ -572,8 +576,9 @@ unsigned short GLCD_ReadPixelColor (unsigned int x, unsigned int y) {
   wr_reg(0x20, x);
   wr_reg(0x21, y);
 #endif
-  wr_cmd(0x22);
-  return (rd_dat());
+
+  FlipBit(2);
+  return (rd_reg(0x22));
 }
 
 

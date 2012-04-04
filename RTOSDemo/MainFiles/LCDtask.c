@@ -715,7 +715,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		int y = 0;
 		for (y = 0; y < 240; y++) 
 		{
-		 	unsigned short temp = GLCD_ReadPixelColor (y, 1);
+		 	unsigned short temp = GLCD_ReadPixelColor(y, 1);
 			if (temp == 0xFFE0)
 				FlipBit(2);
 			GLCD_SetTextColor(temp);

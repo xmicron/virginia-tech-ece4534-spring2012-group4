@@ -64,6 +64,6 @@ extern void GLCD_Bargraph       (unsigned int x, unsigned int y, unsigned int w,
 extern void GLCD_Bitmap         (unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned char *bitmap);
 extern void GLCD_Bmp            (unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned char *bmp);
 extern void GLCD_ScrollVertical (unsigned int dy);
-extern unsigned short ReadPixelColor (unsigned int x, unsigned int y);
+extern unsigned short GLCD_ReadPixelColor (unsigned int x, unsigned int y);
 
 #endif /* _GLCD_H */
