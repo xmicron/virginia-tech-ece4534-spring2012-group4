@@ -52,7 +52,7 @@ tick hook). */
 #define mainLCD_TASK_PRIORITY				( tskIDLE_PRIORITY)
 #define mainI2CTEMP_TASK_PRIORITY			( 5)
 #define mainUSB_TASK_PRIORITY				( tskIDLE_PRIORITY)
-#define mainI2CMONITOR_TASK_PRIORITY		( tskIDLE_PRIORITY)
+#define mainI2CMONITOR_TASK_PRIORITY		( 5)
 
 /* The WEB server has a larger stack as it utilises stack hungry string
 handling library calls. */
