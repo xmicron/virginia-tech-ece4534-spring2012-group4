@@ -675,34 +675,35 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
    #elif JOYSTICK_MODE==1 //shawn's code goes here
 		
 
-		//Starting code for handling the crosshair. Pretty much works
-		if (msgBuffer.buf[0] == 0) //select bit hit
+		//Starting code for handling the crosshair.
+		if (msgBuffer.buf[1] == 0) //select bit hit
 		{
 
 		}
-		if (msgBuffer.buf[0] == 1) //move crosshair up
+		if (msgBuffer.buf[1] == 1) //move crosshair up
 		{
 			if (Cursor.y > 0)
-				Cursor.y--;
+				Cursor.y -= 4;
 		}
-		if (msgBuffer.buf[0] == 2) //move crosshair right
+		if (msgBuffer.buf[1] == 2) //move crosshair right
 		{
 			if (Cursor.x < 320)
-				Cursor.x++;
+				Cursor.x += 4;
 		}
-		if (msgBuffer.buf[0] == 3) //move crosshair down
+		if (msgBuffer.buf[1] == 3) //move crosshair down
 		{
 			if (Cursor.y < 240)
-				Cursor.y++;
+				Cursor.y += 4;
 		}
-		if (msgBuffer.buf[0] == 4) //move crosshair left
+		if (msgBuffer.buf[1] == 4) //move crosshair left
 		{
 			if (Cursor.x > 0)
-				Cursor.x--;
+				Cursor.x -= 4;
 		}
 
+		GLCD_Clear(Black);
 		//handle crosshair
-		/*GLCD_PutPixel(Cursor.x, Cursor.y-2);
+		GLCD_PutPixel(Cursor.x, Cursor.y-2);
 		GLCD_PutPixel(Cursor.x, Cursor.y-1);
 		GLCD_PutPixel(Cursor.x, Cursor.y);
 		GLCD_PutPixel(Cursor.x, Cursor.y+1);
@@ -710,8 +711,46 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		GLCD_PutPixel(Cursor.x-2, Cursor.y);
 		GLCD_PutPixel(Cursor.x-1, Cursor.y);
 		GLCD_PutPixel(Cursor.x+1, Cursor.y);
-		GLCD_PutPixel(Cursor.x+2, Cursor.y);*/
+		GLCD_PutPixel(Cursor.x+2, Cursor.y);
+	   /*
+		GLCD_Clear(White);
+		unsigned short test = GLCD_ReadPixelColor(3,3);
+		unsigned char b[16];
+		b[0] = (test & 0x8000) >> 15;
+		b[1] = (test & 0x4000) >> 14;
+		b[2] = (test & 0x2000) >> 13;
+		b[3] = (test & 0x1000) >> 12;
+		b[4] = (test & 0x0800) >> 11;
+		b[5] = (test & 0x0400) >> 10;
+		b[6] = (test & 0x0200) >> 9;
+		b[7] = (test & 0x0100) >> 8;
+		b[8] = (test & 0x0080) >> 7;
+		b[9] = (test & 0x0040) >> 6;
+		b[10] = (test & 0x0020) >> 5;
+		b[11] = (test & 0x0010) >> 4;
+		b[12] = (test & 0x0008) >> 3;
+		b[13] = (test & 0x0004) >> 2;
+		b[14] = (test & 0x0002) >> 1;
+		b[15] = (test & 0x0001) >> 0;
+		int a;
+		for(a=0;a<16;a++)
+		{
+			if(b[a] == 1) GLCD_DisplayChar(6,a+1,0,'1');
+			else GLCD_DisplayChar(6,a+1,0,'0');
+		}
+		 */
+		//GLCD_DisplayChar(7,5,0,b[1]);
+		
+	   /*
+		GLCD_Clear(White);
+		unsigned short temp = GLCD_ReadPixelColor(50, 50);
+		GLCD_Clear(Black);
+		GLCD_SetBackColor(Black);
+		GLCD_SetTextColor(temp);
+		GLCD_DisplayString(6,5,0,(unsigned char *)"Select Note: ");
+		printf("Hello");  */
 
+		/*
 		int y = 0;
 		for (y = 0; y < 240; y++) 
 		{
@@ -731,7 +770,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		//GLCD_SetTextColor(Blue);
 		//GLCD_PutPixel(1,1);
 
-		FlipBit(0);
+		FlipBit(0);		*/
 	#endif
 
 
