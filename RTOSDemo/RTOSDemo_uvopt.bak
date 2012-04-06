@@ -144,7 +144,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>(105=1251,204,1920,551,0)(106=1003,541,1759,848,0)(107=1404,563,1734,741,0)</Name>
+          <Name>(105=722,196,1391,543,0)(106=844,541,1600,848,0)(107=1270,563,1600,741,0)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -159,56 +159,9 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>UL2CM3</Key>
-          <Name>-UM0183ANE -O974 -S8 -C0 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -TO3 -TC100000000 -TP21 -TDS804F -TDT0 -TDC10 -TIE1 -TIP0 -FO23 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000</Name>
+          <Name>-UM0617MBE -O974 -S8 -C0 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -TO3 -TC100000000 -TP21 -TDS804F -TDT0 -TDC10 -TIE1 -TIP0 -FO23 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint>
-        <Bp>
-          <Number>0</Number>
-          <Type>0</Type>
-          <LineNumber>645</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>C:\ARMCode\RTOSDemo\MainFiles\LCDtask.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>220</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>C:\SVN ARMCODE\RTOSDemo\MainFiles\LCDtask.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>241</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>C:\SVN ARMCODE\RTOSDemo\MainFiles\LCDtask.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-      </Breakpoint>
       <MemoryWindow1>
         <Mm>
           <WinNumber>1</WinNumber>
@@ -342,10 +295,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>23</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>231</TopLine>
-      <CurrentLine>231</CurrentLine>
+      <TopLine>284</TopLine>
+      <CurrentLine>284</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -398,10 +351,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>22</ColumnNumber>
+      <ColumnNumber>47</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>736</TopLine>
-      <CurrentLine>736</CurrentLine>
+      <TopLine>740</TopLine>
+      <CurrentLine>752</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/LCDtask.c</PathWithFileName>
       <FilenameWithoutPath>LCDtask.c</FilenameWithoutPath>
@@ -426,10 +379,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>76</ColumnNumber>
+      <ColumnNumber>24</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>157</TopLine>
-      <CurrentLine>157</CurrentLine>
+      <TopLine>167</TopLine>
+      <CurrentLine>174</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\I2C.c</PathWithFileName>
       <FilenameWithoutPath>I2C.c</FilenameWithoutPath>
@@ -442,8 +395,8 @@
       <Focus>0</Focus>
       <ColumnNumber>9</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>180</TopLine>
-      <CurrentLine>195</CurrentLine>
+      <TopLine>297</TopLine>
+      <CurrentLine>297</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainThread.c</PathWithFileName>
       <FilenameWithoutPath>MainThread.c</FilenameWithoutPath>
@@ -867,10 +820,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>26</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>20</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../vtCode/vtLCD/vtSSP.c</PathWithFileName>
       <FilenameWithoutPath>vtSSP.c</FilenameWithoutPath>
@@ -879,12 +832,12 @@
       <GroupNumber>7</GroupNumber>
       <FileNumber>41</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>28</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>258</TopLine>
+      <CurrentLine>270</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../vtCode/vtLCD/GLCD_SPI_LPC1700.c</PathWithFileName>
       <FilenameWithoutPath>GLCD_SPI_LPC1700.c</FilenameWithoutPath>
@@ -1004,6 +957,58 @@
   </Group>
 
   <AlienFiles>
+    <PathWithFilename>C:\Users\ECE4534\Documents\virginia-tech-ece4534-spring2012-group4\NXPDRIVERS\INCLUDE\LPC17XX_SSP.H</PathWithFilename>
+    <TopLine>426</TopLine>
+    <CurrentLine>438</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>C:\Users\ECE4534\Documents\virginia-tech-ece4534-spring2012-group4\VTCODE\VTLCD\GLCD.H</PathWithFilename>
+    <TopLine>42</TopLine>
+    <CurrentLine>42</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
     <PathWithFilename>C:\ARMCode\RTOSDemo\MAINFILES\LCDTASK.H</PathWithFilename>
     <TopLine>1</TopLine>
     <CurrentLine>20</CurrentLine>
@@ -1060,7 +1065,7 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>6</ActiveTab>
+      <ActiveTab>3</ActiveTab>
       <Documents>
         <Doc>
           <Name>.\MainFiles/i2cTemp.c</Name>
@@ -1076,21 +1081,21 @@
         </Doc>
         <Doc>
           <Name>.\MainFiles/main.c</Name>
-          <ColumnNumber>23</ColumnNumber>
-          <TopLine>231</TopLine>
-          <CurrentLine>231</CurrentLine>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>284</TopLine>
+          <CurrentLine>284</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/LCDtask.c</Name>
-          <ColumnNumber>22</ColumnNumber>
-          <TopLine>736</TopLine>
-          <CurrentLine>736</CurrentLine>
+          <ColumnNumber>47</ColumnNumber>
+          <TopLine>740</TopLine>
+          <CurrentLine>752</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\I2C.c</Name>
-          <ColumnNumber>76</ColumnNumber>
-          <TopLine>157</TopLine>
-          <CurrentLine>157</CurrentLine>
+          <ColumnNumber>24</ColumnNumber>
+          <TopLine>167</TopLine>
+          <CurrentLine>174</CurrentLine>
         </Doc>
         <Doc>
           <Name>C:\ARMCode\RTOSDemo\MAINFILES\LCDTASK.H</Name>
@@ -1101,8 +1106,26 @@
         <Doc>
           <Name>.\MainThread.c</Name>
           <ColumnNumber>9</ColumnNumber>
-          <TopLine>180</TopLine>
-          <CurrentLine>195</CurrentLine>
+          <TopLine>297</TopLine>
+          <CurrentLine>297</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>../vtCode/vtLCD/GLCD_SPI_LPC1700.c</Name>
+          <ColumnNumber>28</ColumnNumber>
+          <TopLine>258</TopLine>
+          <CurrentLine>270</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>C:\Users\ECE4534\Documents\virginia-tech-ece4534-spring2012-group4\VTCODE\VTLCD\GLCD.H</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>42</TopLine>
+          <CurrentLine>42</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>C:\Users\ECE4534\Documents\virginia-tech-ece4534-spring2012-group4\NXPDRIVERS\INCLUDE\LPC17XX_SSP.H</Name>
+          <ColumnNumber>21</ColumnNumber>
+          <TopLine>426</TopLine>
+          <CurrentLine>438</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>
