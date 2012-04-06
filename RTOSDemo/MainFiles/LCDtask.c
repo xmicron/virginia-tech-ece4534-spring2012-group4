@@ -674,7 +674,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 
    #elif JOYSTICK_MODE==1 //shawn's code goes here
 		
-
+		GLCD_SetTextColor(Black);
 		//Starting code for handling the crosshair.
 		if (msgBuffer.buf[1] == 0) //select bit hit
 		{
@@ -682,26 +682,61 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		}
 		if (msgBuffer.buf[1] == 1) //move crosshair up
 		{
+			GLCD_PutPixel(Cursor.x, Cursor.y-2);
+			GLCD_PutPixel(Cursor.x, Cursor.y-1);
+			GLCD_PutPixel(Cursor.x, Cursor.y);
+			GLCD_PutPixel(Cursor.x, Cursor.y+1);
+			GLCD_PutPixel(Cursor.x, Cursor.y+2);
+			GLCD_PutPixel(Cursor.x-2, Cursor.y);
+			GLCD_PutPixel(Cursor.x-1, Cursor.y);
+			GLCD_PutPixel(Cursor.x+1, Cursor.y);
+			GLCD_PutPixel(Cursor.x+2, Cursor.y);
 			if (Cursor.y > 0)
 				Cursor.y -= 4;
 		}
 		if (msgBuffer.buf[1] == 2) //move crosshair right
 		{
+			GLCD_PutPixel(Cursor.x, Cursor.y-2);
+			GLCD_PutPixel(Cursor.x, Cursor.y-1);
+			GLCD_PutPixel(Cursor.x, Cursor.y);
+			GLCD_PutPixel(Cursor.x, Cursor.y+1);
+			GLCD_PutPixel(Cursor.x, Cursor.y+2);
+			GLCD_PutPixel(Cursor.x-2, Cursor.y);
+			GLCD_PutPixel(Cursor.x-1, Cursor.y);
+			GLCD_PutPixel(Cursor.x+1, Cursor.y);
+			GLCD_PutPixel(Cursor.x+2, Cursor.y);
 			if (Cursor.x < 320)
 				Cursor.x += 4;
 		}
 		if (msgBuffer.buf[1] == 3) //move crosshair down
 		{
+			GLCD_PutPixel(Cursor.x, Cursor.y-2);
+			GLCD_PutPixel(Cursor.x, Cursor.y-1);
+			GLCD_PutPixel(Cursor.x, Cursor.y);
+			GLCD_PutPixel(Cursor.x, Cursor.y+1);
+			GLCD_PutPixel(Cursor.x, Cursor.y+2);
+			GLCD_PutPixel(Cursor.x-2, Cursor.y);
+			GLCD_PutPixel(Cursor.x-1, Cursor.y);
+			GLCD_PutPixel(Cursor.x+1, Cursor.y);
+			GLCD_PutPixel(Cursor.x+2, Cursor.y);
 			if (Cursor.y < 240)
 				Cursor.y += 4;
 		}
 		if (msgBuffer.buf[1] == 4) //move crosshair left
 		{
+			GLCD_PutPixel(Cursor.x, Cursor.y-2);
+			GLCD_PutPixel(Cursor.x, Cursor.y-1);
+			GLCD_PutPixel(Cursor.x, Cursor.y);
+			GLCD_PutPixel(Cursor.x, Cursor.y+1);
+			GLCD_PutPixel(Cursor.x, Cursor.y+2);
+			GLCD_PutPixel(Cursor.x-2, Cursor.y);
+			GLCD_PutPixel(Cursor.x-1, Cursor.y);
+			GLCD_PutPixel(Cursor.x+1, Cursor.y);
+			GLCD_PutPixel(Cursor.x+2, Cursor.y);
 			if (Cursor.x > 0)
 				Cursor.x -= 4;
 		}
-
-		GLCD_Clear(Black);
+		GLCD_SetTextColor(Green);
 		//handle crosshair
 		GLCD_PutPixel(Cursor.x, Cursor.y-2);
 		GLCD_PutPixel(Cursor.x, Cursor.y-1);
@@ -712,7 +747,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		GLCD_PutPixel(Cursor.x-1, Cursor.y);
 		GLCD_PutPixel(Cursor.x+1, Cursor.y);
 		GLCD_PutPixel(Cursor.x+2, Cursor.y);
-	   /*
+	   
 		GLCD_Clear(White);
 		unsigned short test = GLCD_ReadPixelColor(3,3);
 		unsigned char b[16];
@@ -738,7 +773,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 			if(b[a] == 1) GLCD_DisplayChar(6,a+1,0,'1');
 			else GLCD_DisplayChar(6,a+1,0,'0');
 		}
-		 */
+		 
 		//GLCD_DisplayChar(7,5,0,b[1]);
 		
 	   /*
