@@ -23,6 +23,7 @@
 #define vtITMPortTempVals 5
 #define vtITMPortI2C1IntHandler 6
 #define vtITMPortLCDMsg 7 
+#define vtITMPortLCDSPI 8
 // #define vtITMPort??? 31
 // End of list of port definitions
 

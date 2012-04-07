@@ -268,7 +268,7 @@ static void wr_dat_only (unsigned short dat) {
 *******************************************************************************/
 
 static unsigned short rd_dat (void) {
-	FlipBit(4);
+
 #if 0
   unsigned short val = 0;
 
@@ -292,13 +292,14 @@ static unsigned short rd_dat (void) {
   dataCfg.tx_data = tbuf;
   dataCfg.rx_data = rbuf;
   dataCfg.length = 4;
+  rbuf[0]=33;rbuf[1]=22;rbuf[2]=44;rbuf[3]=55;
   SSP_ReadWrite(LPC_SSP1,&dataCfg,SSP_TRANSFER_POLLING);
   val = rbuf[2];
   val = val << 8;
   val = val + rbuf[3];
   LCD_CS(1);
-  if (val == Yellow)
-  	FlipBit(1);
+  if (val == Black)
+  	FlipBit(1);	
   return (val);
 }
 
@@ -323,8 +324,6 @@ static void wr_reg (unsigned char reg, unsigned short val) {
 *******************************************************************************/
 
 static unsigned short rd_reg (unsigned char reg) {
-  if (reg == 0x22)
-  	FlipBit(3);
   wr_cmd(reg);
   return(rd_dat());
 }
@@ -399,7 +398,7 @@ void GLCD_Init (void) {
   // End of new initialization
 
   delay(5);                             /* Delay 50 ms                        */
-  driverCode = rd_reg(0x00);
+  driverCode = 0x5408;//rd_reg(0x00);
 
   /* Start Initial Sequence --------------------------------------------------*/
   wr_reg(0x01, 0x0100);                 /* Set SS bit                         */
@@ -567,7 +566,7 @@ void GLCD_PutPixel (unsigned int x, unsigned int y) {
   wr_dat(TextColor);
 }
 
-unsigned short GLCD_ReadPixelColor (unsigned int x, unsigned int y) {
+unsigned short GLCD_ReadPixelColor (unsigned int x, unsigned int y, unsigned int reg) {
 
 #if (HORIZONTAL == 1)
   wr_reg(0x20, y);
@@ -575,10 +574,11 @@ unsigned short GLCD_ReadPixelColor (unsigned int x, unsigned int y) {
 #else
   wr_reg(0x20, x);
   wr_reg(0x21, y);
-#endif
+#endif	 
 
   FlipBit(2);
-  return (rd_reg(0x22));
+  //wr_cmd(0x22);
+  return (rd_reg(reg));
 }
 
 
