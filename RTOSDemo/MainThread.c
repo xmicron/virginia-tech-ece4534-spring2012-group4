@@ -64,7 +64,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 
 	InstrumentStruct Inst[2];
 	RepeatingInstrumentStruct RInst[3];
-	int i = 0, prevRange = 0, curRange = 0, count = -1;
+	int i = 0, prevRange = 0, curRange = 0, count = -1, initTime = 0, finalTime = 0;
 
 	//timer R1timer;
 	//timer R2timer;
@@ -107,7 +107,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 			int ADCValue = masterBuffer.buf[1] << 8;
 			ADCValue |= masterBuffer.buf[2];
 
-			if (masterBuffer.buf[4] == 0)  // Instrument 1 Note
+			if (masterBuffer.buf[11] == 0)  // Instrument 1 Note
 			{
 				if (ADCValue >= 200  && ADCValue < 250) // C4
 				{	
@@ -150,13 +150,13 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 				
 
 				i2cBuffer.length = 1;
-				i2cBuffer.buf[0] = 1 << (Inst[masterBuffer.buf[4]].Note - 1);
+				i2cBuffer.buf[0] = 1 << (Inst[masterBuffer.buf[11]].Note - 1);
 	
 				/*if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
 					VT_HANDLE_FATAL_ERROR(0);
 				}*/
 			}
-			else if (masterBuffer.buf[4] == 1)	//Instrument 1 Velocity
+			else if (masterBuffer.buf[11] == 1)	//Instrument 1 Velocity
 			{
 				// NOTE: If a hand is not in the range of a sensor, play nothing (do not send a MIDI msg)
 				// NOTE: This is a state machine which determines if a sensor beam has been struck, and subsequently,
@@ -175,35 +175,27 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 					// before reding the velocity sensor.  In this manner, you can ignore the first (few) invalid
 					// sensor reads as a hand crosses its beam.
 				 	count = 1; 		
-					prevRange = 1;	
+					prevRange = 1;
+					
+					// Store a timing value
+					//initTime = (masterBuffer.buf[4] << 24) | (masterBuffer.buf[5] << 16) | (masterBuffer.buf[6] << 8) | (masterBuffer.buf[7]);
+					lcdmsgBuffer.length = 5;
+					lcdmsgBuffer.buf[0] = 0x09;
+					lcdmsgBuffer.buf[1] = masterBuffer.buf[4];
+					lcdmsgBuffer.buf[2] = masterBuffer.buf[5];
+					lcdmsgBuffer.buf[3] = masterBuffer.buf[6];
+					lcdmsgBuffer.buf[4] = masterBuffer.buf[7];
+					FlipBit(2);
+		
+					if (xQueueSend(lcdQ->inQ,(void *) (&lcdmsgBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
 				}
 				// STATE 2: if a hand has been removed from a beam, reset to look for a new break	B0 7B 00
 				else if (prevRange == 1 && curRange == 0) 
 				{
 					prevRange = 0;
-					/*
-					i2cBuffer.buf[0] = 0x80;
-					if (Inst[0].Note == 1)
-						i2cBuffer.buf[1] = 60;
-					else if (Inst[0].Note == 2)
-						i2cBuffer.buf[1] = 62;
-					else if (Inst[0].Note == 3)
-						i2cBuffer.buf[1] = 64;
-					else if (Inst[0].Note == 4)
-						i2cBuffer.buf[1] = 65;
-					else if (Inst[0].Note == 5)
-						i2cBuffer.buf[1] = 67;
-					else if (Inst[0].Note == 6)
-						i2cBuffer.buf[1] = 69;
-					else if (Inst[0].Note == 7)
-						i2cBuffer.buf[1] = 71;
-					else if (Inst[0].Note == 8)
-						i2cBuffer.buf[1] = 72;
-					i2cBuffer.buf[2] = 50;
-					if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
-						VT_HANDLE_FATAL_ERROR(0);
-					}
-					 */
+
 				}
 
 				// STATE 3: if count == 0, it is time to read the sensor, and play a note
@@ -244,19 +236,19 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 				
 				//prepare to send to I2C to play an instrument
 			}
-			else if (masterBuffer.buf[4] == 2)	//Instrument 1 Pitch
+			else if (masterBuffer.buf[11] == 2)	//Instrument 1 Pitch
 			{
 
 			}
-			else if (masterBuffer.buf[4] == 3)	//Instrument 2 Note
+			else if (masterBuffer.buf[11] == 3)	//Instrument 2 Note
 			{
 
 			}
-			else if (masterBuffer.buf[4] == 4)  //Instrument 2 Velocity
+			else if (masterBuffer.buf[11] == 4)  //Instrument 2 Velocity
 			{
 
 			}
-			else if (masterBuffer.buf[4] == 5)	//Instrument 2 Pitch
+			else if (masterBuffer.buf[11] == 5)	//Instrument 2 Pitch
 			{
 
 			}

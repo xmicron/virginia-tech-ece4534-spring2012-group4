@@ -193,7 +193,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 			}
 			MidiSendCount++;
 
-			FlipBit(1);
+			//FlipBit(1);
 		}
 		  
 		FlipBit(7);	  
@@ -216,12 +216,20 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 			
 
 			//message sent to the master message queue
-			masterBuffer.length = 5;
+			masterBuffer.length = 13;
 			masterBuffer.buf[0] = 0x08; //means the message is from I2C	- change to 0x09 for Nick's program
 			masterBuffer.buf[1] = ADCValueReceived[0];
 			masterBuffer.buf[2] = ADCValueReceived[1];
 			masterBuffer.buf[3] = ADCValueReceived[2];
-			masterBuffer.buf[4] = ADCValueReceived[10];
+			masterBuffer.buf[4] = ADCValueReceived[3];
+			masterBuffer.buf[5] = ADCValueReceived[4];
+			masterBuffer.buf[6] = ADCValueReceived[5];
+			masterBuffer.buf[7] = ADCValueReceived[6];
+			masterBuffer.buf[8] = ADCValueReceived[7];
+			masterBuffer.buf[9] = ADCValueReceived[8];
+			masterBuffer.buf[10] = ADCValueReceived[9];
+			masterBuffer.buf[11] = ADCValueReceived[10];
+			masterBuffer.buf[12] = ADCValueReceived[11];
 			
 			if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);

@@ -21,14 +21,14 @@ typedef struct __I2CMsgQueue {
 
 
 #define MasterMsgQLen 20
-#define MasterMLen 12
+#define MasterMLen 15
 typedef struct __MasterMsgQueueMsg {
 	uint8_t	length;	 // Length of the message to be printed
 	uint8_t buf[MasterMLen]; // On the way in, message to be sent, on the way out, message received (if any)
 } MasterMsgQueueMsg;
 
 #define I2CMsgQLen 10
-#define I2CMLen 5
+#define I2CMLen 15
 typedef struct __I2CMsgQueueMsg {
 	uint8_t	length;	 // Length of the message to be printed
 	uint8_t buf[I2CMLen]; // On the way in, message to be sent, on the way out, message received (if any)
