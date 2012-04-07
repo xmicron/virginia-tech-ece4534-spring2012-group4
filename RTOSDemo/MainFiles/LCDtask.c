@@ -748,8 +748,8 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		GLCD_PutPixel(Cursor.x+1, Cursor.y);
 		GLCD_PutPixel(Cursor.x+2, Cursor.y);
 	   
-		GLCD_Clear(White);
-		unsigned short test = GLCD_ReadPixelColor(3,3);
+		GLCD_Clear(Blue);
+		unsigned short test = GLCD_ReadPixelColor(0,0, 0x00);
 		unsigned char b[16];
 		b[0] = (test & 0x8000) >> 15;
 		b[1] = (test & 0x4000) >> 14;
@@ -770,8 +770,38 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		int a;
 		for(a=0;a<16;a++)
 		{
-			if(b[a] == 1) GLCD_DisplayChar(6,a+1,0,'1');
-			else GLCD_DisplayChar(6,a+1,0,'0');
+			if(b[a] == 1) GLCD_DisplayChar(0,a+1,0,'1');
+			else GLCD_DisplayChar(0,a+1,0,'0');
+		}
+
+		int p = 0;
+		for (p = 30; p < 35; p++)
+		{
+
+			unsigned short test = GLCD_ReadPixelColor(0,0, p);
+			unsigned char b[16];
+			b[0] = (test & 0x8000) >> 15;
+			b[1] = (test & 0x4000) >> 14;
+			b[2] = (test & 0x2000) >> 13;
+			b[3] = (test & 0x1000) >> 12;
+			b[4] = (test & 0x0800) >> 11;
+			b[5] = (test & 0x0400) >> 10;
+			b[6] = (test & 0x0200) >> 9;
+			b[7] = (test & 0x0100) >> 8;
+			b[8] = (test & 0x0080) >> 7;
+			b[9] = (test & 0x0040) >> 6;
+			b[10] = (test & 0x0020) >> 5;
+			b[11] = (test & 0x0010) >> 4;
+			b[12] = (test & 0x0008) >> 3;
+			b[13] = (test & 0x0004) >> 2;
+			b[14] = (test & 0x0002) >> 1;
+			b[15] = (test & 0x0001) >> 0;
+			int a;
+			for(a=0;a<16;a++)
+			{
+				if(b[a] == 1) GLCD_DisplayChar(p-29,a+1,0,'1');
+				else GLCD_DisplayChar(p-29,a+1,0,'0');
+			}
 		}
 		 
 		//GLCD_DisplayChar(7,5,0,b[1]);
@@ -819,7 +849,20 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		//FlipBit(0);
 		
 		//get the data from the message queue and reconvert it into a 10-bit value
-		if (msgBuffer.buf[0] = 0x06)
+		if (msgBuffer.buf[0] ==	0x09)
+		{
+			//unsigned int pixel = (msgBuffer.buf[1] << 24) | (msgBuffer.buf[2] << 16) | (msgBuffer.buf[3] << 8) | (msgBuffer.buf[4]);
+			//int pixel = msgBuffer.buf[1];
+			GLCD_SetBackColor(Yellow);
+			GLCD_SetTextColor(Black);
+			//if (msgBuffer.buf[4] > 255)
+			//	FlipBit(5);
+
+			char toprint[20];
+			sprintf((char *)toprint, "%3.0i, %3.0i, %3.0i, %3.0i", msgBuffer.buf[1], msgBuffer.buf[2], msgBuffer.buf[3], msgBuffer.buf[4]);
+			GLCD_DisplayString(1,2,0, (unsigned char*)&toprint);
+		}
+		else if (msgBuffer.buf[0] == 0x06)
 		{
 		 	int pixel = msgBuffer.buf[1]<<8;
 			pixel |= msgBuffer.buf[2];
