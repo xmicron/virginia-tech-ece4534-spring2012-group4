@@ -295,10 +295,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>52</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>284</TopLine>
-      <CurrentLine>284</CurrentLine>
+      <TopLine>299</TopLine>
+      <CurrentLine>299</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -351,10 +351,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>47</ColumnNumber>
+      <ColumnNumber>38</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>722</TopLine>
-      <CurrentLine>722</CurrentLine>
+      <TopLine>847</TopLine>
+      <CurrentLine>875</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/LCDtask.c</PathWithFileName>
       <FilenameWithoutPath>LCDtask.c</FilenameWithoutPath>
@@ -393,10 +393,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>9</ColumnNumber>
+      <ColumnNumber>38</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>297</TopLine>
-      <CurrentLine>297</CurrentLine>
+      <TopLine>216</TopLine>
+      <CurrentLine>216</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainThread.c</PathWithFileName>
       <FilenameWithoutPath>MainThread.c</FilenameWithoutPath>
@@ -822,8 +822,8 @@
       <Focus>0</Focus>
       <ColumnNumber>26</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>20</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../vtCode/vtLCD/vtSSP.c</PathWithFileName>
       <FilenameWithoutPath>vtSSP.c</FilenameWithoutPath>
@@ -957,61 +957,9 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\ECE4534\Documents\virginia-tech-ece4534-spring2012-group4\NXPDRIVERS\INCLUDE\LPC17XX_SSP.H</PathWithFilename>
-    <TopLine>426</TopLine>
-    <CurrentLine>438</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
-    <PathWithFilename>C:\Users\ECE4534\Documents\virginia-tech-ece4534-spring2012-group4\VTCODE\VTLCD\GLCD.H</PathWithFilename>
-    <TopLine>42</TopLine>
-    <CurrentLine>42</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
     <PathWithFilename>C:\ARMCode\RTOSDemo\MAINFILES\LCDTASK.H</PathWithFilename>
-    <TopLine>1</TopLine>
-    <CurrentLine>20</CurrentLine>
+    <TopLine>405</TopLine>
+    <CurrentLine>405</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1065,7 +1013,7 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>3</ActiveTab>
+      <ActiveTab>6</ActiveTab>
       <Documents>
         <Doc>
           <Name>.\MainFiles/i2cTemp.c</Name>
@@ -1081,15 +1029,15 @@
         </Doc>
         <Doc>
           <Name>.\MainFiles/main.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>284</TopLine>
-          <CurrentLine>284</CurrentLine>
+          <ColumnNumber>52</ColumnNumber>
+          <TopLine>299</TopLine>
+          <CurrentLine>299</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/LCDtask.c</Name>
-          <ColumnNumber>47</ColumnNumber>
-          <TopLine>722</TopLine>
-          <CurrentLine>722</CurrentLine>
+          <ColumnNumber>38</ColumnNumber>
+          <TopLine>847</TopLine>
+          <CurrentLine>875</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\I2C.c</Name>
@@ -1100,32 +1048,20 @@
         <Doc>
           <Name>C:\ARMCode\RTOSDemo\MAINFILES\LCDTASK.H</Name>
           <ColumnNumber>17</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>20</CurrentLine>
+          <TopLine>405</TopLine>
+          <CurrentLine>405</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainThread.c</Name>
-          <ColumnNumber>9</ColumnNumber>
-          <TopLine>297</TopLine>
-          <CurrentLine>297</CurrentLine>
+          <ColumnNumber>38</ColumnNumber>
+          <TopLine>216</TopLine>
+          <CurrentLine>216</CurrentLine>
         </Doc>
         <Doc>
           <Name>../vtCode/vtLCD/GLCD_SPI_LPC1700.c</Name>
           <ColumnNumber>28</ColumnNumber>
           <TopLine>552</TopLine>
           <CurrentLine>552</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>C:\Users\ECE4534\Documents\virginia-tech-ece4534-spring2012-group4\VTCODE\VTLCD\GLCD.H</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>42</TopLine>
-          <CurrentLine>42</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>C:\Users\ECE4534\Documents\virginia-tech-ece4534-spring2012-group4\NXPDRIVERS\INCLUDE\LPC17XX_SSP.H</Name>
-          <ColumnNumber>21</ColumnNumber>
-          <TopLine>426</TopLine>
-          <CurrentLine>438</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

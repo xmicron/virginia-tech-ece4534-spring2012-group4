@@ -46,7 +46,7 @@ void vStartLCDTask( unsigned portBASE_TYPE uxPriority,lcdParamStruct *ptr )
 // If LCD_EXAMPLE_OP=0, then repeatedly write text
 // If LCD_EXAMPLE_OP=1, then do a rotating ARM bitmap display
 // If LCD_EXAMPLE_OP=2, then receive from a message queue and print the contents to the screen
-#define LCD_EXAMPLE_OP 3
+#define LCD_EXAMPLE_OP 2
 #if LCD_EXAMPLE_OP==1
 // This include the file with the definition of the ARM bitmap
 #include "ARM_Ani_16bpp.c"
@@ -747,7 +747,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		GLCD_PutPixel(Cursor.x-1, Cursor.y);
 		GLCD_PutPixel(Cursor.x+1, Cursor.y);
 		GLCD_PutPixel(Cursor.x+2, Cursor.y);
-	   
+	   	/*
 		GLCD_Clear(Blue);
 		unsigned short test = GLCD_ReadPixelColor(0,0, 0x00);
 		unsigned char b[16];
@@ -803,7 +803,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				else GLCD_DisplayChar(p-29,a+1,0,'0');
 			}
 		}
-		 
+		   */
 		//GLCD_DisplayChar(7,5,0,b[1]);
 		
 	   /*
@@ -859,9 +859,27 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 			//	FlipBit(5);
 
 			char toprint[20];
-			sprintf((char *)toprint, "%3.0i, %3.0i, %3.0i, %3.0i", msgBuffer.buf[1], msgBuffer.buf[2], msgBuffer.buf[3], msgBuffer.buf[4]);
+			sprintf((char *)toprint, "%3.0i, %3.0i, %3.0i, %3.0i, %3.0i", msgBuffer.buf[1], msgBuffer.buf[2], msgBuffer.buf[3], msgBuffer.buf[4], msgBuffer.buf[10]);
 			GLCD_DisplayString(1,2,0, (unsigned char*)&toprint);
+			sprintf((char *)toprint, "%3.0i, %3.0i, %3.0i, %3.0i, %3.0i", msgBuffer.buf[6], msgBuffer.buf[7], msgBuffer.buf[8], msgBuffer.buf[9], msgBuffer.buf[5]);
+			GLCD_DisplayString(3,2,0, (unsigned char*)&toprint);
+
 		}
+
+		if (msgBuffer.buf[0] ==	0x10)
+		{
+			//unsigned int pixel = (msgBuffer.buf[1] << 24) | (msgBuffer.buf[2] << 16) | (msgBuffer.buf[3] << 8) | (msgBuffer.buf[4]);
+			//int pixel = msgBuffer.buf[1];
+			GLCD_SetBackColor(Yellow);
+			GLCD_SetTextColor(Black);
+			//if (msgBuffer.buf[4] > 255)
+			//	FlipBit(5);
+
+			char toprint[20];
+			sprintf((char *)toprint, "%3.0i, %3.0i, %3.0i, %3.0i, %3.0i", msgBuffer.buf[1], msgBuffer.buf[2], msgBuffer.buf[3], msgBuffer.buf[4], msgBuffer.buf[5]);
+			GLCD_DisplayString(2,2,0, (unsigned char*)&toprint);
+		}
+
 		else if (msgBuffer.buf[0] == 0x06)
 		{
 		 	int pixel = msgBuffer.buf[1]<<8;
