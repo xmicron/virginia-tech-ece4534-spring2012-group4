@@ -337,7 +337,7 @@ const unsigned long TCR_COUNT_RESET = 2, CTCR_CTM_TIMER = 0x00, TCR_COUNT_ENABLE
 	the scheduler is started (assuming configGENERATE_RUN_TIME_STATS is set
 	to 1). */
 
-	/* Power up and feed the timer. */
+	/* Power up and feed the timer. TIMER NEEDS FOOD!!! */
 	SC->PCONP |= 0x02UL;
 	SC->PCLKSEL0 = (SC->PCLKSEL0 & (~(0x3<<2))) | (0x01 << 2);
 

@@ -64,11 +64,14 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 
 	InstrumentStruct Inst[2];
 	RepeatingInstrumentStruct RInst[3];
-	int i = 0, prevRange = 0, curRange = 0, count = -1, initTime = 0, finalTime = 0;
-
-	//timer R1timer;
-	//timer R2timer;
-	//timer R3timer;
+	int i = 0;
+	//channel 1
+	int prevRange = 0, curRange = 0, count = -1;
+	int TimerDiff_1 = 0, TimerDiff_2 = 0, TimerDiff_3 = 0, TimerDiff_4 = 0, TimerDiff_5 = 0; 
+	//channel 0
+	int curRange0 = 0, prevRange0 = 0; 
+	int TimerCh0_1 = 0, TimerCh0_2, TimerCh0_3 = 0, TimerCh0_4 = 0, TimerCh0_5 = 0;
+	
 	for (i = 0; i < 3; i++)
 	{
 		RInst[i].InstrumentID = 0;
@@ -109,6 +112,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 
 			if (masterBuffer.buf[11] == 0)  // Instrument 1 Note
 			{
+			/*
 				if (ADCValue >= 200  && ADCValue < 250) // C4
 				{	
 					Inst[0].Note = 1; 	
@@ -144,10 +148,41 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 				else if (ADCValue < 180)
 				{
 					Inst[0].Note = 0;
+				}		TimerValueCh0 = 0, TimeOvCh0_1 = 0, TimeOvCh0_2 = 0
+					*/
+
+				if (ADCValue > 250) curRange0 = 1;
+				else curRange0 = 0;
+				
+				if (prevRange0 == 0 && curRange0 == 1)
+				{
+				 	prevRange0 = 1;
+					lcdmsgBuffer.length = 6;
+					lcdmsgBuffer.buf[0] = 0x10;
+					lcdmsgBuffer.buf[1] = masterBuffer.buf[4];
+					lcdmsgBuffer.buf[2] = masterBuffer.buf[5];
+					lcdmsgBuffer.buf[3] = masterBuffer.buf[6];
+					lcdmsgBuffer.buf[4] = masterBuffer.buf[7];
+					lcdmsgBuffer.buf[5] = masterBuffer.buf[3];
+					FlipBit(3);
+
+					TimerCh0_1 = masterBuffer.buf[3];
+					TimerCh0_2 = masterBuffer.buf[4];
+					TimerCh0_3 = masterBuffer.buf[5];
+					TimerCh0_4 = masterBuffer.buf[6];
+					TimerCh0_5 = masterBuffer.buf[7];
+
+
+		
+					if (xQueueSend(lcdQ->inQ,(void *) (&lcdmsgBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
 				}
 
-				FlipBit(6);
-				
+				else if (prevRange0 == 1 && curRange0 == 0) 
+				{
+					prevRange0 = 0;
+				}
 
 				i2cBuffer.length = 1;
 				i2cBuffer.buf[0] = 1 << (Inst[masterBuffer.buf[11]].Note - 1);
@@ -163,7 +198,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 				// if a note should be played.  Additionally, it determines the velocity that the note should be played with
 
 				// Check to see if a hand is in the range of a sensor.
-				if (ADCValue > 200) curRange = 1;
+				if (ADCValue > 250) curRange = 1;
 				else curRange = 0;
 
 				if (count >= 0) count--;
@@ -178,14 +213,52 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 					prevRange = 1;
 					
 					// Store a timing value
-					//initTime = (masterBuffer.buf[4] << 24) | (masterBuffer.buf[5] << 16) | (masterBuffer.buf[6] << 8) | (masterBuffer.buf[7]);
-					lcdmsgBuffer.length = 5;
+					
+					lcdmsgBuffer.length = 11;
 					lcdmsgBuffer.buf[0] = 0x09;
 					lcdmsgBuffer.buf[1] = masterBuffer.buf[4];
 					lcdmsgBuffer.buf[2] = masterBuffer.buf[5];
 					lcdmsgBuffer.buf[3] = masterBuffer.buf[6];
 					lcdmsgBuffer.buf[4] = masterBuffer.buf[7];
+					lcdmsgBuffer.buf[10] = masterBuffer.buf[3];
 					FlipBit(2);
+
+					if (TimerCh0_1 > masterBuffer.buf[3])
+					{
+					 	masterBuffer.buf[7] --;
+						masterBuffer.buf[3] += 255;
+					}
+					if (TimerCh0_2 > masterBuffer.buf[7])
+					{
+					 	masterBuffer.buf[6] --;
+						masterBuffer.buf[7] += 255;
+					}
+					if (TimerCh0_3 > masterBuffer.buf[6])
+					{
+					 	masterBuffer.buf[5] --;
+						masterBuffer.buf[6] += 255;
+					}
+					if (TimerCh0_4 > masterBuffer.buf[5])
+					{
+					 	masterBuffer.buf[4] --;
+						masterBuffer.buf[5] += 255;
+					}
+					TimerDiff_1 = masterBuffer.buf[3] - TimerCh0_1;
+					TimerDiff_2 = masterBuffer.buf[4] - TimerCh0_2;
+					TimerDiff_3 = masterBuffer.buf[5] - TimerCh0_3;
+					TimerDiff_4 = masterBuffer.buf[6] - TimerCh0_4;
+					TimerDiff_5 = masterBuffer.buf[7] - TimerCh0_5;
+
+					lcdmsgBuffer.buf[5] = TimerDiff_1;
+					lcdmsgBuffer.buf[6] = TimerDiff_2;
+					lcdmsgBuffer.buf[7] = TimerDiff_3;
+					lcdmsgBuffer.buf[8] = TimerDiff_4;
+					lcdmsgBuffer.buf[9] = TimerDiff_5;
+
+
+
+					
+
 		
 					if (xQueueSend(lcdQ->inQ,(void *) (&lcdmsgBuffer),portMAX_DELAY) != pdTRUE) {  
 						VT_HANDLE_FATAL_ERROR(0);
