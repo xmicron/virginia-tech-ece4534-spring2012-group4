@@ -295,10 +295,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>52</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>284</TopLine>
-      <CurrentLine>284</CurrentLine>
+      <TopLine>299</TopLine>
+      <CurrentLine>299</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -351,10 +351,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>62</ColumnNumber>
+      <ColumnNumber>38</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>850</TopLine>
-      <CurrentLine>864</CurrentLine>
+      <TopLine>847</TopLine>
+      <CurrentLine>875</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/LCDtask.c</PathWithFileName>
       <FilenameWithoutPath>LCDtask.c</FilenameWithoutPath>
@@ -393,9 +393,9 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>29</ColumnNumber>
+      <ColumnNumber>38</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>202</TopLine>
+      <TopLine>216</TopLine>
       <CurrentLine>216</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainThread.c</PathWithFileName>
@@ -1035,9 +1035,9 @@
         </Doc>
         <Doc>
           <Name>.\MainFiles/LCDtask.c</Name>
-          <ColumnNumber>54</ColumnNumber>
+          <ColumnNumber>38</ColumnNumber>
           <TopLine>847</TopLine>
-          <CurrentLine>860</CurrentLine>
+          <CurrentLine>875</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\I2C.c</Name>
@@ -1053,9 +1053,9 @@
         </Doc>
         <Doc>
           <Name>.\MainThread.c</Name>
-          <ColumnNumber>30</ColumnNumber>
-          <TopLine>166</TopLine>
-          <CurrentLine>171</CurrentLine>
+          <ColumnNumber>38</ColumnNumber>
+          <TopLine>216</TopLine>
+          <CurrentLine>216</CurrentLine>
         </Doc>
         <Doc>
           <Name>../vtCode/vtLCD/GLCD_SPI_LPC1700.c</Name>

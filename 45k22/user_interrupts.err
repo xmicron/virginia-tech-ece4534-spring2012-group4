@@ -1,2 +1,2 @@
-Warning[2058] D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\45k22\user_interrupts.c 20 : call of function without prototype
-Warning[2058] D:\Virginia Tech\VT Spring 2012\Embedded\CODENSTUFF\45k22\user_interrupts.c 57 : call of function without prototype
+Warning[2058] C:\ARMCode\45k22\user_interrupts.c 20 : call of function without prototype
+Warning[2058] C:\ARMCode\45k22\user_interrupts.c 57 : call of function without prototype
