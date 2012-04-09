@@ -83,7 +83,6 @@ void InterruptHandlerHigh ()
 	// check to see if we have an I2C interrupt
 	if (PIR1bits.SSP1IF) {
 		// clear the interrupt flag
-//		LATB++;
 		PIR1bits.SSP1IF = 0;
 		// call the handler
 		i2c_int_handler();
@@ -97,12 +96,18 @@ void InterruptHandlerHigh ()
       	timer0_int_handler();
     }
 
+	// Check timer 2
+	if (PIR1bits.TMR2IF)	{
+		PIR1bits.TMR2IF = 0;
+		timer2_int_handler();
+	}
+
 	// WE ADDED THIS INTERRUP FXN IN
 	if (PIR1bits.ADIF)	{
 		PIR1bits.ADIF = 0;
 		adc_int_handler();
-
 	}
+
 
 	// here is where you would check other interrupt flags.
 

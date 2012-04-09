@@ -58,9 +58,6 @@ void main (void)
 	/*
 		Define Variables ---------------------------------------------------------------------
 	*/
-
-	
-
 	// I2C/MSG Q variables
 	char c;		// Is this used?
 	signed char	length;
@@ -82,6 +79,7 @@ void main (void)
 	timer1_thread_struct t1thread_data; 	// info for timer1_lthread
 	timer0_thread_struct t0thread_data; 	// info for timer0_lthread
 	int timer_on = 1;
+	int timer2Count0 = 0, timer2Count1 = 0;
 
 	// UART variables
 	uart_comm uc;
@@ -121,9 +119,9 @@ void main (void)
 
 	// Timer initialization
 	init_timer1_lthread(&t1thread_data);	// init the timer1 lthread
-	OpenTimer0( TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_16);
-	OpenTimer2( TIMER_INT_OFF & T2_PS_1_16 /*& T2_8BIT_RW & T2_SOURCE_INT & T2_OSC1EN_OFF & T2_SYNC_EXT_OFF*/); // Turn Off
-	// ADC initialization
+	OpenTimer0( TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_8);
+	OpenTimer2( TIMER_INT_ON & T2_PS_1_16 /*& T2_8BIT_RW & T2_SOURCE_INT & T2_OSC1EN_OFF & T2_SYNC_EXT_OFF*/); // Turn Off
+// ADC initialization
 	// set up PORTA for input
 	PORTA = 0x0;	// clear the port
 	LATA = 0x0;		// clear the output latch
@@ -162,9 +160,6 @@ void main (void)
 		// messages queues has a message (this may put the processor into
 		// an idle mode
 		block_on_To_msgqueues();
-		
-		//LATBbits.LATB0 = LAT
-		//LATB = LATC;
 		/*
 			High Priority MSGQ ----------------------------------------------------------------------
 		*/
@@ -184,7 +179,16 @@ void main (void)
 			switch (msgtype) {
 				case MSGT_ADC:	{
 
+					if(adc_chan_num == 1)	{
+						
+					}
+				
 					// Format I2C msg
+					msgbuffer[6] = (timer2Count0 & 0x00FF);
+					msgbuffer[5] = (timer2Count0 & 0xFF00) >> 8;
+					msgbuffer[4] = (timer2Count1 & 0x00FF);
+					msgbuffer[3] = (timer2Count1 & 0xFF00) >> 8;
+
 					msgbuffer[8] = 0x00;
 					msgbuffer[10] = adc_chan_num;
 					msgbuffer[11] = 0xaa;			// ADC MSG opcode
@@ -218,32 +222,33 @@ void main (void)
 
 					break;
 				};
+				case MSGT_TIMER2:	{
+					timer2Count0++;
+					if(timer2Count0 >= 0xFFFF)	{	
+						timer2Count1++;
+						timer2Count0 = 0;
+					}
+					LATB = timer2Count1;
+					break;
+				}
 
 				case MSGT_I2C_DATA: { //this data still needs to be put in a buffer
 					if(msgbuffer[0] == 0xaf)	{
 						//FromMainLow_sendmsg(5, msgtype, msgbuffer);
 						// The code below checks message 'counts' to see if any I2C messages were dropped
 						I2C_RX_MSG_COUNT = msgbuffer[4];
+						LATB = msgbuffer[4];
 
-						LATB = msgbuffer[1];
-
-						// Determine the current note being played
-
-						switch(msgbuffer[1])	{
-							case 0x01:	notePlayed = 0x40;
-							default:	notePlayed = 0x00;
-						};
 
 						// Send note data to the MIDI device
-						putc1USART(0xAA);
-						putc2USART(0xCC);
-/*
-						putc1USART(0x90);
-						Delay1KTCYx(10);
-						putc1USART(0x40);
-						Delay1KTCYx(10);
-						putc1USART(0x64);
-						Delay1KTCYx(10);*/
+						while(Busy1USART());
+						putc1USART(msgbuffer[1]);
+						while(Busy1USART());
+						//Delay1KTCYx(5);
+						putc1USART(msgbuffer[2]);
+						while(Busy1USART());
+						//Delay1KTCYx(5);		
+						putc1USART(msgbuffer[3]);
 		
 
 						if(I2C_RX_MSG_COUNT - I2C_RX_MSG_PRECOUNT == 1)	{
