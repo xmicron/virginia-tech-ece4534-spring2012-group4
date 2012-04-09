@@ -107,9 +107,9 @@ void main (void)
 	// UART initialization
 	init_uart_recv(&uc);		// initialize my uart recv handling code
 	// configure the hardware USART device
-  	Open1USART( USART_TX_INT_OFF & USART_RX_INT_ON & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
+  	Open2USART( USART_TX_INT_OFF & USART_RX_INT_ON & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
 		USART_CONT_RX & USART_BRGH_LOW, 31);
-	Open2USART( USART_TX_INT_OFF & USART_RX_INT_ON & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
+	Open1USART( USART_TX_INT_OFF & USART_RX_INT_ON & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
 		USART_CONT_RX & USART_BRGH_LOW, 51);
 	
 	// I2C/MSG Q initialization
@@ -241,14 +241,14 @@ void main (void)
 
 
 						// Send note data to the MIDI device
-						while(Busy1USART());
-						putc1USART(msgbuffer[1]);
-						while(Busy1USART());
-						//Delay1KTCYx(5);
-						putc1USART(msgbuffer[2]);
-						while(Busy1USART());
-						//Delay1KTCYx(5);		
-						putc1USART(msgbuffer[3]);
+						//while(Busy2USART());
+						putc2USART(msgbuffer[1]);
+						//while(Busy2USART());
+						Delay1KTCYx(8);
+						putc2USART(msgbuffer[2]);
+						//while(Busy2USART());
+						Delay1KTCYx(8);		
+						putc2USART(msgbuffer[3]);
 		
 
 						if(I2C_RX_MSG_COUNT - I2C_RX_MSG_PRECOUNT == 1)	{

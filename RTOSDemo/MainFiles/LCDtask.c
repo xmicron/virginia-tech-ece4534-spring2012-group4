@@ -19,7 +19,7 @@
 #define lcdSTACK_SIZE		4*configMINIMAL_STACK_SIZE
 #endif
 
-#define JOYSTICK_MODE 1
+#define JOYSTICK_MODE 0
 
 // Set the task up to run every 200 ms
 #define lcdWRITE_RATE_BASE	( ( portTickType ) 10 )
@@ -46,7 +46,7 @@ void vStartLCDTask( unsigned portBASE_TYPE uxPriority,lcdParamStruct *ptr )
 // If LCD_EXAMPLE_OP=0, then repeatedly write text
 // If LCD_EXAMPLE_OP=1, then do a rotating ARM bitmap display
 // If LCD_EXAMPLE_OP=2, then receive from a message queue and print the contents to the screen
-#define LCD_EXAMPLE_OP 2
+#define LCD_EXAMPLE_OP 3
 #if LCD_EXAMPLE_OP==1
 // This include the file with the definition of the ARM bitmap
 #include "ARM_Ani_16bpp.c"

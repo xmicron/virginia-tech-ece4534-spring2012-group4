@@ -193,7 +193,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 			}
 			MidiSendCount++;
 
-			//FlipBit(1);
+			FlipBit(1);
 		}
 		  
 		FlipBit(7);	  
