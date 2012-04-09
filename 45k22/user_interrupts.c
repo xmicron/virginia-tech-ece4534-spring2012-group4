@@ -13,8 +13,9 @@ void timer0_int_handler()
 	int	length, msgtype;
  
 	// reset the timer
-	//WriteTimer0(0xDFFF);
-	WriteTimer0(0x9777);
+	//WriteTimer0(0x9777);
+	WriteTimer0(0xEFFF);
+	//WriteTimer0(0x00);
 
 	ConvertADC();	// Call convert ADC() to start ADC conversion
 
@@ -37,6 +38,14 @@ void timer1_int_handler()
 	
 	// reset the timer
 	WriteTimer1(0);
+}
+
+// Timer 2 interrupt handler
+// Used to record when ADC reads happen in time
+void timer2_int_handler()
+{
+	unsigned char val[1];
+	ToMainHigh_sendmsg(1, MSGT_TIMER2, (void *) val);
 }
 
 // ADC interrupt hdlr

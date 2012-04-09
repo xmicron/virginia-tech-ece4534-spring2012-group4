@@ -239,7 +239,6 @@ void i2c_int_handler()
 
 	// Any time data is sent from the Keil (Master), execute this code
 	if (msg_ready) {
-//		LATB++;
 		// Regardless of message type (request, or send from Keil), send buffer data to main
 		ic_ptr->buffer[ic_ptr->buflen] = ic_ptr->event_count;
 		ToMainHigh_sendmsg(ic_ptr->buflen+1,MSGT_I2C_DATA,(void *) ic_ptr->buffer);
