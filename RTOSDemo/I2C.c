@@ -61,6 +61,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 	
 	uint8_t MidiSendCount = 1;
 	uint8_t MidiSendValue[5] = {0xAF, 0x80, 0x64, 0x64, 0x00};
+	uint8_t InstSendValue[6] = {0x11, 0x00, 0x00, 0x00, 0x00, 0x00};
 	int msgcount = 0;
 	
 	uint8_t temp1, rxLen, status;
@@ -175,25 +176,51 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 			{
 				VT_HANDLE_FATAL_ERROR(0);
 			}
-			MidiSendValue[1] = i2cBuffer.buf[0];
-			MidiSendValue[2] = i2cBuffer.buf[1];
-			MidiSendValue[3] = i2cBuffer.buf[2];
-			
-			//prepare to send Midi message to I2Cto the PIC
-			if (MidiSendCount > 100)
-				MidiSendCount = 1;
-			MidiSendValue[4] = MidiSendCount;
-		 	if (vtI2CEnQ(devPtr,0x00,0x4F,5,MidiSendValue,0) != pdTRUE) {
-				VT_HANDLE_FATAL_ERROR(0);
-			}
-	
-			//wait for message from I2C
-			if (vtI2CDeQ(devPtr,0,&MidiReceived[0],&rxLen,&status) != pdTRUE) {
-				//VT_HANDLE_FATAL_ERROR(0);
-			}
-			MidiSendCount++;
 
-			FlipBit(1);
+			if (i2cBuffer.buf[0] == 0x11)
+			{
+			 	InstSendValue[0] = i2cBuffer.buf[0];
+				InstSendValue[1] = i2cBuffer.buf[1];
+				InstSendValue[2] = i2cBuffer.buf[2];
+				InstSendValue[3] = i2cBuffer.buf[3];
+				InstSendValue[4] = i2cBuffer.buf[4];
+				InstSendValue[5] = i2cBuffer.buf[5];
+
+				FlipBit(2);
+				FlipBit(3);
+				FlipBit(4);
+
+				if (vtI2CEnQ(devPtr,0x00,0x4F,6,InstSendValue,0) != pdTRUE) {
+					VT_HANDLE_FATAL_ERROR(0);
+				}
+		
+				//wait for message from I2C
+				if (vtI2CDeQ(devPtr,0,&MidiReceived[0],&rxLen,&status) != pdTRUE) {
+					//VT_HANDLE_FATAL_ERROR(0);
+				}
+			}
+			else
+			{
+				MidiSendValue[1] = i2cBuffer.buf[0];
+				MidiSendValue[2] = i2cBuffer.buf[1];
+				MidiSendValue[3] = i2cBuffer.buf[2];
+				
+				//prepare to send Midi message to I2Cto the PIC
+				if (MidiSendCount > 100)
+					MidiSendCount = 1;
+				MidiSendValue[4] = MidiSendCount;
+			 	if (vtI2CEnQ(devPtr,0x00,0x4F,5,MidiSendValue,0) != pdTRUE) {
+					VT_HANDLE_FATAL_ERROR(0);
+				}
+		
+				//wait for message from I2C
+				if (vtI2CDeQ(devPtr,0,&MidiReceived[0],&rxLen,&status) != pdTRUE) {
+					//VT_HANDLE_FATAL_ERROR(0);
+				}
+				MidiSendCount++;
+	
+				FlipBit(1);
+			}
 		}
 		  
 		FlipBit(7);	  

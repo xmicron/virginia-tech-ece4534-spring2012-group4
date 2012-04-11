@@ -31,3 +31,18 @@ Treble		0		71			B		493.8833012561	200.00
 
 baga bbb aaa bdd
 baga bbbb aaba g
+
+
+
+<=15 highest velocity
+15<x<=40 next
+
+eigth > x, 100, timer					50
+seventh x, 80, timer - x, 100, timer			75
+sixth x, 60, timer - x, 80, timer			100
+fifth x, 50, timer - x , 60, timer			125
+fourth x, 40, timer - x , 50, timer			150
+third x, 30, timer - x , 40, timer			175
+second x, 20, timer - x, 30, timer			200
+first x, 10, timer - x, 20, timer			225
+out of bounds < x, 10, timer				250

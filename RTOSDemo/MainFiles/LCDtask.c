@@ -20,6 +20,7 @@
 #endif
 
 #define JOYSTICK_MODE 0
+#define INSTEON_MODE 0
 
 // Set the task up to run every 200 ms
 #define lcdWRITE_RATE_BASE	( ( portTickType ) 10 )
@@ -208,9 +209,10 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 #endif
 	int i = 0;
 
+	MasterParamStruct *temp = pvParameters;
+	I2CMsgQueue *i2cQ = temp->i2cQ;
+	I2CMsgQueueMsg i2cBuffer;
 	
-
-
 	for(;;)
 	{	
 #if LCD_EXAMPLE_OP==0
@@ -289,6 +291,10 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 			{
 				if (msgBuffer.buf[1] == 0) //select bit hit
 				{
+					if (INSTEON_MODE == 1)
+					{
+
+					}
 					if (Cur_Panel > 3)
 					{
 						GLCD_Clear(Black);
@@ -315,6 +321,20 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 			 	if (msgBuffer.buf[1] == 1) //move crosshair up
 				{
+					if (INSTEON_MODE == 1)
+					{
+						  //02 61 01 11 00
+						i2cBuffer.buf[0] = 0x11;
+						i2cBuffer.buf[1] = 0x02;
+						i2cBuffer.buf[2] = 0x61;
+						i2cBuffer.buf[3] = 0x01;
+						i2cBuffer.buf[4] = 0x11;
+						i2cBuffer.buf[5] = 0x00;
+
+						if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+						}
+					}
 					if (Cur_Panel > 0)
 					{
 						ClearOldSelection(Cur_Panel);
@@ -324,6 +344,10 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				if (msgBuffer.buf[1] == 2) //move crosshair right
 				{
+					if (INSTEON_MODE == 1)
+					{
+
+					}
 					if (Cur_Panel < 3)
 					{
 						ClearOldSelection(Cur_Panel);
@@ -333,6 +357,20 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				} 
 				if (msgBuffer.buf[1] == 3) //move crosshair down
 				{
+					if (INSTEON_MODE == 1)
+					{
+						//02 61 01 13 00
+						i2cBuffer.buf[0] = 0x11;
+						i2cBuffer.buf[1] = 0x02;
+						i2cBuffer.buf[2] = 0x61;
+						i2cBuffer.buf[3] = 0x01;
+						i2cBuffer.buf[4] = 0x13;
+						i2cBuffer.buf[5] = 0x00;
+
+						if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+						}
+					}
 					if (Cur_Panel < 5)
 					{
 						ClearOldSelection(Cur_Panel);
@@ -342,6 +380,20 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				}
 				if (msgBuffer.buf[1] == 4) //move crosshair left
 				{
+					if (INSTEON_MODE == 1)
+					{
+						//02 64 01 01
+						i2cBuffer.buf[0] = 0x11;
+						i2cBuffer.buf[1] = 0x02;
+						i2cBuffer.buf[2] = 0x64;
+						i2cBuffer.buf[3] = 0x01;
+						i2cBuffer.buf[4] = 0x01;
+						FlipBit(6);
+
+						if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+						}
+					}
 					if (Cur_Panel > 3)
 					{
 						ClearOldSelection(Cur_Panel);
