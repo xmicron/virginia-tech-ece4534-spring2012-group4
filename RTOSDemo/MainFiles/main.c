@@ -204,6 +204,7 @@ int main( void )
 	
 	lcdParams.lcdQ = &myLCDQueue;
 	lcdParams.masterQ = &myMasterQueue;
+	lcdParams.i2cQ = &myI2CQueue;
 	vStartLCDTask( mainLCD_TASK_PRIORITY,&lcdParams);//LCD Task
 
 	// MTJ: My i2cTemp demonstration task
