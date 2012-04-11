@@ -154,7 +154,7 @@ void main (void)
 	// that should get them.  Although the subroutines are not threads, but
 	// they can be equated with the tasks in your task diagram if you 
 	// structure them properly.
-	
+	LATB = 0xFF;
   	while (1) {
 		// Call a routine that blocks until either on the incoming
 		// messages queues has a message (this may put the processor into
@@ -178,11 +178,11 @@ void main (void)
 		} else {
 			switch (msgtype) {
 				case MSGT_ADC:	{
-
+					
 					if(adc_chan_num == 1)	{
 						
 					}
-				
+					
 					// Format I2C msg
 					msgbuffer[6] = (timer2Count0 & 0x00FF);
 					msgbuffer[5] = (timer2Count0 & 0xFF00) >> 8;
@@ -228,7 +228,7 @@ void main (void)
 						timer2Count1++;
 						timer2Count0 = 0;
 					}
-					LATB = timer2Count1;
+//					LATB = timer2Count1;
 					break;
 				}
 
@@ -237,7 +237,7 @@ void main (void)
 						//FromMainLow_sendmsg(5, msgtype, msgbuffer);
 						// The code below checks message 'counts' to see if any I2C messages were dropped
 						I2C_RX_MSG_COUNT = msgbuffer[4];
-						LATB = msgbuffer[4];
+//						LATB = msgbuffer[4];
 
 
 						// Send note data to the MIDI device
@@ -263,6 +263,31 @@ void main (void)
 						else	{
 							I2C_RX_MSG_PRECOUNT = I2C_RX_MSG_COUNT;
 							//LATBbits.LATB0 = !LATBbits.LATB0;
+						}
+					}
+					if (msgbuffer[0] == 0x11)
+					{
+						if (msgbuffer[2] == 0x64)
+						{
+							putc1USART(msgbuffer[1]);
+							Delay1KTCYx(8);
+							putc1USART(msgbuffer[2]);
+							Delay1KTCYx(8);
+							putc1USART(msgbuffer[3]);
+							Delay1KTCYx(8);
+							putc1USART(msgbuffer[4]);
+						}
+						else
+						{
+							putc1USART(msgbuffer[1]);
+							Delay1KTCYx(8);
+							putc1USART(msgbuffer[2]);
+							Delay1KTCYx(8);
+							putc1USART(msgbuffer[3]);
+							Delay1KTCYx(8);
+							putc1USART(msgbuffer[4]);
+							Delay1KTCYx(8);
+							putc1USART(msgbuffer[5]);
 						}
 					}
 				};

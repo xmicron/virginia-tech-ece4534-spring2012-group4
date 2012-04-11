@@ -1,5 +1,5 @@
 MPLINK 4.40, Linker
-Linker Map File - Created Mon Apr 09 17:16:53 2012
+Linker Map File - Created Wed Apr 11 10:00:16 2012
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -12,89 +12,92 @@ Linker Map File - Created Mon Apr 09 17:16:53 2012
        InterruptVectorLow       code   0x000018    program   0x000006
            .code_my_i2c.o       code   0x00001e    program   0x00073e
          .code_messages.o       code   0x00075c    program   0x000506
-             .code_main.o       code   0x000c62    program   0x000300
-       .code_interrupts.o       code   0x000f62    program   0x000220
-          .code_my_uart.o       code   0x001182    program   0x0000d6
-               _cinit_scn       code   0x001258    program   0x00009e
-  .code_user_interrupts.o       code   0x0012f6    program   0x00009c
-    .code_timer1_thread.o       code   0x001392    program   0x00009a
-                     PROG       code   0x00142c    program   0x000078
-           .code_u2open.o       code   0x0014a4    program   0x000072
-           .code_u1open.o       code   0x001516    program   0x00006c
-          .code_adcopen.o       code   0x001582    program   0x000058
-                   STRING       code   0x0015da    program   0x000056
-           .code_u1read.o       code   0x001630    program   0x00003e
-           .code_newADC.o       code   0x00166e    program   0x00003c
-           .code_t0open.o       code   0x0016aa    program   0x000036
-      .code_uart_thread.o       code   0x0016e0    program   0x000034
-           .code_t2open.o       code   0x001714    program   0x000034
-          .code_t1write.o       code   0x001748    program   0x000030
-          .code_t0write.o       code   0x001778    program   0x000030
-          .code_u2write.o       code   0x0017a8    program   0x00002e
-         .code_adcsetch.o       code   0x0017d6    program   0x00002e
-              D1KTCYXCODE       code   0x001804    program   0x000020
-                    .code       code   0x001824    program   0x000020
-    .code_timer0_thread.o       code   0x001844    program   0x00001c
-             _startup_scn       code   0x001860    program   0x00001a
-          .code_adcread.o       code   0x00187a    program   0x000018
-           .code___init.o       code   0x001892    program   0x000002
-        .idata_t2open.o_i    romdata   0x001894    program   0x000000
-        .romdata_t2open.o    romdata   0x001894    program   0x000000
-        .romdata_u1read.o    romdata   0x001894    program   0x000000
-       .idata_adcread.o_i    romdata   0x001894    program   0x000000
-       .romdata_adcread.o    romdata   0x001894    program   0x000000
-        .romdata_t0open.o    romdata   0x001894    program   0x000000
-        .idata_u1read.o_i    romdata   0x001894    program   0x000000
-      .idata_adcsetch.o_i    romdata   0x001894    program   0x000000
-      .romdata_adcsetch.o    romdata   0x001894    program   0x000000
-        .idata_u1defs.o_i    romdata   0x001894    program   0x000000
-        .romdata_u1defs.o    romdata   0x001894    program   0x000000
-           .code_u1defs.o       code   0x001894    program   0x000000
-       .idata_u2write.o_i    romdata   0x001894    program   0x000000
-       .romdata_u2write.o    romdata   0x001894    program   0x000000
-        .idata_u2defs.o_i    romdata   0x001894    program   0x000000
-        .romdata_u2defs.o    romdata   0x001894    program   0x000000
-           .code_u2defs.o       code   0x001894    program   0x000000
-       .idata_t0write.o_i    romdata   0x001894    program   0x000000
-       .romdata_t0write.o    romdata   0x001894    program   0x000000
-       .idata_t1write.o_i    romdata   0x001894    program   0x000000
-       .romdata_t1write.o    romdata   0x001894    program   0x000000
-        .idata___init.o_i    romdata   0x001894    program   0x000000
-        .romdata___init.o    romdata   0x001894    program   0x000000
-       .idata_c018i_e.o_i    romdata   0x001894    program   0x000000
-          .idata_main.o_i    romdata   0x001894    program   0x000000
-          .romdata_main.o    romdata   0x001894    program   0x000000
-      .idata_messages.o_i    romdata   0x001894    program   0x000000
-      .romdata_messages.o    romdata   0x001894    program   0x000000
-    .idata_interrupts.o_i    romdata   0x001894    program   0x000000
-    .romdata_interrupts.o    romdata   0x001894    program   0x000000
-.idata_user_interrupts.o_i    romdata   0x001894    program   0x000000
-.romdata_user_interrupts.o    romdata   0x001894    program   0x000000
-       .idata_my_uart.o_i    romdata   0x001894    program   0x000000
-       .romdata_my_uart.o    romdata   0x001894    program   0x000000
-   .idata_uart_thread.o_i    romdata   0x001894    program   0x000000
-   .romdata_uart_thread.o    romdata   0x001894    program   0x000000
- .idata_timer1_thread.o_i    romdata   0x001894    program   0x000000
- .romdata_timer1_thread.o    romdata   0x001894    program   0x000000
- .idata_timer0_thread.o_i    romdata   0x001894    program   0x000000
- .romdata_timer0_thread.o    romdata   0x001894    program   0x000000
-        .idata_t0open.o_i    romdata   0x001894    program   0x000000
-       .romdata_adcopen.o    romdata   0x001894    program   0x000000
-       .idata_adcopen.o_i    romdata   0x001894    program   0x000000
-        .romdata_u2open.o    romdata   0x001894    program   0x000000
-        .idata_u2open.o_i    romdata   0x001894    program   0x000000
-        .romdata_u1open.o    romdata   0x001894    program   0x000000
-        .idata_u1open.o_i    romdata   0x001894    program   0x000000
-       .romdata_c018i_e.o    romdata   0x001894    program   0x000000
-       .romdata_adcconv.o    romdata   0x001894    program   0x000000
-       .idata_adcconv.o_i    romdata   0x001894    program   0x000000
-          .code_c018i_e.o       code   0x001894    program   0x000000
-      .romdata_adcclose.o    romdata   0x001894    program   0x000000
-      .idata_adcclose.o_i    romdata   0x001894    program   0x000000
-        .romdata_newADC.o    romdata   0x001894    program   0x000000
-        .idata_newADC.o_i    romdata   0x001894    program   0x000000
-        .romdata_my_i2c.o    romdata   0x001894    program   0x000000
-        .idata_my_i2c.o_i    romdata   0x001894    program   0x000000
+             .code_main.o       code   0x000c62    program   0x0003a4
+       .code_interrupts.o       code   0x001006    program   0x000220
+          .code_my_uart.o       code   0x001226    program   0x0000d6
+               _cinit_scn       code   0x0012fc    program   0x00009e
+  .code_user_interrupts.o       code   0x00139a    program   0x00009c
+    .code_timer1_thread.o       code   0x001436    program   0x00009a
+                     PROG       code   0x0014d0    program   0x000078
+           .code_u2open.o       code   0x001548    program   0x000072
+           .code_u1open.o       code   0x0015ba    program   0x00006c
+          .code_adcopen.o       code   0x001626    program   0x000058
+                   STRING       code   0x00167e    program   0x000056
+           .code_u1read.o       code   0x0016d4    program   0x00003e
+           .code_newADC.o       code   0x001712    program   0x00003c
+           .code_t0open.o       code   0x00174e    program   0x000036
+      .code_uart_thread.o       code   0x001784    program   0x000034
+           .code_t2open.o       code   0x0017b8    program   0x000034
+          .code_t1write.o       code   0x0017ec    program   0x000030
+          .code_t0write.o       code   0x00181c    program   0x000030
+          .code_u2write.o       code   0x00184c    program   0x00002e
+          .code_u1write.o       code   0x00187a    program   0x00002e
+         .code_adcsetch.o       code   0x0018a8    program   0x00002e
+              D1KTCYXCODE       code   0x0018d6    program   0x000020
+                    .code       code   0x0018f6    program   0x000020
+    .code_timer0_thread.o       code   0x001916    program   0x00001c
+             _startup_scn       code   0x001932    program   0x00001a
+          .code_adcread.o       code   0x00194c    program   0x000018
+           .code___init.o       code   0x001964    program   0x000002
+        .romdata_u2defs.o    romdata   0x001966    program   0x000000
+        .idata_t2open.o_i    romdata   0x001966    program   0x000000
+        .romdata_t2open.o    romdata   0x001966    program   0x000000
+        .idata_u2defs.o_i    romdata   0x001966    program   0x000000
+        .romdata___init.o    romdata   0x001966    program   0x000000
+        .idata_u1read.o_i    romdata   0x001966    program   0x000000
+        .romdata_u1read.o    romdata   0x001966    program   0x000000
+        .idata___init.o_i    romdata   0x001966    program   0x000000
+           .code_u2defs.o       code   0x001966    program   0x000000
+       .idata_adcread.o_i    romdata   0x001966    program   0x000000
+       .romdata_u2write.o    romdata   0x001966    program   0x000000
+       .romdata_t1write.o    romdata   0x001966    program   0x000000
+       .romdata_adcread.o    romdata   0x001966    program   0x000000
+       .idata_t1write.o_i    romdata   0x001966    program   0x000000
+      .idata_adcsetch.o_i    romdata   0x001966    program   0x000000
+      .romdata_adcsetch.o    romdata   0x001966    program   0x000000
+       .idata_u2write.o_i    romdata   0x001966    program   0x000000
+       .idata_t0write.o_i    romdata   0x001966    program   0x000000
+       .romdata_u1write.o    romdata   0x001966    program   0x000000
+        .idata_u1defs.o_i    romdata   0x001966    program   0x000000
+       .romdata_t0write.o    romdata   0x001966    program   0x000000
+        .romdata_u1defs.o    romdata   0x001966    program   0x000000
+           .code_u1defs.o       code   0x001966    program   0x000000
+       .idata_u1write.o_i    romdata   0x001966    program   0x000000
+ .romdata_timer1_thread.o    romdata   0x001966    program   0x000000
+ .idata_timer1_thread.o_i    romdata   0x001966    program   0x000000
+   .romdata_uart_thread.o    romdata   0x001966    program   0x000000
+   .idata_uart_thread.o_i    romdata   0x001966    program   0x000000
+       .romdata_my_uart.o    romdata   0x001966    program   0x000000
+       .idata_my_uart.o_i    romdata   0x001966    program   0x000000
+.romdata_user_interrupts.o    romdata   0x001966    program   0x000000
+.idata_user_interrupts.o_i    romdata   0x001966    program   0x000000
+    .romdata_interrupts.o    romdata   0x001966    program   0x000000
+    .idata_interrupts.o_i    romdata   0x001966    program   0x000000
+      .romdata_messages.o    romdata   0x001966    program   0x000000
+      .idata_messages.o_i    romdata   0x001966    program   0x000000
+          .romdata_main.o    romdata   0x001966    program   0x000000
+          .idata_main.o_i    romdata   0x001966    program   0x000000
+          .code_c018i_e.o       code   0x001966    program   0x000000
+       .romdata_c018i_e.o    romdata   0x001966    program   0x000000
+       .idata_c018i_e.o_i    romdata   0x001966    program   0x000000
+        .romdata_t0open.o    romdata   0x001966    program   0x000000
+        .idata_t0open.o_i    romdata   0x001966    program   0x000000
+       .romdata_adcopen.o    romdata   0x001966    program   0x000000
+       .idata_adcopen.o_i    romdata   0x001966    program   0x000000
+        .romdata_u2open.o    romdata   0x001966    program   0x000000
+        .idata_u2open.o_i    romdata   0x001966    program   0x000000
+        .romdata_u1open.o    romdata   0x001966    program   0x000000
+        .idata_u1open.o_i    romdata   0x001966    program   0x000000
+       .romdata_adcconv.o    romdata   0x001966    program   0x000000
+       .idata_adcconv.o_i    romdata   0x001966    program   0x000000
+      .romdata_adcclose.o    romdata   0x001966    program   0x000000
+      .idata_adcclose.o_i    romdata   0x001966    program   0x000000
+        .romdata_newADC.o    romdata   0x001966    program   0x000000
+        .idata_newADC.o_i    romdata   0x001966    program   0x000000
+        .romdata_my_i2c.o    romdata   0x001966    program   0x000000
+        .idata_my_i2c.o_i    romdata   0x001966    program   0x000000
+ .romdata_timer0_thread.o    romdata   0x001966    program   0x000000
+ .idata_timer0_thread.o_i    romdata   0x001966    program   0x000000
     .config_300003_main.o    romdata   0x300003    program   0x000001
     .config_300006_main.o    romdata   0x300006    program   0x000001
                 msgqueue4      udata   0x000000       data   0x00003f
@@ -106,7 +109,6 @@ Linker Map File - Created Mon Apr 09 17:16:53 2012
                 DELAYDAT1      udata   0x000055       data   0x000001
           .udata_u2defs.o      udata   0x000056       data   0x000001
           .udata_u1defs.o      udata   0x000057       data   0x000001
-          .idata___init.o      idata   0x000058       data   0x000000
           .idata_u1open.o      idata   0x000058       data   0x000000
           .udata_u2open.o      udata   0x000058       data   0x000000
           .idata_u2open.o      idata   0x000058       data   0x000000
@@ -116,30 +118,29 @@ Linker Map File - Created Mon Apr 09 17:16:53 2012
           .idata_t0open.o      idata   0x000058       data   0x000000
           .udata_t2open.o      udata   0x000058       data   0x000000
           .idata_t2open.o      idata   0x000058       data   0x000000
-          .udata___init.o      udata   0x000058       data   0x000000
           .udata_u1read.o      udata   0x000058       data   0x000000
           .idata_u1read.o      idata   0x000058       data   0x000000
          .udata_adcread.o      udata   0x000058       data   0x000000
          .idata_adcread.o      idata   0x000058       data   0x000000
         .udata_adcsetch.o      udata   0x000058       data   0x000000
         .idata_adcsetch.o      idata   0x000058       data   0x000000
-         .idata_t1write.o      idata   0x000058       data   0x000000
           .idata_u1defs.o      idata   0x000058       data   0x000000
+         .udata_u1write.o      udata   0x000058       data   0x000000
+         .idata_u1write.o      idata   0x000058       data   0x000000
          .udata_u2write.o      udata   0x000058       data   0x000000
          .idata_u2write.o      idata   0x000058       data   0x000000
-         .udata_t1write.o      udata   0x000058       data   0x000000
           .idata_u2defs.o      idata   0x000058       data   0x000000
          .udata_t0write.o      udata   0x000058       data   0x000000
          .idata_t0write.o      idata   0x000058       data   0x000000
-         .idata_c018i_e.o      idata   0x000058       data   0x000000
-            .udata_main.o      udata   0x000058       data   0x000000
-            .idata_main.o      idata   0x000058       data   0x000000
-        .udata_messages.o      udata   0x000058       data   0x000000
+         .udata_t1write.o      udata   0x000058       data   0x000000
+         .idata_t1write.o      idata   0x000058       data   0x000000
+          .idata___init.o      idata   0x000058       data   0x000000
         .idata_messages.o      idata   0x000058       data   0x000000
       .udata_interrupts.o      udata   0x000058       data   0x000000
       .idata_interrupts.o      idata   0x000058       data   0x000000
  .udata_user_interrupts.o      udata   0x000058       data   0x000000
  .idata_user_interrupts.o      idata   0x000058       data   0x000000
+        .udata_messages.o      udata   0x000058       data   0x000000
          .idata_my_uart.o      idata   0x000058       data   0x000000
      .udata_uart_thread.o      udata   0x000058       data   0x000000
      .idata_uart_thread.o      idata   0x000058       data   0x000000
@@ -147,14 +148,18 @@ Linker Map File - Created Mon Apr 09 17:16:53 2012
    .idata_timer1_thread.o      idata   0x000058       data   0x000000
    .udata_timer0_thread.o      udata   0x000058       data   0x000000
    .idata_timer0_thread.o      idata   0x000058       data   0x000000
+            .idata_main.o      idata   0x000058       data   0x000000
           .idata_my_i2c.o      idata   0x000058       data   0x000000
           .udata_newADC.o      udata   0x000058       data   0x000000
           .idata_newADC.o      idata   0x000058       data   0x000000
-          .udata_u1open.o      udata   0x000058       data   0x000000
-         .idata_adcconv.o      idata   0x000058       data   0x000000
-         .udata_adcconv.o      udata   0x000058       data   0x000000
-        .idata_adcclose.o      idata   0x000058       data   0x000000
+          .udata___init.o      udata   0x000058       data   0x000000
+         .idata_c018i_e.o      idata   0x000058       data   0x000000
         .udata_adcclose.o      udata   0x000058       data   0x000000
+        .idata_adcclose.o      idata   0x000058       data   0x000000
+         .udata_adcconv.o      udata   0x000058       data   0x000000
+         .idata_adcconv.o      idata   0x000058       data   0x000000
+            .udata_main.o      udata   0x000058       data   0x000000
+          .udata_u1open.o      udata   0x000058       data   0x000000
                 msgqueue3      udata   0x000060       data   0x00003e
                 msgqueue2      udata   0x00009e       data   0x00003e
                 msgqueue1      udata   0x000100       data   0x00003e
@@ -167,10 +172,10 @@ Linker Map File - Created Mon Apr 09 17:16:53 2012
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x001893      
+                            0x000000    0x001965      
                             0x300003    0x300003      
                             0x300006    0x300006      
-            6294 out of 33048 program addresses used, program memory utilization is 19%
+            6504 out of 33048 program addresses used, program memory utilization is 19%
 
 
 
@@ -179,68 +184,69 @@ Linker Map File - Created Mon Apr 09 17:16:53 2012
                 ---------  ---------  ---------  --------- ---------                
                  CloseADC   0x00000e    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcclose.c
                ConvertADC   0x000014    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcconv.c
-                    D1K_1   0x001812    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
-                     D1Kx   0x001810    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
-              Delay1KTCYx   0x001804    program     extern C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
+                    D1K_1   0x0018e4    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
+                     D1Kx   0x0018e2    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
+              Delay1KTCYx   0x0018d6    program     extern C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
      FromMainHigh_recvmsg   0x000af6    program     extern C:\ARMCode\45k22\messages.c
      FromMainHigh_sendmsg   0x000ac8    program     extern C:\ARMCode\45k22\messages.c
       FromMainLow_recvmsg   0x000a96    program     extern C:\ARMCode\45k22\messages.c
       FromMainLow_sendmsg   0x000a68    program     extern C:\ARMCode\45k22\messages.c
-     InterruptHandlerHigh   0x000fea    program     extern C:\ARMCode\45k22\interrupts.c
-      InterruptHandlerLow   0x0010b8    program     extern C:\ARMCode\45k22\interrupts.c
+     InterruptHandlerHigh   0x00108e    program     extern C:\ARMCode\45k22\interrupts.c
+      InterruptHandlerLow   0x00115c    program     extern C:\ARMCode\45k22\interrupts.c
       InterruptVectorHigh   0x000008    program     extern C:\ARMCode\45k22\interrupts.c
        InterruptVectorLow   0x000018    program     extern C:\ARMCode\45k22\interrupts.c
-               Open1USART   0x001516    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u1open.c
-               Open2USART   0x0014a4    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u2open.c
-                  OpenADC   0x001582    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
-               OpenTimer0   0x0016aa    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
-               OpenTimer2   0x001714    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t2open.c
-                  RESTORE   0x001496    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-              RETQUOTIENT   0x00148e    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-               Read1USART   0x001630    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u1read.c
-                  ReadADC   0x00187a    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
-                 SETUPSTK   0x00142c    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-               SetChanADC   0x0017d6    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
+               Open1USART   0x0015ba    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u1open.c
+               Open2USART   0x001548    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u2open.c
+                  OpenADC   0x001626    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
+               OpenTimer0   0x00174e    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
+               OpenTimer2   0x0017b8    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t2open.c
+                  RESTORE   0x00153a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+              RETQUOTIENT   0x001532    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+               Read1USART   0x0016d4    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u1read.c
+                  ReadADC   0x00194c    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
+                 SETUPSTK   0x0014d0    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+               SetChanADC   0x0018a8    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
               SleepIfOkay   0x000baa    program     extern C:\ARMCode\45k22\messages.c
        ToMainHigh_recvmsg   0x000a36    program     extern C:\ARMCode\45k22\messages.c
        ToMainHigh_sendmsg   0x000a08    program     extern C:\ARMCode\45k22\messages.c
         ToMainLow_recvmsg   0x0009d6    program     extern C:\ARMCode\45k22\messages.c
         ToMainLow_sendmsg   0x0009a8    program     extern C:\ARMCode\45k22\messages.c
-              Write2USART   0x0017a8    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u2write.c
-              WriteTimer0   0x001778    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
-              WriteTimer1   0x001748    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
-              _4jContinue   0x00160e    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                   _5jEnd   0x001618    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-        _D1KTCYXCODE_0012   0x001816    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
-        _D1KTCYXCODE_0018   0x00181c    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
+              Write1USART   0x00187a    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u1write.c
+              Write2USART   0x00184c    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u2write.c
+              WriteTimer0   0x00181c    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
+              WriteTimer1   0x0017ec    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
+              _4jContinue   0x0016b2    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                   _5jEnd   0x0016bc    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+        _D1KTCYXCODE_0012   0x0018e8    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
+        _D1KTCYXCODE_0018   0x0018ee    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00001   0x001878    program     static                          
-       ___return_lbl00002   0x0012f4    program     static                          
+       ___return_lbl00001   0x00194a    program     static                          
+       ___return_lbl00002   0x001398    program     static                          
        ___return_lbl00012   0x00001c    program     static                          
        ___return_lbl00013   0x00000c    program     static                          
        ___return_lbl00019   0x000b62    program     static                          
                __config_0   0x300003    program     static C:\ARMCode\45k22\main.c  
                __config_1   0x300006    program     static C:\ARMCode\45k22\main.c  
-                 __div16u   0x001444    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-                   __init   0x001892    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
-                 __mod16u   0x00144a    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-            __zero_memory   0x001824    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-                _do_cinit   0x001258    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-            _early16uexit   0x00144e    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 __div16u   0x0014e8    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+                   __init   0x001964    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
+                 __mod16u   0x0014ee    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+            __zero_memory   0x0018f6    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+                _do_cinit   0x0012fc    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+            _early16uexit   0x0014f2    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
                    _entry   0x000000    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                 _startup   0x001860    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-          adc_int_handler   0x001354    program     extern C:\ARMCode\45k22\user_interrupts.c
+                 _startup   0x001932    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+          adc_int_handler   0x0013f8    program     extern C:\ARMCode\45k22\user_interrupts.c
     block_on_FromMainHigh   0x000c06    program     extern C:\ARMCode\45k22\messages.c
     block_on_To_msgqueues   0x000c22    program     extern C:\ARMCode\45k22\messages.c
                 check_msg   0x000b64    program     extern C:\ARMCode\45k22\messages.c
-                compare_l   0x00183a    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-                copy_loop   0x0012ca    program     static                          
-            copy_one_byte   0x0012d0    program     static                          
-                divmod16u   0x001450    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                     done   0x0012f4    program     static                          
-             done_copying   0x0012de    program     static                          
-        enable_interrupts   0x000f62    program     extern C:\ARMCode\45k22\interrupts.c
-                  endloop   0x001476    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                compare_l   0x00190c    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+                copy_loop   0x00136e    program     static                          
+            copy_one_byte   0x001374    program     static                          
+                divmod16u   0x0014f4    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                     done   0x001398    program     static                          
+             done_copying   0x001382    program     static                          
+        enable_interrupts   0x001006    program     extern C:\ARMCode\45k22\interrupts.c
+                  endloop   0x00151a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
          enter_sleep_mode   0x000b5e    program     extern C:\ARMCode\45k22\messages.c
              handle_start   0x000126    program     extern C:\ARMCode\45k22\my_i2c.c
      i2c_configure_master   0x00001e    program     extern C:\ARMCode\45k22\my_i2c.c
@@ -248,38 +254,38 @@ Linker Map File - Created Mon Apr 09 17:16:53 2012
           i2c_int_handler   0x0001e0    program     extern C:\ARMCode\45k22\my_i2c.c
           i2c_master_recv   0x000042    program     extern C:\ARMCode\45k22\my_i2c.c
           i2c_master_send   0x000030    program     extern C:\ARMCode\45k22\my_i2c.c
-              in_high_int   0x000f6c    program     extern C:\ARMCode\45k22\interrupts.c
-               in_low_int   0x000fac    program     extern C:\ARMCode\45k22\interrupts.c
-                  in_main   0x000fc4    program     extern C:\ARMCode\45k22\interrupts.c
-                  initADC   0x00166e    program     extern C:\ARMCode\45k22\newADC.c
+              in_high_int   0x001010    program     extern C:\ARMCode\45k22\interrupts.c
+               in_low_int   0x001050    program     extern C:\ARMCode\45k22\interrupts.c
+                  in_main   0x001068    program     extern C:\ARMCode\45k22\interrupts.c
+                  initADC   0x001712    program     extern C:\ARMCode\45k22\newADC.c
                  init_i2c   0x0006cc    program     extern C:\ARMCode\45k22\my_i2c.c
                init_queue   0x00075c    program     extern C:\ARMCode\45k22\messages.c
               init_queues   0x000b28    program     extern C:\ARMCode\45k22\messages.c
-      init_timer1_lthread   0x001392    program     extern C:\ARMCode\45k22\timer1_thread.c
-           init_uart_recv   0x00122c    program     extern C:\ARMCode\45k22\my_uart.c
-                     jEnd   0x00161e    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                    jLoop   0x001602    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                     loop   0x00186e    program     static                          
-                     loop   0x00145a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                   loop_h   0x001832    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-                   loop_l   0x00183c    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-           low_int_active   0x000f8c    program     extern C:\ARMCode\45k22\interrupts.c
+      init_timer1_lthread   0x001436    program     extern C:\ARMCode\45k22\timer1_thread.c
+           init_uart_recv   0x0012d0    program     extern C:\ARMCode\45k22\my_uart.c
+                     jEnd   0x0016c2    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                    jLoop   0x0016a6    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                     loop   0x001940    program     static                          
+                     loop   0x0014fe    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                   loop_h   0x001904    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+                   loop_l   0x00190e    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+           low_int_active   0x001030    program     extern C:\ARMCode\45k22\interrupts.c
                      main   0x000c62    program     extern C:\ARMCode\45k22\main.c  
-                   memcpy   0x0015da    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                  readADC   0x001690    program     extern C:\ARMCode\45k22\newADC.c
+                   memcpy   0x00167e    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                  readADC   0x001734    program     extern C:\ARMCode\45k22\newADC.c
                  recv_msg   0x0008a2    program     extern C:\ARMCode\45k22\messages.c
                  send_msg   0x0007ba    program     extern C:\ARMCode\45k22\messages.c
     start_i2c_slave_reply   0x000054    program     extern C:\ARMCode\45k22\my_i2c.c
-                  stopADC   0x0016a6    program     extern C:\ARMCode\45k22\newADC.c
-                     test   0x001272    program     static                          
-       timer0_int_handler   0x0012f6    program     extern C:\ARMCode\45k22\user_interrupts.c
-           timer0_lthread   0x001844    program     extern C:\ARMCode\45k22\timer0_thread.c
-       timer1_int_handler   0x00131a    program     extern C:\ARMCode\45k22\user_interrupts.c
-           timer1_lthread   0x0013b0    program     extern C:\ARMCode\45k22\timer1_thread.c
-       timer2_int_handler   0x001328    program     extern C:\ARMCode\45k22\user_interrupts.c
-             uart_lthread   0x0016e0    program     extern C:\ARMCode\45k22\uart_thread.c
-    uart_recv_int_handler   0x001182    program     extern C:\ARMCode\45k22\my_uart.c
-               zero_block   0x001832    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+                  stopADC   0x00174a    program     extern C:\ARMCode\45k22\newADC.c
+                     test   0x001316    program     static                          
+       timer0_int_handler   0x00139a    program     extern C:\ARMCode\45k22\user_interrupts.c
+           timer0_lthread   0x001916    program     extern C:\ARMCode\45k22\timer0_thread.c
+       timer1_int_handler   0x0013be    program     extern C:\ARMCode\45k22\user_interrupts.c
+           timer1_lthread   0x001454    program     extern C:\ARMCode\45k22\timer1_thread.c
+       timer2_int_handler   0x0013cc    program     extern C:\ARMCode\45k22\user_interrupts.c
+             uart_lthread   0x001784    program     extern C:\ARMCode\45k22\uart_thread.c
+    uart_recv_int_handler   0x001226    program     extern C:\ARMCode\45k22\my_uart.c
+               zero_block   0x001904    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
                    ADCON0   0x000fc2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
                ADCON0bits   0x000fc2       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
                    ADCON1   0x000fc1       data     extern C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
@@ -760,72 +766,73 @@ Linker Map File - Created Mon Apr 09 17:16:53 2012
     block_on_FromMainHigh   0x000c06    program     extern C:\ARMCode\45k22\messages.c
     block_on_To_msgqueues   0x000c22    program     extern C:\ARMCode\45k22\messages.c
                      main   0x000c62    program     extern C:\ARMCode\45k22\main.c  
-        enable_interrupts   0x000f62    program     extern C:\ARMCode\45k22\interrupts.c
-              in_high_int   0x000f6c    program     extern C:\ARMCode\45k22\interrupts.c
-           low_int_active   0x000f8c    program     extern C:\ARMCode\45k22\interrupts.c
-               in_low_int   0x000fac    program     extern C:\ARMCode\45k22\interrupts.c
-                  in_main   0x000fc4    program     extern C:\ARMCode\45k22\interrupts.c
-     InterruptHandlerHigh   0x000fea    program     extern C:\ARMCode\45k22\interrupts.c
-      InterruptHandlerLow   0x0010b8    program     extern C:\ARMCode\45k22\interrupts.c
-    uart_recv_int_handler   0x001182    program     extern C:\ARMCode\45k22\my_uart.c
-           init_uart_recv   0x00122c    program     extern C:\ARMCode\45k22\my_uart.c
-                _do_cinit   0x001258    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                     test   0x001272    program     static                          
-                copy_loop   0x0012ca    program     static                          
-            copy_one_byte   0x0012d0    program     static                          
-             done_copying   0x0012de    program     static                          
-                     done   0x0012f4    program     static                          
-       ___return_lbl00002   0x0012f4    program     static                          
-       timer0_int_handler   0x0012f6    program     extern C:\ARMCode\45k22\user_interrupts.c
-       timer1_int_handler   0x00131a    program     extern C:\ARMCode\45k22\user_interrupts.c
-       timer2_int_handler   0x001328    program     extern C:\ARMCode\45k22\user_interrupts.c
-          adc_int_handler   0x001354    program     extern C:\ARMCode\45k22\user_interrupts.c
-      init_timer1_lthread   0x001392    program     extern C:\ARMCode\45k22\timer1_thread.c
-           timer1_lthread   0x0013b0    program     extern C:\ARMCode\45k22\timer1_thread.c
-                 SETUPSTK   0x00142c    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                 __div16u   0x001444    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-                 __mod16u   0x00144a    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-            _early16uexit   0x00144e    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
-                divmod16u   0x001450    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                     loop   0x00145a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                  endloop   0x001476    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-              RETQUOTIENT   0x00148e    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-                  RESTORE   0x001496    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
-               Open2USART   0x0014a4    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u2open.c
-               Open1USART   0x001516    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u1open.c
-                  OpenADC   0x001582    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
-                   memcpy   0x0015da    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                    jLoop   0x001602    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-              _4jContinue   0x00160e    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                   _5jEnd   0x001618    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-                     jEnd   0x00161e    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
-               Read1USART   0x001630    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u1read.c
-                  initADC   0x00166e    program     extern C:\ARMCode\45k22\newADC.c
-                  readADC   0x001690    program     extern C:\ARMCode\45k22\newADC.c
-                  stopADC   0x0016a6    program     extern C:\ARMCode\45k22\newADC.c
-               OpenTimer0   0x0016aa    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
-             uart_lthread   0x0016e0    program     extern C:\ARMCode\45k22\uart_thread.c
-               OpenTimer2   0x001714    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t2open.c
-              WriteTimer1   0x001748    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
-              WriteTimer0   0x001778    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
-              Write2USART   0x0017a8    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u2write.c
-               SetChanADC   0x0017d6    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
-              Delay1KTCYx   0x001804    program     extern C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
-                     D1Kx   0x001810    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
-                    D1K_1   0x001812    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
-        _D1KTCYXCODE_0012   0x001816    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
-        _D1KTCYXCODE_0018   0x00181c    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
-            __zero_memory   0x001824    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-               zero_block   0x001832    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-                   loop_h   0x001832    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-                compare_l   0x00183a    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-                   loop_l   0x00183c    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
-           timer0_lthread   0x001844    program     extern C:\ARMCode\45k22\timer0_thread.c
-                 _startup   0x001860    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
-                     loop   0x00186e    program     static                          
-       ___return_lbl00001   0x001878    program     static                          
-                  ReadADC   0x00187a    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
-                   __init   0x001892    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
+        enable_interrupts   0x001006    program     extern C:\ARMCode\45k22\interrupts.c
+              in_high_int   0x001010    program     extern C:\ARMCode\45k22\interrupts.c
+           low_int_active   0x001030    program     extern C:\ARMCode\45k22\interrupts.c
+               in_low_int   0x001050    program     extern C:\ARMCode\45k22\interrupts.c
+                  in_main   0x001068    program     extern C:\ARMCode\45k22\interrupts.c
+     InterruptHandlerHigh   0x00108e    program     extern C:\ARMCode\45k22\interrupts.c
+      InterruptHandlerLow   0x00115c    program     extern C:\ARMCode\45k22\interrupts.c
+    uart_recv_int_handler   0x001226    program     extern C:\ARMCode\45k22\my_uart.c
+           init_uart_recv   0x0012d0    program     extern C:\ARMCode\45k22\my_uart.c
+                _do_cinit   0x0012fc    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                     test   0x001316    program     static                          
+                copy_loop   0x00136e    program     static                          
+            copy_one_byte   0x001374    program     static                          
+             done_copying   0x001382    program     static                          
+       ___return_lbl00002   0x001398    program     static                          
+                     done   0x001398    program     static                          
+       timer0_int_handler   0x00139a    program     extern C:\ARMCode\45k22\user_interrupts.c
+       timer1_int_handler   0x0013be    program     extern C:\ARMCode\45k22\user_interrupts.c
+       timer2_int_handler   0x0013cc    program     extern C:\ARMCode\45k22\user_interrupts.c
+          adc_int_handler   0x0013f8    program     extern C:\ARMCode\45k22\user_interrupts.c
+      init_timer1_lthread   0x001436    program     extern C:\ARMCode\45k22\timer1_thread.c
+           timer1_lthread   0x001454    program     extern C:\ARMCode\45k22\timer1_thread.c
+                 SETUPSTK   0x0014d0    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 __div16u   0x0014e8    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+                 __mod16u   0x0014ee    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+            _early16uexit   0x0014f2    program     extern C:\MCC18\v3_39\src\extended\math\div16u.asm
+                divmod16u   0x0014f4    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                     loop   0x0014fe    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                  endloop   0x00151a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+              RETQUOTIENT   0x001532    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+                  RESTORE   0x00153a    program     static C:\MCC18\v3_39\src\extended\math\div16u.asm
+               Open2USART   0x001548    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u2open.c
+               Open1USART   0x0015ba    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u1open.c
+                  OpenADC   0x001626    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcopen.c
+                   memcpy   0x00167e    program     extern C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                    jLoop   0x0016a6    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+              _4jContinue   0x0016b2    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                   _5jEnd   0x0016bc    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+                     jEnd   0x0016c2    program     static C:\MCC18\v3_39\src\extended\stdclib\memcpy.asm
+               Read1USART   0x0016d4    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u1read.c
+                  initADC   0x001712    program     extern C:\ARMCode\45k22\newADC.c
+                  readADC   0x001734    program     extern C:\ARMCode\45k22\newADC.c
+                  stopADC   0x00174a    program     extern C:\ARMCode\45k22\newADC.c
+               OpenTimer0   0x00174e    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
+             uart_lthread   0x001784    program     extern C:\ARMCode\45k22\uart_thread.c
+               OpenTimer2   0x0017b8    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t2open.c
+              WriteTimer1   0x0017ec    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t1write.c
+              WriteTimer0   0x00181c    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
+              Write2USART   0x00184c    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u2write.c
+              Write1USART   0x00187a    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u1write.c
+               SetChanADC   0x0018a8    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcsetch.c
+              Delay1KTCYx   0x0018d6    program     extern C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
+                     D1Kx   0x0018e2    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
+                    D1K_1   0x0018e4    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
+        _D1KTCYXCODE_0012   0x0018e8    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
+        _D1KTCYXCODE_0018   0x0018ee    program     static C:\MCC18\v3_39\src\extended\delays\d1ktcyx.asm
+            __zero_memory   0x0018f6    program     extern C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+               zero_block   0x001904    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+                   loop_h   0x001904    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+                compare_l   0x00190c    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+                   loop_l   0x00190e    program     static C:\MCC18\v3_39\src\extended\proc\p18F45K22.asm
+           timer0_lthread   0x001916    program     extern C:\ARMCode\45k22\timer0_thread.c
+                 _startup   0x001932    program     extern C:\MCC18\v3_39\src\extended\startup\c018i_e.c
+                     loop   0x001940    program     static                          
+       ___return_lbl00001   0x00194a    program     static                          
+                  ReadADC   0x00194c    program     extern C:\MCC18\v3_39\src\pmc_common\ADC\adcread.c
+                   __init   0x001964    program     extern C:\MCC18\v3_39\src\extended\stdclib\__init.c
                __config_0   0x300003    program     static C:\ARMCode\45k22\main.c  
                __config_1   0x300006    program     static C:\ARMCode\45k22\main.c  
           FromMainHigh_MQ   0x000000       data     static C:\ARMCode\45k22\messages.c
