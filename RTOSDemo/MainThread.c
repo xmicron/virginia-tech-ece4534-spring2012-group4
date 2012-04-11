@@ -288,26 +288,27 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 					else if (TimerDiff_5 < 20 && TimerDiff_5 > 10) Inst[0].Velocity = 225;
 					else if (TimerDiff_5 < 10) Inst[0].Velocity = 250;
 
-					i2cBuffer.buf[2] = Inst[0].Velocity;
+					i2cBuffer.buf[0] = 0x4;
+					i2cBuffer.buf[3] = Inst[0].Velocity;
 
-				  	i2cBuffer.length = 3;
-					i2cBuffer.buf[0] = 0x90;
+				  	i2cBuffer.length = 4;
+					i2cBuffer.buf[1] = 0x90;
 					if (Inst[0].Note == 1)
-						i2cBuffer.buf[1] = 60;
+						i2cBuffer.buf[2] = 60;
 					else if (Inst[0].Note == 2)
-						i2cBuffer.buf[1] = 62;
+						i2cBuffer.buf[2] = 62;
 					else if (Inst[0].Note == 3)
-						i2cBuffer.buf[1] = 64;
+						i2cBuffer.buf[2] = 64;
 					else if (Inst[0].Note == 4)
-						i2cBuffer.buf[1] = 65;
+						i2cBuffer.buf[2] = 65;
 					else if (Inst[0].Note == 5)
-						i2cBuffer.buf[1] = 67;
+						i2cBuffer.buf[2] = 67;
 					else if (Inst[0].Note == 6)
-						i2cBuffer.buf[1] = 69;
+						i2cBuffer.buf[2] = 69;
 					else if (Inst[0].Note == 7)
-						i2cBuffer.buf[1] = 71;
+						i2cBuffer.buf[2] = 71;
 					else if (Inst[0].Note == 8)
-						i2cBuffer.buf[1] = 72;
+						i2cBuffer.buf[2] = 72;
 					
 		
 					if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  

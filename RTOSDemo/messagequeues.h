@@ -59,6 +59,7 @@ typedef struct __i2cParamStruct {
 typedef struct __lcdParamStruct {
  	vtLCDMsgQueue *lcdQ;
 	MasterMsgQueue * masterQ;
+	I2CMsgQueue	*i2cQ;
 } lcdParamStruct;
 
 #endif
