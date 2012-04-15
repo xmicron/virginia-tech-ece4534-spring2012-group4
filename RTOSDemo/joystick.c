@@ -117,13 +117,14 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 	vtLCDMsg lcdBuffer;
 
 	uint8_t i = 0;
+	int count = 0;
 
 	for(;;)
 	{
 		PIN_CONFIG = LPC_GPIO1->FIOPIN >>20;
 		//test = test * -1;
 		 
-		if ((PIN_CONFIG & 0x1) == 0 && /*makes sure only sends one message per button press -->*/(PIN_CONFIG != PrevPIN_CONFIG))	 //select BIT
+		if ((PIN_CONFIG & 0x1) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))	 //select BIT
 		{
 			lcdBuffer.length = 2;
 			lcdBuffer.buf[0] = 0x11;
@@ -134,7 +135,7 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 			uint8_t ulCurrentState = GPIO2->FIOPIN;
 			//FlipBit(5);
 		}
-		else if ((PIN_CONFIG & 0x8) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))	  //up joystick
+		else if ((PIN_CONFIG & 0x8) == 0 && ((PIN_CONFIG != PrevPIN_CONFIG) || count > 20))	  //up joystick
 		{
 			lcdBuffer.length = 2;
 			lcdBuffer.buf[0] = 0x11;
@@ -144,7 +145,7 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 			}
 			//FlipBit(5);
 		}
-		else if ((PIN_CONFIG & 0x10) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))  //right joystick
+		else if ((PIN_CONFIG & 0x10) == 0 && ((PIN_CONFIG != PrevPIN_CONFIG) || count > 20))  //right joystick
 		{
 			lcdBuffer.length = 2;
 			lcdBuffer.buf[0] = 0x11;
@@ -154,7 +155,7 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 			}
 			//FlipBit(5);
 		}
-		else if ((PIN_CONFIG & 0x20) == 0 && (PIN_CONFIG != PrevPIN_CONFIG))  //down joystick
+		else if ((PIN_CONFIG & 0x20) == 0 && ((PIN_CONFIG != PrevPIN_CONFIG) || count > 20))  //down joystick
 		{
 			lcdBuffer.length = 2;
 			lcdBuffer.buf[0] = 0x11;
@@ -164,7 +165,7 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 			}
 			//FlipBit(5);
 		}
-		else if ((PIN_CONFIG & 0x40) == 0 && (PIN_CONFIG != PrevPIN_CONFIG)) //left joystick
+		else if ((PIN_CONFIG & 0x40) == 0 && ((PIN_CONFIG != PrevPIN_CONFIG) || count > 20)) //left joystick
 		{
 			lcdBuffer.length = 2;
 			lcdBuffer.buf[0] = 0x11;
@@ -174,8 +175,15 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 			}
 			//FlipBit(5);
 		}
+		//count is configured to repeatedly send button messages if the user holds it down for a long amount of time
+		//currently configured to around 600ms
+		if (PIN_CONFIG == PrevPIN_CONFIG && count < 50)
+			count ++;
+		else if (PIN_CONFIG != PrevPIN_CONFIG)
+			count = 0;
+			
 		PrevPIN_CONFIG = PIN_CONFIG;
-		//vTaskDelay(100);
+		vTaskDelay(30);		//delay 30ms
 	}
 }
 

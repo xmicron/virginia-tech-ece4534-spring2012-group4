@@ -25,7 +25,7 @@
 #define LCD_EXAMPLE_OP 3
 // If JOYSTICK_MODE ==0, no crosshair joystick, but instead a selection joystick
 // If JOYSTICK_MODE ==1, crosshair mode for the main page (under construction)
-#define JOYSTICK_MODE 0
+#define JOYSTICK_MODE 1
 // If JOYSTICK_MODE == 0, Insteon disabled
 // If JOYSTICK_MODE == 1, Insteon Enabled
 #define INSTEON_MODE 0
@@ -56,72 +56,13 @@ typedef struct __cursorPos {
 	uint8_t y;
 } cursorPos;
 
-
-// Convert from HSL colormap to RGB values in this weird colormap
-// H: 0 to 360
-// S: 0 to 1
-// L: 0 to 1
-// The LCD has a funky bitmap.  Each pixel is 16 bits (a "short unsigned int")
-//   Red is the most significant 5 bits
-//   Blue is the least significant 5 bits
-//   Green is the middle 6 bits
-/*static unsigned short hsl2rgb(float H,float S,float L)
-{
-	float C = (1.0 - fabs(2.0*L-1.0))*S;
-	float Hprime = H / 60;
-	unsigned short t = Hprime / 2.0;
-	t *= 2;
-	float X = C * (1-abs((Hprime - t) - 1));
-	unsigned short truncHprime = Hprime;
-	float R1, G1, B1;
-
-	switch(truncHprime) {
-		case 0: {
-			R1 = C; G1 = X; B1 = 0;
-			break;
-		}
-		case 1: {
-			R1 = X; G1 = C; B1 = 0;
-			break;
-		}
-		case 2: {
-			R1 = 0; G1 = C; B1 = X;
-			break;
-		}
-		case 3: {
-			R1 = 0; G1 = X; B1 = C;
-			break;
-		}
-		case 4: {
-			R1 = X; G1 = 0; B1 = C;
-			break;
-		}
-		case 5: {
-			R1 = C; G1 = 0; B1 = X;
-			break;
-		}
-		default: {
-			// make the compiler stop generating warnings
-			R1 = 0; G1 = 0; B1 = 0;
-			VT_HANDLE_FATAL_ERROR(Hprime);
-			break;
-		}
-	}
-	float m = L - 0.5*C;
-	R1 += m; G1 += m; B1 += m;
-	unsigned short red = R1*32; if (red > 31) red = 31;
-	unsigned short green = G1*64; if (green > 63) green = 63;
-	unsigned short blue = B1*32; if (blue > 31) blue = 31;
-	unsigned short color = (red << 11) | (green << 5) | blue;
-	return(color); 
-}*/
-
 // This is the actual task that is run
 static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 {
 	//initial variable declarations
 	portTickType xUpdateRate, xLastUpdateTime;
 	int i = 0;
+	char toPr[20];
 	
 #if LCD_EXAMPLE_OP==2
 	int pixel_buffer[80];
@@ -136,7 +77,11 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	int Cur_Inst = 0;
 	int RorP = 0;
 	int P2SelectionMultiplier = 0;
+	int P1Selection = 0;
 	int P3Selection = 0;
+
+	int VOLUME = 100;
+	int SLIDER = 10;
 	InstrumentStruct Inst[2];
 	RepeatingInstrumentStruct RInst[3];
 	for (Cur_Page = 0; Cur_Page < 3; Cur_Page++)
@@ -179,7 +124,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	GLCD_SetTextColor(Green);
 	GLCD_SetBackColor(Black);
 	GLCD_Clear(Black);
-	InitPage(0, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+	InitPage(0, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
 #elif LCD_EXAMPLE_OP==2
 	GLCD_Clear(Yellow);
 	GLCD_SetTextColor(Black);
@@ -202,122 +147,248 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 			FlipBit(0);
 			if (Cur_Page == 0)
 			{
-				if (msgBuffer.buf[1] == 0) //select bit hit
+				if (P1Selection == 0)
 				{
-					if (INSTEON_MODE == 1)
+					if (msgBuffer.buf[1] == 0) //select bit hit
 					{
-
-					}
-					if (Cur_Panel > 3)
-					{
-						GLCD_Clear(Black);
-						Cur_Page = 1;
-						Cur_Inst = Cur_Panel-4;
-						RorP = 0;
-						InitPage(1, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
-						Cur_Panel = 0;
-					}
-					else if (Cur_Panel == 3)
-					{
-						//Cur_Page = 2;
-					}
-					else if (Cur_Panel < 3)
-					{
-						GLCD_Clear(Black);
-						Cur_Page = 3;
-						Cur_Inst = Cur_Panel;
-						P3Selection = 0;
-						RorP = 1;
-						InitPage(3, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
-						Cur_Panel = 0;
-					}
-				}
-			 	if (msgBuffer.buf[1] == 1) //move crosshair up
-				{
-					if (INSTEON_MODE == 1)
-					{
-						  //02 61 01 11 00
-						i2cBuffer.buf[0] = 0x11;
-						i2cBuffer.buf[1] = 0x02;
-						i2cBuffer.buf[2] = 0x61;
-						i2cBuffer.buf[3] = 0x01;
-						i2cBuffer.buf[4] = 0x11;
-						i2cBuffer.buf[5] = 0x00;
-
-						if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
-						VT_HANDLE_FATAL_ERROR(0);
+						if (INSTEON_MODE == 1)
+						{
+	
+						}
+						if (Cur_Panel > 3)
+						{
+							GLCD_Clear(Black);
+							Cur_Page = 1;
+							Cur_Inst = Cur_Panel-4;
+							RorP = 0;
+							InitPage(1, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+							Cur_Panel = 0;
+						}
+						else if (Cur_Panel == 3)
+						{
+							P1Selection = 1;
+							GLCD_SetTextColor(Red);
+							GLCD_SetBackColor(Yellow);
+							Cur_Panel = 0;
+							GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume");
+						}
+						else if (Cur_Panel < 3)
+						{
+							GLCD_Clear(Black);
+							Cur_Page = 3;
+							Cur_Inst = Cur_Panel;
+							P3Selection = 0;
+							RorP = 1;
+							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
+							Cur_Panel = 0;
 						}
 					}
-					if (Cur_Panel > 0)
+				 	if (msgBuffer.buf[1] == 1) //move crosshair up
 					{
-						ClearOldSelection(Cur_Panel);
-					 	Cur_Panel--;
-						MakeSelection(Cur_Panel);
-					}
-				}
-				if (msgBuffer.buf[1] == 2) //move crosshair right
-				{
-					if (INSTEON_MODE == 1)
-					{
-
-					}
-					if (Cur_Panel < 3)
-					{
-						ClearOldSelection(Cur_Panel);
-						Cur_Panel = Cur_Panel + 3;
-						MakeSelection(Cur_Panel);
-					}
-				} 
-				if (msgBuffer.buf[1] == 3) //move crosshair down
-				{
-					if (INSTEON_MODE == 1)
-					{
-						//02 61 01 13 00
-						i2cBuffer.buf[0] = 0x11;
-						i2cBuffer.buf[1] = 0x02;
-						i2cBuffer.buf[2] = 0x61;
-						i2cBuffer.buf[3] = 0x01;
-						i2cBuffer.buf[4] = 0x13;
-						i2cBuffer.buf[5] = 0x00;
-
-						if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
-						VT_HANDLE_FATAL_ERROR(0);
+						if (INSTEON_MODE == 1)
+						{
+							  //02 61 01 11 00
+							i2cBuffer.buf[0] = 0x11;
+							i2cBuffer.buf[1] = 0x02;
+							i2cBuffer.buf[2] = 0x61;
+							i2cBuffer.buf[3] = 0x01;
+							i2cBuffer.buf[4] = 0x11;
+							i2cBuffer.buf[5] = 0x00;
+	
+							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+							}
+						}
+						if (Cur_Panel > 0)
+						{
+							ClearOldSelection(Cur_Panel);
+						 	Cur_Panel--;
+							MakeSelection(Cur_Panel);
 						}
 					}
-					if (Cur_Panel < 5)
+					if (msgBuffer.buf[1] == 2) //move crosshair right
 					{
-						ClearOldSelection(Cur_Panel);
-					 	Cur_Panel++;
-						MakeSelection(Cur_Panel);
-					}
-				}
-				if (msgBuffer.buf[1] == 4) //move crosshair left
-				{
-					if (INSTEON_MODE == 1)
+						if (INSTEON_MODE == 1)
+						{
+	
+						}
+						if (Cur_Panel < 3)
+						{
+							ClearOldSelection(Cur_Panel);
+							Cur_Panel = Cur_Panel + 3;
+							MakeSelection(Cur_Panel);
+						}
+					} 
+					if (msgBuffer.buf[1] == 3) //move crosshair down
 					{
-						//02 64 01 01
-						i2cBuffer.buf[0] = 0x11;
-						i2cBuffer.buf[1] = 0x02;
-						i2cBuffer.buf[2] = 0x64;
-						i2cBuffer.buf[3] = 0x01;
-						i2cBuffer.buf[4] = 0x01;
-						FlipBit(6);
-
-						if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
-						VT_HANDLE_FATAL_ERROR(0);
+						if (INSTEON_MODE == 1)
+						{
+							//02 61 01 13 00
+							i2cBuffer.buf[0] = 0x11;
+							i2cBuffer.buf[1] = 0x02;
+							i2cBuffer.buf[2] = 0x61;
+							i2cBuffer.buf[3] = 0x01;
+							i2cBuffer.buf[4] = 0x13;
+							i2cBuffer.buf[5] = 0x00;
+	
+							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+							}
+						}
+						if (Cur_Panel < 5)
+						{
+							ClearOldSelection(Cur_Panel);
+						 	Cur_Panel++;
+							MakeSelection(Cur_Panel);
 						}
 					}
-					if (Cur_Panel > 3)
+					if (msgBuffer.buf[1] == 4) //move crosshair left
 					{
-						ClearOldSelection(Cur_Panel);
-						Cur_Panel = Cur_Panel - 3;
-						MakeSelection(Cur_Panel);
+						if (INSTEON_MODE == 1)
+						{
+							//02 64 01 01
+							i2cBuffer.buf[0] = 0x11;
+							i2cBuffer.buf[1] = 0x02;
+							i2cBuffer.buf[2] = 0x64;
+							i2cBuffer.buf[3] = 0x01;
+							i2cBuffer.buf[4] = 0x01;
+							FlipBit(6);
+	
+							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+							}
+						}
+						if (Cur_Panel > 3)
+						{
+							ClearOldSelection(Cur_Panel);
+							Cur_Panel = Cur_Panel - 3;
+							MakeSelection(Cur_Panel);
+						}
+						else if (Cur_Panel == 3)
+						{
+							ClearOldSelection(Cur_Panel);
+							Cur_Panel = 0;
+							MakeSelection(Cur_Panel);
+						}
 					}
-					else if (Cur_Panel == 3)
+			 	}
+				else if (P1Selection == 1)
+				{
+					if (msgBuffer.buf[1] == 0)
 					{
-						ClearOldSelection(Cur_Panel);
-						Cur_Panel = 0;
-						MakeSelection(Cur_Panel);
+					  	if (Cur_Panel == 0)
+						{
+							GLCD_SetTextColor(Green);
+							GLCD_SetBackColor(Black);
+							GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume");
+							P1Selection = 2;
+							GLCD_SetTextColor(Red);
+							GLCD_SetBackColor(Yellow);
+							sprintf(toPr, "%i", VOLUME);
+							GLCD_DisplayString(2,40,0,(unsigned char *)toPr);	
+						}
+						else if (Cur_Panel == 1)
+						{
+						  	GLCD_SetTextColor(Blue);
+							GLCD_SetBackColor(Black);
+						    GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
+							P1Selection = 3;
+						}
+					}
+					else if (msgBuffer.buf[1] == 1)
+					{
+					 	if (Cur_Panel > 0)
+						{
+							Cur_Panel--;
+							GLCD_SetTextColor(Green);
+							GLCD_SetBackColor(Black);
+						    GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
+							GLCD_SetTextColor(Red);
+							GLCD_SetBackColor(Yellow);
+							GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume"); 
+						}
+					}
+					else if (msgBuffer.buf[1] == 3)
+					{
+						if (Cur_Panel < 1)
+						{
+							Cur_Panel++;
+							GLCD_SetTextColor(Green);
+							GLCD_SetBackColor(Black);
+							GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume");
+							GLCD_SetTextColor(Red);
+							GLCD_SetBackColor(Yellow);
+							GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
+						}
+					}
+				}
+				else if (P1Selection == 2)
+				{
+				 	if (msgBuffer.buf[1] == 0)
+					{
+					  	GLCD_SetTextColor(Green);
+						GLCD_SetBackColor(Black);
+						sprintf(toPr, "%i", VOLUME);
+						GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+					  	P1Selection = 0;
+						Cur_Panel = 3;
+					}
+					else if (msgBuffer.buf[1] == 1)
+					{
+						if (VOLUME < 100)
+						{
+							GLCD_SetTextColor(Black);
+							GLCD_SetBackColor(Black);
+							sprintf(toPr, "%i", VOLUME);
+							GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+						  	VOLUME++;
+							GLCD_SetTextColor(Red);
+							GLCD_SetBackColor(Yellow);
+							sprintf(toPr, "%i", VOLUME);
+							GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+						}
+					}
+					else if (msgBuffer.buf[1] == 3)
+					{
+						if (VOLUME > 0)
+						{
+						   	GLCD_SetTextColor(Black);
+							GLCD_SetBackColor(Black);
+							sprintf(toPr, "%i", VOLUME);
+							GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+						  	VOLUME--;
+							GLCD_SetTextColor(Red);
+							GLCD_SetBackColor(Yellow);
+							sprintf(toPr, "%i", VOLUME);
+							GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+						}
+					}
+				}
+				else if (P1Selection == 3)
+				{
+				  	if (msgBuffer.buf[1] == 0)
+					{
+					 	P1Selection = 0;
+						Cur_Panel = 3;
+						GLCD_SetTextColor(Green);
+						GLCD_SetBackColor(Black);
+					    GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
+					}
+					else if (msgBuffer.buf[1] == 2)
+					{ 
+					  	if (SLIDER < 10)
+						{
+							SLIDER++;
+							Set_Slider(SLIDER-1, SLIDER);
+						}
+					}
+					else if (msgBuffer.buf[1] == 4)
+					{
+					 	if (SLIDER > 0)
+						{
+							SLIDER--;
+							Set_Slider(SLIDER+1, SLIDER);
+						}
 					}
 				}
 			}
@@ -328,7 +399,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					GLCD_Clear(Black);
 					Cur_Page = 2;
 					P2SelectionMultiplier = Cur_Panel;
-					InitPage(2, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+					InitPage(2, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
 					Cur_Panel = 0;
 				}
 			 	if (msgBuffer.buf[1] == 1) //move crosshair up
@@ -369,7 +440,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						else
 							Inst[Cur_Inst].InstrumentID = P2SelectionMultiplier*8+Cur_Panel;
 						P2SelectionMultiplier = 0;
-						InitPage(0, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+						InitPage(0, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
 						Cur_Panel = 0;
 
 						masterBuffer.length = 3;
@@ -402,7 +473,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 							RInst[Cur_Inst].InstrumentID = P2SelectionMultiplier*8+Cur_Panel;
 						P3Selection = 0;
 						RorP = 1;
-						InitPage(3, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
+						InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
 						Cur_Panel = 0;
 					}
 				}
@@ -442,7 +513,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						   	GLCD_Clear(Black);
 							Cur_Page = 0;
 							//P2SelectionMultiplier = Cur_Panel;
-							InitPage(0, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+							InitPage(0, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
 							Cur_Panel = 0;
 						}
 						else if (Cur_Panel == 1)
@@ -450,7 +521,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						  	GLCD_Clear(Black);
 							Cur_Page = 1;
 							RorP = 1;
-							InitPage(1, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+							InitPage(1, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
 							Cur_Panel = 0;
 						}
 						else if (Cur_Panel == 2)
@@ -470,6 +541,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 							GLCD_DisplayString(12,5,0,(unsigned char *)"Select BPM: ");
 							GLCD_SetBackColor(Yellow);
 							GLCD_SetTextColor(Red);
+							RInst[Cur_Inst].BPM = 60;
 							sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
 							GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
 							GLCD_SetBackColor(Black);
@@ -595,7 +667,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					}
 				 	if (msgBuffer.buf[1] == 1) //move crosshair up
 					{
-						if (RInst[Cur_Inst].BPM < 100)
+						if (RInst[Cur_Inst].BPM < 240)
 						{
 							char toPr[2];
 							GLCD_SetTextColor(Black);
@@ -979,10 +1051,6 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				avg = 0;
 			}
 		}
-		
-
-#else
-		//
 #endif	
 	}
 }
