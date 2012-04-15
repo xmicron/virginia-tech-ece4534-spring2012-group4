@@ -949,7 +949,255 @@ void P3CatMakeSelection(Cur_Panel)
 	GLCD_SetBackColor(Black);
 	GLCD_SetTextColor(Green);
 }
-void InitPage(int pageNum, InstrumentStruct I1, InstrumentStruct I2, RepeatingInstrumentStruct R1, RepeatingInstrumentStruct R2, RepeatingInstrumentStruct R3, int Mult)
+void Set_Slider( int old_Pos, int SLIDER )
+{
+	GLCD_SetTextColor(Black);
+	if (old_Pos == 0)
+	{
+	 	GLCD_PutPixel(202, 48);
+		GLCD_PutPixel(202, 49);
+		GLCD_PutPixel(202, 51);
+		GLCD_PutPixel(202, 52);
+		GLCD_PutPixel(203, 48);
+		GLCD_PutPixel(203, 49);
+		GLCD_PutPixel(203, 51);
+		GLCD_PutPixel(203, 52);
+	}
+	else if (old_Pos == 1)
+	{
+	 	GLCD_PutPixel(212, 48);
+		GLCD_PutPixel(212, 49);
+		GLCD_PutPixel(212, 51);
+		GLCD_PutPixel(212, 52);
+		GLCD_PutPixel(213, 48);
+		GLCD_PutPixel(213, 49);
+		GLCD_PutPixel(213, 51);
+		GLCD_PutPixel(213, 52);
+	}
+	else if (old_Pos == 2)
+	{
+	  	GLCD_PutPixel(222, 48);
+		GLCD_PutPixel(222, 49);
+		GLCD_PutPixel(222, 51);
+		GLCD_PutPixel(222, 52);
+		GLCD_PutPixel(223, 48);
+		GLCD_PutPixel(223, 49);
+		GLCD_PutPixel(223, 51);
+		GLCD_PutPixel(223, 52);
+	}
+	else if (old_Pos == 3)
+	{
+		GLCD_PutPixel(232, 48);
+		GLCD_PutPixel(232, 49);
+		GLCD_PutPixel(232, 51);
+		GLCD_PutPixel(232, 52);
+		GLCD_PutPixel(233, 48);
+		GLCD_PutPixel(233, 49);
+		GLCD_PutPixel(233, 51);
+		GLCD_PutPixel(233, 52);
+	}
+	else if (old_Pos == 4)
+	{
+	 	GLCD_PutPixel(242, 48);
+		GLCD_PutPixel(242, 49);
+		GLCD_PutPixel(242, 51);
+		GLCD_PutPixel(242, 52);
+		GLCD_PutPixel(243, 48);
+		GLCD_PutPixel(243, 49);
+		GLCD_PutPixel(243, 51);
+		GLCD_PutPixel(243, 52);
+	}
+	else if (old_Pos == 5)
+	{
+	 	GLCD_PutPixel(252, 48);
+		GLCD_PutPixel(252, 49);
+		GLCD_PutPixel(252, 51);
+		GLCD_PutPixel(252, 52);
+		GLCD_PutPixel(253, 48);
+		GLCD_PutPixel(253, 49);
+		GLCD_PutPixel(253, 51);
+		GLCD_PutPixel(253, 52);
+	}
+	else if (old_Pos == 6)
+	{
+		GLCD_PutPixel(262, 48);
+		GLCD_PutPixel(262, 49);
+		GLCD_PutPixel(262, 51);
+		GLCD_PutPixel(262, 52);
+		GLCD_PutPixel(263, 48);
+		GLCD_PutPixel(263, 49);
+		GLCD_PutPixel(263, 51);
+		GLCD_PutPixel(263, 52);
+	}
+	else if (old_Pos == 7)
+	{
+	   	GLCD_PutPixel(272, 48);
+		GLCD_PutPixel(272, 49);
+		GLCD_PutPixel(272, 51);
+		GLCD_PutPixel(272, 52);
+		GLCD_PutPixel(273, 48);
+		GLCD_PutPixel(273, 49);
+		GLCD_PutPixel(273, 51);
+		GLCD_PutPixel(273, 52);
+	}
+	else if (old_Pos == 8)
+	{
+	  	GLCD_PutPixel(282, 48);
+		GLCD_PutPixel(282, 49);
+		GLCD_PutPixel(282, 51);
+		GLCD_PutPixel(282, 52);
+		GLCD_PutPixel(283, 48);
+		GLCD_PutPixel(283, 49);
+		GLCD_PutPixel(283, 51);
+		GLCD_PutPixel(283, 52);
+	}
+	else if (old_Pos == 9)
+	{
+	 	GLCD_PutPixel(292, 48);
+		GLCD_PutPixel(292, 49);
+		GLCD_PutPixel(292, 51);
+		GLCD_PutPixel(292, 52);
+		GLCD_PutPixel(293, 48);
+		GLCD_PutPixel(293, 49);
+		GLCD_PutPixel(293, 51);
+		GLCD_PutPixel(293, 52);
+	}
+	else if (old_Pos == 10)
+	{
+	 	GLCD_PutPixel(302, 48);
+		GLCD_PutPixel(302, 49);
+		GLCD_PutPixel(302, 51);
+		GLCD_PutPixel(302, 52);
+		GLCD_PutPixel(303, 48);
+		GLCD_PutPixel(303, 49);
+		GLCD_PutPixel(303, 51);
+		GLCD_PutPixel(303, 52);
+	}
+
+	GLCD_SetTextColor(Green);
+ 	if (SLIDER == 0)
+	{
+	 	GLCD_PutPixel(202, 48);
+		GLCD_PutPixel(202, 49);
+		GLCD_PutPixel(202, 51);
+		GLCD_PutPixel(202, 52);
+		GLCD_PutPixel(203, 48);
+		GLCD_PutPixel(203, 49);
+		GLCD_PutPixel(203, 51);
+		GLCD_PutPixel(203, 52);
+	}
+	else if (SLIDER == 1)
+	{
+	 	GLCD_PutPixel(212, 48);
+		GLCD_PutPixel(212, 49);
+		GLCD_PutPixel(212, 51);
+		GLCD_PutPixel(212, 52);
+		GLCD_PutPixel(213, 48);
+		GLCD_PutPixel(213, 49);
+		GLCD_PutPixel(213, 51);
+		GLCD_PutPixel(213, 52);
+	}
+	else if (SLIDER == 2)
+	{
+	  	GLCD_PutPixel(222, 48);
+		GLCD_PutPixel(222, 49);
+		GLCD_PutPixel(222, 51);
+		GLCD_PutPixel(222, 52);
+		GLCD_PutPixel(223, 48);
+		GLCD_PutPixel(223, 49);
+		GLCD_PutPixel(223, 51);
+		GLCD_PutPixel(223, 52);
+	}
+	else if (SLIDER == 3)
+	{
+		GLCD_PutPixel(232, 48);
+		GLCD_PutPixel(232, 49);
+		GLCD_PutPixel(232, 51);
+		GLCD_PutPixel(232, 52);
+		GLCD_PutPixel(233, 48);
+		GLCD_PutPixel(233, 49);
+		GLCD_PutPixel(233, 51);
+		GLCD_PutPixel(233, 52);
+	}
+	else if (SLIDER == 4)
+	{
+	 	GLCD_PutPixel(242, 48);
+		GLCD_PutPixel(242, 49);
+		GLCD_PutPixel(242, 51);
+		GLCD_PutPixel(242, 52);
+		GLCD_PutPixel(243, 48);
+		GLCD_PutPixel(243, 49);
+		GLCD_PutPixel(243, 51);
+		GLCD_PutPixel(243, 52);
+	}
+	else if (SLIDER == 5)
+	{
+	 	GLCD_PutPixel(252, 48);
+		GLCD_PutPixel(252, 49);
+		GLCD_PutPixel(252, 51);
+		GLCD_PutPixel(252, 52);
+		GLCD_PutPixel(253, 48);
+		GLCD_PutPixel(253, 49);
+		GLCD_PutPixel(253, 51);
+		GLCD_PutPixel(253, 52);
+	}
+	else if (SLIDER == 6)
+	{
+		GLCD_PutPixel(262, 48);
+		GLCD_PutPixel(262, 49);
+		GLCD_PutPixel(262, 51);
+		GLCD_PutPixel(262, 52);
+		GLCD_PutPixel(263, 48);
+		GLCD_PutPixel(263, 49);
+		GLCD_PutPixel(263, 51);
+		GLCD_PutPixel(263, 52);
+	}
+	else if (SLIDER == 7)
+	{
+	   	GLCD_PutPixel(272, 48);
+		GLCD_PutPixel(272, 49);
+		GLCD_PutPixel(272, 51);
+		GLCD_PutPixel(272, 52);
+		GLCD_PutPixel(273, 48);
+		GLCD_PutPixel(273, 49);
+		GLCD_PutPixel(273, 51);
+		GLCD_PutPixel(273, 52);
+	}
+	else if (SLIDER == 8)
+	{
+	  	GLCD_PutPixel(282, 48);
+		GLCD_PutPixel(282, 49);
+		GLCD_PutPixel(282, 51);
+		GLCD_PutPixel(282, 52);
+		GLCD_PutPixel(283, 48);
+		GLCD_PutPixel(283, 49);
+		GLCD_PutPixel(283, 51);
+		GLCD_PutPixel(283, 52);
+	}
+	else if (SLIDER == 9)
+	{
+	 	GLCD_PutPixel(292, 48);
+		GLCD_PutPixel(292, 49);
+		GLCD_PutPixel(292, 51);
+		GLCD_PutPixel(292, 52);
+		GLCD_PutPixel(293, 48);
+		GLCD_PutPixel(293, 49);
+		GLCD_PutPixel(293, 51);
+		GLCD_PutPixel(293, 52);
+	}
+	else if (SLIDER == 10)
+	{
+	 	GLCD_PutPixel(302, 48);
+		GLCD_PutPixel(302, 49);
+		GLCD_PutPixel(302, 51);
+		GLCD_PutPixel(302, 52);
+		GLCD_PutPixel(303, 48);
+		GLCD_PutPixel(303, 49);
+		GLCD_PutPixel(303, 51);
+		GLCD_PutPixel(303, 52);
+	}
+}
+void InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1, InstrumentStruct I2, RepeatingInstrumentStruct R1, RepeatingInstrumentStruct R2, RepeatingInstrumentStruct R3, int Mult)
 {
 	if (pageNum == 0)
 	{
@@ -1019,7 +1267,19 @@ void InitPage(int pageNum, InstrumentStruct I1, InstrumentStruct I2, RepeatingIn
 		GLCD_DisplayString(24,5,0,(unsigned char *)toPr);
 	
 		GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume");
-		GLCD_DisplayString(2,42,0,(unsigned char *)"0");
+		sprintf(toPr, "%i", VOLUME);
+		GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+
+		GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
+		GLCD_PutPixel(201, 49);
+		GLCD_PutPixel(201, 51);
+		GLCD_PutPixel(304, 49);
+		GLCD_PutPixel(304, 51);
+		for (a = 201; a < 305; a++)
+		{
+		 	GLCD_PutPixel(a, 50);
+		}
+		Set_Slider(0, SLIDER);
 	
 		GLCD_DisplayString(9,31,0,(unsigned char *)"Player Instrument 1");
 		GLCD_DisplayString(10,32,0,(unsigned char *)ReturnInstrumentLabel(I1.InstrumentID));
