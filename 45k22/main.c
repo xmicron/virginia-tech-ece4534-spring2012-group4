@@ -154,6 +154,7 @@ void main (void)
 	// that should get them.  Although the subroutines are not threads, but
 	// they can be equated with the tasks in your task diagram if you 
 	// structure them properly.
+
 	LATB = 0xFF;
   	while (1) {
 		// Call a routine that blocks until either on the incoming
@@ -178,11 +179,7 @@ void main (void)
 		} else {
 			switch (msgtype) {
 				case MSGT_ADC:	{
-					
-					if(adc_chan_num == 1)	{
-						
-					}
-					
+									
 					// Format I2C msg
 					msgbuffer[6] = (timer2Count0 & 0x00FF);
 					msgbuffer[5] = (timer2Count0 & 0xFF00) >> 8;
@@ -265,30 +262,26 @@ void main (void)
 							//LATBbits.LATB0 = !LATBbits.LATB0;
 						}
 					}
-					if (msgbuffer[0] == 0x11)
+					
+
+					if (msgbuffer[0] == 0x13)
 					{
-						if (msgbuffer[2] == 0x64)
-						{
 							putc1USART(msgbuffer[1]);
-							Delay1KTCYx(8);
+							while(Busy1USART());
 							putc1USART(msgbuffer[2]);
-							Delay1KTCYx(8);
+							while(Busy1USART());
 							putc1USART(msgbuffer[3]);
-							Delay1KTCYx(8);
+							while(Busy1USART());
 							putc1USART(msgbuffer[4]);
-						}
-						else
-						{
-							putc1USART(msgbuffer[1]);
-							Delay1KTCYx(8);
-							putc1USART(msgbuffer[2]);
-							Delay1KTCYx(8);
-							putc1USART(msgbuffer[3]);
-							Delay1KTCYx(8);
-							putc1USART(msgbuffer[4]);
-							Delay1KTCYx(8);
+							while(Busy1USART());
 							putc1USART(msgbuffer[5]);
-						}
+							while(Busy1USART());
+							putc1USART(msgbuffer[6]);
+							while(Busy1USART());
+							putc1USART(msgbuffer[7]);
+							while(Busy1USART());
+							putc1USART(msgbuffer[8]);
+							
 					}
 				};
 
