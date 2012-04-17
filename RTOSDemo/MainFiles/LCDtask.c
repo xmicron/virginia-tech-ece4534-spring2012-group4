@@ -1,3 +1,70 @@
+/*this section is reserved for user interface function call references
+
+NOTE: These functions are not fail-safe. Send them parameters OTHER than what's defined in them and the results 
+may vary. Be careful with how you use the functions.
+
+ReturnInstrumentLabel(int instrumentID) - send it a number 0 through 128 and it returns a character string of the instrument name
+			anything other than 0 through 128 not guaranteed to work
+
+ReturnInstrumentCategoryLabel(int categoryID) - send it a number 0 through 15 to return a category string label
+		0 - Piano	1 - Chromatic Percussion	2 - Organ	3 - Guitar	4 - Bass	5 - Strings		6 - Ensemble
+		7 - Brass	8 - Reed		9 - Pipe	10 - Synth Lead		11 - Synth Pad		12 - Synth Effects
+		13 - Ethnic		14 - Percussive		15 - Sound Effects
+
+ReturnRepeatingLabel(int labelID) - returns a string for the repeating instrument page. 
+	0 returns "Done"
+	1 returns "Change Instrument"
+	2 returns "Change Note"
+	3 returns "Change BPM"
+
+ReturnNoteLabel (int index) - returns a string for the note. values range from 0 to 8
+
+ClearOldSelection(int panel) - erases highlight on the home page based on the panel number. values range from 0 to 5 for 
+each of the 6 panelson that page
+
+MakeSelection (int panel) - highlights a panel based on the panel number passed.
+
+P2SelectionClear(int Cur_Panel, int mult) - unselects an instrument on page 2 based on it's index (Cur_Panel) and the multiplier.
+		The multiplier is used to index through the 128 instruments to be displayed. 
+
+void P2MakeSelection(int Cur_Panel, int mult) - selects the new instrument to highlight on page two based on its index (Cur_Panel)
+	and the multiplier. The multiplier is used to index through the 128 instruments properly
+
+void P1CatSelectionClear(int Cur_Panel) - clears the category selection on page 1
+
+void P1CatMakeSelection(int Cur_Panel) - sets a new selection on page 1
+
+void P3CatSelectionClear(Cur_Panel) - clears the category selection on page 3
+
+void P3CatMakeSelection(Cur_Panel) - sets new category selection on page 3
+
+void Set_Slider( int old_Pos, int SLIDER ) - used to change the slider value on the main page of the user interface.
+	the first parameter is the old position and the second is the new position. Values can only be between 0 and 10
+	
+	You must set the first parameter to properly erase the sliders old position otherwise you'll get a lot of sliders 
+	appearing on the screen.
+
+Panel_3_Highlight(int highlight) - highlight a selection on panel three of the main page. must be 0 or 1
+	automatically unhighlights the other selection.
+
+Panel_3_Select(int selection, int VOLUME) - moves the highlight to the appropriate section
+	0 makes the volume highlight 
+	1 makes the brightness text turn blue to show that it is selected
+
+Panel_3_Finish(int selection, int VOLUME) - used to finish panel 3 editing by resetting all of the text to green and black
+	and displaying the final volume paramter.
+	
+InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1, 
+	InstrumentStruct I2, RepeatingInstrumentStruct R1, 
+	RepeatingInstrumentStruct R2, RepeatingInstrumentStruct R3, 
+	int index) - used to initialize a page. In order to properly display all information, you must send all of the instrument 
+		data structures, the volume, and the slider value. The very last parameter is the index. It's only used on page 2 and 3
+
+			On page two it is used as a multiplier to display the appropriate instruments based on the category selected. 
+				it should be 0 for piano, 1 for chromatic percussion, etc.
+			On page three it is used to index which repeating instrument is being edited.
+			For any other page, for safety keep this parameter as 0.
+*/
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
@@ -71,19 +138,33 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	unsigned short screenColor;
 	unsigned char curLine = 0;
 	float avg = 0;
-#elif LCD_EXAMPLE_OP==3
-	int Cur_Panel = 0;
-	int Cur_Page = 0;
-	int Cur_Inst = 0;
-	int RorP = 0;
-	int P2SelectionMultiplier = 0;
-	int P1Selection = 0;
-	int P3Selection = 0;
 
-	int VOLUME = 100;
-	int SLIDER = 10;
+
+#elif LCD_EXAMPLE_OP==3
+	//user-interface variables follow
+
+	//state machine variables
+	int Cur_Panel = 0; 	//currently highlighted selection of the LCD screen. 
+	int Cur_Page = 0;	//currently viewed page of the LCD screen
+	int Cur_Inst = 0; 	//current instrument being modified when on another page. Used to index the proper instrument in the 
+						//instrument arrays.
+	int RorP = 0; 		//boolean to identify whether the current instrument from above is a part of the repeating or player instruments
+
+	int P2SelectionMultiplier = 0;//multiplier to ensure page two shows the right instruments to select. 
+	
+	int P1Selection = 0;			//used to move from panel 3 modes. If 0, then not in panel 3 mode. If 1, then in panel 3 mode.
+									//panel 3 mode locks the joystick to select either brightness or volume on panel 3
+	int P3Selection = 0; 			//works similarly to P1 Selection except it locks page 3 to either note or BPM selecting. 
+	//end state machine variables
+
+
+	//local variables stored follow
+	int VOLUME = 100;				//local volume variable.
+	int SLIDER = 10;				//local brightness slider variable. 
+
 	InstrumentStruct Inst[2];
 	RepeatingInstrumentStruct RInst[3];
+	//initialize all of the instruments on start-up
 	for (Cur_Page = 0; Cur_Page < 3; Cur_Page++)
 	{
 		Inst[Cur_Page].InstrumentID = 0;
@@ -96,10 +177,14 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		Inst[Cur_Page].InstrumentID = 0;
 	}
 	Cur_Page = 0;
+	
+	//initialize crosshair values
 	cursorPos Cursor;
 	Cursor.x = 0;
 	Cursor.y = 0;
+
 #endif
+	//initialize pointers to message queues and data structures for message passing
 	lcdParamStruct * params = pvParameters;
 	vtLCDMsgQueue *lcdPtr = (vtLCDMsgQueue *) params->lcdQ;
 	MasterMsgQueue * masterData = params->masterQ;
@@ -140,47 +225,45 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		}
 		
 
-   #if JOYSTICK_MODE==0
+   #if JOYSTICK_MODE==0 // Joey's mode for the hightlight joystick function.
 		
-		if (msgBuffer.buf[0] = 0x11)
+		if (msgBuffer.buf[0] = 0x11) //joystick message from the joystick thread
 		{
 			FlipBit(0);
 			if (Cur_Page == 0)
 			{
-				if (P1Selection == 0)
+				if (P1Selection == 0) //state machine variable - if we are not currently in the volume/brightness mode - free to highlight 
+								//panels on main page mode.
 				{
 					if (msgBuffer.buf[1] == 0) //select bit hit
 					{
-						if (INSTEON_MODE == 1)
-						{
-	
-						}
 						if (Cur_Panel > 3)
 						{
-							GLCD_Clear(Black);
-							Cur_Page = 1;
-							Cur_Inst = Cur_Panel-4;
-							RorP = 0;
-							InitPage(1, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
-							Cur_Panel = 0;
+							Cur_Page = 1;	//set new current page variable
+							Cur_Inst = Cur_Panel-4;	//index it to 0 or 1 depending on which is selected
+							RorP = 0;//0 means it's a player instrument
+							InitPage(1, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
+							Cur_Panel = 0;//sets the current selection to index 0 on page 1
 						}
 						else if (Cur_Panel == 3)
 						{
-							P1Selection = 1;
-							GLCD_SetTextColor(Red);
-							GLCD_SetBackColor(Yellow);
+							P1Selection = 1;//enter volume/brightness selection mode. 
 							Cur_Panel = 0;
-							GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume");
+							Panel_3_Highlight(Cur_Panel);//send 0 to highlight volume, 1 to highlight the brightness setting
+														//automatically un highlights the other selection
 						}
 						else if (Cur_Panel < 3)
 						{
-							GLCD_Clear(Black);
-							Cur_Page = 3;
-							Cur_Inst = Cur_Panel;
-							P3Selection = 0;
-							RorP = 1;
+							Cur_Page = 3;//page 3 is the repeating instrument page
+							Cur_Inst = Cur_Panel;//0, 1, or 2
+							P3Selection = 0; //not in note or BPM selection mode
+							RorP = 1;	 //1 for repeating instrument, so the functions know
+
+							//initialize page 3. Send all the instrument variables. Final parameter tells it which
+							//instrument we are actually displaying. 
 							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
-							Cur_Panel = 0;
+
+							Cur_Panel = 0;//set the current selection on this page to 0 (Which will be the "done" text)
 						}
 					}
 				 	if (msgBuffer.buf[1] == 1) //move crosshair up
@@ -201,9 +284,9 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						}
 						if (Cur_Panel > 0)
 						{
-							ClearOldSelection(Cur_Panel);
-						 	Cur_Panel--;
-							MakeSelection(Cur_Panel);
+							ClearOldSelection(Cur_Panel);//unhighlight 
+						 	Cur_Panel--;			 //increment current panel
+							MakeSelection(Cur_Panel); //highlight this new panel
 						}
 					}
 					if (msgBuffer.buf[1] == 2) //move crosshair right
@@ -214,9 +297,9 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						}
 						if (Cur_Panel < 3)
 						{
-							ClearOldSelection(Cur_Panel);
-							Cur_Panel = Cur_Panel + 3;
-							MakeSelection(Cur_Panel);
+							ClearOldSelection(Cur_Panel); //unhighlight
+							Cur_Panel = Cur_Panel + 3; //increment by 3 because of the UI layout. incrementing by 3 means move right
+							MakeSelection(Cur_Panel); //highlight the new selection
 						}
 					} 
 					if (msgBuffer.buf[1] == 3) //move crosshair down
@@ -237,9 +320,9 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						}
 						if (Cur_Panel < 5)
 						{
-							ClearOldSelection(Cur_Panel);
-						 	Cur_Panel++;
-							MakeSelection(Cur_Panel);
+							ClearOldSelection(Cur_Panel); //unhighlight
+						 	Cur_Panel++;			   //increment
+							MakeSelection(Cur_Panel);	  //make new panel selection
 						}
 					}
 					if (msgBuffer.buf[1] == 4) //move crosshair left
@@ -260,13 +343,13 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						}
 						if (Cur_Panel > 3)
 						{
-							ClearOldSelection(Cur_Panel);
-							Cur_Panel = Cur_Panel - 3;
-							MakeSelection(Cur_Panel);
+							ClearOldSelection(Cur_Panel); //unhighlight
+							Cur_Panel = Cur_Panel - 3;	  //decrement by 3 to move panel left
+							MakeSelection(Cur_Panel);	  //make new highlight
 						}
 						else if (Cur_Panel == 3)
 						{
-							ClearOldSelection(Cur_Panel);
+							ClearOldSelection(Cur_Panel); //same as above
 							Cur_Panel = 0;
 							MakeSelection(Cur_Panel);
 						}
@@ -276,62 +359,44 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				{
 					if (msgBuffer.buf[1] == 0)
 					{
+						Panel_3_Select(Cur_Panel, VOLUME);//makes a selection of either volume or brightness depending on the panel - must be 0 or 1
+												//0 for volume, 1 for brightness
 					  	if (Cur_Panel == 0)
 						{
-							GLCD_SetTextColor(Green);
-							GLCD_SetBackColor(Black);
-							GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume");
-							P1Selection = 2;
-							GLCD_SetTextColor(Red);
-							GLCD_SetBackColor(Yellow);
-							sprintf(toPr, "%i", VOLUME);
-							GLCD_DisplayString(2,40,0,(unsigned char *)toPr);	
+							P1Selection = 2;//set state machine to volume select 	
 						}
 						else if (Cur_Panel == 1)
 						{
-						  	GLCD_SetTextColor(Blue);
-							GLCD_SetBackColor(Black);
-						    GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
-							P1Selection = 3;
+							P1Selection = 3;//set state machine to brightness select
 						}
 					}
 					else if (msgBuffer.buf[1] == 1)
 					{
-					 	if (Cur_Panel > 0)
+					 	if (Cur_Panel > 0)//if brightness currently hightlighted (Cur_Panel == 1)
 						{
-							Cur_Panel--;
-							GLCD_SetTextColor(Green);
-							GLCD_SetBackColor(Black);
-						    GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
-							GLCD_SetTextColor(Red);
-							GLCD_SetBackColor(Yellow);
-							GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume"); 
+							Cur_Panel--; //make Cur_Panel =0
+							Panel_3_Highlight(Cur_Panel);//send 0 to highlight volume, 1 to highlight the brightness setting
+														//automatically un highlights the other selection 
 						}
 					}
-					else if (msgBuffer.buf[1] == 3)
+					else if (msgBuffer.buf[1] == 3)	//if volume currently highlighted   (Cur_Panel == 0)
 					{
 						if (Cur_Panel < 1)
 						{
-							Cur_Panel++;
-							GLCD_SetTextColor(Green);
-							GLCD_SetBackColor(Black);
-							GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume");
-							GLCD_SetTextColor(Red);
-							GLCD_SetBackColor(Yellow);
-							GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
+							Cur_Panel++;//make Cur_Panel =1
+							Panel_3_Highlight(Cur_Panel);//send 0 to highlight volume, 1 to highlight the brightness setting
+														//automatically un highlights the other selection 
 						}
 					}
 				}
-				else if (P1Selection == 2)
+				else if (P1Selection == 2)//we are currently in volume altering mode
 				{
 				 	if (msgBuffer.buf[1] == 0)
 					{
-					  	GLCD_SetTextColor(Green);
-						GLCD_SetBackColor(Black);
-						sprintf(toPr, "%i", VOLUME);
-						GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
-					  	P1Selection = 0;
-						Cur_Panel = 3;
+						Panel_3_Finish(Cur_Panel, VOLUME); //returns current panel to green and black text
+
+					  	P1Selection = 0;//return state machine to normal
+						Cur_Panel = 3;	 //keep current panel selection
 					}
 					else if (msgBuffer.buf[1] == 1)
 					{
@@ -368,18 +433,16 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				{
 				  	if (msgBuffer.buf[1] == 0)
 					{
-					 	P1Selection = 0;
-						Cur_Panel = 3;
-						GLCD_SetTextColor(Green);
-						GLCD_SetBackColor(Black);
-					    GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
+						Panel_3_Finish(Cur_Panel); //reset text color to green and black
+					 	P1Selection = 0;//return state machine to non-volume/brightness mode
+						Cur_Panel = 3;//keep current panel to 3
 					}
 					else if (msgBuffer.buf[1] == 2)
 					{ 
 					  	if (SLIDER < 10)
 						{
 							SLIDER++;
-							Set_Slider(SLIDER-1, SLIDER);
+							Set_Slider(SLIDER-1, SLIDER);//move slider. first parameter is old position, second is new position
 						}
 					}
 					else if (msgBuffer.buf[1] == 4)
@@ -387,16 +450,15 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					 	if (SLIDER > 0)
 						{
 							SLIDER--;
-							Set_Slider(SLIDER+1, SLIDER);
+							Set_Slider(SLIDER+1, SLIDER);//move slider. first parameter is old position, second is new position
 						}
 					}
 				}
 			}
-			else if (Cur_Page == 1)
+			else if (Cur_Page == 1)//we are currently changing an instrument
 			{
 				if (msgBuffer.buf[1] == 0) //select bit hit
 				{
-					GLCD_Clear(Black);
 					Cur_Page = 2;
 					P2SelectionMultiplier = Cur_Panel;
 					InitPage(2, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
@@ -433,7 +495,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				{
 					
 					if (RorP == 0)
-					{GLCD_Clear(Black);
+					{
 						Cur_Page = 0;
 						if (Cur_Panel == 0)
 							Inst[Cur_Inst].InstrumentID = 0;
@@ -465,7 +527,6 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 							VT_HANDLE_FATAL_ERROR(0);
 						}
 
-						GLCD_Clear(Black);
 						Cur_Page = 3;
 						if (Cur_Panel == 0)
 							RInst[Cur_Inst].InstrumentID = 0;
@@ -510,7 +571,6 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					{
 						if (Cur_Panel == 0)
 						{
-						   	GLCD_Clear(Black);
 							Cur_Page = 0;
 							//P2SelectionMultiplier = Cur_Panel;
 							InitPage(0, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
@@ -518,7 +578,6 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						}
 						else if (Cur_Panel == 1)
 						{
-						  	GLCD_Clear(Black);
 							Cur_Page = 1;
 							RorP = 1;
 							InitPage(1, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
