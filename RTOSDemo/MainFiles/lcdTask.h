@@ -1197,8 +1197,76 @@ void Set_Slider( int old_Pos, int SLIDER )
 		GLCD_PutPixel(303, 52);
 	}
 }
+void Panel_3_Highlight(int highlight)
+{
+ 	if (highlight == 0)
+	{
+		GLCD_SetTextColor(Green);
+		GLCD_SetBackColor(Black);
+		GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
+
+		GLCD_SetTextColor(Red);
+		GLCD_SetBackColor(Yellow);
+		GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume");
+	}
+	else if (highlight == 1)
+	{ 
+	 	GLCD_SetTextColor(Green);
+		GLCD_SetBackColor(Black);
+		GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume");
+
+		GLCD_SetTextColor(Red);
+		GLCD_SetBackColor(Yellow);
+		GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
+	}
+	GLCD_SetTextColor(Green);
+	GLCD_SetBackColor(Black);
+}
+void Panel_3_Select(int selection, int VOLUME)
+{
+	char toPr[20];
+	if (selection == 0)
+	{
+		GLCD_SetTextColor(Green);
+		GLCD_SetBackColor(Black);
+		GLCD_DisplayString(1,35,0,(unsigned char *)"Master Volume");
+		
+		GLCD_SetTextColor(Red);
+		GLCD_SetBackColor(Yellow);
+		sprintf(toPr, "%i", VOLUME);
+		GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+	}
+	else if (selection == 1)
+	{
+		GLCD_SetTextColor(Blue);
+		GLCD_SetBackColor(Black);
+	    GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
+	}
+	GLCD_SetTextColor(Green);
+	GLCD_SetBackColor(Black);
+}
+void Panel_3_Finish(int selection, int VOLUME)
+{
+	char toPr[20];
+ 	if (selection == 0)
+	{
+		GLCD_SetTextColor(Green);
+		GLCD_SetBackColor(Black);
+		sprintf(toPr, "%i", VOLUME);
+		GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+	}
+	else if (selection == 1)
+	{
+		GLCD_SetTextColor(Green);
+		GLCD_SetBackColor(Black);
+	    GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
+	}
+	GLCD_SetTextColor(Green);
+	GLCD_SetBackColor(Black);
+}
 void InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1, InstrumentStruct I2, RepeatingInstrumentStruct R1, RepeatingInstrumentStruct R2, RepeatingInstrumentStruct R3, int Mult)
 {
+	GLCD_Clear(Black);
 	if (pageNum == 0)
 	{
 	 	int a = 0;
