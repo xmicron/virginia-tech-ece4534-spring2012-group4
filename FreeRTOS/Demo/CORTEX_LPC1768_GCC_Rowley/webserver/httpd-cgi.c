@@ -60,9 +60,10 @@ HTTPD_CGI_CALL(net, "net-stats", net_stats);
 HTTPD_CGI_CALL(rtos, "rtos-stats", rtos_stats );
 HTTPD_CGI_CALL(run, "run-time", run_time );
 HTTPD_CGI_CALL(io, "led-io", led_io );
+HTTPD_CGI_CALL(new, "gui-change", gui );
 
 
-static const struct httpd_cgi_call *calls[] = { &file, &tcp, &net, &rtos, &run, &io, NULL };
+static const struct httpd_cgi_call *calls[] = { &file, &tcp, &net, &rtos, &run, &io, &new, NULL };
 
 /*---------------------------------------------------------------------------*/
 static
@@ -259,6 +260,16 @@ extern long lParTestGetLEDState( void );
 
 	return strlen( uip_appdata );
 }
+
+static unsigned short generate_gui_state( void *arg )
+{
+ 	( void ) arg;
+
+	sprintf (uip_appdata, "<input type=\"number\" name=\"INST1\" value=\"0\" min=\"0\" max=\"127\"");
+
+	return strlen (uip_appdata);
+}
+
 /*---------------------------------------------------------------------------*/
 
 extern void vTaskGetRunTimeStats( signed char *pcWriteBuffer );
@@ -292,6 +303,14 @@ static PT_THREAD(led_io(struct httpd_state *s, char *ptr))
   PSOCK_BEGIN(&s->sout);
   ( void ) ptr;
   PSOCK_GENERATOR_SEND(&s->sout, generate_io_state, NULL);
+  PSOCK_END(&s->sout);
+}
+
+static PT_THREAD(gui(struct httpd_state *s, char *ptr))
+{
+  PSOCK_BEGIN(&s->sout);
+  ( void ) ptr;
+  PSOCK_GENERATOR_SEND(&s->sout, generate_gui_state, NULL);
   PSOCK_END(&s->sout);
 }
 

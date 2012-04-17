@@ -92,9 +92,9 @@ InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1,
 #define LCD_EXAMPLE_OP 3
 // If JOYSTICK_MODE ==0, no crosshair joystick, but instead a selection joystick
 // If JOYSTICK_MODE ==1, crosshair mode for the main page (under construction)
-#define JOYSTICK_MODE 1
-// If JOYSTICK_MODE == 0, Insteon disabled
-// If JOYSTICK_MODE == 1, Insteon Enabled
+#define JOYSTICK_MODE 0
+// If INSTEON_MODE == 0, Insteon disabled
+// If INSTEON_MODE == 1, Insteon Enabled
 #define INSTEON_MODE 0
 
 // Set the task up to run every 200 ms
@@ -268,20 +268,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					}
 				 	if (msgBuffer.buf[1] == 1) //move crosshair up
 					{
-						if (INSTEON_MODE == 1)
-						{
-							  //02 61 01 11 00
-							i2cBuffer.buf[0] = 0x11;
-							i2cBuffer.buf[1] = 0x02;
-							i2cBuffer.buf[2] = 0x61;
-							i2cBuffer.buf[3] = 0x01;
-							i2cBuffer.buf[4] = 0x11;
-							i2cBuffer.buf[5] = 0x00;
-	
-							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
-							VT_HANDLE_FATAL_ERROR(0);
-							}
-						}
+						
 						if (Cur_Panel > 0)
 						{
 							ClearOldSelection(Cur_Panel);//unhighlight 
@@ -304,20 +291,6 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					} 
 					if (msgBuffer.buf[1] == 3) //move crosshair down
 					{
-						if (INSTEON_MODE == 1)
-						{
-							//02 61 01 13 00
-							i2cBuffer.buf[0] = 0x11;
-							i2cBuffer.buf[1] = 0x02;
-							i2cBuffer.buf[2] = 0x61;
-							i2cBuffer.buf[3] = 0x01;
-							i2cBuffer.buf[4] = 0x13;
-							i2cBuffer.buf[5] = 0x00;
-	
-							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
-							VT_HANDLE_FATAL_ERROR(0);
-							}
-						}
 						if (Cur_Panel < 5)
 						{
 							ClearOldSelection(Cur_Panel); //unhighlight
@@ -327,20 +300,6 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					}
 					if (msgBuffer.buf[1] == 4) //move crosshair left
 					{
-						if (INSTEON_MODE == 1)
-						{
-							//02 64 01 01
-							i2cBuffer.buf[0] = 0x11;
-							i2cBuffer.buf[1] = 0x02;
-							i2cBuffer.buf[2] = 0x64;
-							i2cBuffer.buf[3] = 0x01;
-							i2cBuffer.buf[4] = 0x01;
-							FlipBit(6);
-	
-							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
-							VT_HANDLE_FATAL_ERROR(0);
-							}
-						}
 						if (Cur_Panel > 3)
 						{
 							ClearOldSelection(Cur_Panel); //unhighlight
@@ -443,6 +402,13 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						{
 							SLIDER++;
 							Set_Slider(SLIDER-1, SLIDER);//move slider. first parameter is old position, second is new position
+
+							i2cBuffer.buf[0] = 0x13;
+							i2cBuffer.buf[1] = (SLIDER*25) + 5;
+	
+							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+							}
 						}
 					}
 					else if (msgBuffer.buf[1] == 4)
@@ -451,8 +417,16 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						{
 							SLIDER--;
 							Set_Slider(SLIDER+1, SLIDER);//move slider. first parameter is old position, second is new position
+
+							i2cBuffer.buf[0] = 0x13;
+							i2cBuffer.buf[1] = (SLIDER*25) + 5;
+	
+							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+							}
 						}
 					}
+
 				}
 			}
 			else if (Cur_Page == 1)//we are currently changing an instrument
