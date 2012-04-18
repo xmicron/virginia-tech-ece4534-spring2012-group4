@@ -257,13 +257,24 @@ extern void vParTestSetLEDState( long lState );
     if( c )
     {
 		/* Turn the FIO1 LED's on or off in accordance with the check box status. */
+		
 		if( strstr( c, "LED0=1" ) != NULL )
 		{
 			vParTestSetLEDState( pdTRUE );
 		}
-		else
+		else if (strstr (c, "LED0=0") != NULL)
 		{
 			vParTestSetLEDState( pdFALSE );
+		}
+		else if (strstr (c, "INST1") != NULL)
+		{
+			FlipBit(2);
+			FlipBit(3);
+		}
+		else if (strstr (c, "INST2") != NULL)
+		{
+			FlipBit(4);
+			FlipBit(5);
 		}
     }
 }

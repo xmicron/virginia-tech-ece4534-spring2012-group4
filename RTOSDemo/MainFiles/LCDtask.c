@@ -392,7 +392,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				{
 				  	if (msgBuffer.buf[1] == 0)
 					{
-						Panel_3_Finish(Cur_Panel); //reset text color to green and black
+//						Panel_3_Finish(Cur_Panel); //reset text color to green and black
 					 	P1Selection = 0;//return state machine to non-volume/brightness mode
 						Cur_Panel = 3;//keep current panel to 3
 					}
