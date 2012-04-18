@@ -183,7 +183,8 @@ static MasterMsgQueue myMasterQueue;
 
 int main( void )
 { 
-	printf("Test");
+	printf("Test Debug Test!");
+	
 	init_syscalls();
 	vtInitLED();// Set up the LED ports and turn them off
 	prvSetupHardware();//setup the hardware

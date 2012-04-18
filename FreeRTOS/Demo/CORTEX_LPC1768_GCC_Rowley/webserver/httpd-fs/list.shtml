@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title>FreeRTOS.org uIP WEB server demo</title>
+  </head>
+  <BODY>
+<font face="arial">
+<a href="index.shtml">Task Stats</a> <b>|</b> <a href="runtime.shtml">Run Time Stats</a> <b>|</b> <a href="stats.shtml">TCP Stats</a> <b>|</b> <a href="tcp.shtml">Connections</a> <b>|</b> <a href="http://www.freertos.org/">FreeRTOS.org Homepage</a> <b>|</b> <a href="io.shtml">IO</a> <b>|</b> <a href="new.shtml">GUI</a> <b>|</b> <a href="list.shtml">Instrument List</a> <b>|</b>
+<br><p>
+<hr>
+<br><p>
+<b>Piano</b><br>
+1 Acoustic Grand Piano<br>
+2 Bright Acoustic Piano<br>
+3 Electric Grand Piano<br>
+4 Honky-tonk Piano<br>
+5 Electric Piano 1<br>
+6 Electric Piano 2<br>
+7 Harpsichord<br>
+8 Clavinet<br>
+<br><b>Chromatic Percussion</b><br>
+9 Celesta<br>
+10 Glockenspiel<br>
+11 Music Box<br>
+12 Vibraphone<br>
+13 Marimba<br>
+14 Xylophone<br>
+15 Tubular Bells<br>
+16 Dulcimer<br>
+<br><b>Organ</b><br>
+17 Drawbar Organ<br>
+18 Percussive Organ<br>
+19 Rock Organ<br>
+20 Church Organ<br>
+21 Reed Organ<br>
+22 Accordion<br>
+23 Harmonica<br>
+24 Tango Accordion<br>
+<br><b>Guitar</b><br>
+25 Acoustic Guitar (nylon)<br>
+26 Acoustic Guitar (steel)<br>
+27 Electric Guitar (jazz)<br>
+28 Electric Guitar (clean)<br>
+29 Electric Guitar (muted)<br>
+30 Overdriven Guitar<br>
+31 Distortion Guitar<br>
+32 Guitar Harmonics<br>
+<br><b>Bass</b><br>
+33 Acoustic Bass<br>
+34 Electric Bass (finger)<br>
+35 Electric Bass (pick)<br>
+36 Fretless Bass<br>
+37 Slap Bass 1<br>
+38 Slap Bass 2<br>
+39 Synth Bass 1<br>
+40 Synth Bass 2<br>
+<br><b>Strings</b><br>
+41 Violin<br>
+42 Viola<br>
+43 Cello<br>
+44 Contrabass<br>
+45 Tremolo Strings<br>
+46 Pizzicato Strings<br>
+47 Orchestral Harp<br>
+48 Timpani<br>
+<br><b>Ensemble</b><br>
+49 String Ensemble 1<br>
+50 String Ensemble 2<br>
+51 Synth Strings 1<br>
+52 Synth Strings 2<br>
+53 Choir Aahs<br>
+54 Voice Oohs<br>
+55 Synth Choir<br>
+56 Orchestra Hit<br>
+<br><b>Brass</b><br>
+57 Trumpet<br><br>
+58 Trombone<br>
+59 Tuba<br>
+60 Muted Trumpet<br>
+61 French Horn<br>
+62 Brass Section<br>
+63 Synth Brass 1<br>
+64 Synth Brass 2<br>
+<br><b>Reed</b><br>
+65 Soprano Sax<br>
+66 Alto Sax<br>
+67 Tenor Sax<br>
+68 Baritone Sax<br>
+69 Oboe<br>
+70 English Horn<br>
+71 Bassoon<br>
+72 Clarinet<br>
+<br><b>Pipe</b><br>
+73 Piccolo<br>
+74 Flute<br>
+75 Recorder<br>
+76 Pan Flute<br>
+77 Blown Bottle<br>
+78 Shakuhachi<br>
+79 Whistle<br>
+80 Ocarina<br>
+<br><b>Synth Lead</b><br>
+81 Lead 1 (square)<br>
+82 Lead 2 (sawtooth)<br>
+83 Lead 3 (calliope)<br>
+84 Lead 4 (chiff)<br>
+85 Lead 5 (charang)<br>
+86 Lead 6 (voice)<br>
+87 Lead 7 (fifths)<br>
+88 Lead 8 (bass + lead)<br>
+<br><b>Synth Pad</b><br>
+89 Pad 1 (new age)<br>
+90 Pad 2 (warm)<br>
+91 Pad 3 (polysynth)<br>
+92 Pad 4 (choir)<br>
+93 Pad 5 (bowed)<br>
+94 Pad 6 (metallic)<br>
+95 Pad 7 (halo)<br>
+96 Pad 8 (sweep)<br>
+<br><b>Synth Effects</b><br>
+97 FX 1 (rain)<br>
+98 FX 2 (soundtrack)<br>
+99 FX 3 (crystal)<br>
+100 FX 4 (atmosphere)<br>
+101 FX 5 (brightness)<br>
+102 FX 6 (goblins)<br>
+103 FX 7 (echoes)<br>
+104 FX 8 (sci-fi)<br>
+<br><b>Ethnic</b><br>
+105 Sitar<br>
+106 Banjo<br>
+107 Shamisen<br>
+108 Koto<br>
+109 Kalimba<br>
+110 Bagpipe<br>
+111 Fiddle<br>
+112 Shanai<br>
+<br><b>Percussive</b><br>
+113 Tinkle Bell<br>
+114 Agogo<br>
+115 Steel Drums<br>
+116 Woodblock<br>
+117 Taiko Drum<br>
+118 Melodic Tom<br>
+119 Synth Drum<br>
+120 Reverse Cymbal<br>
+<br><b>Sound effects</b><br>
+121 Guitar Fret Noise<br>
+122 Breath Noise<br>
+123 Seashore<br>
+124 Bird Tweet<br>
+125 Telephone Ring<br>
+126 Helicopter<br>
+127 Applause<br>
+128 Gunshot<br>
+</pre></font>
+</font>
+</body>
+</html>
+

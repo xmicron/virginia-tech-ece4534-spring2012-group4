@@ -60,10 +60,17 @@ HTTPD_CGI_CALL(net, "net-stats", net_stats);
 HTTPD_CGI_CALL(rtos, "rtos-stats", rtos_stats );
 HTTPD_CGI_CALL(run, "run-time", run_time );
 HTTPD_CGI_CALL(io, "led-io", led_io );
-HTTPD_CGI_CALL(new, "gui-change", gui );
+HTTPD_CGI_CALL(new1, "gui-change1", gui1 );
+HTTPD_CGI_CALL(new2, "gui-change2", gui2 );
+HTTPD_CGI_CALL(new3, "gui-change3", gui3 );
+HTTPD_CGI_CALL(new4, "gui-change4", gui4 );
+HTTPD_CGI_CALL(new5, "gui-change5", gui5 );
+HTTPD_CGI_CALL(new6, "gui-change6", gui6 );
+HTTPD_CGI_CALL(new7, "gui-change7", gui7 );
+HTTPD_CGI_CALL(new8, "gui-change8", gui8 );
 
 
-static const struct httpd_cgi_call *calls[] = { &file, &tcp, &net, &rtos, &run, &io, &new, NULL };
+static const struct httpd_cgi_call *calls[] = { &file, &tcp, &net, &rtos, &run, &io, &new1, &new2, &new3, &new4, &new5, &new6, &new7, &new8, NULL };
 
 /*---------------------------------------------------------------------------*/
 static
@@ -261,11 +268,74 @@ extern long lParTestGetLEDState( void );
 	return strlen( uip_appdata );
 }
 
-static unsigned short generate_gui_state( void *arg )
+static unsigned short generate_gui1_state( void *arg )
 {
  	( void ) arg;
 
-	sprintf (uip_appdata, "<input type=\"number\" name=\"INST1\" value=\"0\" min=\"0\" max=\"127\"");
+	sprintf (uip_appdata, "<input type=\"number\" name=\"INST1\" value=\"0\" min=\"0\" max=\"128\">");
+
+	return strlen (uip_appdata);
+}
+
+static unsigned short generate_gui2_state( void *arg )
+{
+ 	( void ) arg;
+
+	sprintf (uip_appdata, "<input type=\"number\" name=\"INST2\" value=\"0\" min=\"0\" max=\"128\">");
+
+	return strlen (uip_appdata);
+}
+
+static unsigned short generate_gui3_state( void *arg )
+{
+ 	( void ) arg;
+
+	sprintf (uip_appdata, "<input type=\"number\" name=\"VOL\" value=\"100\" min=\"0\" max=\"100\">");
+
+	return strlen (uip_appdata);
+}
+
+static unsigned short generate_gui4_state( void *arg )
+{
+ 	( void ) arg;
+
+	sprintf (uip_appdata, "<input type=\"number\" name=\"LIGHT\" value=\"0\" min=\"0\" max=\"11\">");
+
+	return strlen (uip_appdata);
+}
+
+static unsigned short generate_gui5_state( void *arg )
+{
+ 	( void ) arg;
+
+	sprintf (uip_appdata, "<input type=\"number\" name=\"RINST\" value=\"1\" min=\"1\" max=\"3\">");
+
+	return strlen (uip_appdata);
+}
+
+static unsigned short generate_gui6_state( void *arg )
+{
+ 	( void ) arg;
+
+	sprintf (uip_appdata, "<input type=\"number\" name=\"RINSTNUM\" value=\"0\" min=\"0\" max=\"128\">");
+
+	return strlen (uip_appdata);
+}
+
+static unsigned short generate_gui7_state( void *arg )
+{
+ 	( void ) arg;
+
+	sprintf (uip_appdata, "<select><option value=\"a\">A</option><option value=\"b\">B</option></select>");
+
+	return strlen (uip_appdata);
+}
+
+static unsigned short generate_gui8_state( void *arg )
+{
+ 	( void ) arg;
+
+	sprintf (uip_appdata, "<input type=\"number\" name=\"BPM\" value=\"0\" min=\"0\" max=\"240\">");
 
 	return strlen (uip_appdata);
 }
@@ -306,11 +376,67 @@ static PT_THREAD(led_io(struct httpd_state *s, char *ptr))
   PSOCK_END(&s->sout);
 }
 
-static PT_THREAD(gui(struct httpd_state *s, char *ptr))
+static PT_THREAD(gui1(struct httpd_state *s, char *ptr))
 {
   PSOCK_BEGIN(&s->sout);
   ( void ) ptr;
-  PSOCK_GENERATOR_SEND(&s->sout, generate_gui_state, NULL);
+  PSOCK_GENERATOR_SEND(&s->sout, generate_gui1_state, NULL);
+  PSOCK_END(&s->sout);
+}
+
+static PT_THREAD(gui2(struct httpd_state *s, char *ptr))
+{
+  PSOCK_BEGIN(&s->sout);
+  ( void ) ptr;
+  PSOCK_GENERATOR_SEND(&s->sout, generate_gui2_state, NULL);
+  PSOCK_END(&s->sout);
+}
+
+static PT_THREAD(gui3(struct httpd_state *s, char *ptr))
+{
+  PSOCK_BEGIN(&s->sout);
+  ( void ) ptr;
+  PSOCK_GENERATOR_SEND(&s->sout, generate_gui3_state, NULL);
+  PSOCK_END(&s->sout);
+}
+
+static PT_THREAD(gui4(struct httpd_state *s, char *ptr))
+{
+  PSOCK_BEGIN(&s->sout);
+  ( void ) ptr;
+  PSOCK_GENERATOR_SEND(&s->sout, generate_gui4_state, NULL);
+  PSOCK_END(&s->sout);
+}
+
+static PT_THREAD(gui5(struct httpd_state *s, char *ptr))
+{
+  PSOCK_BEGIN(&s->sout);
+  ( void ) ptr;
+  PSOCK_GENERATOR_SEND(&s->sout, generate_gui5_state, NULL);
+  PSOCK_END(&s->sout);
+}
+
+static PT_THREAD(gui6(struct httpd_state *s, char *ptr))
+{
+  PSOCK_BEGIN(&s->sout);
+  ( void ) ptr;
+  PSOCK_GENERATOR_SEND(&s->sout, generate_gui6_state, NULL);
+  PSOCK_END(&s->sout);
+}
+
+static PT_THREAD(gui7(struct httpd_state *s, char *ptr))
+{
+  PSOCK_BEGIN(&s->sout);
+  ( void ) ptr;
+  PSOCK_GENERATOR_SEND(&s->sout, generate_gui7_state, NULL);
+  PSOCK_END(&s->sout);
+}
+
+static PT_THREAD(gui8(struct httpd_state *s, char *ptr))
+{
+  PSOCK_BEGIN(&s->sout);
+  ( void ) ptr;
+  PSOCK_GENERATOR_SEND(&s->sout, generate_gui8_state, NULL);
   PSOCK_END(&s->sout);
 }
 
