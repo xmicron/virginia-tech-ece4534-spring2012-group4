@@ -353,8 +353,8 @@
       <Focus>0</Focus>
       <ColumnNumber>32</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>483</TopLine>
-      <CurrentLine>494</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/LCDtask.c</PathWithFileName>
       <FilenameWithoutPath>LCDtask.c</FilenameWithoutPath>
@@ -367,8 +367,8 @@
       <Focus>0</Focus>
       <ColumnNumber>110</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>490</TopLine>
-      <CurrentLine>495</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\joystick.c</PathWithFileName>
       <FilenameWithoutPath>joystick.c</FilenameWithoutPath>
@@ -379,10 +379,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>4</ColumnNumber>
+      <ColumnNumber>67</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>130</TopLine>
-      <CurrentLine>132</CurrentLine>
+      <TopLine>119</TopLine>
+      <CurrentLine>125</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\I2C.c</PathWithFileName>
       <FilenameWithoutPath>I2C.c</FilenameWithoutPath>
@@ -393,10 +393,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>33</ColumnNumber>
+      <ColumnNumber>5</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>73</TopLine>
-      <CurrentLine>73</CurrentLine>
+      <TopLine>392</TopLine>
+      <CurrentLine>398</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainThread.c</PathWithFileName>
       <FilenameWithoutPath>MainThread.c</FilenameWithoutPath>
@@ -745,8 +745,8 @@
       <Focus>0</Focus>
       <ColumnNumber>3</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>269</TopLine>
-      <CurrentLine>271</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/uIP_Task.c</PathWithFileName>
       <FilenameWithoutPath>uIP_Task.c</FilenameWithoutPath>
@@ -836,8 +836,8 @@
       <Focus>0</Focus>
       <ColumnNumber>28</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>552</TopLine>
-      <CurrentLine>552</CurrentLine>
+      <TopLine>573</TopLine>
+      <CurrentLine>573</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../vtCode/vtLCD/GLCD_SPI_LPC1700.c</PathWithFileName>
       <FilenameWithoutPath>GLCD_SPI_LPC1700.c</FilenameWithoutPath>
@@ -961,13 +961,13 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>5</ActiveTab>
+      <ActiveTab>6</ActiveTab>
       <Documents>
         <Doc>
-          <Name>../vtCode/vtUtilities.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>128</TopLine>
-          <CurrentLine>130</CurrentLine>
+          <Name>.\MainFiles/LCDtask.c</Name>
+          <ColumnNumber>32</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>1</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/main.c</Name>
@@ -976,58 +976,34 @@
           <CurrentLine>217</CurrentLine>
         </Doc>
         <Doc>
-          <Name>../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/httpd.c</Name>
-          <ColumnNumber>89</ColumnNumber>
-          <TopLine>217</TopLine>
-          <CurrentLine>217</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/httpd-cgi.c</Name>
-          <ColumnNumber>37</ColumnNumber>
-          <TopLine>352</TopLine>
-          <CurrentLine>354</CurrentLine>
-        </Doc>
-        <Doc>
           <Name>.\MainFiles/i2cTemp.c</Name>
           <ColumnNumber>0</ColumnNumber>
           <TopLine>39</TopLine>
           <CurrentLine>41</CurrentLine>
         </Doc>
         <Doc>
-          <Name>.\MainFiles/LCDtask.c</Name>
-          <ColumnNumber>32</ColumnNumber>
-          <TopLine>483</TopLine>
-          <CurrentLine>494</CurrentLine>
-        </Doc>
-        <Doc>
           <Name>.\I2C.c</Name>
-          <ColumnNumber>4</ColumnNumber>
-          <TopLine>130</TopLine>
-          <CurrentLine>132</CurrentLine>
+          <ColumnNumber>67</ColumnNumber>
+          <TopLine>119</TopLine>
+          <CurrentLine>125</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainThread.c</Name>
-          <ColumnNumber>33</ColumnNumber>
-          <TopLine>73</TopLine>
-          <CurrentLine>73</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/emac.c</Name>
-          <ColumnNumber>58</ColumnNumber>
-          <TopLine>571</TopLine>
-          <CurrentLine>571</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/http-strings.c</Name>
-          <ColumnNumber>57</ColumnNumber>
-          <TopLine>88</TopLine>
-          <CurrentLine>90</CurrentLine>
+          <ColumnNumber>5</ColumnNumber>
+          <TopLine>392</TopLine>
+          <CurrentLine>398</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\joystick.c</Name>
           <ColumnNumber>110</ColumnNumber>
-          <TopLine>490</TopLine>
-          <CurrentLine>495</CurrentLine>
+          <TopLine>1</TopLine>
+          <CurrentLine>1</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>../vtCode/vtLCD/GLCD_SPI_LPC1700.c</Name>
+          <ColumnNumber>28</ColumnNumber>
+          <TopLine>573</TopLine>
+          <CurrentLine>573</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

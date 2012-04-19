@@ -80,7 +80,7 @@ static portTASK_FUNCTION( JoystickTask, pvParameters )
 	int count = 0;
 	printf("Start of Joystick thread. Begin for loop.\n");
 
-	vTaskDelay(5000);
+	vTaskDelay(2000);
 
 	for(;;)
 	{
