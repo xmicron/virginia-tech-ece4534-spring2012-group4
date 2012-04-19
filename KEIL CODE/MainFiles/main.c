@@ -200,8 +200,7 @@ int main( void )
     vStartRecursiveMutexTasks(); */
 	//vStartLEDFlashTasks( mainFLASH_TASK_PRIORITY );
 	
-	//Web Server Task
-    xTaskCreate( vuIP_Task, ( signed char * ) "uIP", mainBASIC_WEB_STACK_SIZE, ( void * ) NULL, mainUIP_TASK_PRIORITY, NULL );
+	
 	
 	lcdParams.lcdQ = &myLCDQueue;
 	lcdParams.masterQ = &myMasterQueue;
@@ -226,6 +225,14 @@ int main( void )
 	vStartI2CTask(mainI2CTEMP_TASK_PRIORITY, &I2Cparams);
 	vStartMainThread(tskIDLE_PRIORITY, &MasterParams);
 	vStartJoystickTask(tskIDLE_PRIORITY, &myLCDQueue);
+
+	printf("%i\n", &myLCDQueue);
+
+	vtLCDMsgQueue * d = &myLCDQueue;
+	MasterMsgQueue * e = &myMasterQueue;
+
+	//Web Server Task
+    xTaskCreate( vuIP_Task, ( signed char * ) "uIP", mainBASIC_WEB_STACK_SIZE, &myLCDQueue, mainUIP_TASK_PRIORITY, NULL );
 
 	vTaskStartScheduler();
 
