@@ -491,7 +491,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					else if (RorP == 1)
 					{
 						masterBuffer.length = 5;
-						masterBuffer.buf[0] = 0x0A; //signifies comes from lcd thread Instrument change
+						masterBuffer.buf[0] = 0x0B; //signifies comes from lcd thread Instrument change
 						masterBuffer.buf[1] = Cur_Inst+2;
 						masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
 						masterBuffer.buf[3] = RInst[Cur_Inst].Note;
