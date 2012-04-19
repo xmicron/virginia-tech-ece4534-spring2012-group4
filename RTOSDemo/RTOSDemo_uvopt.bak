@@ -351,10 +351,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>32</ColumnNumber>
+      <ColumnNumber>47</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>483</TopLine>
-      <CurrentLine>494</CurrentLine>
+      <TopLine>815</TopLine>
+      <CurrentLine>822</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/LCDtask.c</PathWithFileName>
       <FilenameWithoutPath>LCDtask.c</FilenameWithoutPath>
@@ -367,7 +367,7 @@
       <Focus>0</Focus>
       <ColumnNumber>110</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>490</TopLine>
+      <TopLine>493</TopLine>
       <CurrentLine>495</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\joystick.c</PathWithFileName>
@@ -717,8 +717,8 @@
       <Focus>0</Focus>
       <ColumnNumber>28</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>1</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/httpd-fs.c</PathWithFileName>
       <FilenameWithoutPath>httpd-fs.c</FilenameWithoutPath>
@@ -745,8 +745,8 @@
       <Focus>0</Focus>
       <ColumnNumber>3</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>269</TopLine>
-      <CurrentLine>271</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/uIP_Task.c</PathWithFileName>
       <FilenameWithoutPath>uIP_Task.c</FilenameWithoutPath>
@@ -787,8 +787,8 @@
       <Focus>0</Focus>
       <ColumnNumber>116</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>406</TopLine>
-      <CurrentLine>406</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../FreeRTOS/Demo/Common/ethernet/uIP/uip-1.0/uip/uip_arp.c</PathWithFileName>
       <FilenameWithoutPath>uip_arp.c</FilenameWithoutPath>
@@ -832,12 +832,17 @@
       <GroupNumber>7</GroupNumber>
       <FileNumber>41</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>28</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>552</TopLine>
-      <CurrentLine>552</CurrentLine>
+<<<<<<< .mine
+      <TopLine>257</TopLine>
+      <CurrentLine>278</CurrentLine>
+=======
+      <TopLine>1022</TopLine>
+      <CurrentLine>1037</CurrentLine>
+>>>>>>> .r82
       <bDave2>0</bDave2>
       <PathWithFileName>../vtCode/vtLCD/GLCD_SPI_LPC1700.c</PathWithFileName>
       <FilenameWithoutPath>GLCD_SPI_LPC1700.c</FilenameWithoutPath>
@@ -956,19 +961,76 @@
     </File>
   </Group>
 
+  <AlienFiles>
+    <PathWithFilename>C:\ARMCode\VTCODE\VTLCD\GLCD.H</PathWithFilename>
+    <TopLine>55</TopLine>
+    <CurrentLine>67</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
   <MDIGroups>
     <Orientation>1</Orientation>
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>5</ActiveTab>
+<<<<<<< .mine
+      <ActiveTab>0</ActiveTab>
+=======
+      <ActiveTab>2</ActiveTab>
+>>>>>>> .r82
       <Documents>
+        <Doc>
+<<<<<<< .mine
+          <Name>../vtCode/vtLCD/GLCD_SPI_LPC1700.c</Name>
+          <ColumnNumber>28</ColumnNumber>
+          <TopLine>257</TopLine>
+          <CurrentLine>278</CurrentLine>
+=======
+          <Name>C:\ARMCode\VTCODE\VTLCD\GLCD.H</Name>
+          <ColumnNumber>73</ColumnNumber>
+          <TopLine>55</TopLine>
+          <CurrentLine>67</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>../vtCode/vtLCD/GLCD_SPI_LPC1700.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>1022</TopLine>
+          <CurrentLine>1037</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\MainFiles/LCDtask.c</Name>
+          <ColumnNumber>47</ColumnNumber>
+          <TopLine>815</TopLine>
+          <CurrentLine>822</CurrentLine>
+        </Doc>
         <Doc>
           <Name>../vtCode/vtUtilities.c</Name>
           <ColumnNumber>0</ColumnNumber>
           <TopLine>128</TopLine>
           <CurrentLine>130</CurrentLine>
+>>>>>>> .r82
         </Doc>
+<<<<<<< .mine
+=======
         <Doc>
           <Name>.\MainFiles/main.c</Name>
           <ColumnNumber>164</ColumnNumber>
@@ -992,12 +1054,6 @@
           <ColumnNumber>0</ColumnNumber>
           <TopLine>39</TopLine>
           <CurrentLine>41</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\MainFiles/LCDtask.c</Name>
-          <ColumnNumber>32</ColumnNumber>
-          <TopLine>483</TopLine>
-          <CurrentLine>494</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\I2C.c</Name>
@@ -1026,9 +1082,10 @@
         <Doc>
           <Name>.\joystick.c</Name>
           <ColumnNumber>110</ColumnNumber>
-          <TopLine>490</TopLine>
+          <TopLine>493</TopLine>
           <CurrentLine>495</CurrentLine>
         </Doc>
+>>>>>>> .r82
       </Documents>
     </MDIGroup>
   </MDIGroups>
