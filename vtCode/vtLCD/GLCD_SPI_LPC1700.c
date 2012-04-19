@@ -281,26 +281,30 @@ static unsigned short rd_dat (void) {
   LCD_CS(1);
 #endif
   SSP_DATA_SETUP_Type dataCfg; 
-  unsigned char tbuf[4];
-  unsigned char rbuf[4];
+  unsigned char tbuf[10];
+  unsigned char rbuf[10];
   unsigned short val = 0;
   LCD_CS(0);
+  int i = 1;
+  for (i = 0; i < 10; i++)
+  {
+  	tbuf[i] = 0;
+	rbuf[i] = 0;
+  }
   tbuf[0] = SPI_START | SPI_RD | SPI_DATA;
-  tbuf[1] = 0x0;
-  tbuf[2] = 0x0;
-  tbuf[3] = 0x0;
   dataCfg.tx_data = tbuf;
   dataCfg.rx_data = rbuf;
-  dataCfg.length = 4;
-  rbuf[0]=33;rbuf[1]=22;rbuf[2]=44;rbuf[3]=55;
+  dataCfg.length = 10;
   SSP_ReadWrite(LPC_SSP1,&dataCfg,SSP_TRANSFER_POLLING);
-  val = rbuf[2];
+
+  val = rbuf[6];
   val = val << 8;
-  val = val + rbuf[3];
+  val = val + rbuf[5];
   LCD_CS(1);
-  if (val == Black)
-  	FlipBit(1);	
-  return (val);
+  unsigned short val2 = 0;
+  for (i = 0; i < 16; i++)
+  	val2 = val2 | (((val & (1 << i))>> i) << (15 - i));  	
+  return (val2);
 }
 
 
@@ -566,7 +570,7 @@ void GLCD_PutPixel (unsigned int x, unsigned int y) {
   wr_dat(TextColor);
 }
 
-unsigned short GLCD_ReadPixelColor (unsigned int x, unsigned int y, unsigned int reg) {
+unsigned short GLCD_ReadPixelColor (unsigned int x, unsigned int y) {
 
 #if (HORIZONTAL == 1)
   wr_reg(0x20, y);
@@ -575,10 +579,7 @@ unsigned short GLCD_ReadPixelColor (unsigned int x, unsigned int y, unsigned int
   wr_reg(0x20, x);
   wr_reg(0x21, y);
 #endif	 
-
-  FlipBit(2);
-  //wr_cmd(0x22);
-  return (rd_reg(reg));
+  return (rd_reg(0x22));
 }
 
 
