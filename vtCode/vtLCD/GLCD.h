@@ -24,7 +24,7 @@
 /* GLCD RGB color definitions                                                 */
 #define Black           0x0000      /*   0,   0,   0 */
 #define Navy            0x000F      /*   0,   0, 128 */
-#define DarkGreen       0x03E0      /*   0, 128,   0 */
+#define DarkGreen       0x03E0      /*   0, 128,   0 */						 
 #define DarkCyan        0x03EF      /*   0, 128, 128 */
 #define Maroon          0x7800      /* 128,   0,   0 */
 #define Purple          0x780F      /* 128,   0, 128 */
@@ -64,6 +64,6 @@ extern void GLCD_Bargraph       (unsigned int x, unsigned int y, unsigned int w,
 extern void GLCD_Bitmap         (unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned char *bitmap);
 extern void GLCD_Bmp            (unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned char *bmp);
 extern void GLCD_ScrollVertical (unsigned int dy);
-extern unsigned short GLCD_ReadPixelColor (unsigned int x, unsigned int y, unsigned int reg);
+extern unsigned short GLCD_ReadPixelColor (unsigned int x, unsigned int y);
 
 #endif /* _GLCD_H */

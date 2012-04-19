@@ -1436,5 +1436,7 @@ void InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1, Instrume
 	}
 }
 
+unsigned short invertColor(unsigned short origColor){return !origColor;}
+
 
 #endif

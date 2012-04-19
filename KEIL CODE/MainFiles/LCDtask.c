@@ -92,7 +92,7 @@ InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1,
 #define LCD_EXAMPLE_OP 3
 // If JOYSTICK_MODE ==0, no crosshair joystick, but instead a selection joystick
 // If JOYSTICK_MODE ==1, crosshair mode for the main page (under construction)
-#define JOYSTICK_MODE 0
+#define JOYSTICK_MODE 1
 // If INSTEON_MODE == 0, Insteon disabled
 // If INSTEON_MODE == 1, Insteon Enabled
 #define INSTEON_MODE 0
@@ -755,11 +755,12 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
    #elif JOYSTICK_MODE==1 //shawn's code goes here
 		
 		GLCD_SetTextColor(Black);
+		unsigned short color;
 		//Starting code for handling the crosshair.
 		if (msgBuffer.buf[1] == 0) //select bit hit
 		{
 
-		}
+		}																	
 		if (msgBuffer.buf[1] == 1) //move crosshair up
 		{
 			GLCD_PutPixel(Cursor.x, Cursor.y-2);
@@ -827,9 +828,23 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		GLCD_PutPixel(Cursor.x-1, Cursor.y);
 		GLCD_PutPixel(Cursor.x+1, Cursor.y);
 		GLCD_PutPixel(Cursor.x+2, Cursor.y);
-	   	
-		GLCD_Clear(Blue);
+
+		GLCD_Clear(Green);
 		unsigned short test = GLCD_ReadPixelColor(0,0);
+		unsigned short invert = invertColor(test);
+		GLCD_SetTextColor(invert);
+		int x;
+		for(x=0;x<320;x++)
+		{
+		 	GLCD_PutPixel(x,50);
+			GLCD_PutPixel(x,51);
+			GLCD_PutPixel(x,52);
+			GLCD_PutPixel(x,53);
+			GLCD_PutPixel(x,54);
+			GLCD_PutPixel(x,55);
+			GLCD_PutPixel(x,56);
+		}
+	   /*	
 		unsigned char b[16];
 		b[0] = (test & 0x8000) >> 15;
 		b[1] = (test & 0x4000) >> 14;
@@ -855,7 +870,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		}
 		   
 		//GLCD_DisplayChar(7,5,0,b[1]);
-		
+		*/
 	   /*
 		GLCD_Clear(White);
 		unsigned short temp = GLCD_ReadPixelColor(50, 50);
