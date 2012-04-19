@@ -299,7 +299,7 @@ static unsigned short generate_gui4_state( void *arg )
 {
  	( void ) arg;
 
-	sprintf (uip_appdata, "<input type=\"number\" name=\"LIGHT\" value=\"0\" min=\"0\" max=\"11\">");
+	sprintf (uip_appdata, "<input type=\"number\" name=\"LIGHT\" value=\"0\" min=\"0\" max=\"10\">");
 
 	return strlen (uip_appdata);
 }
@@ -326,7 +326,7 @@ static unsigned short generate_gui7_state( void *arg )
 {
  	( void ) arg;
 
-	sprintf (uip_appdata, "<select><option value=\"a\">A</option><option value=\"b\">B</option></select>");
+	sprintf (uip_appdata, "<input type=\"radio\" name=\"note\" value=\"a\" checked/> A<br /><input type=\"radio\" name=\"note\" value=\"b\" /> B<br /><input type=\"radio\" name=\"note\" value=\"c\" /> C<br /><input type=\"radio\" name=\"note\" value=\"d\" /> D<br /><input type=\"radio\" name=\"note\" value=\"e\" /> E<br /><input type=\"radio\" name=\"note\" value=\"f\" /> F<br /><input type=\"radio\" name=\"note\" value=\"g\" /> G<br />");
 
 	return strlen (uip_appdata);
 }
@@ -335,7 +335,7 @@ static unsigned short generate_gui8_state( void *arg )
 {
  	( void ) arg;
 
-	sprintf (uip_appdata, "<input type=\"number\" name=\"BPM\" value=\"0\" min=\"0\" max=\"240\">");
+	sprintf (uip_appdata, "<input type=\"number\" name=\"BPM\" value=\"60\" min=\"0\" max=\"240\">");
 
 	return strlen (uip_appdata);
 }

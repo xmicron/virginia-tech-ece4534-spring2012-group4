@@ -70,6 +70,9 @@
 #include "EthDev_LPC17xx.h"
 #include "EthDev.h"
 #include "ParTest.h"
+#include "messagequeues.h"
+
+static vtLCDMsgQueue *ptrToLCDQueue;
 
 /*-----------------------------------------------------------*/
 
@@ -114,14 +117,20 @@ clock_time_t clock_time( void )
 }
 /*-----------------------------------------------------------*/
 
-void vuIP_Task( void *pvParameters )
+void vuIP_Task( vtLCDMsgQueue *pvParameters )
 {
 portBASE_TYPE i;
 uip_ipaddr_t xIPAddr;
 struct timer periodic_timer, arp_timer;
 extern void ( vEMAC_ISR_Wrapper )( void );
 
-	( void ) pvParameters;
+FlipBit(2);
+
+
+
+ptrToLCDQueue = (vtLCDMsgQueue*) pvParameters;
+
+	//( void ) pvParameters;
 
 	/* Initialise the uIP stack. */
 	timer_set( &periodic_timer, configTICK_RATE_HZ / 2 );
@@ -251,6 +260,8 @@ void vApplicationProcessFormInput( char *pcInputString )
 char *c;
 extern void vParTestSetLEDState( long lState );
 
+vtLCDMsg msgBuffer;
+
 	/* Process the form input sent by the IO page of the served HTML. */
 
 	c = strstr( pcInputString, "?" );
@@ -268,13 +279,74 @@ extern void vParTestSetLEDState( long lState );
 		}
 		else if (strstr (c, "INST1") != NULL)
 		{
-			FlipBit(2);
-			FlipBit(3);
+			c = strstr (c, "=");
+			FlipBit(1);
+			msgBuffer.length = 3;
+			msgBuffer.buf[0] = 0x77;
+			msgBuffer.buf[1] = 0x00;
+			c++;
+			msgBuffer.buf[2] = atoi(c);
+
+			if (xQueueSend( ptrToLCDQueue->inQ,(void *) (&msgBuffer),portMAX_DELAY) != pdTRUE) {  
+				VT_HANDLE_FATAL_ERROR(0);
+			}
 		}
 		else if (strstr (c, "INST2") != NULL)
 		{
+			c = strstr (c, "=");
+			FlipBit(2);
+			msgBuffer.length = 3;
+			msgBuffer.buf[0] = 0x77;
+			msgBuffer.buf[1] = 0x01;
+			c++;
+			msgBuffer.buf[2] = atoi(c);
+
+			if (xQueueSend( ptrToLCDQueue->inQ,(void *) (&msgBuffer),portMAX_DELAY) != pdTRUE) {  
+				VT_HANDLE_FATAL_ERROR(0);
+			}
+		}
+
+		else if (strstr (c, "VOL") != NULL)
+		{
+			c = strstr (c, "=");
+			FlipBit(3);
+			msgBuffer.length = 3;
+			msgBuffer.buf[0] = 0x77;
+			msgBuffer.buf[1] = 0x02;
+			c++;
+			msgBuffer.buf[2] = atoi(c);
+
+			if (xQueueSend( ptrToLCDQueue->inQ,(void *) (&msgBuffer),portMAX_DELAY) != pdTRUE) {  
+				VT_HANDLE_FATAL_ERROR(0);
+			}
+		}
+		else if (strstr (c, "LIGHT") != NULL)
+		{
+			c = strstr (c, "=");
 			FlipBit(4);
+			msgBuffer.length = 3;
+			msgBuffer.buf[0] = 0x77;
+			msgBuffer.buf[1] = 0x03;
+			c++;
+			msgBuffer.buf[2] = atoi(c);
+
+			if (xQueueSend( ptrToLCDQueue->inQ,(void *) (&msgBuffer),portMAX_DELAY) != pdTRUE) {  
+				VT_HANDLE_FATAL_ERROR(0);
+			}
+		}
+		else if (strstr (c, "RINST") != NULL)
+		{
+			c = strstr (c, "RINST");
 			FlipBit(5);
+			msgBuffer.length = 3;
+			msgBuffer.buf[0] = 0x78;
+			msgBuffer.buf[1] = 0x01;
+			c++;
+			msgBuffer.buf[2] = atoi(c);
+
+			if (xQueueSend( ptrToLCDQueue->inQ,(void *) (&msgBuffer),portMAX_DELAY) != pdTRUE) {  
+				VT_HANDLE_FATAL_ERROR(0);
+			}
 		}
     }
 }

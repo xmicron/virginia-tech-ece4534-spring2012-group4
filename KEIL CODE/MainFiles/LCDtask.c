@@ -223,11 +223,17 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		{
 			VT_HANDLE_FATAL_ERROR(0);
 		}
+
+		if (msgBuffer.buf[0] == 0x77)
+		{
+		 	printf ("LCDThread: We Got a message from uIP!!SEXI TIME  %i\n", msgBuffer.buf[2]);
+			FlipBit(0);
+		}
 		
 
    #if JOYSTICK_MODE==0 // Joey's mode for the hightlight joystick function.
 		
-		if (msgBuffer.buf[0] = 0x11) //joystick message from the joystick thread
+		if (msgBuffer.buf[0] == 0x11) //joystick message from the joystick thread
 		{
 			FlipBit(0);
 			if (Cur_Page == 0)
