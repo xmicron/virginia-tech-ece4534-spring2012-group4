@@ -351,10 +351,10 @@
       <FileType>1</FileType>
       <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>18</ColumnNumber>
+      <ColumnNumber>49</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>828</TopLine>
-      <CurrentLine>832</CurrentLine>
+      <TopLine>221</TopLine>
+      <CurrentLine>221</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/LCDtask.c</PathWithFileName>
       <FilenameWithoutPath>LCDtask.c</FilenameWithoutPath>
@@ -393,10 +393,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>5</ColumnNumber>
+      <ColumnNumber>41</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>392</TopLine>
-      <CurrentLine>398</CurrentLine>
+      <TopLine>359</TopLine>
+      <CurrentLine>359</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainThread.c</PathWithFileName>
       <FilenameWithoutPath>MainThread.c</FilenameWithoutPath>
@@ -743,10 +743,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>3</ColumnNumber>
+      <ColumnNumber>27</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>1</CurrentLine>
+      <TopLine>328</TopLine>
+      <CurrentLine>343</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/uIP_Task.c</PathWithFileName>
       <FilenameWithoutPath>uIP_Task.c</FilenameWithoutPath>
@@ -982,38 +982,12 @@
     </WindowPosition>
   </AlienFiles>
 
-  <AlienFiles>
-    <PathWithFilename>C:\ARMCode\KEIL CODE\MAINFILES\LCDTASK.H</PathWithFilename>
-    <TopLine>1436</TopLine>
-    <CurrentLine>1439</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
   <MDIGroups>
     <Orientation>1</Orientation>
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>8</ActiveTab>
+      <ActiveTab>1</ActiveTab>
       <Documents>
         <Doc>
           <Name>../vtCode/vtLCD/GLCD_SPI_LPC1700.c</Name>
@@ -1023,9 +997,9 @@
         </Doc>
         <Doc>
           <Name>.\MainFiles/LCDtask.c</Name>
-          <ColumnNumber>18</ColumnNumber>
-          <TopLine>828</TopLine>
-          <CurrentLine>832</CurrentLine>
+          <ColumnNumber>49</ColumnNumber>
+          <TopLine>221</TopLine>
+          <CurrentLine>221</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/main.c</Name>
@@ -1047,9 +1021,9 @@
         </Doc>
         <Doc>
           <Name>.\MainThread.c</Name>
-          <ColumnNumber>5</ColumnNumber>
-          <TopLine>392</TopLine>
-          <CurrentLine>398</CurrentLine>
+          <ColumnNumber>41</ColumnNumber>
+          <TopLine>359</TopLine>
+          <CurrentLine>359</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\joystick.c</Name>
@@ -1064,10 +1038,10 @@
           <CurrentLine>27</CurrentLine>
         </Doc>
         <Doc>
-          <Name>C:\ARMCode\KEIL CODE\MAINFILES\LCDTASK.H</Name>
-          <ColumnNumber>52</ColumnNumber>
-          <TopLine>1436</TopLine>
-          <CurrentLine>1439</CurrentLine>
+          <Name>../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/uIP_Task.c</Name>
+          <ColumnNumber>27</ColumnNumber>
+          <TopLine>328</TopLine>
+          <CurrentLine>343</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

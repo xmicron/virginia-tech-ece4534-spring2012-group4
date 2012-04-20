@@ -336,13 +336,23 @@ vtLCDMsg msgBuffer;
 		}
 		else if (strstr (c, "RINST") != NULL)
 		{
+			char *pch;
 			c = strstr (c, "RINST");
 			FlipBit(5);
-			msgBuffer.length = 3;
+			msgBuffer.length = 5;
 			msgBuffer.buf[0] = 0x78;
-			msgBuffer.buf[1] = 0x01;
-			c++;
-			msgBuffer.buf[2] = atoi(c);
+
+			pch = strtok(c, "&");
+			int x = 1;
+
+			while (pch != NULL)
+			{
+				c = strstr(pch, "=");
+				c++;
+				msgBuffer.buf[x] = atoi(c);
+				pch = strtok(NULL, "&");
+				x++;
+			}
 
 			if (xQueueSend( ptrToLCDQueue->inQ,(void *) (&msgBuffer),portMAX_DELAY) != pdTRUE) {  
 				VT_HANDLE_FATAL_ERROR(0);
