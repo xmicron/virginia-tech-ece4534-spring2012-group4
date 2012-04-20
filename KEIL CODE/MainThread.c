@@ -53,7 +53,7 @@ void vStartMainThread( unsigned portBASE_TYPE uxPriority, MasterParamStruct *par
 static portTASK_FUNCTION( MainThread, pvParameters )
 {
 	portTickType xUpdateRate, xLastUpdateTime;
-	xUpdateRate = 10 / portTICK_RATE_MS;
+	xUpdateRate = 1 / portTICK_RATE_MS;
 
 	MasterParamStruct *temp = pvParameters;
 	MasterMsgQueue *masterQ = temp->masterQ;
@@ -92,9 +92,9 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 
 	for(;;)
 	{
-		if (uxQueueMessagesWaiting(i2cQ->inQ) > 0)
+		if (uxQueueMessagesWaiting(masterQ->inQ) > 0)
 		{
-						if (xQueueReceive(masterQ->inQ,(void *) &masterBuffer,portMAX_DELAY) != pdTRUE) //receive message from message queue
+			if (xQueueReceive(masterQ->inQ,(void *) &masterBuffer,portMAX_DELAY) != pdTRUE) //receive message from message queue
 			{
 				VT_HANDLE_FATAL_ERROR(0);
 			}
@@ -440,11 +440,11 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 		
 		if (RTimer > 999999)
 		{
-		  	RTimer = 25;
+		  	RTimer = 250;
 
 			for (p = 0; p < 3; p++)
 			{
-			 	RInst[p].lastTimer = 25 - (1000000 - RInst[p].lastTimer);
+			 	RInst[p].lastTimer = 250 - (1000000 - RInst[p].lastTimer);
 			}
 		}
 		else
