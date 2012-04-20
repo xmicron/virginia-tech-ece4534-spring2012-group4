@@ -141,6 +141,9 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 					InstSendValue[7] = 0x11;
 					InstSendValue[8] = i2cBuffer.buf[1];
 
+					if (i2cBuffer.buf[1] == 8)
+						FlipBit(3);
+
 					if (vtI2CEnQ(devPtr,0x00,0x4F,9,InstSendValue,0) != pdTRUE) {
 						VT_HANDLE_FATAL_ERROR(0);
 					}

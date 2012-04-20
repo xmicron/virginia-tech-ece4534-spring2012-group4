@@ -437,6 +437,32 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 			 	RInst[p].lastTimer = RTimer;
 
 				printf("MainThread. Constructing MIDI message for Repeating Instrument %i at time %i.\n", p, RTimer * 10);
+
+				i2cBuffer.buf[0] = 0x4;
+				i2cBuffer.buf[1] = 0x90 + p + 2;
+
+				if (RInst[p].Note == 1)
+					i2cBuffer.buf[2] = 60;
+				else if (RInst[p].Note == 2)
+					i2cBuffer.buf[2] = 62;
+				else if (RInst[p].Note == 3)
+					i2cBuffer.buf[2] = 64;
+				else if (RInst[p].Note == 4)
+					i2cBuffer.buf[2] = 65;
+				else if (RInst[p].Note == 5)
+					i2cBuffer.buf[2] = 67;
+				else if (RInst[p].Note == 6)
+					i2cBuffer.buf[2] = 69;
+				else if (RInst[p].Note == 7)
+					i2cBuffer.buf[2] = 71;
+				else if (RInst[p].Note == 8)
+					i2cBuffer.buf[2] = 72;
+
+				i2cBuffer.buf[3] = 100;
+				
+				if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+					VT_HANDLE_FATAL_ERROR(0);
+				}
 			}
 		}
 		

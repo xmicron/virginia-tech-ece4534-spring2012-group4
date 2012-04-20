@@ -339,11 +339,13 @@ vtLCDMsg msgBuffer;
 			char *pch;
 			c = strstr (c, "RINST");
 			FlipBit(5);
-			msgBuffer.length = 5;
-			msgBuffer.buf[0] = 0x78;
+			msgBuffer.length = 6;
+			msgBuffer.buf[0] = 0x77;
+			msgBuffer.buf[1] = 0x04;
+			
 
 			pch = strtok(c, "&");
-			int x = 1;
+			int x = 2;
 
 			while (pch != NULL)
 			{

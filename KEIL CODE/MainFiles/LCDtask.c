@@ -92,7 +92,7 @@ InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1,
 #define LCD_EXAMPLE_OP 3
 // If JOYSTICK_MODE ==0, no crosshair joystick, but instead a selection joystick
 // If JOYSTICK_MODE ==1, crosshair mode for the main page (under construction)
-#define JOYSTICK_MODE 1
+#define JOYSTICK_MODE 0
 // If INSTEON_MODE == 0, Insteon disabled
 // If INSTEON_MODE == 1, Insteon Enabled
 #define INSTEON_MODE 0
@@ -228,48 +228,238 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		{
 		 	if (msgBuffer.buf[1] == 0x00)//Change Instrument 1
 			{
+				GLCD_SetTextColor(Black);
+				if (Cur_Page == 0)
+				{
+					GLCD_DisplayString(9,31,0,(unsigned char *)"Player Instrument 1");
+					GLCD_DisplayString(10,32,0,(unsigned char *)ReturnInstrumentLabel(Inst[0].InstrumentID));
+				}
 				Inst[0].InstrumentID = msgBuffer.buf[2];
+				GLCD_SetTextColor(Green);
+				if (Cur_Page == 0)
+				{
+					GLCD_DisplayString(9,31,0,(unsigned char *)"Player Instrument 1");
+					GLCD_DisplayString(10,32,0,(unsigned char *)ReturnInstrumentLabel(Inst[0].InstrumentID));
+				}
 
-				i2cBuffer.length = 3;
-				i2cBuffer.buf[0] = 0xC0;
-				i2cBuffer.buf[2] = msgBuffer.buf[2];
-				i2cBuffer.buf[1] = 0x00;
+				masterBuffer.length = 3;
+				masterBuffer.buf[0] = 0x0A;
+				masterBuffer.buf[1] = 0;
+				masterBuffer.buf[2] = Inst[0].InstrumentID;
 	
-				if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+				if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
 					VT_HANDLE_FATAL_ERROR(0);
 				}
 			}
 
-			if (msgBuffer.buf[1] == 0x01)//Change Instrument 2
+			else if (msgBuffer.buf[1] == 0x01)//Change Instrument 2
 			{
+				GLCD_SetTextColor(Black);
+				if (Cur_Page == 0)
+				{
+					GLCD_DisplayString(20,31,0,(unsigned char *)"Player Instrument 2");
+					GLCD_DisplayString(21,32,0,(unsigned char *)ReturnInstrumentLabel(Inst[1].InstrumentID));
+				}
 				Inst[1].InstrumentID = msgBuffer.buf[2];
+				GLCD_SetTextColor(Green);
+				if (Cur_Page == 0)
+				{
+					GLCD_DisplayString(20,31,0,(unsigned char *)"Player Instrument 2");
+					GLCD_DisplayString(21,32,0,(unsigned char *)ReturnInstrumentLabel(Inst[1].InstrumentID));
+				}
 
-				i2cBuffer.length = 3;
-				i2cBuffer.buf[0] = 0xC1;
-				i2cBuffer.buf[2] = msgBuffer.buf[2];
-				i2cBuffer.buf[1] = 0x00;
+				masterBuffer.length = 4;
+				masterBuffer.buf[0] = 0x0A;
+				masterBuffer.buf[1] = 1;
+				masterBuffer.buf[2] = Inst[1].InstrumentID;
 	
-				if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+				if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
 					VT_HANDLE_FATAL_ERROR(0);
 				}
 			}
 
-			if (msgBuffer.buf[1] == 0x02)//Change Volume
+			else if (msgBuffer.buf[1] == 0x02)//Change Volume
 			{
 
 			}
-
-			if (msgBuffer.buf[1] == 0x03)//Change Lighting
+			else if (msgBuffer.buf[1] == 0x03)//Change Lighting
 			{
 				i2cBuffer.buf[0] = 0x13;
-				i2cBuffer.buf[1] = msgBuffer.buf[2];
+				i2cBuffer.buf[1] = msgBuffer.buf[2] *25;
 
 				Set_Slider(SLIDER, msgBuffer.buf[2]);
+				SLIDER = msgBuffer.buf[2];
 
 				if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
-				VT_HANDLE_FATAL_ERROR(0);
+					VT_HANDLE_FATAL_ERROR(0);
 				}
 			}
+			else if (msgBuffer.buf[1] == 0x04)
+			{
+			 	if (msgBuffer.buf[2] == 1)
+				{
+					GLCD_SetTextColor(Black);
+					if (Cur_Page == 0)
+					{
+						GLCD_DisplayString(2,5,0,(unsigned char *)"Inst: ");
+						GLCD_DisplayString(2,11,0,(unsigned char *)ReturnInstrumentLabel(RInst[0].InstrumentID));
+						GLCD_DisplayString(3,5,0,(unsigned char *)"Note: ");
+						GLCD_DisplayString(3,11,0,(unsigned char *)ReturnNoteLabel(RInst[0].Note));
+						sprintf(toPr, "BPM: %i", RInst[0].BPM);
+						GLCD_DisplayString(4,5,0,(unsigned char *)toPr);
+					}
+					else if (Cur_Page == 3)
+					{
+						GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
+						GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(RInst[0].InstrumentID));
+						GLCD_DisplayString(4,2,0,(unsigned char *)"Note: ");
+						GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(RInst[0].Note));
+						sprintf(toPr, "BPM: %i", RInst[0].BPM);
+						GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+					}
+				 	RInst[0].InstrumentID = msgBuffer.buf[3];
+					RInst[0].Note = msgBuffer.buf[4];
+					RInst[0].BPM = msgBuffer.buf[5];
+					GLCD_SetTextColor(Green);
+					if (Cur_Page == 0)
+					{
+						GLCD_DisplayString(2,5,0,(unsigned char *)"Inst: ");
+						GLCD_DisplayString(2,11,0,(unsigned char *)ReturnInstrumentLabel(RInst[0].InstrumentID));
+						GLCD_DisplayString(3,5,0,(unsigned char *)"Note: ");
+						GLCD_DisplayString(3,11,0,(unsigned char *)ReturnNoteLabel(RInst[0].Note));
+						sprintf(toPr, "BPM: %i", RInst[0].BPM);
+						GLCD_DisplayString(4,5,0,(unsigned char *)toPr);
+					}
+					else if (Cur_Page == 3)
+					{
+						GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
+						GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(RInst[0].InstrumentID));
+						GLCD_DisplayString(4,2,0,(unsigned char *)"Note: ");
+						GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(RInst[0].Note));
+						sprintf(toPr, "BPM: %i", RInst[0].BPM);
+						GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+					}
+					masterBuffer.length = 5;
+					masterBuffer.buf[0] = 0x0B;
+					masterBuffer.buf[1] = 0;
+					masterBuffer.buf[2] = RInst[0].InstrumentID;
+					masterBuffer.buf[3] = RInst[0].Note;
+					masterBuffer.buf[4] = RInst[0].BPM;
+		
+					if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
+				}
+				else if (msgBuffer.buf[2] == 2)
+				{
+					GLCD_SetTextColor(Black);
+					if (Cur_Page == 0)
+					{
+						GLCD_DisplayString(12,5,0,(unsigned char *)"Inst: ");
+						GLCD_DisplayString(12,11,0,(unsigned char *)ReturnInstrumentLabel(RInst[1].InstrumentID));
+						GLCD_DisplayString(13,5,0,(unsigned char *)"Note: ");
+						GLCD_DisplayString(13,11,0,(unsigned char *)ReturnNoteLabel(RInst[1].Note));
+						sprintf(toPr, "BPM: %i", RInst[1].BPM);
+						GLCD_DisplayString(14,5,0,(unsigned char *)toPr);
+					}
+					else if (Cur_Page == 3)
+					{
+						GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
+						GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(RInst[1].InstrumentID));
+						GLCD_DisplayString(4,2,0,(unsigned char *)"Note: ");
+						GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(RInst[1].Note));
+						sprintf(toPr, "BPM: %i", RInst[1].BPM);
+						GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+					}
+					RInst[1].InstrumentID = msgBuffer.buf[3];
+					RInst[1].Note = msgBuffer.buf[4];
+					RInst[1].BPM = msgBuffer.buf[5];
+					GLCD_SetTextColor(Green);
+					if (Cur_Page == 0)
+					{
+						GLCD_DisplayString(12,5,0,(unsigned char *)"Inst: ");
+						GLCD_DisplayString(12,11,0,(unsigned char *)ReturnInstrumentLabel(RInst[1].InstrumentID));
+						GLCD_DisplayString(13,5,0,(unsigned char *)"Note: ");
+						GLCD_DisplayString(13,11,0,(unsigned char *)ReturnNoteLabel(RInst[1].Note));
+						sprintf(toPr, "BPM: %i", RInst[1].BPM);
+						GLCD_DisplayString(14,5,0,(unsigned char *)toPr);
+					}
+					else if (Cur_Page == 3)
+					{
+						GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
+						GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(RInst[1].InstrumentID));
+						GLCD_DisplayString(4,2,0,(unsigned char *)"Note: ");
+						GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(RInst[1].Note));
+						sprintf(toPr, "BPM: %i", RInst[1].BPM);
+						GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+					}
+					masterBuffer.length = 5;
+					masterBuffer.buf[0] = 0x0B;
+					masterBuffer.buf[1] = 1;
+					masterBuffer.buf[2] = RInst[1].InstrumentID;
+					masterBuffer.buf[3] = RInst[1].Note;
+					masterBuffer.buf[4] = RInst[1].BPM;
+		
+					if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
+				}
+				else if (msgBuffer.buf[2] == 3)
+				{
+					GLCD_SetTextColor(Black);
+					if (Cur_Page == 0)
+					{
+						GLCD_DisplayString(22,5,0,(unsigned char *)"Inst: ");
+						GLCD_DisplayString(22,11,0,(unsigned char *)ReturnInstrumentLabel(RInst[2].InstrumentID));
+						GLCD_DisplayString(23,5,0,(unsigned char *)"Note: ");
+						GLCD_DisplayString(23,11,0,(unsigned char *)ReturnNoteLabel(RInst[2].Note));
+						sprintf(toPr, "BPM: %i", RInst[2].BPM);
+						GLCD_DisplayString(24,5,0,(unsigned char *)toPr);
+					}
+					else if (Cur_Page == 3)
+					{
+						GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
+						GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(RInst[2].InstrumentID));
+						GLCD_DisplayString(4,2,0,(unsigned char *)"Note: ");
+						GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(RInst[2].Note));
+						sprintf(toPr, "BPM: %i", RInst[2].BPM);
+						GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+					}
+					RInst[2].InstrumentID = msgBuffer.buf[3];
+					RInst[2].Note = msgBuffer.buf[4];
+					RInst[2].BPM = msgBuffer.buf[5];
+					GLCD_SetTextColor(Green);
+					if (Cur_Page == 0)
+					{
+						GLCD_DisplayString(22,5,0,(unsigned char *)"Inst: ");
+						GLCD_DisplayString(22,11,0,(unsigned char *)ReturnInstrumentLabel(RInst[2].InstrumentID));
+						GLCD_DisplayString(23,5,0,(unsigned char *)"Note: ");
+						GLCD_DisplayString(23,11,0,(unsigned char *)ReturnNoteLabel(RInst[2].Note));
+						sprintf(toPr, "BPM: %i", RInst[2].BPM);
+						GLCD_DisplayString(24,5,0,(unsigned char *)toPr);
+					}
+					else if (Cur_Page == 3)
+					{
+						GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
+						GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(RInst[2].InstrumentID));
+						GLCD_DisplayString(4,2,0,(unsigned char *)"Note: ");
+						GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(RInst[2].Note));
+						sprintf(toPr, "BPM: %i", RInst[2].BPM);
+						GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+					}
+					masterBuffer.length = 5;
+					masterBuffer.buf[0] = 0x0B;
+					masterBuffer.buf[1] = 2;
+					masterBuffer.buf[2] = RInst[2].InstrumentID;
+					masterBuffer.buf[3] = RInst[2].Note;
+					masterBuffer.buf[4] = RInst[2].BPM;
+		
+					if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
+				}
+			}
+			
 		}
 
 		if (msgBuffer.buf[0] == 0x78)//Update repeating Instrument

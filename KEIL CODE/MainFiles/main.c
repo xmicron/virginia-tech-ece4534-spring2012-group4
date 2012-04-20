@@ -36,6 +36,31 @@
 You should read the note above.
 #endif
 
+/*
+OP CODES for Message Passing 
+
+I2C message passing:
+AA - request from PIC 12 bytes of data
+AF - Sending midi data to the PIC
+0x11 - unknown
+0x13 - Sending Insteon data to the PIC
+
+i2c Thread message passing:
+0x4 - sending midi message to I2C thread
+0x13 - sending insteon message to the I2C thread
+
+lcd Thread message passing:
+0x77 - Sending webserver update to the lcd thread about player instrument change
+0x78 - Sending webserver update to the lcd thread about repeating instrument change
+0x11 - sending joystick message update to the lcd thread
+
+main Thread message passing:
+0x08 - 12 byte message from the PIC
+0x0A - message from the lcd thread to update data about a player instrument
+0x0B or 0x0C - message from the lcd thread to update data about a repeating instrument
+
+*/
+
 
 /* The time between cycles of the 'check' functionality (defined within the
 tick hook). */

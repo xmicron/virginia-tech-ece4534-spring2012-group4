@@ -326,7 +326,7 @@ static unsigned short generate_gui7_state( void *arg )
 {
  	( void ) arg;
 
-	sprintf (uip_appdata, "<input type=\"radio\" name=\"note\" value=\"a\" checked/> A<br /><input type=\"radio\" name=\"note\" value=\"b\" /> B<br /><input type=\"radio\" name=\"note\" value=\"c\" /> C<br /><input type=\"radio\" name=\"note\" value=\"d\" /> D<br /><input type=\"radio\" name=\"note\" value=\"e\" /> E<br /><input type=\"radio\" name=\"note\" value=\"f\" /> F<br /><input type=\"radio\" name=\"note\" value=\"g\" /> G<br />");
+	sprintf (uip_appdata, "<input type=\"radio\" name=\"note\" value=\"6\" checked/> A<br /><input type=\"radio\" name=\"note\" value=\"7\" /> B<br /><input type=\"radio\" name=\"note\" value=\"8\" /> C<br /><input type=\"radio\" name=\"note\" value=\"2\" /> D<br /><input type=\"radio\" name=\"note\" value=\"3\" /> E<br /><input type=\"radio\" name=\"note\" value=\"4\" /> F<br /><input type=\"radio\" name=\"note\" value=\"5\" /> G<br /><input type=\"radio\" name=\"note\" value=\"1\" /> Low C<br />");
 
 	return strlen (uip_appdata);
 }
