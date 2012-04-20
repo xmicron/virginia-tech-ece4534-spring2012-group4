@@ -387,10 +387,11 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 					printf("MainThread. Received Message to update Player Instrument %i to %i.\n", masterBuffer.buf[1], masterBuffer.buf[2]);
 	
 					/*construct MIDI message to change instrument*/
-					i2cBuffer.length = 3;
-					i2cBuffer.buf[0] = 0xC0 + masterBuffer.buf[1];
-					i2cBuffer.buf[2] = Inst[masterBuffer.buf[1]].InstrumentID;
-					i2cBuffer.buf[1] = 0x00;
+					i2cBuffer.length = 4;
+					i2cBuffer.buf[0] = 0x4;
+					i2cBuffer.buf[1] = 0xC0 + masterBuffer.buf[1];
+					i2cBuffer.buf[3] = Inst[masterBuffer.buf[1]].InstrumentID;
+					i2cBuffer.buf[2] = 0x00;
 		
 					if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
 						VT_HANDLE_FATAL_ERROR(0);
@@ -409,17 +410,18 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 					 	RInst[masterBuffer.buf[1]].lastTimer = RTimer;
 					}
 					
-					/*construct MIDI message to change instrument
+					/*construct MIDI message to change instrument*/
 					
 					//uint8_t MidiSendMsg[3];
-					i2cBuffer.length = 3;
-					i2cBuffer.buf[0] = 0xC0 + masterBuffer.buf[1];
-					i2cBuffer.buf[1] = Inst[masterBuffer.buf[1]].InstrumentID;
+					i2cBuffer.length = 4;
+					i2cBuffer.buf[0] = 0x4;
+					i2cBuffer.buf[1] = 0xC0 + masterBuffer.buf[1] + 2;
+					i2cBuffer.buf[3] = Inst[masterBuffer.buf[1]].InstrumentID;
 					i2cBuffer.buf[2] = 0x00;
 		
 					if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
 						VT_HANDLE_FATAL_ERROR(0);
-					}*/
+					}
 				}
 			}
 		}
