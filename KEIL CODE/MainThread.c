@@ -52,6 +52,9 @@ void vStartMainThread( unsigned portBASE_TYPE uxPriority, MasterParamStruct *par
 // This is the actual task that is run
 static portTASK_FUNCTION( MainThread, pvParameters )
 {
+	portTickType xUpdateRate, xLastUpdateTime;
+	xUpdateRate = 10 / portTICK_RATE_MS;
+
 	MasterParamStruct *temp = pvParameters;
 	MasterMsgQueue *masterQ = temp->masterQ;
 	MasterMsgQueueMsg masterBuffer;
@@ -65,6 +68,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 	InstrumentStruct Inst[2];
 	RepeatingInstrumentStruct RInst[3];
 	int RTimer = 0;
+	xLastUpdateTime = xTaskGetTickCount();
 
 	int i = 0;
 	//channel 1
@@ -420,15 +424,17 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 			}
 		}
 
+		vTaskDelayUntil( &xLastUpdateTime, xUpdateRate );
+
 		int p;
 		
 		for (p = 0; p < 3; p++)
 		{
-		 	if (RInst[p].lastTimer >= RTimer + ((6000 / RInst[p].BPM) + RInst[p].lastTimer))
+		 	if ( RTimer >= RInst[p].lastTimer + (6000 / RInst[p].BPM) && RInst[p].InstrumentID != 0 && RInst[p].BPM != 0 && RInst[p].Note != 0)
 			{
 			 	RInst[p].lastTimer = RTimer;
 
-				printf("MainThread. Constructing MIDI message for R Instrument %i at time %i.\n", p, RTimer * 10);
+				printf("MainThread. Constructing MIDI message for Repeating Instrument %i at time %i.\n", p, RTimer * 10);
 			}
 		}
 		
@@ -442,8 +448,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 			}
 		}
 		else
-			RTimer++;
-		vTaskDelay(10);	
+			RTimer++;	
 	}
 }
 
