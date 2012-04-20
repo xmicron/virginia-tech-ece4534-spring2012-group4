@@ -45,4 +45,9 @@ ObjectFiles/uip_task.o: \
  ../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/clock-arch.h \
  ../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/EthDev_LPC17xx.h \
  ../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/EthDev.h \
- ../FreeRTOS/Demo/Common/include/ParTest.h
+ ../FreeRTOS/Demo/Common/include/ParTest.h messagequeues.h \
+ ../FreeRTOS/Source/include/queue.h ../vtCode/vtI2C/vtI2C.h \
+ ../NXPDrivers/include/lpc17xx_i2c.h ../NXPDrivers/include/lpc_types.h \
+ ../vtCode/vtUtilities.h ../NXPDrivers/include/lpc_types.h \
+ C:/Keil/ARM/INC/NXP/LPC17xx/lpc17xx.h \
+ ../FreeRTOS/Source/include/projDefs.h

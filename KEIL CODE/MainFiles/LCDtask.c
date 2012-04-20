@@ -226,13 +226,61 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 
 		if (msgBuffer.buf[0] == 0x77)
 		{
-		 	printf ("LCDThread: We Got a message from uIP!!SEXI TIME  %i\n", msgBuffer.buf[2]);
-			FlipBit(0);
+		 	if (msgBuffer.buf[1] == 0x00)//Change Instrument 1
+			{
+				Inst[0].InstrumentID = msgBuffer.buf[2];
+
+				i2cBuffer.length = 3;
+				i2cBuffer.buf[0] = 0xC0;
+				i2cBuffer.buf[2] = msgBuffer.buf[2];
+				i2cBuffer.buf[1] = 0x00;
+	
+				if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+					VT_HANDLE_FATAL_ERROR(0);
+				}
+			}
+
+			if (msgBuffer.buf[1] == 0x01)//Change Instrument 2
+			{
+				Inst[1].InstrumentID = msgBuffer.buf[2];
+
+				i2cBuffer.length = 3;
+				i2cBuffer.buf[0] = 0xC1;
+				i2cBuffer.buf[2] = msgBuffer.buf[2];
+				i2cBuffer.buf[1] = 0x00;
+	
+				if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+					VT_HANDLE_FATAL_ERROR(0);
+				}
+			}
+
+			if (msgBuffer.buf[1] == 0x02)//Change Volume
+			{
+
+			}
+
+			if (msgBuffer.buf[1] == 0x03)//Change Lighting
+			{
+				i2cBuffer.buf[0] = 0x13;
+				i2cBuffer.buf[1] = msgBuffer.buf[2];
+
+				Set_Slider(SLIDER, msgBuffer.buf[2]);
+
+				if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+				VT_HANDLE_FATAL_ERROR(0);
+				}
+			}
+		}
+
+		if (msgBuffer.buf[0] == 0x78)//Update repeating Instrument
+		{
+
 		}
 		
 
    #if JOYSTICK_MODE==0 // Joey's mode for the hightlight joystick function.
 		
+
 		if (msgBuffer.buf[0] == 0x11) //joystick message from the joystick thread
 		{
 			FlipBit(0);
