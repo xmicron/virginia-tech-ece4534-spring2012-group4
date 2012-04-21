@@ -353,8 +353,8 @@
       <Focus>0</Focus>
       <ColumnNumber>49</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>251</TopLine>
-      <CurrentLine>267</CurrentLine>
+      <TopLine>221</TopLine>
+      <CurrentLine>221</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/LCDtask.c</PathWithFileName>
       <FilenameWithoutPath>LCDtask.c</FilenameWithoutPath>
@@ -998,8 +998,8 @@
         <Doc>
           <Name>.\MainFiles/LCDtask.c</Name>
           <ColumnNumber>49</ColumnNumber>
-          <TopLine>251</TopLine>
-          <CurrentLine>267</CurrentLine>
+          <TopLine>221</TopLine>
+          <CurrentLine>221</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/main.c</Name>

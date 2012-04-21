@@ -154,8 +154,6 @@ void main (void)
 	// that should get them.  Although the subroutines are not threads, but
 	// they can be equated with the tasks in your task diagram if you 
 	// structure them properly.
-
-	LATB = 0xFF;
   	while (1) {
 		// Call a routine that blocks until either on the incoming
 		// messages queues has a message (this may put the processor into
@@ -178,8 +176,7 @@ void main (void)
 			}
 		} else {
 			switch (msgtype) {
-				case MSGT_ADC:	{
-									
+				case MSGT_ADC:	{				
 					// Format I2C msg
 					msgbuffer[6] = (timer2Count0 & 0x00FF);
 					msgbuffer[5] = (timer2Count0 & 0xFF00) >> 8;
@@ -230,13 +227,17 @@ void main (void)
 				}
 
 				case MSGT_I2C_DATA: { //this data still needs to be put in a buffer
-					if(msgbuffer[0] == 0xaf)	{
+						TXSTA1bits.TXEN = 1;
+						TXSTA2bits.TXEN = 1;
+						LATB = !LATB;
+						if(msgbuffer[0] == 0xaf)	{
 						//FromMainLow_sendmsg(5, msgtype, msgbuffer);
 						// The code below checks message 'counts' to see if any I2C messages were dropped
 						I2C_RX_MSG_COUNT = msgbuffer[4];
-//						LATB = msgbuffer[4];
-
-
+						
+						FromMainLow_sendmsg(9, msgtype, msgbuffer);						
+						
+/*
 						// Send note data to the MIDI device
 						//while(Busy2USART());
 						putc2USART(msgbuffer[1]);
@@ -246,10 +247,9 @@ void main (void)
 						//while(Busy2USART());
 						Delay1KTCYx(8);		
 						putc2USART(msgbuffer[3]);
-		
+*/
 
 						if(I2C_RX_MSG_COUNT - I2C_RX_MSG_PRECOUNT == 1)	{
-							//LATBbits.LATB1 = !LATBbits.LATB1;
 							if(I2C_RX_MSG_PRECOUNT < 99)	{
 								I2C_RX_MSG_PRECOUNT++;
 							}
@@ -259,28 +259,14 @@ void main (void)
 						}
 						else	{
 							I2C_RX_MSG_PRECOUNT = I2C_RX_MSG_COUNT;
-							//LATBbits.LATB0 = !LATBbits.LATB0;
 						}
 					}
 					
 
 					if (msgbuffer[0] == 0x13)
 					{
-							putc1USART(msgbuffer[1]);
-							while(Busy1USART());
-							putc1USART(msgbuffer[2]);
-							while(Busy1USART());
-							putc1USART(msgbuffer[3]);
-							while(Busy1USART());
-							putc1USART(msgbuffer[4]);
-							while(Busy1USART());
-							putc1USART(msgbuffer[5]);
-							while(Busy1USART());
-							putc1USART(msgbuffer[6]);
-							while(Busy1USART());
-							putc1USART(msgbuffer[7]);
-							while(Busy1USART());
-							putc1USART(msgbuffer[8]);
+						FromMainLow_sendmsg(9, msgtype, msgbuffer);						
+						
 							
 					}
 				};

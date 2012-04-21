@@ -67,3 +67,49 @@ void adc_int_handler()	{
 	PIR1bits.ADIF = 0;								// Reset the ADC interrupt
 
 }
+
+void uart_int_handler()
+{
+	unsigned char uart_msg_buf[9];
+	unsigned char type;
+	int error;
+			
+	FromMainLow_recvmsg(9, &type, (void *) uart_msg_buf);
+
+	// InsteON msg
+	if(uart_msg_buf[0] == 0x13)	{
+
+		TXREG1 = uart_msg_buf[1];
+		while(!TXSTA1bits.TRMT)	{};
+		TXREG1 = uart_msg_buf[2];
+		while(!TXSTA1bits.TRMT)	{};
+		TXREG1 = uart_msg_buf[3];
+		while(!TXSTA1bits.TRMT)	{};
+		TXREG1 = uart_msg_buf[4];
+		while(!TXSTA1bits.TRMT)	{};
+		TXREG1 = uart_msg_buf[5];
+		while(!TXSTA1bits.TRMT)	{};
+		TXREG1 = uart_msg_buf[6];
+		while(!TXSTA1bits.TRMT)	{};
+		TXREG1 = uart_msg_buf[7];
+		while(!TXSTA1bits.TRMT)	{};
+		TXREG1 = uart_msg_buf[8];
+		while(!TXSTA1bits.TRMT)	{};
+
+		//TXSTA1bits.TXEN = 0;
+	}
+
+	else if(uart_msg_buf[0] == 0xaf)	{
+		TXREG2 = uart_msg_buf[1];
+		while(!TXSTA2bits.TRMT)	{};
+		TXREG2 = uart_msg_buf[2];
+		while(!TXSTA2bits.TRMT)	{};
+		TXREG2 = uart_msg_buf[3];
+		while(!TXSTA2bits.TRMT)	{};
+		
+		//TXSTA2bits.TXEN = 0;
+	}
+	TXSTA1bits.TXEN = 0;
+	TXSTA2bits.TXEN = 0;
+
+}

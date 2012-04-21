@@ -96,16 +96,26 @@ void InterruptHandlerHigh ()
       	timer0_int_handler();
     }
 
-	// Check timer 2
 	if (PIR1bits.TMR2IF)	{
 		PIR1bits.TMR2IF = 0;
 		timer2_int_handler();
 	}
 
-	// WE ADDED THIS INTERRUP FXN IN
 	if (PIR1bits.ADIF)	{
 		PIR1bits.ADIF = 0;
 		adc_int_handler();
+	}
+
+	if (PIR1bits.TX1IF)
+	{
+		PIR1bits.TX1IF = 0;
+		uart_int_handler();
+	}
+
+	if (PIR3bits.TX2IF)
+	{
+		PIR3bits.TX2IF = 0;
+		uart_int_handler();		
 	}
 
 
