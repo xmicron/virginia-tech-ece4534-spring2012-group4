@@ -54,6 +54,7 @@ extern void GLCD_Init           (void);
 extern void GLCD_WindowMax      (void);
 extern void GLCD_PutPixel       (unsigned int x, unsigned int y);
 extern void GLCD_SetTextColor   (unsigned short color);
+extern unsigned short GLCD_GetTextColor();
 extern void GLCD_SetBackColor   (unsigned short color);
 extern void GLCD_Clear          (unsigned short color);
 extern void GLCD_DrawChar       (unsigned int x, unsigned int y, unsigned short *c);
