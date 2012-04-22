@@ -229,11 +229,11 @@ void main (void)
 				case MSGT_I2C_DATA: { //this data still needs to be put in a buffer
 						TXSTA1bits.TXEN = 1;
 						TXSTA2bits.TXEN = 1;
-						LATB = !LATB;
+						//LATB = !LATB;
 						if(msgbuffer[0] == 0xaf)	{
 						//FromMainLow_sendmsg(5, msgtype, msgbuffer);
 						// The code below checks message 'counts' to see if any I2C messages were dropped
-						I2C_RX_MSG_COUNT = msgbuffer[4];
+						//I2C_RX_MSG_COUNT = msgbuffer[4];
 						
 						FromMainLow_sendmsg(9, msgtype, msgbuffer);						
 						
