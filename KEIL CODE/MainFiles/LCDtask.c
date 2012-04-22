@@ -645,6 +645,10 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 //						Panel_3_Finish(Cur_Panel); //reset text color to green and black
 					 	P1Selection = 0;//return state machine to non-volume/brightness mode
 						Cur_Panel = 3;//keep current panel to 3
+
+						GLCD_SetTextColor(Green);
+						GLCD_SetBackColor(Black);
+						GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
 					}
 					else if (msgBuffer.buf[1] == 2)
 					{ 
@@ -743,19 +747,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						}
 					}
 					else if (RorP == 1)
-					{
-						masterBuffer.length = 5;
-						masterBuffer.buf[0] = 0x0B; //signifies comes from lcd thread Instrument change
-						masterBuffer.buf[1] = Cur_Inst+2;
-						masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
-						masterBuffer.buf[3] = RInst[Cur_Inst].Note;
-						masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
-	
-						if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
-							VT_HANDLE_FATAL_ERROR(0);
-						}
-
-						Cur_Page = 3;
+					{Cur_Page = 3;
 						if (Cur_Panel == 0)
 							RInst[Cur_Inst].InstrumentID = 0;
 						else
@@ -764,6 +756,17 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						RorP = 1;
 						InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
 						Cur_Panel = 0;
+
+						masterBuffer.length = 5;
+						masterBuffer.buf[0] = 0x0B; //signifies comes from lcd thread Instrument change
+						masterBuffer.buf[1] = Cur_Inst;
+						masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
+						masterBuffer.buf[3] = RInst[Cur_Inst].Note;
+						masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
+	
+						if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+						}
 					}
 				}
 			 	if (msgBuffer.buf[1] == 1) //move crosshair up
@@ -878,7 +881,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	
 						masterBuffer.length = 5;
 						masterBuffer.buf[0] = 0x0B; //signifies comes from lcd thread Note Change
-						masterBuffer.buf[1] = Cur_Inst+2;
+						masterBuffer.buf[1] = Cur_Inst;
 						masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
 						masterBuffer.buf[3] = RInst[Cur_Inst].Note;
 						masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
@@ -889,7 +892,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					}
 				 	if (msgBuffer.buf[1] == 1) //move crosshair up
 					{
-						if (RInst[Cur_Inst].Note < 7)
+						if (RInst[Cur_Inst].Note < 8)
 						{
 							GLCD_SetTextColor(Black);
 							GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
@@ -943,7 +946,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	
 						masterBuffer.length = 5;
 						masterBuffer.buf[0] = 0x0C; //signifies comes from lcd thread BPM change
-						masterBuffer.buf[1] = Cur_Inst+2;
+						masterBuffer.buf[1] = Cur_Inst;
 						masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
 						masterBuffer.buf[3] = RInst[Cur_Inst].Note;
 						masterBuffer.buf[4] = RInst[Cur_Inst].BPM;

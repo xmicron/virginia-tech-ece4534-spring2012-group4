@@ -56,7 +56,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 	//uint8_t InsteonSendValue[12]; //reserved for Insteon send
 	
 	uint8_t MidiSendCount = 1;
-	uint8_t MidiSendValue[5] = {0xAF, 0x80, 0x64, 0x64, 0x00};
+	uint8_t MidiSendValue[9] = {0xAF, 0x80, 0x64, 0x64, 0x00, 0x00, 0x00, 0x00, 0x00};
 	uint8_t InstSendValue[9] = {0x11, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 	int msgcount = 0;
 	
@@ -159,12 +159,49 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 					MidiSendValue[1] = i2cBuffer.buf[1];
 					MidiSendValue[2] = i2cBuffer.buf[2];
 					MidiSendValue[3] = i2cBuffer.buf[3];
+
+					printf("I2C Thread: MIDI MESSAGE: %i, %i, %i\n", MidiSendValue[1], MidiSendValue[2], MidiSendValue[3]);
 					
 					//prepare to send Midi message to I2Cto the PIC
 					if (MidiSendCount > 100)
 						MidiSendCount = 1;
 					MidiSendValue[4] = MidiSendCount;
-				 	if (vtI2CEnQ(devPtr,0x00,0x4F,5,MidiSendValue,0) != pdTRUE) {
+				 	if (vtI2CEnQ(devPtr,0x00,0x4F,9,MidiSendValue,0) != pdTRUE) {
+						VT_HANDLE_FATAL_ERROR(0);
+					}
+			
+					//wait for message from I2C
+					if (vtI2CDeQ(devPtr,0,&MidiReceived[0],&rxLen,&status) != pdTRUE) {
+						//VT_HANDLE_FATAL_ERROR(0);
+					}
+
+					if (i2cBuffer.buf[2] == 60)
+						InstSendValue[2] = 0x01;
+					else if (i2cBuffer.buf[2] == 62)
+						InstSendValue[2] = 0x02;
+					else if (i2cBuffer.buf[2] == 64)
+						InstSendValue[2] = 0x04;
+					else if (i2cBuffer.buf[2] == 65)
+						InstSendValue[2] = 0x08;
+					else if (i2cBuffer.buf[2] == 67)
+						InstSendValue[2] = 0x10;
+					else if (i2cBuffer.buf[2] == 69)
+						InstSendValue[2] = 0x20;
+					else if (i2cBuffer.buf[2] == 71)
+						InstSendValue[2] = 0x40;
+					else if (i2cBuffer.buf[2] == 72)
+						InstSendValue[2] = 0x80;
+
+					InstSendValue[0] = 0x00;
+					InstSendValue[1] = 0x16;
+					//InstSendValue[2] = 0x80; 
+					InstSendValue[3] = 0x00;
+					InstSendValue[4] = 0x00;
+					InstSendValue[5] = 0x00;
+
+					
+
+					if (vtI2CEnQ(devPtr,0x00,0x38,6,InstSendValue,0) != pdTRUE) {
 						VT_HANDLE_FATAL_ERROR(0);
 					}
 			

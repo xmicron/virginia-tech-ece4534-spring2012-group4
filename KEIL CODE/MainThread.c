@@ -88,6 +88,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 	for (i = 0; i < 2; i++)
 	{
 		Inst[i].InstrumentID = 0;
+		Inst[i].lastTimer = 0;
 	}
 
 	for(;;)
@@ -226,6 +227,38 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 					// STATE 1: if the beam has just been struck
 					if (prevRange == 0 && curRange == 1)
 					{
+						//in case the user tries to play the instrument WAAAAAYY too fast
+						if ((RTimer - Inst[0].lastTimer) < 200 && Inst[0].InstrumentID != 0)
+						{
+						 	i2cBuffer.buf[0] = 0x4;
+							i2cBuffer.buf[1] = 0x80;
+			
+							if (Inst[0].lastNote == 1)
+								i2cBuffer.buf[2] = 60;
+							else if (Inst[0].lastNote == 2)
+								i2cBuffer.buf[2] = 62;
+							else if (Inst[0].lastNote == 3)
+								i2cBuffer.buf[2] = 64;
+							else if (Inst[0].lastNote == 4)
+								i2cBuffer.buf[2] = 65;
+							else if (Inst[0].lastNote == 5)
+								i2cBuffer.buf[2] = 67;
+							else if (Inst[0].lastNote == 6)
+								i2cBuffer.buf[2] = 69;
+							else if (Inst[0].lastNote == 7)
+								i2cBuffer.buf[2] = 71;
+							else if (Inst[0].lastNote == 8)
+								i2cBuffer.buf[2] = 72;
+			
+							i2cBuffer.buf[3] = Inst[0].Velocity;
+							
+							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+								VT_HANDLE_FATAL_ERROR(0);
+							}
+							printf ("Main Thread: Told Player instrument %i to turn off\n", 0);
+						}
+						
+						
 						// Set the COUNT variable to designate the number of messages which should be ignored 
 						// before reding the velocity sensor.  In this manner, you can ignore the first (few) invalid
 						// sensor reads as a hand crosses its beam.
@@ -317,6 +350,9 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 						if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
 							VT_HANDLE_FATAL_ERROR(0);
 						}
+						printf("Main Thread: Sent a Player note GO GO\n");
+						Inst[0].lastTimer = RTimer;
+						Inst[0].lastNote = Inst[0].Note;
 						FlipBit(2);
 	
 					}
@@ -340,8 +376,69 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 					//prepare to send to I2C to play an instrument
 				}
 				else if (masterBuffer.buf[11] == 2)	//Instrument 1 Pitch
-				{
+				{	  /*
+					// Check to see if a hand is in the range of a sensor.
+					if (ADCValue > 200) curRange2 = 1;
+					else curRange2 = 0;
 	
+					if (count2 >= 0) count2--;
+	
+					if (prevRange2 == 0 && curRange2 == 1)
+					{
+						prevRange2 = 1;
+						FlipBit(4);
+						count2 = 5;
+					}
+	
+					else if (prevRange2 == 1 && curRange2 == 1)	
+					{
+						if (ADCValue >= 200  && ADCValue < 250)	curADCValue2 = 1; 
+						else if (ADCValue >= 260 && ADCValue < 300)	curADCValue2 = 2;
+						else if (ADCValue >= 310 && ADCValue < 345)	curADCValue2 = 3;
+						else if (ADCValue >= 360 && ADCValue < 390)	curADCValue2 = 4;
+						else if (ADCValue >= 410 && ADCValue < 455)	curADCValue2 = 5;
+						else if (ADCValue >= 470 && ADCValue < 540)	curADCValue2 = 6;
+						else if (ADCValue >= 550 && ADCValue < 645)	curADCValue2 = 7;
+						else if (ADCValue >= 660 && ADCValue < 790) curADCValue2 = 8;
+						else if (ADCValue < 180)	curADCValue2 = 0;
+	
+						ADCDiff = initADCValue2 - curADCValue2;
+						if(ADCDiff < 0)	lcdmsgBuffer.buf[1] = 0;		 	
+						else if(ADCDiff > 0)	lcdmsgBuffer.buf[1] = 1;
+						else	lcdmsgBuffer.buf[1] = 2; 	
+						
+						lcdmsgBuffer.buf[0] = 0x5F;
+						lcdmsgBuffer.length = 2;
+						if (xQueueSend(lcdQ->inQ,(void *) (&lcdmsgBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+						}
+					}
+	
+					else if (prevRange2 == 1 && curRange2 == 0) 
+					{
+						prevRange2 = 0;
+	
+					}
+					if(count2 == 0)	
+					{
+						if (ADCValue >= 200  && ADCValue < 250)	initADCValue2 = 1; 
+						else if (ADCValue >= 260 && ADCValue < 300)	initADCValue2 = 2;
+						else if (ADCValue >= 310 && ADCValue < 345)	initADCValue2 = 3;
+						else if (ADCValue >= 360 && ADCValue < 390)	initADCValue2 = 4;
+						else if (ADCValue >= 410 && ADCValue < 455)	initADCValue2 = 5;
+						else if (ADCValue >= 470 && ADCValue < 540)	initADCValue2 = 6;
+						else if (ADCValue >= 550 && ADCValue < 645)	initADCValue2 = 7;
+						else if (ADCValue >= 660 && ADCValue < 790) initADCValue2 = 8;
+						else if (ADCValue < 180)	initADCValue2 = 0;
+						//initADCValue2 = ADCValue;
+						lcdmsgBuffer.buf[0] = 0x5F;
+						lcdmsgBuffer.buf[1] = initADCValue2;
+						lcdmsgBuffer.length = 2;
+						
+						if (xQueueSend(lcdQ->inQ,(void *) (&lcdmsgBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+						}*
+					}	*/
 				}
 				else if (masterBuffer.buf[11] == 3)	//Instrument 2 Note
 				{
@@ -400,6 +497,34 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 				}
 				else if (masterBuffer.buf[0] == 0x0B || masterBuffer.buf[0] == 0x0C)
 				{
+					if (masterBuffer.buf[2] == 0 || masterBuffer.buf[3] == 0 || masterBuffer.buf[4] == 0)
+					{
+					 	i2cBuffer.buf[0] = 0x4;
+						i2cBuffer.buf[1] = 0x80 + masterBuffer.buf[1] + 2;
+		
+						if (RInst[masterBuffer.buf[1]].Note == 1)
+							i2cBuffer.buf[2] = 60;
+						else if (RInst[masterBuffer.buf[1]].Note == 2)
+							i2cBuffer.buf[2] = 62;
+						else if (RInst[masterBuffer.buf[1]].Note == 3)
+							i2cBuffer.buf[2] = 64;
+						else if (RInst[masterBuffer.buf[1]].Note == 4)
+							i2cBuffer.buf[2] = 65;
+						else if (RInst[masterBuffer.buf[1]].Note == 5)
+							i2cBuffer.buf[2] = 67;
+						else if (RInst[masterBuffer.buf[1]].Note == 6)
+							i2cBuffer.buf[2] = 69;
+						else if (RInst[masterBuffer.buf[1]].Note == 7)
+							i2cBuffer.buf[2] = 71;
+						else if (RInst[masterBuffer.buf[1]].Note == 8)
+							i2cBuffer.buf[2] = 72;
+		
+						i2cBuffer.buf[3] = 100;
+						
+						if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+						}
+					}
 				 	RInst[masterBuffer.buf[1]].InstrumentID = masterBuffer.buf[2];
 					RInst[masterBuffer.buf[1]].Note = masterBuffer.buf[3];
 					RInst[masterBuffer.buf[1]].BPM = masterBuffer.buf[4];
@@ -417,7 +542,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 					i2cBuffer.length = 4;
 					i2cBuffer.buf[0] = 0x4;
 					i2cBuffer.buf[1] = 0xC0 + masterBuffer.buf[1] + 2;
-					i2cBuffer.buf[3] = Inst[masterBuffer.buf[1]].InstrumentID;
+					i2cBuffer.buf[3] = RInst[masterBuffer.buf[1]].InstrumentID;
 					i2cBuffer.buf[2] = 0x00;
 		
 					if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
@@ -428,16 +553,17 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 		}
 
 		vTaskDelayUntil( &xLastUpdateTime, xUpdateRate );
+		//xLastUpdateTime = xTaskGetTickCount();
 
 		int p;
 		
 		for (p = 0; p < 3; p++)
 		{
-		 	if ( RTimer >= RInst[p].lastTimer + (6000 / RInst[p].BPM) && RInst[p].InstrumentID != 0 && RInst[p].BPM != 0 && RInst[p].Note != 0)
+		 	if ( RTimer >= RInst[p].lastTimer + (60000 / RInst[p].BPM) && RInst[p].InstrumentID != 0 && RInst[p].BPM != 0 && RInst[p].Note != 0)
 			{
 			 	RInst[p].lastTimer = RTimer;
 
-				printf("MainThread. Constructing MIDI message for Repeating Instrument %i at time %i.\n", p, RTimer * 10);
+				//printf("MainThread. Constructing MIDI message for Repeating Instrument %i at time %i.\n", p, RTimer * 10);
 
 				i2cBuffer.buf[0] = 0x4;
 				i2cBuffer.buf[1] = 0x90 + p + 2;
@@ -464,6 +590,66 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 				if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
 					VT_HANDLE_FATAL_ERROR(0);
 				}
+			}
+			if ((RTimer - RInst[p].lastTimer) == 200 && RInst[p].InstrumentID != 0 && RInst[p].BPM != 0 && RInst[p].Note != 0)
+			{
+			 	i2cBuffer.buf[0] = 0x4;
+				i2cBuffer.buf[1] = 0x80 + p + 2;
+
+				if (RInst[p].Note == 1)
+					i2cBuffer.buf[2] = 60;
+				else if (RInst[p].Note == 2)
+					i2cBuffer.buf[2] = 62;
+				else if (RInst[p].Note == 3)
+					i2cBuffer.buf[2] = 64;
+				else if (RInst[p].Note == 4)
+					i2cBuffer.buf[2] = 65;
+				else if (RInst[p].Note == 5)
+					i2cBuffer.buf[2] = 67;
+				else if (RInst[p].Note == 6)
+					i2cBuffer.buf[2] = 69;
+				else if (RInst[p].Note == 7)
+					i2cBuffer.buf[2] = 71;
+				else if (RInst[p].Note == 8)
+					i2cBuffer.buf[2] = 72;
+
+				i2cBuffer.buf[3] = 100;
+				
+				if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+					VT_HANDLE_FATAL_ERROR(0);
+				}
+			}
+		}
+		for (p = 0; p < 2; p++)
+		{
+		 	if ((RTimer - Inst[p].lastTimer) == 200 && Inst[p].InstrumentID != 0)
+			{
+			 	i2cBuffer.buf[0] = 0x4;
+				i2cBuffer.buf[1] = 0x80 + p;
+
+				if (Inst[p].lastNote == 1)
+					i2cBuffer.buf[2] = 60;
+				else if (Inst[p].lastNote == 2)
+					i2cBuffer.buf[2] = 62;
+				else if (Inst[p].lastNote == 3)
+					i2cBuffer.buf[2] = 64;
+				else if (Inst[p].lastNote == 4)
+					i2cBuffer.buf[2] = 65;
+				else if (Inst[p].lastNote == 5)
+					i2cBuffer.buf[2] = 67;
+				else if (Inst[p].lastNote == 6)
+					i2cBuffer.buf[2] = 69;
+				else if (Inst[p].lastNote == 7)
+					i2cBuffer.buf[2] = 71;
+				else if (Inst[p].lastNote == 8)
+					i2cBuffer.buf[2] = 72;
+
+				i2cBuffer.buf[3] = Inst[0].Velocity;
+				
+				if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+					VT_HANDLE_FATAL_ERROR(0);
+				}
+				printf ("Main Thread: Told Player instrument %i to turn off\n", p);
 			}
 		}
 		

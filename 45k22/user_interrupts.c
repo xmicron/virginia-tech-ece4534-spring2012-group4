@@ -78,7 +78,7 @@ void uart_int_handler()
 
 	// InsteON msg
 	if(uart_msg_buf[0] == 0x13)	{
-
+		TXSTA2bits.TXEN = 0;
 		TXREG1 = uart_msg_buf[1];
 		while(!TXSTA1bits.TRMT)	{};
 		TXREG1 = uart_msg_buf[2];
@@ -100,12 +100,17 @@ void uart_int_handler()
 	}
 
 	else if(uart_msg_buf[0] == 0xaf)	{
-		TXREG2 = uart_msg_buf[1];
-		while(!TXSTA2bits.TRMT)	{};
-		TXREG2 = uart_msg_buf[2];
-		while(!TXSTA2bits.TRMT)	{};
-		TXREG2 = uart_msg_buf[3];
-		while(!TXSTA2bits.TRMT)	{};
+		if (uart_msg_buf[5] == 0)
+		{
+			LATB = !LATB;
+			TXSTA1bits.TXEN = 0;
+			TXREG2 = uart_msg_buf[1];
+			while(!TXSTA2bits.TRMT)	{};
+			TXREG2 = uart_msg_buf[2];
+			while(!TXSTA2bits.TRMT)	{};
+			TXREG2 = uart_msg_buf[3];
+			while(!TXSTA2bits.TRMT)	{};
+		}
 		
 		//TXSTA2bits.TXEN = 0;
 	}

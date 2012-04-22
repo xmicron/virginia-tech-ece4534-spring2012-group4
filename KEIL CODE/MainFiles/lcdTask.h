@@ -10,7 +10,9 @@ typedef struct __InstrumentStruct {
 	int InstrumentID;
 	int Note;
 	int Velocity;
-	int Pitch;					 
+	int Pitch;	
+	int lastTimer;
+	int lastNote;				 
 } InstrumentStruct;
 typedef struct __RepeatingInstrumentStruct {
 	int InstrumentID;
