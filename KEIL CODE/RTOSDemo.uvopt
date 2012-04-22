@@ -144,7 +144,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>(105=722,196,1391,543,0)(106=844,541,1600,848,0)(107=1270,563,1600,741,0)</Name>
+          <Name>(105=693,196,1362,543,0)(106=606,382,1362,689,0)(107=1032,511,1362,689,0)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -297,8 +297,13 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
+<<<<<<< .mine
+      <TopLine>401</TopLine>
+      <CurrentLine>401</CurrentLine>
+=======
       <TopLine>386</TopLine>
       <CurrentLine>401</CurrentLine>
+>>>>>>> .r95
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -351,10 +356,19 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
+<<<<<<< .mine
+      <ColumnNumber>46</ColumnNumber>
+=======
       <ColumnNumber>56</ColumnNumber>
+>>>>>>> .r95
       <tvExpOptDlg>0</tvExpOptDlg>
+<<<<<<< .mine
+      <TopLine>1134</TopLine>
+      <CurrentLine>1134</CurrentLine>
+=======
       <TopLine>157</TopLine>
       <CurrentLine>157</CurrentLine>
+>>>>>>> .r95
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/LCDtask.c</PathWithFileName>
       <FilenameWithoutPath>LCDtask.c</FilenameWithoutPath>
@@ -381,8 +395,13 @@
       <Focus>0</Focus>
       <ColumnNumber>34</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
+<<<<<<< .mine
+      <TopLine>110</TopLine>
+      <CurrentLine>110</CurrentLine>
+=======
       <TopLine>171</TopLine>
       <CurrentLine>192</CurrentLine>
+>>>>>>> .r95
       <bDave2>0</bDave2>
       <PathWithFileName>.\I2C.c</PathWithFileName>
       <FilenameWithoutPath>I2C.c</FilenameWithoutPath>
@@ -957,9 +976,9 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>C:\ARMCode\VTCODE\VTLCD\GLCD.H</PathWithFilename>
-    <TopLine>21</TopLine>
-    <CurrentLine>27</CurrentLine>
+    <PathWithFilename>C:\ARM Code\KEIL CODE\MAINFILES\LCDTASK.H</PathWithFilename>
+    <TopLine>1247</TopLine>
+    <CurrentLine>1265</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1039,7 +1058,11 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
+<<<<<<< .mine
+      <ActiveTab>1</ActiveTab>
+=======
       <ActiveTab>4</ActiveTab>
+>>>>>>> .r95
       <Documents>
         <Doc>
           <Name>../vtCode/vtLCD/GLCD_SPI_LPC1700.c</Name>
@@ -1049,15 +1072,27 @@
         </Doc>
         <Doc>
           <Name>.\MainFiles/LCDtask.c</Name>
+<<<<<<< .mine
+          <ColumnNumber>46</ColumnNumber>
+          <TopLine>1134</TopLine>
+          <CurrentLine>1134</CurrentLine>
+=======
           <ColumnNumber>56</ColumnNumber>
           <TopLine>157</TopLine>
           <CurrentLine>157</CurrentLine>
+>>>>>>> .r95
         </Doc>
         <Doc>
           <Name>.\MainFiles/main.c</Name>
+<<<<<<< .mine
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>401</TopLine>
+          <CurrentLine>401</CurrentLine>
+=======
           <ColumnNumber>0</ColumnNumber>
           <TopLine>386</TopLine>
           <CurrentLine>401</CurrentLine>
+>>>>>>> .r95
         </Doc>
         <Doc>
           <Name>.\MainFiles/i2cTemp.c</Name>
@@ -1067,9 +1102,15 @@
         </Doc>
         <Doc>
           <Name>.\I2C.c</Name>
+<<<<<<< .mine
+          <ColumnNumber>33</ColumnNumber>
+          <TopLine>110</TopLine>
+          <CurrentLine>110</CurrentLine>
+=======
           <ColumnNumber>34</ColumnNumber>
           <TopLine>171</TopLine>
           <CurrentLine>192</CurrentLine>
+>>>>>>> .r95
         </Doc>
         <Doc>
           <Name>.\MainThread.c</Name>
@@ -1084,17 +1125,19 @@
           <CurrentLine>449</CurrentLine>
         </Doc>
         <Doc>
-          <Name>C:\ARMCode\VTCODE\VTLCD\GLCD.H</Name>
-          <ColumnNumber>62</ColumnNumber>
-          <TopLine>21</TopLine>
-          <CurrentLine>27</CurrentLine>
-        </Doc>
-        <Doc>
           <Name>../FreeRTOS/Demo/CORTEX_LPC1768_GCC_Rowley/webserver/uIP_Task.c</Name>
           <ColumnNumber>27</ColumnNumber>
           <TopLine>328</TopLine>
           <CurrentLine>343</CurrentLine>
         </Doc>
+<<<<<<< .mine
+        <Doc>
+          <Name>C:\ARM Code\KEIL CODE\MAINFILES\LCDTASK.H</Name>
+          <ColumnNumber>26</ColumnNumber>
+          <TopLine>1247</TopLine>
+          <CurrentLine>1265</CurrentLine>
+        </Doc>
+=======
         <Doc>
           <Name>C:\ARMCode\KEIL CODE\MAINFILES\LCDTASK.H</Name>
           <ColumnNumber>14</ColumnNumber>
@@ -1113,6 +1156,7 @@
           <TopLine>1</TopLine>
           <CurrentLine>1</CurrentLine>
         </Doc>
+>>>>>>> .r95
       </Documents>
     </MDIGroup>
   </MDIGroups>

@@ -1295,7 +1295,7 @@ void InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1, Instrume
 			//GLCD_PutPixel(a, 180);
 			//GLCD_PutPixel(a, 181);
 		}
-		GLCD_SetTextColor(Yellow);
+		/*GLCD_SetTextColor(Yellow);
 		for (a = 0; a < 180; a++)
 		{
 			GLCD_PutPixel(a, 0);
@@ -1309,7 +1309,7 @@ void InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1, Instrume
 			GLCD_PutPixel(1, a);
 			GLCD_PutPixel(178, a);
 			GLCD_PutPixel(179, a);
-		}
+		}*/
 		GLCD_SetTextColor(Green);
 	
 		GLCD_DisplayString(1,1,0,(unsigned char *)"Repeating Instrument 1");

@@ -92,7 +92,7 @@ InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1,
 #define LCD_EXAMPLE_OP 3
 // If JOYSTICK_MODE ==0, no crosshair joystick, but instead a selection joystick
 // If JOYSTICK_MODE ==1, crosshair mode for the main page (under construction)
-#define JOYSTICK_MODE 0
+#define JOYSTICK_MODE 1
 // If INSTEON_MODE == 0, Insteon disabled
 // If INSTEON_MODE == 1, Insteon Enabled
 #define INSTEON_MODE 0
@@ -119,8 +119,8 @@ void vStartLCDTask( unsigned portBASE_TYPE uxPriority,lcdParamStruct *ptr )
 }
 
 typedef struct __cursorPos {
-	uint8_t x;
-	uint8_t y;
+	int x;
+	int y;
 } cursorPos;
 
 // This is the actual task that is run
@@ -180,8 +180,8 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	
 	//initialize crosshair values
 	cursorPos Cursor;
-	Cursor.x = 0;
-	Cursor.y = 0;
+	Cursor.x = 160;
+	Cursor.y = 120;
 
 #endif
 	//initialize pointers to message queues and data structures for message passing
@@ -210,6 +210,20 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	GLCD_SetBackColor(Black);
 	GLCD_Clear(Black);
 	InitPage(0, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+	#if JOYSTICK_MODE==0
+	MakeSelection(0);
+	#endif
+
+	GLCD_invertPixel(Cursor.x, Cursor.y-2);
+	GLCD_invertPixel(Cursor.x, Cursor.y-1);
+	GLCD_invertPixel(Cursor.x, Cursor.y);
+	GLCD_invertPixel(Cursor.x, Cursor.y+1);
+	GLCD_invertPixel(Cursor.x, Cursor.y+2);
+	GLCD_invertPixel(Cursor.x-2, Cursor.y);
+	GLCD_invertPixel(Cursor.x-1, Cursor.y);
+	GLCD_invertPixel(Cursor.x+1, Cursor.y);
+	GLCD_invertPixel(Cursor.x+2, Cursor.y);
+
 #elif LCD_EXAMPLE_OP==2
 	GLCD_Clear(Yellow);
 	GLCD_SetTextColor(Black);
@@ -1093,30 +1107,58 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						{
 							Cur_Page = 3;	//set new current page variable
 							Cur_Inst = 0;	//index it to 0 or 1 depending on which is selected
-							RorP = 1;//0 means it's a repeating instrument
+							RorP = 1;//1 means it's a repeating instrument
 							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
 							Cur_Panel = 0;//sets the current selection to index 0 on page 1
 						}
-						/*else if (Cur_Panel == 3)
+						else if (Cursor.x <=180 && ((81 <= Cursor.y)&&(Cursor.y <= 160)))
 						{
+							Cur_Page = 3;	//set new current page variable
+							Cur_Inst = 1;	//index it to 0 or 1 depending on which is selected
+							RorP = 1;//1 means it's a repeating instrument
+							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
+							Cur_Panel = 0;//sets the current selection to index 0 on page 1
+						}
+						else if (Cursor.x <=180 && ((161 <= Cursor.y)&&(Cursor.y <= 240)))
+						{
+							Cur_Page = 3;	//set new current page variable
+							Cur_Inst = 2;	//index it to 0 or 1 depending on which is selected
+							RorP = 1;//1 means it's a repeating instrument
+							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
+							Cur_Panel = 0;//sets the current selection to index 0 on page 1
+						}
+						else if ( Cursor.x > 180 && (Cursor.y <= 60))
+						{
+							GLCD_invertPixel(Cursor.x, Cursor.y-2); 
+							GLCD_invertPixel(Cursor.x, Cursor.y-1);
+							GLCD_invertPixel(Cursor.x, Cursor.y);
+							GLCD_invertPixel(Cursor.x, Cursor.y+1);
+							GLCD_invertPixel(Cursor.x, Cursor.y+2);
+							GLCD_invertPixel(Cursor.x-2, Cursor.y);
+							GLCD_invertPixel(Cursor.x-1, Cursor.y);
+							GLCD_invertPixel(Cursor.x+1, Cursor.y);
+							GLCD_invertPixel(Cursor.x+2, Cursor.y);
 							P1Selection = 1;//enter volume/brightness selection mode. 
 							Cur_Panel = 0;
 							Panel_3_Highlight(Cur_Panel);//send 0 to highlight volume, 1 to highlight the brightness setting
 														//automatically un highlights the other selection
 						}
-						else if (Cur_Panel < 3)
+						else if (Cursor.x > 180 && ((61 <= Cursor.y)&&(Cursor.y <= 150)))
 						{
-							Cur_Page = 3;//page 3 is the repeating instrument page
-							Cur_Inst = Cur_Panel;//0, 1, or 2
-							P3Selection = 0; //not in note or BPM selection mode
-							RorP = 1;	 //1 for repeating instrument, so the functions know
-
-							//initialize page 3. Send all the instrument variables. Final parameter tells it which
-							//instrument we are actually displaying. 
-							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
-
-							Cur_Panel = 0;//set the current selection on this page to 0 (Which will be the "done" text)
-						} */
+							Cur_Page = 1;	//set new current page variable
+							Cur_Inst = 0;	//index it to 0 or 1 depending on which is selected
+							RorP = 0;//1 means it's a repeating instrument
+							InitPage(1, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
+							Cur_Panel = 0;//sets the current selection to index 0 on page 1
+						}
+						else if (Cursor.x > 180 && Cursor.y >= 151)
+						{
+							Cur_Page = 1;	//set new current page variable
+							Cur_Inst = 1;	//index it to 0 or 1 depending on which is selected
+							RorP = 0;//1 means it's a repeating instrument
+							InitPage(1, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
+							Cur_Panel = 0;//sets the current selection to index 0 on page 1
+						}						
 					}																	
 					else if (msgBuffer.buf[1] == 1) //move crosshair up
 					{
@@ -1174,6 +1216,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						if (Cursor.x > 0)
 							Cursor.x -= 4;
 					}
+					printf("LCD Thread: Cursor position %i, %i\n", Cursor.x, Cursor.y);
 					if (msgBuffer.buf[1] != 0 )
 					{
 					  	GLCD_invertPixel(Cursor.x, Cursor.y-2);
@@ -1313,6 +1356,17 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						Panel_3_Finish(Cur_Panel, VOLUME); //returns current panel to green and black text
 
 					  	P1Selection = 0;//return state machine to normal
+
+						GLCD_invertPixel(Cursor.x, Cursor.y-2); 
+						GLCD_invertPixel(Cursor.x, Cursor.y-1);
+						GLCD_invertPixel(Cursor.x, Cursor.y);
+						GLCD_invertPixel(Cursor.x, Cursor.y+1);
+						GLCD_invertPixel(Cursor.x, Cursor.y+2);
+						GLCD_invertPixel(Cursor.x-2, Cursor.y);
+						GLCD_invertPixel(Cursor.x-1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+2, Cursor.y);						
+
 						Cur_Panel = 3;	 //keep current panel selection
 					}
 					else if (msgBuffer.buf[1] == 1)
@@ -1354,8 +1408,19 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				{
 				  	if (msgBuffer.buf[1] == 0)
 					{
-//						Panel_3_Finish(Cur_Panel); //reset text color to green and black
+						Panel_3_Finish(Cur_Panel, VOLUME); //returns current panel to green and black text
 					 	P1Selection = 0;//return state machine to non-volume/brightness mode
+
+						GLCD_invertPixel(Cursor.x, Cursor.y-2); 
+						GLCD_invertPixel(Cursor.x, Cursor.y-1);
+						GLCD_invertPixel(Cursor.x, Cursor.y);
+						GLCD_invertPixel(Cursor.x, Cursor.y+1);
+						GLCD_invertPixel(Cursor.x, Cursor.y+2);
+						GLCD_invertPixel(Cursor.x-2, Cursor.y);
+						GLCD_invertPixel(Cursor.x-1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+2, Cursor.y);						
+
 						Cur_Panel = 3;//keep current panel to 3
 					}
 					else if (msgBuffer.buf[1] == 2)
