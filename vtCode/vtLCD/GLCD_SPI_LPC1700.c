@@ -594,6 +594,10 @@ void GLCD_SetTextColor (unsigned short color) {
   TextColor = color;
 }
 
+unsigned short GLCD_GetTextColor () {
+
+ 	return TextColor;
+}
 
 /*******************************************************************************
 * Set background color                                                         *

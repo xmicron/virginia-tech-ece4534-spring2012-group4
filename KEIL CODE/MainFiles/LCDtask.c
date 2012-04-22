@@ -998,82 +998,12 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 
    #elif JOYSTICK_MODE==1 //shawn's code goes here
 		
-		GLCD_SetTextColor(Black);
-		unsigned short color;
 		//Starting code for handling the crosshair.
-		if (msgBuffer.buf[1] == 0) //select bit hit
-		{
+				
 
-		}																	
-		if (msgBuffer.buf[1] == 1) //move crosshair up
-		{
-			GLCD_PutPixel(Cursor.x, Cursor.y-2);
-			GLCD_PutPixel(Cursor.x, Cursor.y-1);
-			GLCD_PutPixel(Cursor.x, Cursor.y);
-			GLCD_PutPixel(Cursor.x, Cursor.y+1);
-			GLCD_PutPixel(Cursor.x, Cursor.y+2);
-			GLCD_PutPixel(Cursor.x-2, Cursor.y);
-			GLCD_PutPixel(Cursor.x-1, Cursor.y);
-			GLCD_PutPixel(Cursor.x+1, Cursor.y);
-			GLCD_PutPixel(Cursor.x+2, Cursor.y);
-			if (Cursor.y > 0)
-				Cursor.y -= 4;
-		}
-		if (msgBuffer.buf[1] == 2) //move crosshair right
-		{
-			GLCD_PutPixel(Cursor.x, Cursor.y-2);
-			GLCD_PutPixel(Cursor.x, Cursor.y-1);
-			GLCD_PutPixel(Cursor.x, Cursor.y);
-			GLCD_PutPixel(Cursor.x, Cursor.y+1);
-			GLCD_PutPixel(Cursor.x, Cursor.y+2);
-			GLCD_PutPixel(Cursor.x-2, Cursor.y);
-			GLCD_PutPixel(Cursor.x-1, Cursor.y);
-			GLCD_PutPixel(Cursor.x+1, Cursor.y);
-			GLCD_PutPixel(Cursor.x+2, Cursor.y);
-			if (Cursor.x < 320)
-				Cursor.x += 4;
-		}
-		if (msgBuffer.buf[1] == 3) //move crosshair down
-		{
-			GLCD_PutPixel(Cursor.x, Cursor.y-2);
-			GLCD_PutPixel(Cursor.x, Cursor.y-1);
-			GLCD_PutPixel(Cursor.x, Cursor.y);
-			GLCD_PutPixel(Cursor.x, Cursor.y+1);
-			GLCD_PutPixel(Cursor.x, Cursor.y+2);
-			GLCD_PutPixel(Cursor.x-2, Cursor.y);
-			GLCD_PutPixel(Cursor.x-1, Cursor.y);
-			GLCD_PutPixel(Cursor.x+1, Cursor.y);
-			GLCD_PutPixel(Cursor.x+2, Cursor.y);
-			if (Cursor.y < 240)
-				Cursor.y += 4;
-		}
-		if (msgBuffer.buf[1] == 4) //move crosshair left
-		{
-			GLCD_PutPixel(Cursor.x, Cursor.y-2);
-			GLCD_PutPixel(Cursor.x, Cursor.y-1);
-			GLCD_PutPixel(Cursor.x, Cursor.y);
-			GLCD_PutPixel(Cursor.x, Cursor.y+1);
-			GLCD_PutPixel(Cursor.x, Cursor.y+2);
-			GLCD_PutPixel(Cursor.x-2, Cursor.y);
-			GLCD_PutPixel(Cursor.x-1, Cursor.y);
-			GLCD_PutPixel(Cursor.x+1, Cursor.y);
-			GLCD_PutPixel(Cursor.x+2, Cursor.y);
-			if (Cursor.x > 0)
-				Cursor.x -= 4;
-		}
-		GLCD_SetTextColor(Green);
-		//handle crosshair
-		GLCD_PutPixel(Cursor.x, Cursor.y-2);
-		GLCD_PutPixel(Cursor.x, Cursor.y-1);
-		GLCD_PutPixel(Cursor.x, Cursor.y);
-		GLCD_PutPixel(Cursor.x, Cursor.y+1);
-		GLCD_PutPixel(Cursor.x, Cursor.y+2);
-		GLCD_PutPixel(Cursor.x-2, Cursor.y);
-		GLCD_PutPixel(Cursor.x-1, Cursor.y);
-		GLCD_PutPixel(Cursor.x+1, Cursor.y);
-		GLCD_PutPixel(Cursor.x+2, Cursor.y);
 
-		GLCD_Clear(Green);
+		/*
+		GLCD_Clear(Blue);
 		unsigned short test = GLCD_ReadPixelColor(0,0);
 		unsigned short invert = invertColor(test);
 		GLCD_SetTextColor(invert);
@@ -1087,8 +1017,8 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 			GLCD_PutPixel(x,54);
 			GLCD_PutPixel(x,55);
 			GLCD_PutPixel(x,56);
-		}
-	   /*	
+		}  */
+	   	/*
 		unsigned char b[16];
 		b[0] = (test & 0x8000) >> 15;
 		b[1] = (test & 0x4000) >> 14;
@@ -1145,6 +1075,653 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 		//GLCD_PutPixel(1,1);
 
 		FlipBit(0);		*/
+
+		if (msgBuffer.buf[0] == 0x11) //joystick message from the joystick thread
+		{
+			FlipBit(0);
+			if (Cur_Page == 0)
+			{
+				if (P1Selection == 0) //state machine variable - if we are not currently in the volume/brightness mode - free to highlight 
+								//panels on main page mode.
+				{
+					if (msgBuffer.buf[1] == 0) //select bit hit
+					{
+					  	if (Cursor.x <=180 && Cursor.y <= 80)
+						{
+							Cur_Page = 3;	//set new current page variable
+							Cur_Inst = 0;	//index it to 0 or 1 depending on which is selected
+							RorP = 1;//0 means it's a repeating instrument
+							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
+							Cur_Panel = 0;//sets the current selection to index 0 on page 1
+						}
+						/*else if (Cur_Panel == 3)
+						{
+							P1Selection = 1;//enter volume/brightness selection mode. 
+							Cur_Panel = 0;
+							Panel_3_Highlight(Cur_Panel);//send 0 to highlight volume, 1 to highlight the brightness setting
+														//automatically un highlights the other selection
+						}
+						else if (Cur_Panel < 3)
+						{
+							Cur_Page = 3;//page 3 is the repeating instrument page
+							Cur_Inst = Cur_Panel;//0, 1, or 2
+							P3Selection = 0; //not in note or BPM selection mode
+							RorP = 1;	 //1 for repeating instrument, so the functions know
+
+							//initialize page 3. Send all the instrument variables. Final parameter tells it which
+							//instrument we are actually displaying. 
+							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
+
+							Cur_Panel = 0;//set the current selection on this page to 0 (Which will be the "done" text)
+						} */
+					}																	
+					else if (msgBuffer.buf[1] == 1) //move crosshair up
+					{
+					    GLCD_invertPixel(Cursor.x, Cursor.y-2); 
+						GLCD_invertPixel(Cursor.x, Cursor.y-1);
+						GLCD_invertPixel(Cursor.x, Cursor.y);
+						GLCD_invertPixel(Cursor.x, Cursor.y+1);
+						GLCD_invertPixel(Cursor.x, Cursor.y+2);
+						GLCD_invertPixel(Cursor.x-2, Cursor.y);
+						GLCD_invertPixel(Cursor.x-1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+2, Cursor.y);
+						if (Cursor.y > 0)
+							Cursor.y -= 4;
+					}
+					else if (msgBuffer.buf[1] == 2) //move crosshair right
+					{
+						GLCD_invertPixel(Cursor.x, Cursor.y-2);
+						GLCD_invertPixel(Cursor.x, Cursor.y-1);
+						GLCD_invertPixel(Cursor.x, Cursor.y);
+						GLCD_invertPixel(Cursor.x, Cursor.y+1);
+						GLCD_invertPixel(Cursor.x, Cursor.y+2);
+						GLCD_invertPixel(Cursor.x-2, Cursor.y);
+						GLCD_invertPixel(Cursor.x-1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+2, Cursor.y);
+						if (Cursor.x < 320)
+							Cursor.x += 4;
+					}
+					else if (msgBuffer.buf[1] == 3) //move crosshair down
+					{
+						GLCD_invertPixel(Cursor.x, Cursor.y-2);
+						GLCD_invertPixel(Cursor.x, Cursor.y-1);
+						GLCD_invertPixel(Cursor.x, Cursor.y);
+						GLCD_invertPixel(Cursor.x, Cursor.y+1);
+						GLCD_invertPixel(Cursor.x, Cursor.y+2);
+						GLCD_invertPixel(Cursor.x-2, Cursor.y);
+						GLCD_invertPixel(Cursor.x-1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+2, Cursor.y);
+						if (Cursor.y < 240)
+							Cursor.y += 4;
+					}
+					else if (msgBuffer.buf[1] == 4) //move crosshair left
+					{
+						GLCD_invertPixel(Cursor.x, Cursor.y-2);
+						GLCD_invertPixel(Cursor.x, Cursor.y-1);
+						GLCD_invertPixel(Cursor.x, Cursor.y);
+						GLCD_invertPixel(Cursor.x, Cursor.y+1);
+						GLCD_invertPixel(Cursor.x, Cursor.y+2);
+						GLCD_invertPixel(Cursor.x-2, Cursor.y);
+						GLCD_invertPixel(Cursor.x-1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+2, Cursor.y);
+						if (Cursor.x > 0)
+							Cursor.x -= 4;
+					}
+					if (msgBuffer.buf[1] != 0 )
+					{
+					  	GLCD_invertPixel(Cursor.x, Cursor.y-2);
+						GLCD_invertPixel(Cursor.x, Cursor.y-1);
+						GLCD_invertPixel(Cursor.x, Cursor.y);
+						GLCD_invertPixel(Cursor.x, Cursor.y+1);
+						GLCD_invertPixel(Cursor.x, Cursor.y+2);
+						GLCD_invertPixel(Cursor.x-2, Cursor.y);
+						GLCD_invertPixel(Cursor.x-1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+2, Cursor.y);
+					}
+
+
+			
+
+					
+					/*if (msgBuffer.buf[1] == 0) //select bit hit
+					{
+						if (Cur_Panel > 3)
+						{
+							Cur_Page = 1;	//set new current page variable
+							Cur_Inst = Cur_Panel-4;	//index it to 0 or 1 depending on which is selected
+							RorP = 0;//0 means it's a player instrument
+							InitPage(1, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
+							Cur_Panel = 0;//sets the current selection to index 0 on page 1
+						}
+						else if (Cur_Panel == 3)
+						{
+							P1Selection = 1;//enter volume/brightness selection mode. 
+							Cur_Panel = 0;
+							Panel_3_Highlight(Cur_Panel);//send 0 to highlight volume, 1 to highlight the brightness setting
+														//automatically un highlights the other selection
+						}
+						else if (Cur_Panel < 3)
+						{
+							Cur_Page = 3;//page 3 is the repeating instrument page
+							Cur_Inst = Cur_Panel;//0, 1, or 2
+							P3Selection = 0; //not in note or BPM selection mode
+							RorP = 1;	 //1 for repeating instrument, so the functions know
+
+							//initialize page 3. Send all the instrument variables. Final parameter tells it which
+							//instrument we are actually displaying. 
+							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
+
+							Cur_Panel = 0;//set the current selection on this page to 0 (Which will be the "done" text)
+						}
+					}
+				 	if (msgBuffer.buf[1] == 1) //move crosshair up
+					{
+						
+						if (Cur_Panel > 0)
+						{
+							ClearOldSelection(Cur_Panel);//unhighlight 
+						 	Cur_Panel--;			 //increment current panel
+							MakeSelection(Cur_Panel); //highlight this new panel
+						}
+					}
+					if (msgBuffer.buf[1] == 2) //move crosshair right
+					{
+						if (INSTEON_MODE == 1)
+						{
+	
+						}
+						if (Cur_Panel < 3)
+						{
+							ClearOldSelection(Cur_Panel); //unhighlight
+							Cur_Panel = Cur_Panel + 3; //increment by 3 because of the UI layout. incrementing by 3 means move right
+							MakeSelection(Cur_Panel); //highlight the new selection
+						}
+					} 
+					if (msgBuffer.buf[1] == 3) //move crosshair down
+					{
+						if (Cur_Panel < 5)
+						{
+							ClearOldSelection(Cur_Panel); //unhighlight
+						 	Cur_Panel++;			   //increment
+							MakeSelection(Cur_Panel);	  //make new panel selection
+						}
+					}
+					if (msgBuffer.buf[1] == 4) //move crosshair left
+					{
+						if (Cur_Panel > 3)
+						{
+							ClearOldSelection(Cur_Panel); //unhighlight
+							Cur_Panel = Cur_Panel - 3;	  //decrement by 3 to move panel left
+							MakeSelection(Cur_Panel);	  //make new highlight
+						}
+						else if (Cur_Panel == 3)
+						{
+							ClearOldSelection(Cur_Panel); //same as above
+							Cur_Panel = 0;
+							MakeSelection(Cur_Panel);
+						}
+					}*/
+			 	}
+				else if (P1Selection == 1)
+				{
+					if (msgBuffer.buf[1] == 0)
+					{
+						Panel_3_Select(Cur_Panel, VOLUME);//makes a selection of either volume or brightness depending on the panel - must be 0 or 1
+												//0 for volume, 1 for brightness
+					  	if (Cur_Panel == 0)
+						{
+							P1Selection = 2;//set state machine to volume select 	
+						}
+						else if (Cur_Panel == 1)
+						{
+							P1Selection = 3;//set state machine to brightness select
+						}
+					}
+					else if (msgBuffer.buf[1] == 1)
+					{
+					 	if (Cur_Panel > 0)//if brightness currently hightlighted (Cur_Panel == 1)
+						{
+							Cur_Panel--; //make Cur_Panel =0
+							Panel_3_Highlight(Cur_Panel);//send 0 to highlight volume, 1 to highlight the brightness setting
+														//automatically un highlights the other selection 
+						}
+					}
+					else if (msgBuffer.buf[1] == 3)	//if volume currently highlighted   (Cur_Panel == 0)
+					{
+						if (Cur_Panel < 1)
+						{
+							Cur_Panel++;//make Cur_Panel =1
+							Panel_3_Highlight(Cur_Panel);//send 0 to highlight volume, 1 to highlight the brightness setting
+														//automatically un highlights the other selection 
+
+							
+						}
+					}
+				}
+				else if (P1Selection == 2)//we are currently in volume altering mode
+				{
+				 	if (msgBuffer.buf[1] == 0)
+					{
+						Panel_3_Finish(Cur_Panel, VOLUME); //returns current panel to green and black text
+
+					  	P1Selection = 0;//return state machine to normal
+						Cur_Panel = 3;	 //keep current panel selection
+					}
+					else if (msgBuffer.buf[1] == 1)
+					{
+						if (VOLUME < 100)
+						{
+							GLCD_SetTextColor(Black);
+							GLCD_SetBackColor(Black);
+							sprintf(toPr, "%i", VOLUME);
+							GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+						  	VOLUME++;
+							GLCD_SetTextColor(Red);
+							GLCD_SetBackColor(Yellow);
+							sprintf(toPr, "%i", VOLUME);
+							GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+
+							printf("LCDThread. Updating volume to %i. Sending message to MIDI\n ", VOLUME);
+						}
+					}
+					else if (msgBuffer.buf[1] == 3)
+					{
+						if (VOLUME > 0)
+						{
+						   	GLCD_SetTextColor(Black);
+							GLCD_SetBackColor(Black);
+							sprintf(toPr, "%i", VOLUME);
+							GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+						  	VOLUME--;
+							GLCD_SetTextColor(Red);
+							GLCD_SetBackColor(Yellow);
+							sprintf(toPr, "%i", VOLUME);
+							GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+
+							printf("LCDThread. Updating volume to %i. Sending message to MIDI\n ", VOLUME);
+						}
+					}
+				}
+				else if (P1Selection == 3)
+				{
+				  	if (msgBuffer.buf[1] == 0)
+					{
+//						Panel_3_Finish(Cur_Panel); //reset text color to green and black
+					 	P1Selection = 0;//return state machine to non-volume/brightness mode
+						Cur_Panel = 3;//keep current panel to 3
+					}
+					else if (msgBuffer.buf[1] == 2)
+					{ 
+					  	if (SLIDER < 10)
+						{
+							SLIDER++;
+							Set_Slider(SLIDER-1, SLIDER);//move slider. first parameter is old position, second is new position
+
+							i2cBuffer.buf[0] = 0x13;
+							i2cBuffer.buf[1] = (SLIDER*25) + 5;
+	
+							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+							}
+
+							printf("LCDThread. Updating brightness to %i. Sending message.\n ", SLIDER);
+						}
+					}
+					else if (msgBuffer.buf[1] == 4)
+					{
+					 	if (SLIDER > 0)
+						{
+							SLIDER--;
+							Set_Slider(SLIDER+1, SLIDER);//move slider. first parameter is old position, second is new position
+
+							i2cBuffer.buf[0] = 0x13;
+							i2cBuffer.buf[1] = (SLIDER*25) + 5;
+	
+							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+								VT_HANDLE_FATAL_ERROR(0);
+							}
+
+							printf("LCDThread. Updating brightness to %i. Sending message.\n ", SLIDER);
+						}
+					}
+
+				}
+			}
+			else if (Cur_Page == 1)//we are currently changing an instrument
+			{
+				if (msgBuffer.buf[1] == 0) //select bit hit
+				{
+					Cur_Page = 2;
+					P2SelectionMultiplier = Cur_Panel;
+					InitPage(2, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+					Cur_Panel = 0;
+				}
+			 	if (msgBuffer.buf[1] == 1) //move crosshair up
+				{
+					if (Cur_Panel > 0)
+					{
+						P1CatSelectionClear(Cur_Panel);
+					 	Cur_Panel--;
+						P1CatMakeSelection(Cur_Panel);
+					}
+				}
+				if (msgBuffer.buf[1] == 2) //move crosshair right
+				{				
+				} 
+				if (msgBuffer.buf[1] == 3) //move crosshair down
+				{
+					if (Cur_Panel < 15)
+					{
+						P1CatSelectionClear(Cur_Panel);
+					 	Cur_Panel++;
+						P1CatMakeSelection(Cur_Panel);
+					}
+				}
+				if (msgBuffer.buf[1] == 4) //move crosshair left
+				{
+				}
+			}
+			else if (Cur_Page == 2)
+			{
+			 	if (msgBuffer.buf[1] == 0) //select bit hit
+				{
+					
+					if (RorP == 0)
+					{
+						Cur_Page = 0;
+						if (Cur_Panel == 0)
+							Inst[Cur_Inst].InstrumentID = 0;
+						else
+							Inst[Cur_Inst].InstrumentID = P2SelectionMultiplier*8+Cur_Panel;
+						P2SelectionMultiplier = 0;
+						InitPage(0, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+						GLCD_invertPixel(Cursor.x, Cursor.y-2);
+						GLCD_invertPixel(Cursor.x, Cursor.y-1);
+						GLCD_invertPixel(Cursor.x, Cursor.y);
+						GLCD_invertPixel(Cursor.x, Cursor.y+1);
+						GLCD_invertPixel(Cursor.x, Cursor.y+2);
+						GLCD_invertPixel(Cursor.x-2, Cursor.y);
+						GLCD_invertPixel(Cursor.x-1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+1, Cursor.y);
+						GLCD_invertPixel(Cursor.x+2, Cursor.y);
+						Cur_Panel = 0;
+
+						masterBuffer.length = 3;
+						masterBuffer.buf[0] = 0x0A; //signifies comes from lcd thread - instrument change
+						masterBuffer.buf[1] = Cur_Inst;
+						masterBuffer.buf[2] = Inst[Cur_Inst].InstrumentID;
+	
+						if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+						}
+					}
+					else if (RorP == 1)
+					{
+						masterBuffer.length = 5;
+						masterBuffer.buf[0] = 0x0B; //signifies comes from lcd thread Instrument change
+						masterBuffer.buf[1] = Cur_Inst+2;
+						masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
+						masterBuffer.buf[3] = RInst[Cur_Inst].Note;
+						masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
+	
+						if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+						}
+
+						Cur_Page = 3;
+						if (Cur_Panel == 0)
+							RInst[Cur_Inst].InstrumentID = 0;
+						else
+							RInst[Cur_Inst].InstrumentID = P2SelectionMultiplier*8+Cur_Panel;
+						P3Selection = 0;
+						RorP = 1;
+						InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
+						Cur_Panel = 0;
+					}
+				}
+			 	if (msgBuffer.buf[1] == 1) //move crosshair up
+				{
+					if (Cur_Panel > 0)
+					{
+						P2SelectionClear(Cur_Panel, P2SelectionMultiplier);
+					 	Cur_Panel--;
+						P2MakeSelection(Cur_Panel, P2SelectionMultiplier);
+					}
+				}
+				if (msgBuffer.buf[1] == 2) //move crosshair right
+				{
+				} 
+				if (msgBuffer.buf[1] == 3) //move crosshair down
+				{
+					if (Cur_Panel < 8)
+					{
+						P2SelectionClear(Cur_Panel, P2SelectionMultiplier);
+					 	Cur_Panel++;
+						P2MakeSelection(Cur_Panel, P2SelectionMultiplier);
+					}
+				}
+				if (msgBuffer.buf[1] == 4) //move crosshair left
+				{
+				}
+			}
+			else if (Cur_Page == 3)
+			{
+				if (P3Selection == 0)
+				{
+				   	if (msgBuffer.buf[1] == 0) //select bit hit
+					{
+						if (Cur_Panel == 0)
+						{
+							Cur_Page = 0;
+							//P2SelectionMultiplier = Cur_Panel;
+							InitPage(0, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+							GLCD_invertPixel(Cursor.x, Cursor.y-2);
+							GLCD_invertPixel(Cursor.x, Cursor.y-1);
+							GLCD_invertPixel(Cursor.x, Cursor.y);
+							GLCD_invertPixel(Cursor.x, Cursor.y+1);
+							GLCD_invertPixel(Cursor.x, Cursor.y+2);
+							GLCD_invertPixel(Cursor.x-2, Cursor.y);
+							GLCD_invertPixel(Cursor.x-1, Cursor.y);
+							GLCD_invertPixel(Cursor.x+1, Cursor.y);
+							GLCD_invertPixel(Cursor.x+2, Cursor.y);
+							Cur_Panel = 0;
+						}
+						else if (Cur_Panel == 1)
+						{
+							Cur_Page = 1;
+							RorP = 1;
+							InitPage(1, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
+							Cur_Panel = 0;
+						}
+						else if (Cur_Panel == 2)
+						{
+							P3Selection = 1;
+							GLCD_DisplayString(12,5,0,(unsigned char *)"Select Note: ");
+							GLCD_SetBackColor(Yellow);
+							GLCD_SetTextColor(Red);
+							GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+							GLCD_SetBackColor(Black);
+							GLCD_SetTextColor(Green);  	
+						}
+						else if (Cur_Panel == 3)
+						{
+							char toPr[2];
+						 	P3Selection = 2;
+							GLCD_DisplayString(12,5,0,(unsigned char *)"Select BPM: ");
+							GLCD_SetBackColor(Yellow);
+							GLCD_SetTextColor(Red);
+							RInst[Cur_Inst].BPM = 60;
+							sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+							GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+							GLCD_SetBackColor(Black);
+							GLCD_SetTextColor(Green); 
+						}
+					}
+				 	if (msgBuffer.buf[1] == 1) //move crosshair up
+					{
+						if (Cur_Panel > 0)
+						{
+							P3CatSelectionClear(Cur_Panel);
+						 	Cur_Panel--;
+							P3CatMakeSelection(Cur_Panel);
+						}
+					}
+					if (msgBuffer.buf[1] == 2) //move crosshair right
+					{
+					} 
+					if (msgBuffer.buf[1] == 3) //move crosshair down
+					{
+						if (Cur_Panel < 3)
+						{
+							P3CatSelectionClear(Cur_Panel);
+						 	Cur_Panel++;
+							P3CatMakeSelection(Cur_Panel);
+						}
+					}
+					if (msgBuffer.buf[1] == 4) //move crosshair left
+					{
+					}
+				}
+				else if (P3Selection == 1)
+				{
+				   	if (msgBuffer.buf[1] == 0) //select bit hit
+					{
+						P3Selection = 0;
+						GLCD_SetBackColor(Black);
+						GLCD_SetTextColor(Black);
+						GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(0));
+						GLCD_DisplayString(12,5,0,(unsigned char *)"Select Note: ");
+						GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+						GLCD_SetBackColor(Black);
+						GLCD_SetTextColor(Green);
+	
+						GLCD_DisplayString(4,2,0,(unsigned char *)"Note: ");
+						GLCD_DisplayString(4,8,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+	
+						masterBuffer.length = 5;
+						masterBuffer.buf[0] = 0x0B; //signifies comes from lcd thread Note Change
+						masterBuffer.buf[1] = Cur_Inst+2;
+						masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
+						masterBuffer.buf[3] = RInst[Cur_Inst].Note;
+						masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
+	
+						if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+						}
+					}
+				 	if (msgBuffer.buf[1] == 1) //move crosshair up
+					{
+						if (RInst[Cur_Inst].Note < 7)
+						{
+							GLCD_SetTextColor(Black);
+							GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+							RInst[Cur_Inst].Note++;
+							GLCD_SetBackColor(Yellow);
+							GLCD_SetTextColor(Red);
+							GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+							GLCD_SetBackColor(Black);
+							GLCD_SetTextColor(Green);
+						}
+					}
+					if (msgBuffer.buf[1] == 2) //move crosshair right
+					{
+					} 
+					if (msgBuffer.buf[1] == 3) //move crosshair down
+					{
+						if (RInst[Cur_Inst].Note > 0)
+						{
+							GLCD_SetTextColor(Black);
+							GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+							RInst[Cur_Inst].Note--;
+							GLCD_SetBackColor(Yellow);
+							GLCD_SetTextColor(Red);
+							GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
+							GLCD_SetBackColor(Black);
+							GLCD_SetTextColor(Green);
+						}
+					}
+					if (msgBuffer.buf[1] == 4) //move crosshair left
+					{
+					}
+				}
+				else if (P3Selection == 2)
+				{
+				   	if (msgBuffer.buf[1] == 0) //select bit hit
+					{
+						char toPr[7];
+					 	P3Selection = 0;
+						GLCD_SetBackColor(Black);
+						GLCD_SetTextColor(Black);
+						sprintf(toPr, "BPM: XX");
+						GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+						GLCD_DisplayString(12,5,0,(unsigned char *)"Select BPM: ");
+						sprintf(toPr, "%2i", RInst[Cur_Inst].BPM);
+						GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+						GLCD_SetBackColor(Black);
+						GLCD_SetTextColor(Green);
+	
+						sprintf(toPr, "BPM: %i", RInst[Cur_Inst].BPM);
+						GLCD_DisplayString(5,2,0,(unsigned char *)toPr);
+	
+						masterBuffer.length = 5;
+						masterBuffer.buf[0] = 0x0C; //signifies comes from lcd thread BPM change
+						masterBuffer.buf[1] = Cur_Inst+2;
+						masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
+						masterBuffer.buf[3] = RInst[Cur_Inst].Note;
+						masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
+	
+						if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+						}
+					}
+				 	if (msgBuffer.buf[1] == 1) //move crosshair up
+					{
+						if (RInst[Cur_Inst].BPM < 240)
+						{
+							char toPr[2];
+							GLCD_SetTextColor(Black);
+							sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+							GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+						 	RInst[Cur_Inst].BPM++;
+							GLCD_SetBackColor(Yellow);
+							GLCD_SetTextColor(Red);
+							sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+							GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+							GLCD_SetBackColor(Black);
+							GLCD_SetTextColor(Green);
+						}
+					}
+					if (msgBuffer.buf[1] == 2) //move crosshair right
+					{
+					} 
+					if (msgBuffer.buf[1] == 3) //move crosshair down
+					{
+						if (RInst[Cur_Inst].BPM > 0)
+						{
+							char toPr[2];
+							GLCD_SetTextColor(Black);
+							sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+							GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+						 	RInst[Cur_Inst].BPM--;
+							GLCD_SetBackColor(Yellow);
+							GLCD_SetTextColor(Red);
+							sprintf(toPr, "%i", RInst[Cur_Inst].BPM);
+							GLCD_DisplayString(12,18,0,(unsigned char *)toPr);
+							GLCD_SetBackColor(Black);
+							GLCD_SetTextColor(Green);
+						}
+					}
+					if (msgBuffer.buf[1] == 4) //move crosshair left
+					{
+					}
+				}
+			}
+		}
 	#endif
 
 
