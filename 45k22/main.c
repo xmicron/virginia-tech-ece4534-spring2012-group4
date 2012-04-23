@@ -125,7 +125,7 @@ void main (void)
 	// set up PORTA for input
 	PORTA = 0x0;	// clear the port
 	LATA = 0x0;		// clear the output latch
-	TRISA = 0x0F;	// set RA3-RA0 to inputs
+	TRISA = 0xFF;	// set RA3-RA0 to inputs
 	ANSELA = 0xFF;	
 	initADC();
 
