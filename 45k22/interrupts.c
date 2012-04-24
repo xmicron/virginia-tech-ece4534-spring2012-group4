@@ -106,16 +106,15 @@ void InterruptHandlerHigh ()
 		adc_int_handler();
 	}
 
-	if (PIR1bits.TX1IF)
-	{
-		PIR1bits.TX1IF = 0;
-		uart_int_handler();
-	}
-
 	if (PIR3bits.TX2IF)
 	{
 		PIR3bits.TX2IF = 0;
 		uart_int_handler();		
+	}
+
+	if (PIR3bits.RC2IF)
+	{
+		uart_rx_int_handler();
 	}
 
 

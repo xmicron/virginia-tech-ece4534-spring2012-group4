@@ -114,6 +114,12 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 				VT_HANDLE_FATAL_ERROR(0);
 			}
 			//FlipBit(5);
+
+			if (masterBuffer.buf[2] == 0xBB) //Insteon Message
+			{
+				FlipBit(0);
+			 	//printf("~~~~~~~~~~~~~~%x~~~~~~~~~~~~~\n", masterBuffer.buf[1]);
+			}
 			
 			if (masterBuffer.buf[0] == 0x08) //message from I2C
 			{
@@ -359,8 +365,10 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 							i2cBuffer.buf[2] = 69;
 						else if (Inst[0].Note == 7)
 							i2cBuffer.buf[2] = 71;
-						else if (Inst[0].Note == 8)
+						else if (Inst[0].Note == 8)	
 							i2cBuffer.buf[2] = 72;
+						else if (Inst[0].Note == 0)
+							i2cBuffer.buf[3] = 0;
 						
 						if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
 							VT_HANDLE_FATAL_ERROR(0);

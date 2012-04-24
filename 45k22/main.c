@@ -107,10 +107,13 @@ void main (void)
 	// UART initialization
 	init_uart_recv(&uc);		// initialize my uart recv handling code
 	// configure the hardware USART device
-  	Open2USART( USART_TX_INT_OFF & USART_RX_INT_ON & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
+  	Open2USART( USART_TX_INT_OFF & USART_RX_INT_OFF & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
 		USART_CONT_RX & USART_BRGH_LOW, 31);
-	Open1USART( USART_TX_INT_OFF & USART_RX_INT_ON & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
+	Open1USART( USART_TX_INT_OFF & USART_RX_INT_OFF & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
 		USART_CONT_RX & USART_BRGH_LOW, 51);
+
+	RCSTA2bits.CREN = 1;
+	TXSTA2bits.SYNC = 0;
 	
 	// I2C/MSG Q initialization
 	init_i2c(&ic);				// initialize the i2c code
@@ -227,48 +230,49 @@ void main (void)
 				}
 
 				case MSGT_I2C_DATA: { //this data still needs to be put in a buffer
-						TXSTA1bits.TXEN = 1;
-						TXSTA2bits.TXEN = 1;
+						//TXSTA1bits.TXEN = 1;
+						
 						//LATB = !LATB;
+
 						if(msgbuffer[0] == 0xaf)	{
 						//FromMainLow_sendmsg(5, msgtype, msgbuffer);
 						// The code below checks message 'counts' to see if any I2C messages were dropped
 						//I2C_RX_MSG_COUNT = msgbuffer[4];
 						
-						FromMainLow_sendmsg(9, msgtype, msgbuffer);						
-						
-/*
-						// Send note data to the MIDI device
-						//while(Busy2USART());
-						putc2USART(msgbuffer[1]);
-						//while(Busy2USART());
-						Delay1KTCYx(8);
-						putc2USART(msgbuffer[2]);
-						//while(Busy2USART());
-						Delay1KTCYx(8);		
-						putc2USART(msgbuffer[3]);
-*/
-
-						if(I2C_RX_MSG_COUNT - I2C_RX_MSG_PRECOUNT == 1)	{
-							if(I2C_RX_MSG_PRECOUNT < 99)	{
-								I2C_RX_MSG_PRECOUNT++;
+							FromMainLow_sendmsg(9, msgtype, msgbuffer);						
+							TXSTA2bits.TXEN = 1;
+	/*
+							// Send note data to the MIDI device
+							//while(Busy2USART());
+							putc2USART(msgbuffer[1]);
+							//while(Busy2USART());
+							Delay1KTCYx(8);
+							putc2USART(msgbuffer[2]);
+							//while(Busy2USART());
+							Delay1KTCYx(8);		
+							putc2USART(msgbuffer[3]);
+	*/
+	
+							if(I2C_RX_MSG_COUNT - I2C_RX_MSG_PRECOUNT == 1)	{
+								if(I2C_RX_MSG_PRECOUNT < 99)	{
+									I2C_RX_MSG_PRECOUNT++;
+								}
+								else	{
+									I2C_RX_MSG_PRECOUNT = 0;
+								}
 							}
 							else	{
-								I2C_RX_MSG_PRECOUNT = 0;
+								I2C_RX_MSG_PRECOUNT = I2C_RX_MSG_COUNT;
 							}
 						}
-						else	{
-							I2C_RX_MSG_PRECOUNT = I2C_RX_MSG_COUNT;
-						}
-					}
-					
-
-					if (msgbuffer[0] == 0x13)
-					{
-						FromMainLow_sendmsg(9, msgtype, msgbuffer);						
 						
+
+						if (msgbuffer[0] == 0x13)
+						{
+						//	FromMainLow_sendmsg(9, msgtype, msgbuffer);						
 							
-					}
+								
+						}
 				};
 
 				case MSGT_I2C_DBG: {
@@ -313,33 +317,45 @@ void main (void)
 		/*
 			Low Priority MSGQ -----------------------------------------------------------------------
 		*/
-		/*
+		
 		length = ToMainLow_recvmsg(MSGLEN,&msgtype,(void *) msgbuffer);
 		if (length < 0) {
 			// no message, check the error code to see if it is concern
 			if (length != MSGQUEUE_EMPTY) {
-				//printf("Error: Bad low priority receive, code = %x\r\n",
-					length);
+			
 			}
 		} else {
 			switch (msgtype) {
-				/*
+				
 				case MSGT_TIMER1: {
 					timer1_lthread(&t1thread_data,msgtype,length,msgbuffer);
 					break;
 				};
 				case MSGT_OVERRUN:
-				case MSGT_UART_DATA: {
-					uart_lthread(&uthread_data,msgtype,length,msgbuffer);
+				case MSGT_UART_DATA: 
+				{
+					if (RCSTA2bits.OERR)
+						LATB = LATB++;
+					msgbuffer[1] = 0xBB;
+					msgbuffer[2] = 0x01;
+					msgbuffer[3] = 0x01;
+					msgbuffer[4] = 0x01;
+					msgbuffer[5] = 0x01;
+					msgbuffer[6] = 0x01;
+					msgbuffer[7] = 0x01;
+					msgbuffer[8] = 0x01;
+					msgbuffer[9] = 0x01;
+					msgbuffer[10] = 0x01;
+					msgbuffer[11] = 0x01;
+					FromMainHigh_sendmsg(12, msgtype, msgbuffer);
 					break;
 				};
 				default: {
-					//printf("Error: Unexpected msg in queue, type = %x\r\n",
-						msgtype);
+					
 					break;
 				};
 			};
-		}*/
+		}
  	 }
 
 }
