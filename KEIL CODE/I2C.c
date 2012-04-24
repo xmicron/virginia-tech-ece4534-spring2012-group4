@@ -160,7 +160,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 					MidiSendValue[2] = i2cBuffer.buf[2];
 					MidiSendValue[3] = i2cBuffer.buf[3];
 
-					printf("I2C Thread: MIDI MESSAGE: %i, %i, %i\n", MidiSendValue[1], MidiSendValue[2], MidiSendValue[3]);
+				//	printf("I2C Thread: MIDI MESSAGE: %i, %i, %i\n", MidiSendValue[1], MidiSendValue[2], MidiSendValue[3]);
 					
 					//prepare to send Midi message to I2Cto the PIC
 					if (MidiSendCount > 100)
