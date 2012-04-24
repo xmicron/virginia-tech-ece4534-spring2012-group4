@@ -260,10 +260,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>1</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1696</TopLine>
+      <CurrentLine>1701</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../FreeRTOS/Source/tasks.c</PathWithFileName>
       <FilenameWithoutPath>tasks.c</FilenameWithoutPath>
@@ -297,7 +297,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>386</TopLine>
+      <TopLine>396</TopLine>
       <CurrentLine>401</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/main.c</PathWithFileName>
@@ -353,8 +353,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>465</TopLine>
-      <CurrentLine>476</CurrentLine>
+      <TopLine>73</TopLine>
+      <CurrentLine>73</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/LCDtask.c</PathWithFileName>
       <FilenameWithoutPath>LCDtask.c</FilenameWithoutPath>
@@ -393,10 +393,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>15</ColumnNumber>
+      <ColumnNumber>52</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>654</TopLine>
-      <CurrentLine>686</CurrentLine>
+      <TopLine>210</TopLine>
+      <CurrentLine>215</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainThread.c</PathWithFileName>
       <FilenameWithoutPath>MainThread.c</FilenameWithoutPath>
@@ -869,10 +869,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>6</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>441</TopLine>
+      <CurrentLine>457</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>../NXPDrivers/source/lpc17xx_i2c.c</PathWithFileName>
       <FilenameWithoutPath>lpc17xx_i2c.c</FilenameWithoutPath>
@@ -984,8 +984,8 @@
 
   <AlienFiles>
     <PathWithFilename>C:\ARMCode\KEIL CODE\MAINFILES\LCDTASK.H</PathWithFilename>
-    <TopLine>1</TopLine>
-    <CurrentLine>15</CurrentLine>
+    <TopLine>1441</TopLine>
+    <CurrentLine>1457</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1039,7 +1039,7 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>5</ActiveTab>
+      <ActiveTab>1</ActiveTab>
       <Documents>
         <Doc>
           <Name>../vtCode/vtLCD/GLCD_SPI_LPC1700.c</Name>
@@ -1050,13 +1050,13 @@
         <Doc>
           <Name>.\MainFiles/LCDtask.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>465</TopLine>
-          <CurrentLine>476</CurrentLine>
+          <TopLine>73</TopLine>
+          <CurrentLine>73</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/main.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>386</TopLine>
+          <TopLine>396</TopLine>
           <CurrentLine>401</CurrentLine>
         </Doc>
         <Doc>
@@ -1073,9 +1073,9 @@
         </Doc>
         <Doc>
           <Name>.\MainThread.c</Name>
-          <ColumnNumber>64</ColumnNumber>
-          <TopLine>627</TopLine>
-          <CurrentLine>640</CurrentLine>
+          <ColumnNumber>52</ColumnNumber>
+          <TopLine>210</TopLine>
+          <CurrentLine>215</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\joystick.c</Name>
@@ -1097,9 +1097,9 @@
         </Doc>
         <Doc>
           <Name>C:\ARMCode\KEIL CODE\MAINFILES\LCDTASK.H</Name>
-          <ColumnNumber>14</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>15</CurrentLine>
+          <ColumnNumber>6</ColumnNumber>
+          <TopLine>1441</TopLine>
+          <CurrentLine>1457</CurrentLine>
         </Doc>
         <Doc>
           <Name>../vtCode/vtI2C/vtI2C.c</Name>
@@ -1112,6 +1112,18 @@
           <ColumnNumber>0</ColumnNumber>
           <TopLine>1</TopLine>
           <CurrentLine>1</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>../FreeRTOS/Source/tasks.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>1696</TopLine>
+          <CurrentLine>1701</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>../NXPDrivers/source/lpc17xx_i2c.c</Name>
+          <ColumnNumber>6</ColumnNumber>
+          <TopLine>441</TopLine>
+          <CurrentLine>457</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>
