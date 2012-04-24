@@ -199,11 +199,11 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 					//VT_HANDLE_FATAL_ERROR(0);
 				}
 			}
-			else
+			else if (i2cBuffer.buf[0] == 0x4)
 			{
-				MidiSendValue[1] = i2cBuffer.buf[0];
-				MidiSendValue[2] = i2cBuffer.buf[1];
-				MidiSendValue[3] = i2cBuffer.buf[2];
+				MidiSendValue[1] = i2cBuffer.buf[1];
+				MidiSendValue[2] = i2cBuffer.buf[2];
+				MidiSendValue[3] = i2cBuffer.buf[3];
 				
 				//prepare to send Midi message to I2Cto the PIC
 				if (MidiSendCount > 100)
