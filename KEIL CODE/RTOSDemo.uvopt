@@ -395,7 +395,7 @@
       <Focus>0</Focus>
       <ColumnNumber>16</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>127</TopLine>
+      <TopLine>132</TopLine>
       <CurrentLine>148</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainThread.c</PathWithFileName>
@@ -1074,7 +1074,7 @@
         <Doc>
           <Name>.\MainThread.c</Name>
           <ColumnNumber>16</ColumnNumber>
-          <TopLine>127</TopLine>
+          <TopLine>132</TopLine>
           <CurrentLine>148</CurrentLine>
         </Doc>
         <Doc>
