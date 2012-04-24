@@ -393,10 +393,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>16</ColumnNumber>
+      <ColumnNumber>28</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>127</TopLine>
-      <CurrentLine>148</CurrentLine>
+      <TopLine>354</TopLine>
+      <CurrentLine>365</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainThread.c</PathWithFileName>
       <FilenameWithoutPath>MainThread.c</FilenameWithoutPath>
@@ -1073,9 +1073,9 @@
         </Doc>
         <Doc>
           <Name>.\MainThread.c</Name>
-          <ColumnNumber>16</ColumnNumber>
-          <TopLine>127</TopLine>
-          <CurrentLine>148</CurrentLine>
+          <ColumnNumber>28</ColumnNumber>
+          <TopLine>354</TopLine>
+          <CurrentLine>365</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\joystick.c</Name>

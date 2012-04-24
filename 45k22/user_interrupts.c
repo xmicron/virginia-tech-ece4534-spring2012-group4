@@ -68,6 +68,14 @@ void adc_int_handler()	{
 
 }
 
+void uart_rx_int_handler()
+{
+	unsigned char uart_msg_buf[1];
+	uart_msg_buf[0] = RCREG2;
+	ToMainLow_sendmsg(1, MSGT_UART_DATA, (void *) uart_msg_buf);	 
+	
+}
+
 void uart_int_handler()
 {
 	unsigned char uart_msg_buf[9];
@@ -77,7 +85,7 @@ void uart_int_handler()
 	FromMainLow_recvmsg(9, &type, (void *) uart_msg_buf);
 
 	// InsteON msg
-	if(uart_msg_buf[0] == 0x13)	{
+	/*if(uart_msg_buf[0] == 0x13)	{
 		TXSTA2bits.TXEN = 0;
 		TXREG1 = uart_msg_buf[1];
 		while(!TXSTA1bits.TRMT)	{};
@@ -97,13 +105,13 @@ void uart_int_handler()
 		while(!TXSTA1bits.TRMT)	{};
 
 		//TXSTA1bits.TXEN = 0;
-	}
+	}*/
 
-	else if(uart_msg_buf[0] == 0xaf)	{
+	if(uart_msg_buf[0] == 0xaf)	{
 		if (uart_msg_buf[5] == 0)
 		{
-			LATB = !LATB;
-			TXSTA1bits.TXEN = 0;
+			//LATB = !LATB;
+			//TXSTA1bits.TXEN = 0;
 			TXREG2 = uart_msg_buf[1];
 			while(!TXSTA2bits.TRMT)	{};
 			TXREG2 = uart_msg_buf[2];
@@ -114,7 +122,7 @@ void uart_int_handler()
 		
 		//TXSTA2bits.TXEN = 0;
 	}
-	TXSTA1bits.TXEN = 0;
+	//TXSTA1bits.TXEN = 0;
 	TXSTA2bits.TXEN = 0;
 
 }

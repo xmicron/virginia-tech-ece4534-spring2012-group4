@@ -295,10 +295,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>63</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>396</TopLine>
-      <CurrentLine>401</CurrentLine>
+      <CurrentLine>403</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -379,10 +379,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>33</ColumnNumber>
+      <ColumnNumber>30</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>173</TopLine>
-      <CurrentLine>186</CurrentLine>
+      <TopLine>204</TopLine>
+      <CurrentLine>221</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\I2C.c</PathWithFileName>
       <FilenameWithoutPath>I2C.c</FilenameWithoutPath>
@@ -393,10 +393,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>16</ColumnNumber>
+      <ColumnNumber>49</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>132</TopLine>
-      <CurrentLine>148</CurrentLine>
+      <TopLine>111</TopLine>
+      <CurrentLine>124</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainThread.c</PathWithFileName>
       <FilenameWithoutPath>MainThread.c</FilenameWithoutPath>
@@ -1055,9 +1055,9 @@
         </Doc>
         <Doc>
           <Name>.\MainFiles/main.c</Name>
-          <ColumnNumber>0</ColumnNumber>
+          <ColumnNumber>63</ColumnNumber>
           <TopLine>396</TopLine>
-          <CurrentLine>401</CurrentLine>
+          <CurrentLine>403</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/i2cTemp.c</Name>
@@ -1067,15 +1067,15 @@
         </Doc>
         <Doc>
           <Name>.\I2C.c</Name>
-          <ColumnNumber>33</ColumnNumber>
-          <TopLine>173</TopLine>
-          <CurrentLine>186</CurrentLine>
+          <ColumnNumber>30</ColumnNumber>
+          <TopLine>204</TopLine>
+          <CurrentLine>221</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainThread.c</Name>
-          <ColumnNumber>16</ColumnNumber>
-          <TopLine>132</TopLine>
-          <CurrentLine>148</CurrentLine>
+          <ColumnNumber>49</ColumnNumber>
+          <TopLine>111</TopLine>
+          <CurrentLine>124</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\joystick.c</Name>
