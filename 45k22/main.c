@@ -112,8 +112,10 @@ void main (void)
 	Open1USART( USART_TX_INT_OFF & USART_RX_INT_OFF & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
 		USART_CONT_RX & USART_BRGH_LOW, 51);
 
-	RCSTA2bits.CREN = 1;
-	TXSTA2bits.SYNC = 0;
+	RCSTA1bits.CREN = 1;
+	RCSTA1bits.SPEN = 1;
+	TXSTA1bits.SYNC = 0;
+	PIE1bits.RC1IE = 1;
 	
 	// I2C/MSG Q initialization
 	init_i2c(&ic);				// initialize the i2c code
@@ -146,6 +148,7 @@ void main (void)
 	
 	// set direction for PORTB to output
 	TRISB = 0x0;
+	TRISD = 0xFF;
 	LATB = 0x0;
 	ANSELC = 0x00;
 
@@ -274,7 +277,23 @@ void main (void)
 								
 						}
 				};
-
+				
+	`			case MSGT_UART_DATA: 
+				{
+					msgbuffer[1] = 0xBB;
+					msgbuffer[2] = 0x01;
+					msgbuffer[3] = 0x01;
+					msgbuffer[4] = 0x01;
+					msgbuffer[5] = 0x01;
+					msgbuffer[6] = 0x01;
+					msgbuffer[7] = 0x01;
+					msgbuffer[8] = 0x01;
+					msgbuffer[9] = 0x01;
+					msgbuffer[10] = 0x01;
+					msgbuffer[11] = 0x01;
+				//	FromMainHigh_sendmsg(12, msgtype, msgbuffer);
+					break;
+				};
 				case MSGT_I2C_DBG: {
 					//printf("I2C Interrupt received %x: ",msgtype);
 					for (i=0;i<length;i++) {
@@ -326,7 +345,7 @@ void main (void)
 			}
 		} else {
 			switch (msgtype) {
-				
+				/*
 				case MSGT_TIMER1: {
 					timer1_lthread(&t1thread_data,msgtype,length,msgbuffer);
 					break;
@@ -334,8 +353,6 @@ void main (void)
 				case MSGT_OVERRUN:
 				case MSGT_UART_DATA: 
 				{
-					if (RCSTA2bits.OERR)
-						LATB = LATB++;
 					msgbuffer[1] = 0xBB;
 					msgbuffer[2] = 0x01;
 					msgbuffer[3] = 0x01;
@@ -349,7 +366,7 @@ void main (void)
 					msgbuffer[11] = 0x01;
 					FromMainHigh_sendmsg(12, msgtype, msgbuffer);
 					break;
-				};
+				};*/
 				default: {
 					
 					break;

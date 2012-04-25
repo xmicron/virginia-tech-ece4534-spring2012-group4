@@ -71,8 +71,9 @@ void adc_int_handler()	{
 void uart_rx_int_handler()
 {
 	unsigned char uart_msg_buf[1];
-	uart_msg_buf[0] = RCREG2;
-	ToMainLow_sendmsg(1, MSGT_UART_DATA, (void *) uart_msg_buf);	 
+	//while(!TXSTA2bits.TRMT)	{};
+	uart_msg_buf[0] = RCREG1;
+	ToMainHigh_sendmsg(1, MSGT_UART_DATA, (void *) uart_msg_buf);	 
 	
 }
 
