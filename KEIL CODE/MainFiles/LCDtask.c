@@ -294,7 +294,18 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 
 			else if (msgBuffer.buf[1] == 0x02)//Change Volume
 			{
+				int z = 0;
+				for (z = 0; z < 5; z++)
+				{
+				 	i2cBuffer.buf[0] = 0x4;
+					i2cBuffer.buf[1] = 0xB0 + z;
+					i2cBuffer.buf[2] = 0x07;
+					i2cBuffer.buf[3] = (127 * msgBuffer.buf[2]) / 100;
 
+					if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
+				}
 			}
 			else if (msgBuffer.buf[1] == 0x03)//Change Lighting
 			{
@@ -616,6 +627,19 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 
 					  	P1Selection = 0;//return state machine to normal
 						Cur_Panel = 3;	 //keep current panel selection
+
+						int z = 0;
+						for (z = 0; z < 5; z++)
+						{
+						 	i2cBuffer.buf[0] = 0x4;
+							i2cBuffer.buf[1] = 0xB0 + z;
+							i2cBuffer.buf[2] = 0x07;
+							i2cBuffer.buf[3] = (127 * VOLUME) / 100;
+	
+							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+								VT_HANDLE_FATAL_ERROR(0);
+							}
+						}
 					}
 					else if (msgBuffer.buf[1] == 1)
 					{
