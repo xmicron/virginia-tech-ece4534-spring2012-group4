@@ -1341,7 +1341,7 @@ void InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1, Instrume
 		sprintf(toPr, "%i", VOLUME);
 		GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
 
-		GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
+		/*GLCD_DisplayString(4, 34, 0, (unsigned char *)"Ambient Lighting");
 		GLCD_PutPixel(201, 49);
 		GLCD_PutPixel(201, 51);
 		GLCD_PutPixel(304, 49);
@@ -1350,7 +1350,7 @@ void InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1, Instrume
 		{
 		 	GLCD_PutPixel(a, 50);
 		}
-		Set_Slider(0, SLIDER);
+		Set_Slider(0, SLIDER);*/
 	
 		GLCD_DisplayString(9,31,0,(unsigned char *)"Player Instrument 1");
 		GLCD_DisplayString(10,32,0,(unsigned char *)ReturnInstrumentLabel(I1.InstrumentID));

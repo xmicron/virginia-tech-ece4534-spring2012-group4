@@ -268,17 +268,6 @@ void main (void)
 								I2C_RX_MSG_PRECOUNT = I2C_RX_MSG_COUNT;
 							}
 						}
-						
-
-						if (msgbuffer[0] == 0x5)
-						{
-							putc1USART(msgbuffer[1]);
-							while(Busy1USART());
-							putc1USART(msgbuffer[1]);
-							while(Busy1USART());						
-							
-								
-						}
 				};
 				
 	`			

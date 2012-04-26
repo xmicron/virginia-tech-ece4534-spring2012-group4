@@ -92,10 +92,10 @@ InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1,
 #define LCD_EXAMPLE_OP 3
 // If JOYSTICK_MODE ==0, no crosshair joystick, but instead a selection joystick
 // If JOYSTICK_MODE ==1, crosshair mode for the main page (under construction)
-#define JOYSTICK_MODE 0
+#define JOYSTICK_MODE 1
 // If INSTEON_MODE == 0, Insteon disabled
 // If INSTEON_MODE == 1, Insteon Enabled
-#define INSTEON_MODE 1
+#define INSTEON_MODE 0
 
 // Set the task up to run every 200 ms
 #define lcdWRITE_RATE_BASE	( ( portTickType ) 10 )
@@ -306,6 +306,67 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						VT_HANDLE_FATAL_ERROR(0);
 					}
 				}
+				GLCD_SetTextColor(Black);
+				GLCD_SetBackColor(Black);
+				sprintf(toPr, "%i", VOLUME);
+				GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+			  	VOLUME = msgBuffer.buf[2];
+				GLCD_SetTextColor(Red);
+				GLCD_SetBackColor(Yellow);
+				sprintf(toPr, "%i", VOLUME);
+				GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+			}
+			else if (msgBuffer.buf[1] == 0x09)//Change Volume
+			{
+				GLCD_SetTextColor(Black);
+				GLCD_SetBackColor(Black);
+				sprintf(toPr, "%i", VOLUME);
+				GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+				if (msgBuffer.buf[2] == 1)
+				{
+				 	int z = 0;
+					if (VOLUME < 91)
+						VOLUME+=10;
+					else
+						VOLUME = 100;
+
+					for (z = 0; z < 5; z++)
+					{
+					 	i2cBuffer.buf[0] = 0x4;
+						i2cBuffer.buf[1] = 0xB0 + z;
+						i2cBuffer.buf[2] = 0x07;
+						
+						i2cBuffer.buf[3] = (127 * VOLUME) / 100;
+	
+						if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+						}
+					}
+				}
+				else if (msgBuffer.buf[2] == 0)
+				{
+				  	int z = 0;
+					if (VOLUME > 9)
+						VOLUME-=10;
+					else
+						VOLUME = 0;
+					for (z = 0; z < 5; z++)
+					{
+					 	i2cBuffer.buf[0] = 0x4;
+						i2cBuffer.buf[1] = 0xB0 + z;
+						i2cBuffer.buf[2] = 0x07;
+						
+						i2cBuffer.buf[3] = (127 * VOLUME) / 100;
+	
+						if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+							VT_HANDLE_FATAL_ERROR(0);
+						}
+					}
+				}
+				GLCD_SetTextColor(Green);
+				GLCD_SetBackColor(Black);
+				sprintf(toPr, "%i", VOLUME);
+				GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
 			}
 			else if (msgBuffer.buf[1] == 0x03)//Change Lighting
 			{
@@ -483,11 +544,10 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						VT_HANDLE_FATAL_ERROR(0);
 					}
 				}
-			}
-			
+			}	
 		}
 
-		if (msgBuffer.buf[0] == 0x78)//Update repeating Instrument
+		else if (msgBuffer.buf[0] == 0x78)//Update repeating Instrument
 		{
 
 		}
@@ -516,9 +576,10 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						}
 						else if (Cur_Panel == 3)
 						{
-							P1Selection = 1;//enter volume/brightness selection mode. 
+							P1Selection = 2;//enter volume/brightness selection mode. 
 							Cur_Panel = 0;
-							Panel_3_Highlight(Cur_Panel);//send 0 to highlight volume, 1 to highlight the brightness setting
+							Panel_3_Select(0, VOLUME);
+							//Panel_3_Highlight(Cur_Panel);//send 0 to highlight volume, 1 to highlight the brightness setting
 														//automatically un highlights the other selection
 						}
 						else if (Cur_Panel < 3)
@@ -537,16 +598,6 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					}
 				 	if (msgBuffer.buf[1] == 1) //move crosshair up
 					{
-						if (INSTEON_MODE == 1)
-						{
-					   		i2cBuffer.buf[0] = 0x5;
-							i2cBuffer.buf[1] = 0x02;
-							i2cBuffer.buf[2] = 0x60;
-	
-							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
-								VT_HANDLE_FATAL_ERROR(0);
-							}
-						}
 						if (Cur_Panel > 0)
 						{
 							ClearOldSelection(Cur_Panel);//unhighlight 
@@ -1168,9 +1219,10 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 							GLCD_invertPixel(Cursor.x-1, Cursor.y);
 							GLCD_invertPixel(Cursor.x+1, Cursor.y);
 							GLCD_invertPixel(Cursor.x+2, Cursor.y);
-							P1Selection = 1;//enter volume/brightness selection mode. 
+							P1Selection = 2;//enter volume/brightness selection mode. 
 							Cur_Panel = 0;
-							Panel_3_Highlight(Cur_Panel);//send 0 to highlight volume, 1 to highlight the brightness setting
+							Panel_3_Select(0, VOLUME);
+							//Panel_3_Highlight(Cur_Panel);//send 0 to highlight volume, 1 to highlight the brightness setting
 														//automatically un highlights the other selection
 						}
 						else if (Cursor.x > 180 && ((61 <= Cursor.y)&&(Cursor.y <= 150)))

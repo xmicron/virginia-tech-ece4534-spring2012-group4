@@ -139,6 +139,8 @@ void InterruptHandlerLow()
 		PIR1bits.RC1IF = 0;
 		uart_recv_int_handler();
 	}
+
+	
   /*	// check to see if we have an interrupt on timer 1
   	if (PIR1bits.TMR1IF) {
 		PIR1bits.TMR1IF = 0;            //clear interrupt flag
