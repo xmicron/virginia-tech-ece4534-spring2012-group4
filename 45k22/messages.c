@@ -113,7 +113,7 @@ signed char	toI2C_sendmsg(unsigned char length,unsigned char msgtype,void *data)
 		return(MSG_NOT_IN_LOW);
 	}
 #endif
-	//LATBbits.LATB5 = !LATBbits.LATB5;		//WE CHANGED THIS
+	
 	return(send_msg(&toI2C_MQ,length,msgtype,data));
 }
 

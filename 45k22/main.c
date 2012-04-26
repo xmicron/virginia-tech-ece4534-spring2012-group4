@@ -67,7 +67,6 @@ void main (void)
 	//unsigned char msgbuffer[MSGLEN+1];
 	unsigned char msgbuffer[12];
 	unsigned char i;
-	int temp_array[2];
 	int I2C_buffer[];
 	int index = 0;
 	int ITR = 0;
@@ -83,13 +82,15 @@ void main (void)
 
 	// UART variables
 	uart_comm uc;
-	uart_thread_struct	uthread_data; 		// info for uart_lthread
+	//uart_thread_struct	uthread_data; 		// info for uart_lthread
+
 
 	// ADC variables
 	int ADCVALUE = 0;
 	int adc_counter = 0;
 	int adc_chan_num = 0;
 	int adcValue = 0;
+	int count = 0;
 
 	// MIDI variable
 	char notePlayed;
@@ -109,13 +110,14 @@ void main (void)
 	// configure the hardware USART device
   	Open2USART( USART_TX_INT_OFF & USART_RX_INT_OFF & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
 		USART_CONT_RX & USART_BRGH_LOW, 31);
-	Open1USART( USART_TX_INT_OFF & USART_RX_INT_OFF & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
+	Open1USART( USART_TX_INT_OFF & USART_RX_INT_ON & USART_ASYNCH_MODE & USART_EIGHT_BIT   & 
 		USART_CONT_RX & USART_BRGH_LOW, 51);
 
-	RCSTA1bits.CREN = 1;
-	RCSTA1bits.SPEN = 1;
-	TXSTA1bits.SYNC = 0;
-	PIE1bits.RC1IE = 1;
+	//RCSTA1bits.CREN = 1;
+	//RCSTA1bits.SPEN = 1;
+	//TXSTA1bits.SYNC = 0;
+	//PIE1bits.RC1IE = 1;
+	IPR1bits.RC1IP = 0;
 	
 	// I2C/MSG Q initialization
 	init_i2c(&ic);				// initialize the i2c code
@@ -140,7 +142,7 @@ void main (void)
 	enable_interrupts();
 	// Decide on the priority of the enabled peripheral interrupts, 0 is low 1 is high
 	IPR1bits.TMR1IP = 0;		// Timer1 interrupt
-	IPR1bits.RCIP = 0;			// USART RX interrupt
+	//IPR1bits.RCIP = 0;			// USART RX interrupt
 	IPR1bits.SSP1IP = 1;			// I2C interrupt
 	PIE1bits.SSP1IE = 1;			// must specifically enable the I2C interrupts
 	IPR1bits.ADIP = 1;			// ADC interrupt WE ADDED THIS
@@ -228,14 +230,12 @@ void main (void)
 						timer2Count1++;
 						timer2Count0 = 0;
 					}
-//					LATB = timer2Count1;
+
 					break;
 				}
 
 				case MSGT_I2C_DATA: { //this data still needs to be put in a buffer
-						//TXSTA1bits.TXEN = 1;
-						
-						//LATB = !LATB;
+;
 
 						if(msgbuffer[0] == 0xaf)	{
 						//FromMainLow_sendmsg(5, msgtype, msgbuffer);
@@ -270,30 +270,18 @@ void main (void)
 						}
 						
 
-						if (msgbuffer[0] == 0x13)
+						if (msgbuffer[0] == 0x5)
 						{
-						//	FromMainLow_sendmsg(9, msgtype, msgbuffer);						
+							putc1USART(msgbuffer[1]);
+							while(Busy1USART());
+							putc1USART(msgbuffer[1]);
+							while(Busy1USART());						
 							
 								
 						}
 				};
 				
-	`			case MSGT_UART_DATA: 
-				{
-					msgbuffer[1] = 0xBB;
-					msgbuffer[2] = 0x01;
-					msgbuffer[3] = 0x01;
-					msgbuffer[4] = 0x01;
-					msgbuffer[5] = 0x01;
-					msgbuffer[6] = 0x01;
-					msgbuffer[7] = 0x01;
-					msgbuffer[8] = 0x01;
-					msgbuffer[9] = 0x01;
-					msgbuffer[10] = 0x01;
-					msgbuffer[11] = 0x01;
-				//	FromMainHigh_sendmsg(12, msgtype, msgbuffer);
-					break;
-				};
+	`			
 				case MSGT_I2C_DBG: {
 					//printf("I2C Interrupt received %x: ",msgtype);
 					for (i=0;i<length;i++) {
@@ -345,7 +333,7 @@ void main (void)
 			}
 		} else {
 			switch (msgtype) {
-				/*
+				
 				case MSGT_TIMER1: {
 					timer1_lthread(&t1thread_data,msgtype,length,msgbuffer);
 					break;
@@ -353,20 +341,12 @@ void main (void)
 				case MSGT_OVERRUN:
 				case MSGT_UART_DATA: 
 				{
-					msgbuffer[1] = 0xBB;
-					msgbuffer[2] = 0x01;
-					msgbuffer[3] = 0x01;
-					msgbuffer[4] = 0x01;
-					msgbuffer[5] = 0x01;
-					msgbuffer[6] = 0x01;
-					msgbuffer[7] = 0x01;
-					msgbuffer[8] = 0x01;
-					msgbuffer[9] = 0x01;
-					msgbuffer[10] = 0x01;
-					msgbuffer[11] = 0x01;
+					LATB = 0xFF;
+					msgbuffer[11] = 0xBB;
 					FromMainHigh_sendmsg(12, msgtype, msgbuffer);
+					
 					break;
-				};*/
+				};
 				default: {
 					
 					break;

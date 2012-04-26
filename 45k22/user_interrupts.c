@@ -71,9 +71,21 @@ void adc_int_handler()	{
 void uart_rx_int_handler()
 {
 	unsigned char uart_msg_buf[1];
-	//while(!TXSTA2bits.TRMT)	{};
-	uart_msg_buf[0] = RCREG1;
-	ToMainHigh_sendmsg(1, MSGT_UART_DATA, (void *) uart_msg_buf);	 
+	
+	if (DataRdy1USART())
+	{
+		uart_msg_buf[0] = Read1USART();
+		
+		//ToMainLow_sendmsg(1, MSGT_UART_DATA, (void *) uart_msg_buf);
+	}
+	if (RCSTA1bits.OERR == 1)
+	{
+		RCSTA1bits.CREN = 0;
+		RCSTA1bits.CREN = 1;
+//		LATB = 0xFF;
+	}
+
+	 
 	
 }
 

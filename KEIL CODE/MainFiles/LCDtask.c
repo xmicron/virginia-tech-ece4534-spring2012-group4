@@ -95,7 +95,7 @@ InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1,
 #define JOYSTICK_MODE 0
 // If INSTEON_MODE == 0, Insteon disabled
 // If INSTEON_MODE == 1, Insteon Enabled
-#define INSTEON_MODE 0
+#define INSTEON_MODE 1
 
 // Set the task up to run every 200 ms
 #define lcdWRITE_RATE_BASE	( ( portTickType ) 10 )
@@ -537,7 +537,16 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					}
 				 	if (msgBuffer.buf[1] == 1) //move crosshair up
 					{
-						
+						if (INSTEON_MODE == 1)
+						{
+					   		i2cBuffer.buf[0] = 0x5;
+							i2cBuffer.buf[1] = 0x02;
+							i2cBuffer.buf[2] = 0x60;
+	
+							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
+								VT_HANDLE_FATAL_ERROR(0);
+							}
+						}
 						if (Cur_Panel > 0)
 						{
 							ClearOldSelection(Cur_Panel);//unhighlight 
@@ -547,10 +556,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					}
 					if (msgBuffer.buf[1] == 2) //move crosshair right
 					{
-						if (INSTEON_MODE == 1)
-						{
-	
-						}
+						
 						if (Cur_Panel < 3)
 						{
 							ClearOldSelection(Cur_Panel); //unhighlight

@@ -114,11 +114,38 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 		//check the message returned for errors:
 		//0xAA signifying it's the correct op-code, verify the ADC is in the right order, 
 		//ensure the proper range of channel numbers is used. 
-	 	if (ADCValueReceived[11] != 0xAA || ADCValueReceived[0] > 3 || ADCValueReceived[10] < 0 || ADCValueReceived[10] > 5) 
+		if (ADCValueReceived[11] == 0xBB)
+		{
+				masterBuffer.length = 13;
+				masterBuffer.buf[0] = 0x08; //means the message is from I2C	- change to 0x09 for Nick's program
+				masterBuffer.buf[1] = ADCValueReceived[0];
+				masterBuffer.buf[2] = ADCValueReceived[1];
+				masterBuffer.buf[3] = ADCValueReceived[2];
+				masterBuffer.buf[4] = ADCValueReceived[3];
+				masterBuffer.buf[5] = ADCValueReceived[4];
+				masterBuffer.buf[6] = ADCValueReceived[5];
+				masterBuffer.buf[7] = ADCValueReceived[6];
+				masterBuffer.buf[8] = ADCValueReceived[7];
+				masterBuffer.buf[9] = ADCValueReceived[8];
+				masterBuffer.buf[10] = ADCValueReceived[9];
+				masterBuffer.buf[11] = ADCValueReceived[10];
+				masterBuffer.buf[12] = ADCValueReceived[11];
+
+				int x = 0;
+				for (x = 0; x < 12; x++)
+			 		printf("~~~~~~~~~~~~~~%x~~~~~~~~~~~~~\n", ADCValueReceived[x]);
+				printf ("\n++++++\n");
+				
+				if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
+					VT_HANDLE_FATAL_ERROR(0);
+				} 
+		}
+
+	 	if (ADCValueReceived[11] != 0xAA || ADCValueReceived[0] > 3 || ADCValueReceived[10] < 0 || ADCValueReceived[10] > 6) 
 		{
 			FlipBit(6);
 		}
-		else
+		else 
 		{
 		 	//check the inbound i2c message queue from messages either from the Main Thread or the LCD
 			//thread. Forward them to the PIC depending on op-code

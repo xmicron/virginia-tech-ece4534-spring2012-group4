@@ -115,10 +115,20 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 			}
 			//FlipBit(5);
 
-			if (masterBuffer.buf[2] == 0xBB) //Insteon Message
+			if (masterBuffer.buf[12] == 0xBB) //Insteon Message
 			{
-//				FlipBit(0);
-			 	//printf("~~~~~~~~~~~~~~%x~~~~~~~~~~~~~\n", masterBuffer.buf[1]);
+				FlipBit(0);
+				FlipBit(1);
+				FlipBit(2);
+				FlipBit(3);
+				FlipBit(4);
+				FlipBit(5);
+				FlipBit(6);
+				FlipBit(7);
+				int x = 0;
+				for (x = 0; x < 12; x++)
+			 		printf("~~~~~~~~~~~~~~%x~~~~~~~~~~~~~\n", masterBuffer.buf[x]);
+				printf ("\n++++++\n");
 			}
 			
 			if (masterBuffer.buf[0] == 0x08) //message from I2C
@@ -343,7 +353,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 						if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
 							VT_HANDLE_FATAL_ERROR(0);
 						}
-						printf("Main Thread: Sent a Player instrument %i with note %i and velocity %i\n", 0, i2cBuffer.buf[2], i2cBuffer.buf[3]);
+						//printf("Main Thread: Sent a Player instrument %i with note %i and velocity %i\n", 0, i2cBuffer.buf[2], i2cBuffer.buf[3]);
 						Inst[0].lastTimer = RTimer;
 						Inst[0].lastNote = Inst[0].Note;
 //						FlipBit(2);
@@ -428,7 +438,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 					//	else if (ADCValue < 180)	curADCValue2 = 0;
 						
 						ADCDiff2 = initADCValue2 - curADCValue2;
-						printf("Initial ADC value: %i\n Current ADC value: %i\n ADCDiff: %i\n", initADCValue2, curADCValue2, ADCDiff2);
+					//	printf("Initial ADC value: %i\n Current ADC value: %i\n ADCDiff: %i\n", initADCValue2, curADCValue2, ADCDiff2);
   					 	
 						if(ADCDiff2 < 0)	  //Sharp
 						{
@@ -734,7 +744,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 		
 					
 					//prepare to send to I2C to play an instrument
-				} /*
+				} 
 				else if (masterBuffer.buf[11] == 5)	//Instrument 2 Pitch
 				{	  
 					// Check to see if a hand is in the range of a sensor.
@@ -767,7 +777,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 						else if (ADCValue < 180)	curADCValue5 = 0;
 						
 						ADCDiff5 = initADCValue5 - curADCValue5;
-						printf("Initial ADC value: %i\n Current ADC value: %i\n ADCDiff: %i\n", initADCValue2, curADCValue2, ADCDiff2);
+						//printf("Initial ADC value: %i\n Current ADC value: %i\n ADCDiff: %i\n", initADCValue5, curADCValue5, ADCDiff2);
   					 	
 						if(ADCDiff5 < 0)	  //Sharp
 						{
@@ -852,7 +862,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 						}
 					}	
 				}
-				  */
+				  
 			//	lcdmsgBuffer.buf[0] = 0x06;
 		//		lcdmsgBuffer.buf[1] = masterBuffer.buf[1];
 		//		lcdmsgBuffer.buf[2] = masterBuffer.buf[2];

@@ -112,10 +112,7 @@ void InterruptHandlerHigh ()
 		uart_int_handler();		
 	}
 
-	if (PIR1bits.RC1IF)
-	{
-		uart_rx_int_handler();
-	}
+	
 
 
 	// here is where you would check other interrupt flags.
@@ -137,12 +134,17 @@ void InterruptHandlerHigh ()
 // This works the same way as the "High" interrupt handler
 void InterruptHandlerLow()
 {
+	if (PIR1bits.RC1IF)
+	{
+		PIR1bits.RC1IF = 0;
+		uart_recv_int_handler();
+	}
   /*	// check to see if we have an interrupt on timer 1
   	if (PIR1bits.TMR1IF) {
 		PIR1bits.TMR1IF = 0;            //clear interrupt flag
 		timer1_int_handler();
 	}
-
+	
   	// check to see if we have an interrupt on USART RX
   	if (PIR1bits.RCIF) {
 		PIR1bits.RCIF = 0;            //clear interrupt flag
