@@ -293,22 +293,31 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						VT_HANDLE_FATAL_ERROR(0);
 					}
 				}
-				GLCD_SetTextColor(Black);
-				GLCD_SetBackColor(Black);
-				sprintf(toPr, "%i", VOLUME);
-				GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+				if (Cur_Page == 0)
+				{
+					GLCD_SetTextColor(Black);
+					GLCD_SetBackColor(Black);
+					sprintf(toPr, "%i", VOLUME);
+					GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+				}
 			  	VOLUME = msgBuffer.buf[2];
-				GLCD_SetTextColor(Red);
-				GLCD_SetBackColor(Yellow);
-				sprintf(toPr, "%i", VOLUME);
-				GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+				if (Cur_Page == 0)
+				{
+					GLCD_SetTextColor(Red);
+					GLCD_SetBackColor(Yellow);
+					sprintf(toPr, "%i", VOLUME);
+					GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+				}
 			}
 			else if (msgBuffer.buf[1] == 0x09)//Change Volume
 			{
-				GLCD_SetTextColor(Black);
-				GLCD_SetBackColor(Black);
-				sprintf(toPr, "%i", VOLUME);
-				GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+				if (Cur_Page == 0)
+				{
+					GLCD_SetTextColor(Black);
+					GLCD_SetBackColor(Black);
+					sprintf(toPr, "%i", VOLUME);
+					GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+				}
 				if (msgBuffer.buf[2] == 1)
 				{
 				 	int z = 0;
@@ -350,10 +359,13 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						}
 					}
 				}
-				GLCD_SetTextColor(Green);
-				GLCD_SetBackColor(Black);
-				sprintf(toPr, "%i", VOLUME);
-				GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+				if (Cur_Page == 0)
+				{
+					GLCD_SetTextColor(Green);
+					GLCD_SetBackColor(Black);
+					sprintf(toPr, "%i", VOLUME);
+					GLCD_DisplayString(2,40,0,(unsigned char *)toPr);
+				}
 			}
 			else if (msgBuffer.buf[1] == 0x03)//Change Lighting
 			{
@@ -381,7 +393,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						sprintf(toPr, "BPM: %i", RInst[0].BPM);
 						GLCD_DisplayString(4,5,0,(unsigned char *)toPr);
 					}
-					else if (Cur_Page == 3)
+					else if (Cur_Page == 3 && Cur_Inst == 0)
 					{
 						GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
 						GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(RInst[0].InstrumentID));
@@ -403,7 +415,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						sprintf(toPr, "BPM: %i", RInst[0].BPM);
 						GLCD_DisplayString(4,5,0,(unsigned char *)toPr);
 					}
-					else if (Cur_Page == 3)
+					else if (Cur_Page == 3 && Cur_Inst == 0)
 					{
 						GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
 						GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(RInst[0].InstrumentID));
@@ -435,7 +447,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						sprintf(toPr, "BPM: %i", RInst[1].BPM);
 						GLCD_DisplayString(14,5,0,(unsigned char *)toPr);
 					}
-					else if (Cur_Page == 3)
+					else if (Cur_Page == 3 && Cur_Inst == 1)
 					{
 						GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
 						GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(RInst[1].InstrumentID));
@@ -457,7 +469,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						sprintf(toPr, "BPM: %i", RInst[1].BPM);
 						GLCD_DisplayString(14,5,0,(unsigned char *)toPr);
 					}
-					else if (Cur_Page == 3)
+					else if (Cur_Page == 3 && Cur_Inst == 1)
 					{
 						GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
 						GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(RInst[1].InstrumentID));
@@ -489,7 +501,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						sprintf(toPr, "BPM: %i", RInst[2].BPM);
 						GLCD_DisplayString(24,5,0,(unsigned char *)toPr);
 					}
-					else if (Cur_Page == 3)
+					else if (Cur_Page == 3 && Cur_Inst == 2)
 					{
 						GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
 						GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(RInst[2].InstrumentID));
@@ -511,7 +523,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						sprintf(toPr, "BPM: %i", RInst[2].BPM);
 						GLCD_DisplayString(24,5,0,(unsigned char *)toPr);
 					}
-					else if (Cur_Page == 3)
+					else if (Cur_Page == 3 && Cur_Inst == 2)
 					{
 						GLCD_DisplayString(3,2,0,(unsigned char *)"Inst: ");
 						GLCD_DisplayString(3,8,0,(unsigned char *)ReturnInstrumentLabel(RInst[2].InstrumentID));
@@ -1176,7 +1188,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 							Cur_Page = 3;	//set new current page variable
 							Cur_Inst = 0;	//index it to 0 or 1 depending on which is selected
 							RorP = 1;//1 means it's a repeating instrument
-							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
+							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);//initialize page 1
 							Cur_Panel = 0;//sets the current selection to index 0 on page 1
 						}
 						else if (getCursorXPos() <=180 && ((81 <= getCursorYPos())&&(getCursorYPos() <= 160)))
@@ -1184,7 +1196,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 							Cur_Page = 3;	//set new current page variable
 							Cur_Inst = 1;	//index it to 0 or 1 depending on which is selected
 							RorP = 1;//1 means it's a repeating instrument
-							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
+							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);//initialize page 1
 							Cur_Panel = 0;//sets the current selection to index 0 on page 1
 						}
 						else if (getCursorXPos() <=180 && ((161 <= getCursorYPos())&&(getCursorYPos() <= 240)))
@@ -1192,7 +1204,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 							Cur_Page = 3;	//set new current page variable
 							Cur_Inst = 2;	//index it to 0 or 1 depending on which is selected
 							RorP = 1;//1 means it's a repeating instrument
-							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
+							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);//initialize page 1
 							Cur_Panel = 0;//sets the current selection to index 0 on page 1
 						}
 						else if ( getCursorXPos() > 180 && (getCursorYPos() <= 60))
@@ -1529,7 +1541,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					{
 						masterBuffer.length = 5;
 						masterBuffer.buf[0] = 0x0B; //signifies comes from lcd thread Instrument change
-						masterBuffer.buf[1] = Cur_Inst+2;
+						masterBuffer.buf[1] = Cur_Inst;
 						masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
 						masterBuffer.buf[3] = RInst[Cur_Inst].Note;
 						masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
@@ -1662,7 +1674,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	
 						masterBuffer.length = 5;
 						masterBuffer.buf[0] = 0x0B; //signifies comes from lcd thread Note Change
-						masterBuffer.buf[1] = Cur_Inst+2;
+						masterBuffer.buf[1] = Cur_Inst;
 						masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
 						masterBuffer.buf[3] = RInst[Cur_Inst].Note;
 						masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
@@ -1673,7 +1685,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					}
 				 	if (msgBuffer.buf[1] == 1) //move crosshair up
 					{
-						if (RInst[Cur_Inst].Note < 7)
+						if (RInst[Cur_Inst].Note < 8)
 						{
 							GLCD_SetTextColor(Black);
 							GLCD_DisplayString(12,18,0,(unsigned char *)ReturnNoteLabel(RInst[Cur_Inst].Note));
@@ -1727,7 +1739,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	
 						masterBuffer.length = 5;
 						masterBuffer.buf[0] = 0x0C; //signifies comes from lcd thread BPM change
-						masterBuffer.buf[1] = Cur_Inst+2;
+						masterBuffer.buf[1] = Cur_Inst;
 						masterBuffer.buf[2] = RInst[Cur_Inst].InstrumentID;
 						masterBuffer.buf[3] = RInst[Cur_Inst].Note;
 						masterBuffer.buf[4] = RInst[Cur_Inst].BPM;
