@@ -297,8 +297,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>208</TopLine>
-      <CurrentLine>210</CurrentLine>
+      <TopLine>399</TopLine>
+      <CurrentLine>401</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -351,10 +351,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>31</ColumnNumber>
+      <ColumnNumber>36</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>534</TopLine>
-      <CurrentLine>544</CurrentLine>
+      <TopLine>1716</TopLine>
+      <CurrentLine>1742</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/LCDtask.c</PathWithFileName>
       <FilenameWithoutPath>LCDtask.c</FilenameWithoutPath>
@@ -367,8 +367,8 @@
       <Focus>0</Focus>
       <ColumnNumber>13</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>449</TopLine>
-      <CurrentLine>449</CurrentLine>
+      <TopLine>323</TopLine>
+      <CurrentLine>323</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\joystick.c</PathWithFileName>
       <FilenameWithoutPath>joystick.c</FilenameWithoutPath>
@@ -379,10 +379,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>18</ColumnNumber>
+      <ColumnNumber>8</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>106</TopLine>
-      <CurrentLine>124</CurrentLine>
+      <TopLine>105</TopLine>
+      <CurrentLine>105</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\I2C.c</PathWithFileName>
       <FilenameWithoutPath>I2C.c</FilenameWithoutPath>
@@ -393,13 +393,27 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>22</ColumnNumber>
+      <ColumnNumber>31</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>111</TopLine>
-      <CurrentLine>129</CurrentLine>
+      <TopLine>154</TopLine>
+      <CurrentLine>172</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainThread.c</PathWithFileName>
       <FilenameWithoutPath>MainThread.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>2</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>0</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\MainFiles/joystickAPI.c</PathWithFileName>
+      <FilenameWithoutPath>joystickAPI.c</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -984,8 +998,8 @@
 
   <AlienFiles>
     <PathWithFilename>C:\ARMCode\KEIL CODE\MAINFILES\LCDTASK.H</PathWithFilename>
-    <TopLine>1441</TopLine>
-    <CurrentLine>1457</CurrentLine>
+    <TopLine>1225</TopLine>
+    <CurrentLine>1225</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1039,7 +1053,7 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>2</ActiveTab>
+      <ActiveTab>1</ActiveTab>
       <Documents>
         <Doc>
           <Name>../vtCode/vtLCD/GLCD_SPI_LPC1700.c</Name>
@@ -1049,15 +1063,15 @@
         </Doc>
         <Doc>
           <Name>.\MainFiles/LCDtask.c</Name>
-          <ColumnNumber>31</ColumnNumber>
-          <TopLine>534</TopLine>
-          <CurrentLine>544</CurrentLine>
+          <ColumnNumber>36</ColumnNumber>
+          <TopLine>1716</TopLine>
+          <CurrentLine>1742</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/main.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>208</TopLine>
-          <CurrentLine>210</CurrentLine>
+          <TopLine>399</TopLine>
+          <CurrentLine>401</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/i2cTemp.c</Name>
@@ -1067,21 +1081,21 @@
         </Doc>
         <Doc>
           <Name>.\I2C.c</Name>
-          <ColumnNumber>18</ColumnNumber>
-          <TopLine>106</TopLine>
-          <CurrentLine>124</CurrentLine>
+          <ColumnNumber>8</ColumnNumber>
+          <TopLine>105</TopLine>
+          <CurrentLine>105</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainThread.c</Name>
-          <ColumnNumber>22</ColumnNumber>
-          <TopLine>111</TopLine>
-          <CurrentLine>129</CurrentLine>
+          <ColumnNumber>31</ColumnNumber>
+          <TopLine>154</TopLine>
+          <CurrentLine>172</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\joystick.c</Name>
           <ColumnNumber>13</ColumnNumber>
-          <TopLine>449</TopLine>
-          <CurrentLine>449</CurrentLine>
+          <TopLine>323</TopLine>
+          <CurrentLine>323</CurrentLine>
         </Doc>
         <Doc>
           <Name>C:\ARMCode\VTCODE\VTLCD\GLCD.H</Name>
@@ -1097,9 +1111,9 @@
         </Doc>
         <Doc>
           <Name>C:\ARMCode\KEIL CODE\MAINFILES\LCDTASK.H</Name>
-          <ColumnNumber>6</ColumnNumber>
-          <TopLine>1441</TopLine>
-          <CurrentLine>1457</CurrentLine>
+          <ColumnNumber>4</ColumnNumber>
+          <TopLine>1225</TopLine>
+          <CurrentLine>1225</CurrentLine>
         </Doc>
         <Doc>
           <Name>../vtCode/vtI2C/vtI2C.c</Name>
