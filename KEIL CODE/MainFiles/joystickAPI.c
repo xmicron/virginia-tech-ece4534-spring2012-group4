@@ -8,13 +8,13 @@ void setCursorPos(int x,int y)
 	Cursor.y = y;
 }
 
-void setCursorYPos(int x){Cursor.x = x;}
+void setCursorXPos(int x){Cursor.x = x;}
 
 void setCursorYPos(int y){Cursor.y = y;}
 
-int getCursorXPos(){return Cursor.x}
+int getCursorXPos(){return Cursor.x;}
 
-int getCursorYPos(){return Cursor.y}
+int getCursorYPos(){return Cursor.y;}
 
 unsigned short invertColor(unsigned short origColor)
 {

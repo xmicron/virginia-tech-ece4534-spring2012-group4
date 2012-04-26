@@ -77,6 +77,7 @@ InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1,
 #include "GLCD.h"
 #include "vtUtilities.h"
 #include "LCDtask.h"
+#include "joystickAPI.h"
 
 // I have set this to a large stack size because of (a) using printf() and (b) the depth of function calls
 //   for some of the LCD operations
@@ -117,11 +118,6 @@ void vStartLCDTask( unsigned portBASE_TYPE uxPriority,lcdParamStruct *ptr )
 		VT_HANDLE_FATAL_ERROR(retval);
 	}
 }
-
-typedef struct __cursorPos {
-	int x;
-	int y;
-} cursorPos;
 
 // This is the actual task that is run
 static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
@@ -179,9 +175,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	Cur_Page = 0;
 	
 	//initialize crosshair values
-	cursorPos Cursor;
-	Cursor.x = 160;
-	Cursor.y = 120;
+	setCursorPos(160,120);
 
 #endif
 	//initialize pointers to message queues and data structures for message passing
@@ -213,16 +207,9 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 	#if JOYSTICK_MODE==0
 	MakeSelection(0);
 	#endif
-
-	GLCD_invertPixel(Cursor.x, Cursor.y-2);
-	GLCD_invertPixel(Cursor.x, Cursor.y-1);
-	GLCD_invertPixel(Cursor.x, Cursor.y);
-	GLCD_invertPixel(Cursor.x, Cursor.y+1);
-	GLCD_invertPixel(Cursor.x, Cursor.y+2);
-	GLCD_invertPixel(Cursor.x-2, Cursor.y);
-	GLCD_invertPixel(Cursor.x-1, Cursor.y);
-	GLCD_invertPixel(Cursor.x+1, Cursor.y);
-	GLCD_invertPixel(Cursor.x+2, Cursor.y);
+	#if	JOYSTICK_MODE==1
+	paintCursor();
+	#endif
 
 #elif LCD_EXAMPLE_OP==2
 	GLCD_Clear(Yellow);
@@ -1184,7 +1171,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 				{
 					if (msgBuffer.buf[1] == 0) //select bit hit
 					{
-					  	if (Cursor.x <=180 && Cursor.y <= 80)
+					  	if (getCursorXPos() <=180 && getCursorYPos() <= 80)
 						{
 							Cur_Page = 3;	//set new current page variable
 							Cur_Inst = 0;	//index it to 0 or 1 depending on which is selected
@@ -1192,7 +1179,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
 							Cur_Panel = 0;//sets the current selection to index 0 on page 1
 						}
-						else if (Cursor.x <=180 && ((81 <= Cursor.y)&&(Cursor.y <= 160)))
+						else if (getCursorXPos() <=180 && ((81 <= getCursorYPos())&&(getCursorYPos() <= 160)))
 						{
 							Cur_Page = 3;	//set new current page variable
 							Cur_Inst = 1;	//index it to 0 or 1 depending on which is selected
@@ -1200,7 +1187,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
 							Cur_Panel = 0;//sets the current selection to index 0 on page 1
 						}
-						else if (Cursor.x <=180 && ((161 <= Cursor.y)&&(Cursor.y <= 240)))
+						else if (getCursorXPos() <=180 && ((161 <= getCursorYPos())&&(getCursorYPos() <= 240)))
 						{
 							Cur_Page = 3;	//set new current page variable
 							Cur_Inst = 2;	//index it to 0 or 1 depending on which is selected
@@ -1208,24 +1195,16 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
 							Cur_Panel = 0;//sets the current selection to index 0 on page 1
 						}
-						else if ( Cursor.x > 180 && (Cursor.y <= 60))
+						else if ( getCursorXPos() > 180 && (getCursorYPos() <= 60))
 						{
-							GLCD_invertPixel(Cursor.x, Cursor.y-2); 
-							GLCD_invertPixel(Cursor.x, Cursor.y-1);
-							GLCD_invertPixel(Cursor.x, Cursor.y);
-							GLCD_invertPixel(Cursor.x, Cursor.y+1);
-							GLCD_invertPixel(Cursor.x, Cursor.y+2);
-							GLCD_invertPixel(Cursor.x-2, Cursor.y);
-							GLCD_invertPixel(Cursor.x-1, Cursor.y);
-							GLCD_invertPixel(Cursor.x+1, Cursor.y);
-							GLCD_invertPixel(Cursor.x+2, Cursor.y);
+							paintCursor();
 							P1Selection = 2;//enter volume/brightness selection mode. 
 							Cur_Panel = 0;
 							Panel_3_Select(0, VOLUME);
 							//Panel_3_Highlight(Cur_Panel);//send 0 to highlight volume, 1 to highlight the brightness setting
 														//automatically un highlights the other selection
 						}
-						else if (Cursor.x > 180 && ((61 <= Cursor.y)&&(Cursor.y <= 150)))
+						else if (getCursorXPos() > 180 && ((61 <= getCursorYPos())&&(getCursorYPos() <= 150)))
 						{
 							Cur_Page = 1;	//set new current page variable
 							Cur_Inst = 0;	//index it to 0 or 1 depending on which is selected
@@ -1233,7 +1212,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 							InitPage(1, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
 							Cur_Panel = 0;//sets the current selection to index 0 on page 1
 						}
-						else if (Cursor.x > 180 && Cursor.y >= 151)
+						else if (getCursorXPos() > 180 && getCursorYPos() >= 151)
 						{
 							Cur_Page = 1;	//set new current page variable
 							Cur_Inst = 1;	//index it to 0 or 1 depending on which is selected
@@ -1244,72 +1223,32 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					}																	
 					else if (msgBuffer.buf[1] == 1) //move crosshair up
 					{
-					    GLCD_invertPixel(Cursor.x, Cursor.y-2); 
-						GLCD_invertPixel(Cursor.x, Cursor.y-1);
-						GLCD_invertPixel(Cursor.x, Cursor.y);
-						GLCD_invertPixel(Cursor.x, Cursor.y+1);
-						GLCD_invertPixel(Cursor.x, Cursor.y+2);
-						GLCD_invertPixel(Cursor.x-2, Cursor.y);
-						GLCD_invertPixel(Cursor.x-1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+2, Cursor.y);
-						if (Cursor.y > 0)
-							Cursor.y -= 4;
+					    paintCursor();
+						if (getCursorYPos() > 0)
+							setCursorYPos(getCursorYPos()-4);
 					}
 					else if (msgBuffer.buf[1] == 2) //move crosshair right
 					{
-						GLCD_invertPixel(Cursor.x, Cursor.y-2);
-						GLCD_invertPixel(Cursor.x, Cursor.y-1);
-						GLCD_invertPixel(Cursor.x, Cursor.y);
-						GLCD_invertPixel(Cursor.x, Cursor.y+1);
-						GLCD_invertPixel(Cursor.x, Cursor.y+2);
-						GLCD_invertPixel(Cursor.x-2, Cursor.y);
-						GLCD_invertPixel(Cursor.x-1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+2, Cursor.y);
-						if (Cursor.x < 320)
-							Cursor.x += 4;
+						paintCursor();
+						if (getCursorXPos() < 320)
+							setCursorXPos(getCursorXPos()+4);
 					}
 					else if (msgBuffer.buf[1] == 3) //move crosshair down
 					{
-						GLCD_invertPixel(Cursor.x, Cursor.y-2);
-						GLCD_invertPixel(Cursor.x, Cursor.y-1);
-						GLCD_invertPixel(Cursor.x, Cursor.y);
-						GLCD_invertPixel(Cursor.x, Cursor.y+1);
-						GLCD_invertPixel(Cursor.x, Cursor.y+2);
-						GLCD_invertPixel(Cursor.x-2, Cursor.y);
-						GLCD_invertPixel(Cursor.x-1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+2, Cursor.y);
-						if (Cursor.y < 240)
-							Cursor.y += 4;
+						paintCursor();
+						if (getCursorYPos() < 240)
+							setCursorYPos(getCursorYPos()+4);
 					}
 					else if (msgBuffer.buf[1] == 4) //move crosshair left
 					{
-						GLCD_invertPixel(Cursor.x, Cursor.y-2);
-						GLCD_invertPixel(Cursor.x, Cursor.y-1);
-						GLCD_invertPixel(Cursor.x, Cursor.y);
-						GLCD_invertPixel(Cursor.x, Cursor.y+1);
-						GLCD_invertPixel(Cursor.x, Cursor.y+2);
-						GLCD_invertPixel(Cursor.x-2, Cursor.y);
-						GLCD_invertPixel(Cursor.x-1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+2, Cursor.y);
-						if (Cursor.x > 0)
-							Cursor.x -= 4;
+						paintCursor();
+						if (getCursorXPos() > 0)
+							setCursorXPos(getCursorXPos()-4);
 					}
-					printf("LCD Thread: Cursor position %i, %i\n", Cursor.x, Cursor.y);
+					printf("LCD Thread: Cursor position %i, %i\n", getCursorXPos(), getCursorYPos());
 					if (msgBuffer.buf[1] != 0 )
 					{
-					  	GLCD_invertPixel(Cursor.x, Cursor.y-2);
-						GLCD_invertPixel(Cursor.x, Cursor.y-1);
-						GLCD_invertPixel(Cursor.x, Cursor.y);
-						GLCD_invertPixel(Cursor.x, Cursor.y+1);
-						GLCD_invertPixel(Cursor.x, Cursor.y+2);
-						GLCD_invertPixel(Cursor.x-2, Cursor.y);
-						GLCD_invertPixel(Cursor.x-1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+2, Cursor.y);
+					  	paintCursor();
 					}
 
 
@@ -1439,15 +1378,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 
 					  	P1Selection = 0;//return state machine to normal
 
-						GLCD_invertPixel(Cursor.x, Cursor.y-2); 
-						GLCD_invertPixel(Cursor.x, Cursor.y-1);
-						GLCD_invertPixel(Cursor.x, Cursor.y);
-						GLCD_invertPixel(Cursor.x, Cursor.y+1);
-						GLCD_invertPixel(Cursor.x, Cursor.y+2);
-						GLCD_invertPixel(Cursor.x-2, Cursor.y);
-						GLCD_invertPixel(Cursor.x-1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+2, Cursor.y);						
+						paintCursor();						
 
 						Cur_Panel = 3;	 //keep current panel selection
 					}
@@ -1493,15 +1424,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 						Panel_3_Finish(Cur_Panel, VOLUME); //returns current panel to green and black text
 					 	P1Selection = 0;//return state machine to non-volume/brightness mode
 
-						GLCD_invertPixel(Cursor.x, Cursor.y-2); 
-						GLCD_invertPixel(Cursor.x, Cursor.y-1);
-						GLCD_invertPixel(Cursor.x, Cursor.y);
-						GLCD_invertPixel(Cursor.x, Cursor.y+1);
-						GLCD_invertPixel(Cursor.x, Cursor.y+2);
-						GLCD_invertPixel(Cursor.x-2, Cursor.y);
-						GLCD_invertPixel(Cursor.x-1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+2, Cursor.y);						
+						paintCursor();					
 
 						Cur_Panel = 3;//keep current panel to 3
 					}
@@ -1590,15 +1513,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 							Inst[Cur_Inst].InstrumentID = P2SelectionMultiplier*8+Cur_Panel;
 						P2SelectionMultiplier = 0;
 						InitPage(0, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
-						GLCD_invertPixel(Cursor.x, Cursor.y-2);
-						GLCD_invertPixel(Cursor.x, Cursor.y-1);
-						GLCD_invertPixel(Cursor.x, Cursor.y);
-						GLCD_invertPixel(Cursor.x, Cursor.y+1);
-						GLCD_invertPixel(Cursor.x, Cursor.y+2);
-						GLCD_invertPixel(Cursor.x-2, Cursor.y);
-						GLCD_invertPixel(Cursor.x-1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+1, Cursor.y);
-						GLCD_invertPixel(Cursor.x+2, Cursor.y);
+						paintCursor();
 						Cur_Panel = 0;
 
 						masterBuffer.length = 3;
@@ -1670,15 +1585,7 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 							Cur_Page = 0;
 							//P2SelectionMultiplier = Cur_Panel;
 							InitPage(0, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);
-							GLCD_invertPixel(Cursor.x, Cursor.y-2);
-							GLCD_invertPixel(Cursor.x, Cursor.y-1);
-							GLCD_invertPixel(Cursor.x, Cursor.y);
-							GLCD_invertPixel(Cursor.x, Cursor.y+1);
-							GLCD_invertPixel(Cursor.x, Cursor.y+2);
-							GLCD_invertPixel(Cursor.x-2, Cursor.y);
-							GLCD_invertPixel(Cursor.x-1, Cursor.y);
-							GLCD_invertPixel(Cursor.x+1, Cursor.y);
-							GLCD_invertPixel(Cursor.x+2, Cursor.y);
+							paintCursor();
 							Cur_Panel = 0;
 						}
 						else if (Cur_Panel == 1)

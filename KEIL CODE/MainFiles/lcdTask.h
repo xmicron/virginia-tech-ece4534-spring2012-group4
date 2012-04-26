@@ -1438,20 +1438,5 @@ void InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1, Instrume
 	}
 }
 
-unsigned short invertColor(unsigned short origColor)
-{
-	return (origColor ^ 0xFFFF);
-}		  
-
-void GLCD_invertPixel(int x, int y)
-{
-	unsigned short temp = GLCD_GetTextColor();
-	unsigned short color = GLCD_ReadPixelColor(x,y);
-	color = invertColor(color);
-	GLCD_SetTextColor(color);
-	GLCD_PutPixel(x,y);
-	GLCD_SetTextColor(temp);
-}
-
 
 #endif
