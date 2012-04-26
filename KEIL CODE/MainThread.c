@@ -117,18 +117,64 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 
 			if (masterBuffer.buf[12] == 0xBB) //Insteon Message
 			{
-				FlipBit(0);
-				FlipBit(1);
-				FlipBit(2);
-				FlipBit(3);
-				FlipBit(4);
-				FlipBit(5);
-				FlipBit(6);
-				FlipBit(7);
-				int x = 0;
-				for (x = 0; x < 12; x++)
-			 		printf("~~~~~~~~~~~~~~%x~~~~~~~~~~~~~\n", masterBuffer.buf[x]);
-				printf ("\n++++++\n");
+				if (masterBuffer.buf[11] == 0x01)
+				{
+				 	if (masterBuffer.buf[10] == 0x11)
+					{
+						if (Inst[0].InstrumentID < 128)
+					  		Inst[0].InstrumentID++;
+					}
+					else if (masterBuffer.buf[10] == 0x13)
+					{
+						if (Inst[0].InstrumentID > 0)
+							Inst[0].InstrumentID--;
+					}
+
+					lcdmsgBuffer.length = 3;
+					lcdmsgBuffer.buf[0] = 0x77;
+					lcdmsgBuffer.buf[1] = 0;
+					lcdmsgBuffer.buf[2] = Inst[0].InstrumentID;
+
+					if (xQueueSend(lcdQ->inQ,(void *) (&lcdmsgBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
+				}
+				else if (masterBuffer.buf[11] == 0x02)
+				{
+				 	if (masterBuffer.buf[10] == 0x11)
+					{
+					   	if (Inst[1].InstrumentID < 128)
+					  		Inst[1].InstrumentID++;
+					}
+					else if (masterBuffer.buf[10] == 0x13)
+					{
+					 	if (Inst[1].InstrumentID > 0)
+							Inst[1].InstrumentID--;
+					}
+
+					lcdmsgBuffer.length = 3;
+					lcdmsgBuffer.buf[0] = 0x77;
+					lcdmsgBuffer.buf[1] = 1;
+					lcdmsgBuffer.buf[2] = Inst[1].InstrumentID;
+
+					if (xQueueSend(lcdQ->inQ,(void *) (&lcdmsgBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
+				}
+				else if (masterBuffer.buf[11] == 0x03)
+				{
+				 	lcdmsgBuffer.length = 3;
+					lcdmsgBuffer.buf[0] = 0x77;
+					if (masterBuffer.buf[10] == 0x11)
+						lcdmsgBuffer.buf[2] = 1;
+					else if (masterBuffer.buf[10] == 0x13)
+						lcdmsgBuffer.buf[2] = 0;
+					lcdmsgBuffer.buf[1] = 0x09;
+
+					if (xQueueSend(lcdQ->inQ,(void *) (&lcdmsgBuffer),portMAX_DELAY) != pdTRUE) {  
+						VT_HANDLE_FATAL_ERROR(0);
+					}
+				}
 			}
 			
 			if (masterBuffer.buf[0] == 0x08) //message from I2C
@@ -150,7 +196,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 				int ADCValue = masterBuffer.buf[1] << 8;
 				ADCValue |= masterBuffer.buf[2];
 	
-				if (masterBuffer.buf[11] == 0)  // Instrument 1 Note
+				if (masterBuffer.buf[11] == 0 && Inst[0].InstrumentID != 0)  // Instrument 1 Note
 				{
 				
 	
@@ -170,10 +216,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 						TimerCh0_3 = masterBuffer.buf[5];
 						TimerCh0_4 = masterBuffer.buf[6];
 						TimerCh0_5 = masterBuffer.buf[7];
-	
-	
-						
-					\
+
 					}
 	
 					else if (prevRange0 == 1 && curRange0 == 0) 
@@ -229,7 +272,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 	
 					
 				}
-				else if (masterBuffer.buf[11] == 1)	//Instrument 1 Velocity
+				else if (masterBuffer.buf[11] == 1 && Inst[0].InstrumentID != 0)	//Instrument 1 Velocity
 				{
 					// NOTE: If a hand is not in the range of a sensor, play nothing (do not send a MIDI msg)
 					// NOTE: This is a state machine which determines if a sensor beam has been struck, and subsequently,
@@ -406,7 +449,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 					
 					//prepare to send to I2C to play an instrument
 				}
-				else if (masterBuffer.buf[11] == 2)	//Instrument 1 Pitch
+				else if (masterBuffer.buf[11] == 2 && Inst[0].InstrumentID != 0)	//Instrument 1 Pitch
 				{	  
 					// Check to see if a hand is in the range of a sensor.
 					if (ADCValue > 200)
@@ -513,7 +556,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 					
 					}	
 				}
-				else if (masterBuffer.buf[11] == 3)	//Instrument 2 Note
+				else if (masterBuffer.buf[11] == 3 && Inst[1].InstrumentID != 0)	//Instrument 2 Note
 				{
 			   		if (ADCValue > 200) curRange3 = 1;
 					else curRange3 = 0;
@@ -586,7 +629,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 					}
 	
 				} 
-				else if (masterBuffer.buf[11] == 4)  //Instrument 2 Velocity
+				else if (masterBuffer.buf[11] == 4 && Inst[1].InstrumentID != 0)  //Instrument 2 Velocity
 				{
 			   		// NOTE: If a hand is not in the range of a sensor, play nothing (do not send a MIDI msg)
 					// NOTE: This is a state machine which determines if a sensor beam has been struck, and subsequently,
@@ -745,7 +788,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 					
 					//prepare to send to I2C to play an instrument
 				} 
-				else if (masterBuffer.buf[11] == 5)	//Instrument 2 Pitch
+				else if (masterBuffer.buf[11] == 5 && Inst[1].InstrumentID != 0)	//Instrument 2 Pitch
 				{	  
 					// Check to see if a hand is in the range of a sensor.
 					if (ADCValue > 200)
@@ -786,6 +829,7 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 							i2cBuffer.buf[1] = 0xE1;
 							i2cBuffer.buf[2] = 0x00;
 							i2cBuffer.buf[3] = 0x00;
+
 							
 							if (xQueueSend(i2cQ->inQ,(void *) (&i2cBuffer),portMAX_DELAY) != pdTRUE) {  
 								VT_HANDLE_FATAL_ERROR(0);

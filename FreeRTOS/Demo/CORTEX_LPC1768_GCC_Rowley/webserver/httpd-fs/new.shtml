@@ -39,13 +39,6 @@ Input a volume percentage (0-100)
 <input type="submit" value="Update Volume">
 </form>
 
-<p>
-
-<form name="gui4" action="/new.shtml" method="get">
-Input a light threshold, 0 is off (0-10)
-%! gui-change4
-<input type="submit" value="Update Ambient Light Level">
-</form>
 
 <p>
 <br>

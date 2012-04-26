@@ -114,34 +114,9 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 		//check the message returned for errors:
 		//0xAA signifying it's the correct op-code, verify the ADC is in the right order, 
 		//ensure the proper range of channel numbers is used. 
-		if (ADCValueReceived[11] == 0xBB)
-		{
-				masterBuffer.length = 13;
-				masterBuffer.buf[0] = 0x08; //means the message is from I2C	- change to 0x09 for Nick's program
-				masterBuffer.buf[1] = ADCValueReceived[0];
-				masterBuffer.buf[2] = ADCValueReceived[1];
-				masterBuffer.buf[3] = ADCValueReceived[2];
-				masterBuffer.buf[4] = ADCValueReceived[3];
-				masterBuffer.buf[5] = ADCValueReceived[4];
-				masterBuffer.buf[6] = ADCValueReceived[5];
-				masterBuffer.buf[7] = ADCValueReceived[6];
-				masterBuffer.buf[8] = ADCValueReceived[7];
-				masterBuffer.buf[9] = ADCValueReceived[8];
-				masterBuffer.buf[10] = ADCValueReceived[9];
-				masterBuffer.buf[11] = ADCValueReceived[10];
-				masterBuffer.buf[12] = ADCValueReceived[11];
+	
 
-				int x = 0;
-				for (x = 0; x < 12; x++)
-			 		printf("~~~~~~~~~~~~~~%x~~~~~~~~~~~~~\n", ADCValueReceived[x]);
-				printf ("\n++++++\n");
-				
-				if (xQueueSend(masterData->inQ,(void *) (&masterBuffer),portMAX_DELAY) != pdTRUE) {  
-					VT_HANDLE_FATAL_ERROR(0);
-				} 
-		}
-
-	 	if (ADCValueReceived[11] != 0xAA || ADCValueReceived[0] > 3 || ADCValueReceived[10] < 0 || ADCValueReceived[10] > 6) 
+	 	if ((ADCValueReceived[11] != 0xAA || ADCValueReceived[0] > 3 || ADCValueReceived[10] < 0 || ADCValueReceived[10] > 5) && ADCValueReceived[11] != 0xBB)
 		{
 			FlipBit(6);
 		}
@@ -156,7 +131,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 					VT_HANDLE_FATAL_ERROR(0);
 				}
 	
-				if (i2cBuffer.buf[0] == 0x13)
+				/*if (i2cBuffer.buf[0] == 0x13)
 				{
 					InstSendValue[0] = i2cBuffer.buf[0];
 					InstSendValue[1] = 0x02;
@@ -179,7 +154,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 					if (vtI2CDeQ(devPtr,0,&MidiReceived[0],&rxLen,&status) != pdTRUE) {
 						//VT_HANDLE_FATAL_ERROR(0);
 					}
-				}
+				} */
 
 				else if (i2cBuffer.buf[0] == 0x4) //MIDI message to be forwarded
 				{
@@ -202,46 +177,148 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 						//VT_HANDLE_FATAL_ERROR(0);
 					}
 
-					if (i2cBuffer.buf[2] == 60)
-						InstSendValue[2] = 0x01;
-					else if (i2cBuffer.buf[2] == 62)
-						InstSendValue[2] = 0x02;
-					else if (i2cBuffer.buf[2] == 64)
-						InstSendValue[2] = 0x04;
-					else if (i2cBuffer.buf[2] == 65)
-						InstSendValue[2] = 0x08;
-					else if (i2cBuffer.buf[2] == 67)
-						InstSendValue[2] = 0x10;
-					else if (i2cBuffer.buf[2] == 69)
-						InstSendValue[2] = 0x20;
-					else if (i2cBuffer.buf[2] == 71)
-						InstSendValue[2] = 0x40;
-					else if (i2cBuffer.buf[2] == 72)
-						InstSendValue[2] = 0x80;
+					if (i2cBuffer.buf[1] == 0x90)
+					{
+						if (i2cBuffer.buf[2] == 60)
+							InstSendValue[2] = 0x80;
+						else if (i2cBuffer.buf[2] == 62)
+							InstSendValue[2] = 0x40;
+						else if (i2cBuffer.buf[2] == 64)
+							InstSendValue[2] = 0x20;
+						else if (i2cBuffer.buf[2] == 65)
+							InstSendValue[2] = 0x10;
+						else if (i2cBuffer.buf[2] == 67)
+							InstSendValue[2] = 0x08;
+						else if (i2cBuffer.buf[2] == 69)
+							InstSendValue[2] = 0x04;
+						else if (i2cBuffer.buf[2] == 71)
+							InstSendValue[2] = 0x02;
+						else if (i2cBuffer.buf[2] == 72)
+							InstSendValue[2] = 0x01;
+	
+						InstSendValue[0] = 0x00;
+						InstSendValue[1] = 0x16;
+						//InstSendValue[2] = 0x80; 
+						InstSendValue[3] = 0x00;
+						InstSendValue[4] = 0x00;
+						InstSendValue[5] = 0x00;
+	
+						
+	
+						if (vtI2CEnQ(devPtr,0x00,0x38,6,InstSendValue,0) != pdTRUE) {
+							VT_HANDLE_FATAL_ERROR(0);
+						}
 
-					InstSendValue[0] = 0x00;
-					InstSendValue[1] = 0x16;
-					//InstSendValue[2] = 0x80; 
-					InstSendValue[3] = 0x00;
-					InstSendValue[4] = 0x00;
-					InstSendValue[5] = 0x00;
+						if (vtI2CDeQ(devPtr,0,&MidiReceived[0],&rxLen,&status) != pdTRUE) {
+						//VT_HANDLE_FATAL_ERROR(0);
+						}
+						MidiSendCount++;
+					}
 
-					
 
-					if (vtI2CEnQ(devPtr,0x00,0x38,6,InstSendValue,0) != pdTRUE) {
-						VT_HANDLE_FATAL_ERROR(0);
+					if (i2cBuffer.buf[1] == 0x91)
+					{
+						if (i2cBuffer.buf[2] == 60)
+							InstSendValue[2] = 0x80;
+						else if (i2cBuffer.buf[2] == 62)
+							InstSendValue[2] = 0x40;
+						else if (i2cBuffer.buf[2] == 64)
+							InstSendValue[2] = 0x20;
+						else if (i2cBuffer.buf[2] == 65)
+							InstSendValue[2] = 0x10;
+						else if (i2cBuffer.buf[2] == 67)
+							InstSendValue[2] = 0x08;
+						else if (i2cBuffer.buf[2] == 69)
+							InstSendValue[2] = 0x04;
+						else if (i2cBuffer.buf[2] == 71)
+							InstSendValue[2] = 0x02;
+						else if (i2cBuffer.buf[2] == 72)
+							InstSendValue[2] = 0x01;
+	
+						InstSendValue[0] = 0x00;
+						InstSendValue[1] = 0x16;
+						//InstSendValue[2] = 0x80; 
+						InstSendValue[3] = 0x00;
+						InstSendValue[4] = 0x00;
+						InstSendValue[5] = 0x00;
+	
+						
+	
+						if (vtI2CEnQ(devPtr,0x00,0x3B,6,InstSendValue,0) != pdTRUE) {
+							VT_HANDLE_FATAL_ERROR(0);
+						}
+
+						if (vtI2CDeQ(devPtr,0,&MidiReceived[0],&rxLen,&status) != pdTRUE) {
+						//VT_HANDLE_FATAL_ERROR(0);
+						}
+						MidiSendCount++;
+					}
+
+					if (i2cBuffer.buf[1] == 0xE0)
+					{
+						if (i2cBuffer.buf[3] == 0x00)
+							InstSendValue[1] = 0x04;
+						else if (i2cBuffer.buf[3] == 0x40)
+							InstSendValue[1] = 0x02;
+						else if (i2cBuffer.buf[3] == 0x7F)
+							InstSendValue[1] = 0x01;
+												
+	
+						InstSendValue[0] = 0x02;
+						InstSendValue[3] = 0x00;
+						InstSendValue[2] = 0x00; 
+						
+						InstSendValue[4] = 0x00;
+						InstSendValue[5] = 0x00;
+	
+						
+	
+						if (vtI2CEnQ(devPtr,0x00,0x38,6,InstSendValue,0) != pdTRUE) {
+							VT_HANDLE_FATAL_ERROR(0);
+						}
+
+						if (vtI2CDeQ(devPtr,0,&MidiReceived[0],&rxLen,&status) != pdTRUE) {
+						//VT_HANDLE_FATAL_ERROR(0);
+						}
+						MidiSendCount++;
+					}
+
+					if (i2cBuffer.buf[1] == 0xE1)
+					{
+						if (i2cBuffer.buf[3] == 0x00)
+							InstSendValue[1] = 0x04;
+						else if (i2cBuffer.buf[3] == 0x40)
+							InstSendValue[1] = 0x02;
+						else if (i2cBuffer.buf[3] == 0x7F)
+							InstSendValue[1] = 0x01;
+												
+	
+						InstSendValue[0] = 0x02;
+						InstSendValue[3] = 0x00;
+						InstSendValue[2] = 0x00; 
+						
+						InstSendValue[4] = 0x00;
+						InstSendValue[5] = 0x00;
+	
+						
+	
+						if (vtI2CEnQ(devPtr,0x00,0x3B,6,InstSendValue,0) != pdTRUE) {
+							VT_HANDLE_FATAL_ERROR(0);
+						}
+
+						if (vtI2CDeQ(devPtr,0,&MidiReceived[0],&rxLen,&status) != pdTRUE) {
+						//VT_HANDLE_FATAL_ERROR(0);
+						}
+						MidiSendCount++;
 					}
 			
 					//wait for message from I2C
-					if (vtI2CDeQ(devPtr,0,&MidiReceived[0],&rxLen,&status) != pdTRUE) {
-						//VT_HANDLE_FATAL_ERROR(0);
-					}
-					MidiSendCount++;
+					
 				}
 			}
 			  
 			FlipBit(7);
-			if (lcdData != NULL && ADCValueReceived[0] != 0xFF) 
+			if (lcdData != NULL) 
 			{
 				//message sent to the master message queue
 				masterBuffer.length = 13;
