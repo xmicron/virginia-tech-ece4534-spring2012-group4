@@ -18,11 +18,11 @@
 
 #define joystickSTACK_SIZE		4*configMINIMAL_STACK_SIZE
 
-struct cursorPos
+typedef struct __cursorPos
 {
-		int x;
-		int y;
-};
+	int x;
+	int y;
+}cursorPos;
 
 void setCursorPos(int x,int y);
 void setCursorYPos(int y);
@@ -31,4 +31,5 @@ int getCursorXPos();
 int getCursorYPos();
 unsigned short invertColor(unsigned short origColor);
 void invertPixel(int x, int y);
+void paintCursor();
 

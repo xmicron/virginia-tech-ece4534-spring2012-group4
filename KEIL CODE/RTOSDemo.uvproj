@@ -361,6 +361,11 @@
               <FileType>1</FileType>
               <FilePath>.\MainThread.c</FilePath>
             </File>
+            <File>
+              <FileName>joystickAPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MainFiles/joystickAPI.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
