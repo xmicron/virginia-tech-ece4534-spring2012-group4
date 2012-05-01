@@ -92,7 +92,7 @@ InitPage(int pageNum, int VOLUME, int SLIDER, InstrumentStruct I1,
 // If LCD_EXAMPLE_OP=2, then receive from a message queue and print the contents to the screen
 #define LCD_EXAMPLE_OP 3
 // If JOYSTICK_MODE ==0, no crosshair joystick, but instead a selection joystick
-// If JOYSTICK_MODE ==1, crosshair mode for the main page (under construction)
+// If JOYSTICK_MODE ==1, crosshair mode for the main page
 #define JOYSTICK_MODE 1
 // If INSTEON_MODE == 0, Insteon disabled
 // If INSTEON_MODE == 1, Insteon Enabled
@@ -1093,86 +1093,8 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 			}
 		}	
 
-   #elif JOYSTICK_MODE==1 //shawn's code goes here
-		
-		//Starting code for handling the crosshair.
+   #elif JOYSTICK_MODE==1
 				
-
-
-		/*
-		GLCD_Clear(Blue);
-		unsigned short test = GLCD_ReadPixelColor(0,0);
-		unsigned short invert = invertColor(test);
-		GLCD_SetTextColor(invert);
-		int x;
-		for(x=0;x<320;x++)
-		{
-		 	GLCD_PutPixel(x,50);
-			GLCD_PutPixel(x,51);
-			GLCD_PutPixel(x,52);
-			GLCD_PutPixel(x,53);
-			GLCD_PutPixel(x,54);
-			GLCD_PutPixel(x,55);
-			GLCD_PutPixel(x,56);
-		}  */
-	   	/*
-		unsigned char b[16];
-		b[0] = (test & 0x8000) >> 15;
-		b[1] = (test & 0x4000) >> 14;
-		b[2] = (test & 0x2000) >> 13;
-		b[3] = (test & 0x1000) >> 12;
-		b[4] = (test & 0x0800) >> 11;
-		b[5] = (test & 0x0400) >> 10;
-		b[6] = (test & 0x0200) >> 9;
-		b[7] = (test & 0x0100) >> 8;
-		b[8] = (test & 0x0080) >> 7;
-		b[9] = (test & 0x0040) >> 6;
-		b[10] = (test & 0x0020) >> 5;
-		b[11] = (test & 0x0010) >> 4;
-		b[12] = (test & 0x0008) >> 3;
-		b[13] = (test & 0x0004) >> 2;
-		b[14] = (test & 0x0002) >> 1;
-		b[15] = (test & 0x0001) >> 0;
-		int a;
-		for(a=0;a<16;a++)
-		{
-			if(b[a] == 1) GLCD_DisplayChar(0,a+1,0,'1');
-			else GLCD_DisplayChar(0,a+1,0,'0');
-		}
-		   
-		//GLCD_DisplayChar(7,5,0,b[1]);
-		*/
-	   /*
-		GLCD_Clear(White);
-		unsigned short temp = GLCD_ReadPixelColor(50, 50);
-		GLCD_Clear(Black);
-		GLCD_SetBackColor(Black);
-		GLCD_SetTextColor(temp);
-		GLCD_DisplayString(6,5,0,(unsigned char *)"Select Note: ");
-		printf("Hello");  */
-
-		/*
-		int y = 0;
-		for (y = 0; y < 240; y++) 
-		{
-		 	unsigned short temp = GLCD_ReadPixelColor(y, 1);
-			if (temp == 0xFFE0)
-				FlipBit(2);
-			GLCD_SetTextColor(temp);
-			//GLCD_PutPixel(10, 10);
-			//GLCD_SetTextColor(Yellow);
-			int x = 0;
-			for (x = 2; x < 320; x++)
-			{
-			 	GLCD_PutPixel(x, y);
-			}
-		}
-		
-		//GLCD_SetTextColor(Blue);
-		//GLCD_PutPixel(1,1);
-
-		FlipBit(0);		*/
-
 		if (msgBuffer.buf[0] == 0x11) //joystick message from the joystick thread
 		{
 			FlipBit(0);
@@ -1262,89 +1184,6 @@ static portTASK_FUNCTION( vLCDUpdateTask, pvParameters )
 					{
 					  	paintCursor();
 					}
-
-
-			
-
-					
-					/*if (msgBuffer.buf[1] == 0) //select bit hit
-					{
-						if (Cur_Panel > 3)
-						{
-							Cur_Page = 1;	//set new current page variable
-							Cur_Inst = Cur_Panel-4;	//index it to 0 or 1 depending on which is selected
-							RorP = 0;//0 means it's a player instrument
-							InitPage(1, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], P2SelectionMultiplier);//initialize page 1
-							Cur_Panel = 0;//sets the current selection to index 0 on page 1
-						}
-						else if (Cur_Panel == 3)
-						{
-							P1Selection = 1;//enter volume/brightness selection mode. 
-							Cur_Panel = 0;
-							Panel_3_Highlight(Cur_Panel);//send 0 to highlight volume, 1 to highlight the brightness setting
-														//automatically un highlights the other selection
-						}
-						else if (Cur_Panel < 3)
-						{
-							Cur_Page = 3;//page 3 is the repeating instrument page
-							Cur_Inst = Cur_Panel;//0, 1, or 2
-							P3Selection = 0; //not in note or BPM selection mode
-							RorP = 1;	 //1 for repeating instrument, so the functions know
-
-							//initialize page 3. Send all the instrument variables. Final parameter tells it which
-							//instrument we are actually displaying. 
-							InitPage(3, VOLUME, SLIDER, Inst[0], Inst[1], RInst[0], RInst[1], RInst[2], Cur_Inst);
-
-							Cur_Panel = 0;//set the current selection on this page to 0 (Which will be the "done" text)
-						}
-					}
-				 	if (msgBuffer.buf[1] == 1) //move crosshair up
-					{
-						
-						if (Cur_Panel > 0)
-						{
-							ClearOldSelection(Cur_Panel);//unhighlight 
-						 	Cur_Panel--;			 //increment current panel
-							MakeSelection(Cur_Panel); //highlight this new panel
-						}
-					}
-					if (msgBuffer.buf[1] == 2) //move crosshair right
-					{
-						if (INSTEON_MODE == 1)
-						{
-	
-						}
-						if (Cur_Panel < 3)
-						{
-							ClearOldSelection(Cur_Panel); //unhighlight
-							Cur_Panel = Cur_Panel + 3; //increment by 3 because of the UI layout. incrementing by 3 means move right
-							MakeSelection(Cur_Panel); //highlight the new selection
-						}
-					} 
-					if (msgBuffer.buf[1] == 3) //move crosshair down
-					{
-						if (Cur_Panel < 5)
-						{
-							ClearOldSelection(Cur_Panel); //unhighlight
-						 	Cur_Panel++;			   //increment
-							MakeSelection(Cur_Panel);	  //make new panel selection
-						}
-					}
-					if (msgBuffer.buf[1] == 4) //move crosshair left
-					{
-						if (Cur_Panel > 3)
-						{
-							ClearOldSelection(Cur_Panel); //unhighlight
-							Cur_Panel = Cur_Panel - 3;	  //decrement by 3 to move panel left
-							MakeSelection(Cur_Panel);	  //make new highlight
-						}
-						else if (Cur_Panel == 3)
-						{
-							ClearOldSelection(Cur_Panel); //same as above
-							Cur_Panel = 0;
-							MakeSelection(Cur_Panel);
-						}
-					}*/
 			 	}
 				else if (P1Selection == 1)
 				{

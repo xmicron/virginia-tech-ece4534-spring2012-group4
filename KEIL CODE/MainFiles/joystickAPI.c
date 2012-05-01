@@ -23,16 +23,16 @@ unsigned short invertColor(unsigned short origColor)
 
 void invertPixel(int x, int y)
 {
-	unsigned short temp = GLCD_GetTextColor();
+	unsigned short temp = GLCD_GetTextColor(); //save the current default text color
 	unsigned short color = GLCD_ReadPixelColor(x,y);
 	color = invertColor(color);
 	GLCD_SetTextColor(color);
 	GLCD_PutPixel(x,y);
-	GLCD_SetTextColor(temp);
+	GLCD_SetTextColor(temp); //return the default text color back to what it was
 }
 uint8_t getJoystickPin()
 {
-		uint8_t PIN_CONFIG = LPC_GPIO1->FIOPIN >>20;
+		uint8_t PIN_CONFIG = LPC_GPIO1->FIOPIN >>20; //choose only the bits involving the joystick status
 	
 		if (PIN_CONFIG && 0x01 == 0)
 			return 0;
@@ -48,7 +48,7 @@ uint8_t getJoystickPin()
 			return 5;
 }
 
-void paintCursor()
+void paintCursor() //draws the cursor. Can be modified to change cursor size
 {
 	invertPixel(Cursor.x, Cursor.y-2); 
 	invertPixel(Cursor.x, Cursor.y-1);
