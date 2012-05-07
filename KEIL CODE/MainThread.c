@@ -71,24 +71,29 @@ static portTASK_FUNCTION( MainThread, pvParameters )
 	xLastUpdateTime = xTaskGetTickCount();
 
 	int i = 0;
-	//channel 0
+	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ADC Channels~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	/*
+	Here are 
+	*/
+
+		   				//Player Instrument 1
+	//channel 0	Note
 	int curRange0 = 0, prevRange0 = 0, count0 = -1, ADCSave0 = 0; 
 	unsigned int TimerCh0_1 = 0, TimerCh0_2, TimerCh0_3 = 0, TimerCh0_4 = 0, TimerCh0_5 = 0;
-
-	//channel 1
+	//channel 1 Velocity
 	int prevRange1 = 0, curRange1 = 0;
 	unsigned int TimerDiff1_1 = 0, TimerDiff1_2 = 0, TimerDiff1_3 = 0, TimerDiff1_4 = 0, TimerDiff1_5 = 0; 
-	//channel 2
+	//channel 2 Pitch
 	int curRange2 = 0, prevRange2 = 0, count2 = -1, ADCDiff2 = 0;
 	unsigned int curADCValue2 = 0, initADCValue2 = 0;
-
-	//channel 3
+					    //Player Instrument 2
+	//channel 3 Note
 	int curRange3 = 0, prevRange3 = 0, count3 = -1, ADCSave3 = 0; 
 	unsigned int TimerCh3_1 = 0, TimerCh3_2, TimerCh3_3 = 0, TimerCh3_4 = 0, TimerCh3_5 = 0;
-	//channel 4
+	//channel 4 Velocity
 	int prevRange4 = 0, curRange4 = 0;
 	unsigned int TimerDiff4_1 = 0, TimerDiff4_2 = 0, TimerDiff4_3 = 0, TimerDiff4_4 = 0, TimerDiff4_5 = 0; 
-	//channel 5
+	//channel 5 Pitch
 	int curRange5 = 0, prevRange5 = 0, count5 = -1, ADCDiff5 = 0;
 	unsigned int curADCValue5 = 0, initADCValue5 = 0;
 	

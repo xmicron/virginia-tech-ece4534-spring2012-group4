@@ -16,6 +16,13 @@
 #include "LCDtask.h"
 #include "i2cTemp.h"
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This is where all of our I2C inner workings are.  The first if statement determines if our data is a 
+valid ADC or MIDI message.  If that is the case the message either sends a MIDI message or forwards
+the information to the MainThread.  If a MIDI message is sent then we piggyback another I2C message
+that talks to the LED drivers.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 // I have set this to a large stack size because of (a) using printf() and (b) the depth of function calls
 //   for some of the LCD operations
 #if PRINTF_VERSION==1
@@ -158,13 +165,11 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 
 				else if (i2cBuffer.buf[0] == 0x4) //MIDI message to be forwarded
 				{
-					MidiSendValue[1] = i2cBuffer.buf[1];
-					MidiSendValue[2] = i2cBuffer.buf[2];
+					MidiSendValue[1] = i2cBuffer.buf[1]; //Here are the three MIDI control bytes sent
+					MidiSendValue[2] = i2cBuffer.buf[2]; //They are formulated in the mainthread and sent here
 					MidiSendValue[3] = i2cBuffer.buf[3];
-
-				//	printf("I2C Thread: MIDI MESSAGE: %i, %i, %i\n", MidiSendValue[1], MidiSendValue[2], MidiSendValue[3]);
-					
-					//prepare to send Midi message to I2Cto the PIC
+		
+					//Midi message to I2C to the PIC, there is also a count to maintain messages
 					if (MidiSendCount > 100)
 						MidiSendCount = 1;
 					MidiSendValue[4] = MidiSendCount;
@@ -177,6 +182,10 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 						//VT_HANDLE_FATAL_ERROR(0);
 					}
 
+					//Whenever a "note on" message is being sent to the MIDI device, we want to update the LED display as well
+					//this checks the command portion of the MIDI message then changes the LED accordingly. The 0x90 signifies
+					//that the message came from instrument 1 since it operates on MIDI channel 0;  0x91 means Instrument 2 since
+					//it operates on MIDI channel 1
 					if (i2cBuffer.buf[1] == 0x90)
 					{
 						if (i2cBuffer.buf[2] == 60)
@@ -216,7 +225,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 					}
 
 
-					if (i2cBuffer.buf[1] == 0x91)
+					else if (i2cBuffer.buf[1] == 0x91)
 					{
 						if (i2cBuffer.buf[2] == 60)
 							InstSendValue[2] = 0x80;
@@ -253,7 +262,9 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 						}
 						MidiSendCount++;
 					}
-
+					
+					//Here are similar checks on the MIDI messages for a change in pitch.  The same checkes are made
+					//for different channels
 					if (i2cBuffer.buf[1] == 0xE0)
 					{
 						if (i2cBuffer.buf[3] == 0x00)
@@ -283,7 +294,7 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 						MidiSendCount++;
 					}
 
-					if (i2cBuffer.buf[1] == 0xE1)
+					else if (i2cBuffer.buf[1] == 0xE1)
 					{
 						if (i2cBuffer.buf[3] == 0x00)
 							InstSendValue[1] = 0x04;
@@ -316,7 +327,8 @@ static portTASK_FUNCTION( I2CTask, pvParameters )
 					
 				}
 			}
-			  
+			//If the message is not NULL then it is an ADC message, this message gets forwarded to MainThread.c where
+			//the data is used for calculations.
 			FlipBit(7);
 			if (lcdData != NULL) 
 			{
