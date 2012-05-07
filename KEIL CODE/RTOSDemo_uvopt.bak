@@ -351,10 +351,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>23</ColumnNumber>
+      <ColumnNumber>36</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1208</TopLine>
-      <CurrentLine>1224</CurrentLine>
+      <TopLine>1716</TopLine>
+      <CurrentLine>1742</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainFiles/LCDtask.c</PathWithFileName>
       <FilenameWithoutPath>LCDtask.c</FilenameWithoutPath>
@@ -395,11 +395,25 @@
       <Focus>0</Focus>
       <ColumnNumber>31</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>141</TopLine>
+      <TopLine>154</TopLine>
       <CurrentLine>172</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\MainThread.c</PathWithFileName>
       <FilenameWithoutPath>MainThread.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>2</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>0</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\MainFiles/joystickAPI.c</PathWithFileName>
+      <FilenameWithoutPath>joystickAPI.c</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -1049,9 +1063,9 @@
         </Doc>
         <Doc>
           <Name>.\MainFiles/LCDtask.c</Name>
-          <ColumnNumber>23</ColumnNumber>
-          <TopLine>1208</TopLine>
-          <CurrentLine>1224</CurrentLine>
+          <ColumnNumber>36</ColumnNumber>
+          <TopLine>1716</TopLine>
+          <CurrentLine>1742</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\MainFiles/main.c</Name>
@@ -1074,7 +1088,7 @@
         <Doc>
           <Name>.\MainThread.c</Name>
           <ColumnNumber>31</ColumnNumber>
-          <TopLine>141</TopLine>
+          <TopLine>154</TopLine>
           <CurrentLine>172</CurrentLine>
         </Doc>
         <Doc>
